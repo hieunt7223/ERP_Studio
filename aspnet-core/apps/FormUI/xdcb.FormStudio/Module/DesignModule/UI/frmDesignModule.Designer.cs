@@ -424,7 +424,7 @@
             // 
             // item_ScreenMain
             // 
-            this.item_ScreenMain.Caption = "ScreenMain";
+            this.item_ScreenMain.Caption = "Screen Main";
             this.item_ScreenMain.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("item_ScreenMain.ImageOptions.LargeImage")));
             this.item_ScreenMain.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("item_ScreenMain.ImageOptions.SmallImage")));
             this.item_ScreenMain.Name = "item_ScreenMain";
@@ -432,14 +432,14 @@
             // 
             // navBarItem15
             // 
-            this.navBarItem15.Caption = "ScreenDetail";
+            this.navBarItem15.Caption = "Screen Detail";
             this.navBarItem15.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem15.ImageOptions.LargeImage")));
             this.navBarItem15.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem15.ImageOptions.SmallImage")));
             this.navBarItem15.Name = "navBarItem15";
             // 
             // navBarItem16
             // 
-            this.navBarItem16.Caption = "ScreenSearch";
+            this.navBarItem16.Caption = "Screen Search";
             this.navBarItem16.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem16.ImageOptions.LargeImage")));
             this.navBarItem16.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem16.ImageOptions.SmallImage")));
             this.navBarItem16.Name = "navBarItem16";
