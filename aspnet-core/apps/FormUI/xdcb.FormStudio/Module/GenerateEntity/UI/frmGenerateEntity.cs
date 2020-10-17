@@ -792,9 +792,9 @@ namespace xdcb.FormStudio.GenerateEntity
                             string fk_id = col.ColumnName.Substring(col.ColumnName.Length - 2, 2);
                             if (!string.IsNullOrWhiteSpace(fk_id) && fk_id.ToLower().Trim() == "id")
                             {
-                                sb.Append("\t" + "\t" + "Task<List<" + TableName + "Dto>> GetListBy" + col.ColumnName.Trim() + "Async(" + col.TypeName + " " + col.ColumnName.Trim() + ");" + "\r\n" + "\r\n");
+                                sb.Append("\t" + "\t" + "Task<List<" + TableName + "Dto>> GetListBy" + col.ColumnName.Trim() + "Async(" + col.TypeName + " id" + ");" + "\r\n" + "\r\n");
 
-                                sb.Append("\t" + "\t" + "Task DeleteBy" + col.ColumnName.Trim() + "(" + col.TypeName + " " + col.ColumnName.Trim() + ");" + "\r\n" + "\r\n");
+                                sb.Append("\t" + "\t" + "Task DeleteBy" + col.ColumnName.Trim() + "(" + col.TypeName + " id" + ");" + "\r\n" + "\r\n");
 
                             }
                         }
@@ -999,33 +999,35 @@ namespace xdcb.FormStudio.GenerateEntity
                             string fk_id = col.ColumnName.Substring(col.ColumnName.Length - 2, 2);
                             if (!string.IsNullOrWhiteSpace(fk_id) && fk_id.ToLower().Trim() == "id")
                             {
-
+                                string columnName = col.ColumnName.Substring(0, col.ColumnName.Length - 2);
+                                columnName = Char.ToLower(columnName[0]) + columnName.Remove(0, 1);
+                                string tableName = Char.ToLower(TableName[0]) + TableName.Remove(0, 1);
                                 //GetValue
-                                sb.Append("\t" + "\t" + "public async Task<List<" + TableName + "Dto>> GetListBy" + col.ColumnName.Trim() + "Async(" + col.TypeName + " " + col.ColumnName.Trim() + ")" + "\r\n");
+                                sb.Append("\t" + "\t" + "[HttpGet]" + "\r\n");
+                                sb.Append("\t" + "\t" + "[Route(" + "\"" + "/api/app/" + columnName + "/{id}/" + tableName + "\"" + ")]" + "\r\n");
+                                sb.Append("\t" + "\t" + "public async Task<List<" + TableName + "Dto>> GetListBy" + col.ColumnName.Trim() + "Async(" + col.TypeName + " id)" + "\r\n");
                                 sb.Append("\t" + "\t" + "{" + "\r\n");
                                 sb.Append("\t" + "\t" + "\t" + "var items = await _i" + TableName + "Repository.GetListAsync();" + "\r\n");
-
                                 sb.Append("\t" + "\t" + "\t" + "if (items != null && items.Count > 0)" + "\r\n");
                                 sb.Append("\t" + "\t" + "\t" + "{" + "\r\n");
-                                sb.Append("\t" + "\t" + "\t" + "\t" + "    items = items.Where(x => x.IsDeleted == false && x." + col.ColumnName.Trim() + "==" + col.ColumnName.Trim() + ").ToList();" + "\r\n");
+                                sb.Append("\t" + "\t" + "\t" + "\t" + "    items = items.Where(x => x.IsDeleted == false && x." + col.ColumnName.Trim() + "== id" + ").ToList();" + "\r\n");
                                 sb.Append("\t" + "\t" + "\t" + "}" + "\r\n");
-
                                 sb.Append("\t" + "\t" + "\t" + "return new List<" + TableName + "Dto>(ObjectMapper.Map<List<" + TableName + ">, List<" + TableName + "Dto>>(items));" + "\r\n");
                                 sb.Append("\t" + "\t" + "}" + "\r\n" + "\r\n");
 
-
                                 //Delete
-
-                                sb.Append("\t" + "\t" + "public async Task DeleteBy" + col.ColumnName.Trim() + "(" + col.TypeName + " " + col.ColumnName.Trim() + ")" + "\r\n");
+                                sb.Append("\t" + "\t" + "[HttpDelete]" + "\r\n");
+                                sb.Append("\t" + "\t" + "[Route(" + "\"" + "/api/app/" + columnName + "/{id}/" + tableName + "\"" + ")]" + "\r\n");
+                                sb.Append("\t" + "\t" + "public async Task DeleteBy" + col.ColumnName.Trim() + "(" + col.TypeName + " id)" + "\r\n");
                                 sb.Append("\t" + "\t" + "{" + "\r\n");
                                 sb.Append("\t" + "\t" + "\t" + "var items = await _i" + TableName + "Repository.GetListAsync();" + "\r\n");
                                 sb.Append("\t" + "\t" + "\t" + "if (items != null && items.Count > 0)" + "\r\n");
                                 sb.Append("\t" + "\t" + "\t" + "{" + "\r\n");
-                                sb.Append("\t" + "\t" + "\t" + "\t" + "items = items.Where(x => x.IsDeleted == false && x." + col.ColumnName.Trim() + "==" + col.ColumnName.Trim() + ").ToList();" + "\r\n");
+                                sb.Append("\t" + "\t" + "\t" + "\t" + "items = items.Where(x => x.IsDeleted == false && x." + col.ColumnName.Trim() + "== id" + ").ToList();" + "\r\n");
                                 sb.Append("\t" + "\t" + "\t" + "\t" + "items.ForEach(o =>" + "\r\n");
                                 sb.Append("\t" + "\t" + "\t" + "\t" + "{" + "\r\n");
                                 sb.Append("\t" + "\t" + "\t" + "\t" + "\t" + "o.IsDeleted = true;" + "\r\n");
-                                sb.Append("\t" + "\t" + "\t" + "\t" + "\t" + "_i" + TableName + "Repository.UpdateAsync(o, true);" + "\r\n");
+                                sb.Append("\t" + "\t" + "\t" + "\t" + "\t" + "_i" + TableName + "Repository.UpdateAsync(o);" + "\r\n");
                                 sb.Append("\t" + "\t" + "\t" + "\t" + "});" + "\r\n");
                                 sb.Append("\t" + "\t" + "\t" + "}" + "\r\n");
                                 sb.Append("\t" + "\t" + "}" + "\r\n");
@@ -1129,13 +1131,16 @@ namespace xdcb.FormStudio.GenerateEntity
                             string fk_id = col.ColumnName.Substring(col.ColumnName.Length - 2, 2);
                             if (!string.IsNullOrWhiteSpace(fk_id) && fk_id.ToLower().Trim() == "id")
                             {
+                                string columnName = col.ColumnName.Substring(0, col.ColumnName.Length - 2);
+                                columnName = Char.ToLower(columnName[0]) + columnName.Remove(0, 1);
+                                string tableName = Char.ToLower(TableName[0]) + TableName.Remove(0, 1);
                                 //GetByFKAsync
-                                sb.Append("\t" + "\t" + "[Get(" + "\"" + "/api/app/" + TableName + "/by" + col.ColumnName + "/{" + col.ColumnName + "}" + "\"" + ")]" + "\r\n");
-                                sb.Append("\t" + "\t" + "Task<List<" + TableName + "Dto>> GetListBy" + col.ColumnName.Trim() + "Async(" + col.TypeName + " " + col.ColumnName.Trim() + ");" + "\r\n" + "\r\n");
+                                sb.Append("\t" + "\t" + "[Get(" + "\"" + "/api/app/" + columnName + "/{id}/" + tableName + "\"" + ")]" + "\r\n");
+                                sb.Append("\t" + "\t" + "Task<List<" + TableName + "Dto>> GetListBy" + col.ColumnName.Trim() + "Async(" + col.TypeName + " id" + ");" + "\r\n" + "\r\n");
 
                                 //DeleteByFK
-                                sb.Append("\t" + "\t" + "[Delete(" + "\"" + "/api/app/" + TableName + "/by" + col.ColumnName + "/{" + col.ColumnName + "}" + "\"" + ")]" + "\r\n");
-                                sb.Append("\t" + "\t" + "Task DeleteBy" + col.ColumnName.Trim() + "(" + col.TypeName + " " + col.ColumnName.Trim() + ");" + "\r\n" + "\r\n");
+                                sb.Append("\t" + "\t" + "[Delete(" + "\"" + "/api/app/" + columnName + "/{id}/" + tableName + "\"" + ")]" + "\r\n");
+                                sb.Append("\t" + "\t" + "Task DeleteBy" + col.ColumnName.Trim() + "(" + col.TypeName + " id" + ");" + "\r\n" + "\r\n");
                             }
                         }
                 }
@@ -1221,7 +1226,6 @@ namespace xdcb.FormStudio.GenerateEntity
         }
 
         #endregion
-
 
     }
 }
