@@ -60,6 +60,7 @@
             this.navBarItem10 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem11 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem12 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.item_ScreenMain = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem15 = new DevExpress.XtraNavBar.NavBarItem();
@@ -74,7 +75,6 @@
             this.fld_prodgcProperty = new System.Windows.Forms.PropertyGrid();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fld_imgcltImage = new DevExpress.Utils.ImageCollection(this.components);
-            this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel2.SuspendLayout();
@@ -359,27 +359,42 @@
             // navBarItem7
             // 
             this.navBarItem7.Caption = "ComboBox";
+            this.navBarItem7.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem7.ImageOptions.LargeImage")));
+            this.navBarItem7.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem7.ImageOptions.SmallImage")));
             this.navBarItem7.Name = "navBarItem7";
+            this.navBarItem7.Tag = "ComboBase";
             // 
             // navBarItem8
             // 
             this.navBarItem8.Caption = "DateEdit";
+            this.navBarItem8.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem8.ImageOptions.LargeImage")));
+            this.navBarItem8.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem8.ImageOptions.SmallImage")));
             this.navBarItem8.Name = "navBarItem8";
+            this.navBarItem8.Tag = "DateEdit";
             // 
             // navBarItem9
             // 
             this.navBarItem9.Caption = "PictureEdit";
+            this.navBarItem9.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem9.ImageOptions.LargeImage")));
+            this.navBarItem9.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem9.ImageOptions.SmallImage")));
             this.navBarItem9.Name = "navBarItem9";
+            this.navBarItem9.Tag = "PictureEdit";
             // 
             // navBarItem10
             // 
             this.navBarItem10.Caption = "GridView";
+            this.navBarItem10.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem10.ImageOptions.LargeImage")));
+            this.navBarItem10.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem10.ImageOptions.SmallImage")));
             this.navBarItem10.Name = "navBarItem10";
+            this.navBarItem10.Tag = "GridControl";
             // 
             // navBarItem11
             // 
             this.navBarItem11.Caption = "TreeList";
+            this.navBarItem11.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem11.ImageOptions.LargeImage")));
+            this.navBarItem11.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem11.ImageOptions.SmallImage")));
             this.navBarItem11.Name = "navBarItem11";
+            this.navBarItem11.Tag = "TreeList";
             // 
             // navBarItem12
             // 
@@ -388,6 +403,14 @@
             this.navBarItem12.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem12.ImageOptions.SmallImage")));
             this.navBarItem12.Name = "navBarItem12";
             this.navBarItem12.Tag = "TabControl";
+            // 
+            // navBarItem13
+            // 
+            this.navBarItem13.Caption = "LookUpEdit";
+            this.navBarItem13.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem13.ImageOptions.LargeImage")));
+            this.navBarItem13.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem13.ImageOptions.SmallImage")));
+            this.navBarItem13.Name = "navBarItem13";
+            this.navBarItem13.Tag = "LookUpEdit";
             // 
             // navBarGroup2
             // 
@@ -402,17 +425,23 @@
             // item_ScreenMain
             // 
             this.item_ScreenMain.Caption = "ScreenMain";
+            this.item_ScreenMain.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("item_ScreenMain.ImageOptions.LargeImage")));
+            this.item_ScreenMain.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("item_ScreenMain.ImageOptions.SmallImage")));
             this.item_ScreenMain.Name = "item_ScreenMain";
             this.item_ScreenMain.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.item_ScreenMain_LinkClicked);
             // 
             // navBarItem15
             // 
             this.navBarItem15.Caption = "ScreenDetail";
+            this.navBarItem15.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem15.ImageOptions.LargeImage")));
+            this.navBarItem15.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem15.ImageOptions.SmallImage")));
             this.navBarItem15.Name = "navBarItem15";
             // 
             // navBarItem16
             // 
             this.navBarItem16.Caption = "ScreenSearch";
+            this.navBarItem16.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem16.ImageOptions.LargeImage")));
+            this.navBarItem16.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem16.ImageOptions.SmallImage")));
             this.navBarItem16.Name = "navBarItem16";
             // 
             // dockPanel1
@@ -496,14 +525,6 @@
             // fld_imgcltImage
             // 
             this.fld_imgcltImage.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("fld_imgcltImage.ImageStream")));
-            // 
-            // navBarItem13
-            // 
-            this.navBarItem13.Caption = "LookUpEdit";
-            this.navBarItem13.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem13.ImageOptions.LargeImage")));
-            this.navBarItem13.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem13.ImageOptions.SmallImage")));
-            this.navBarItem13.Name = "navBarItem13";
-            this.navBarItem13.Tag = "LookUpEdit";
             // 
             // frmDesignModule
             // 

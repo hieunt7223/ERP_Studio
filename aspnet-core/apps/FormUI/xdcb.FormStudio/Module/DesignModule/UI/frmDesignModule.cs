@@ -299,6 +299,11 @@ namespace xdcb.FormStudio
                             GGGridControl grd = GenerateGridControlFromToolbox(navBarItemLinkControl, ptLocation);
                             return grd;
                         }
+                    case "TreeList":
+                        {
+                            GGTreeList tree = GenerateTreeListFromToolbox(navBarItemLinkControl, ptLocation);
+                            return tree;
+                        }
                     case "GroupControl":
                         {
                             GGGroupControl grp = GenerateGroupControlFromToolbox(navBarItemLinkControl, ptLocation);
@@ -314,7 +319,7 @@ namespace xdcb.FormStudio
                             GGRadioGroup radio = GenerateRadioGroupFromToolbox(navBarItemLinkControl, ptLocation);
                             return radio;
                         }
-                    case "LookUpEdit":
+                    case "ComboBase":
                         {
                             GGComboBase lookup = GenerateComboBaseFromToolbox(navBarItemLinkControl, ptLocation);
                             return lookup;
@@ -395,8 +400,16 @@ namespace xdcb.FormStudio
         {
             GGGridControl grd = new GGGridControl();
             GridView gridView = (GridView)grd.MainView;
-            gridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+            //gridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             grd.UseEmbeddedNavigator = true;
+            grd.Name = GenerateControlName(navBarItemLinkControl.Item.Tag.ToString());
+            grd.Location = ptLocation;
+            return grd;
+        }
+
+        private GGTreeList GenerateTreeListFromToolbox(NavBarItemLink navBarItemLinkControl, Point ptLocation)
+        {
+            GGTreeList grd = new GGTreeList();
             grd.Name = GenerateControlName(navBarItemLinkControl.Item.Tag.ToString());
             grd.Location = ptLocation;
             return grd;
