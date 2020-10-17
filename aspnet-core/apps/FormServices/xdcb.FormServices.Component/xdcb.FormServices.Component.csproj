@@ -175,6 +175,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlCustom\GGLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GroupControl\GGScreenDesigner.cs">
       <SubType>Form</SubType>
     </Compile>

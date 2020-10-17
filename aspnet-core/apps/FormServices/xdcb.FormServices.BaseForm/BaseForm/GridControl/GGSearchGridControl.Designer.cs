@@ -38,7 +38,7 @@ namespace xdcb.FormServices.BaseForm
             this.gridView1.GridControl = this;
             this.gridView1.Name = "gridView1";
             // 
-            // BOSSearchResultsGridControl
+            // GGSearchResultsGridControl
             // 
             this.MainView = this.gridView1;
             this.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {

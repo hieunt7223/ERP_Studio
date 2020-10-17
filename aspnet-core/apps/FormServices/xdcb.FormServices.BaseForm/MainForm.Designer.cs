@@ -39,6 +39,7 @@
             this.btn_TreeList = new DevExpress.XtraBars.BarButtonItem();
             this.btn_DesignForm = new DevExpress.XtraBars.BarButtonItem();
             this.btn_ImportData = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDesignModule = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
@@ -106,7 +107,6 @@
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
-            this.btnDesignModule = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
@@ -284,6 +284,13 @@
             this.btn_ImportData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_ImportData.ImageOptions.LargeImage")));
             this.btn_ImportData.Name = "btn_ImportData";
             this.btn_ImportData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_ImportData_ItemClick);
+            // 
+            // btnDesignModule
+            // 
+            this.btnDesignModule.Caption = "Thiết kế chứng năng";
+            this.btnDesignModule.Id = 81;
+            this.btnDesignModule.Name = "btnDesignModule";
+            this.btnDesignModule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDesignModule_ItemClick);
             // 
             // barButtonItem12
             // 
@@ -792,13 +799,6 @@
             this.barDockControl4.Location = new System.Drawing.Point(912, 31);
             this.barDockControl4.Manager = this.toolbarFormManager1;
             this.barDockControl4.Size = new System.Drawing.Size(0, 481);
-            // 
-            // btnDesignModule
-            // 
-            this.btnDesignModule.Caption = "Thiết kế chứng năng";
-            this.btnDesignModule.Id = 81;
-            this.btnDesignModule.Name = "btnDesignModule";
-            this.btnDesignModule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDesignModule_ItemClick);
             // 
             // MainForm
             // 

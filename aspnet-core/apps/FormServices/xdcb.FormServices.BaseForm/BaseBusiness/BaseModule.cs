@@ -170,17 +170,25 @@ namespace xdcb.FormServices.BaseForm
 
         public void InitForm()
         {
-            UIMainForm.InitializeComponent();
-            UIMainForm.Module = this;
-            UIMainForm.TopLevel = false;
-            UIMainForm.Dock = DockStyle.Fill;
-            if (FunctionModule.OpenModules.ContainsKey(FunctionModule.CurrentModule))
+            if(UIMainForm.IsMdiContainer==true)
             {
-                UIMainForm.WindowState = FormWindowState.Maximized;
-            }
-            FunctionModule.MainScreen.pnView.Controls.Add(UIMainForm);
-            UIMainForm.Show();
-            UIMainForm.Focus();
+                UIMainForm.ShowDialog();
+            }  
+            else
+            {
+                UIMainForm.InitializeComponent();
+                UIMainForm.Module = this;
+                UIMainForm.TopLevel = false;
+                UIMainForm.Dock = DockStyle.Fill;
+                if (FunctionModule.OpenModules.ContainsKey(FunctionModule.CurrentModule))
+                {
+                    UIMainForm.WindowState = FormWindowState.Maximized;
+                }
+                FunctionModule.MainScreen.pnView.Controls.Add(UIMainForm);
+                UIMainForm.Show();
+                UIMainForm.Focus();
+            }    
+            
         }
         public virtual void InitMainObjectBindingSource()
         {
@@ -285,7 +293,7 @@ namespace xdcb.FormServices.BaseForm
             //Remove Module in OpenModules
             FunctionModule.MainScreen.OpenModulesBar.Items.RemoveByKey(Name);
             FunctionModule.RemoveOpenedModule(Name);
-            //if (BOSApp.CurrentUser != null)
+            //if (GGApp.CurrentUser != null)
             //    DeleteUserAudit(Name);
 
             //Active last open modules
