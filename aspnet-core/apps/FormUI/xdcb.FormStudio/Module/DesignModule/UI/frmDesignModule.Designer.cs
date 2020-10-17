@@ -32,15 +32,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDesignModule));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.hideContainerRight = new DevExpress.XtraBars.Docking.AutoHideContainer();
+            this.dockPanel4 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.fld_prodgcProperty = new System.Windows.Forms.PropertyGrid();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -65,22 +68,24 @@
             this.navBarItem17 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.item_ScreenMain = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem15 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem16 = new DevExpress.XtraNavBar.NavBarItem();
+            this.item_ScreenDetail = new DevExpress.XtraNavBar.NavBarItem();
+            this.item_ScreenSearch = new DevExpress.XtraNavBar.NavBarItem();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.fld_dgcModules = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dockPanel4 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.fld_prodgcProperty = new System.Windows.Forms.PropertyGrid();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fld_imgcltImage = new DevExpress.Utils.ImageCollection(this.components);
-            this.hideContainerRight = new DevExpress.XtraBars.Docking.AutoHideContainer();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btn_DeleteScreen = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
+            this.hideContainerRight.SuspendLayout();
+            this.dockPanel4.SuspendLayout();
+            this.dockPanel4_Container.SuspendLayout();
             this.dockPanel2.SuspendLayout();
             this.panelContainer1.SuspendLayout();
             this.dockPanel3.SuspendLayout();
@@ -90,11 +95,8 @@
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fld_dgcModules)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.dockPanel4.SuspendLayout();
-            this.dockPanel4_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fld_imgcltImage)).BeginInit();
-            this.hideContainerRight.SuspendLayout();
             this.SuspendLayout();
             // 
             // barManager1
@@ -112,8 +114,9 @@
             this.barButtonItem2,
             this.barButtonItem3,
             this.barButtonItem4,
-            this.barButtonItem5});
-            this.barManager1.MaxItemId = 5;
+            this.barButtonItem5,
+            this.btn_DeleteScreen});
+            this.barManager1.MaxItemId = 6;
             // 
             // bar1
             // 
@@ -125,30 +128,19 @@
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem5, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem4, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_DeleteScreen, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.OptionsBar.AllowQuickCustomization = false;
             this.bar1.OptionsBar.DrawBorder = false;
             this.bar1.Text = "Tools";
             // 
-            // barButtonItem1
+            // barButtonItem5
             // 
-            this.barButtonItem1.Caption = "Lưu";
-            this.barButtonItem1.Id = 0;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Nhập";
-            this.barButtonItem2.Id = 1;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "Xuất";
-            this.barButtonItem3.Id = 2;
-            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem5.Caption = "Tạo mới Module";
+            this.barButtonItem5.Id = 4;
+            this.barButtonItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
+            this.barButtonItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
+            this.barButtonItem5.Name = "barButtonItem5";
             // 
             // barButtonItem4
             // 
@@ -157,6 +149,14 @@
             this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
             this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
             this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Lưu";
+            this.barButtonItem1.Id = 0;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // barDockControlTop
             // 
@@ -213,6 +213,46 @@
             "DevExpress.XtraBars.TabFormControl",
             "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl",
             "DevExpress.XtraBars.ToolbarForm.ToolbarFormControl"});
+            // 
+            // hideContainerRight
+            // 
+            this.hideContainerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.hideContainerRight.Controls.Add(this.dockPanel4);
+            this.hideContainerRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.hideContainerRight.Location = new System.Drawing.Point(986, 25);
+            this.hideContainerRight.Name = "hideContainerRight";
+            this.hideContainerRight.Size = new System.Drawing.Size(21, 543);
+            // 
+            // dockPanel4
+            // 
+            this.dockPanel4.Controls.Add(this.dockPanel4_Container);
+            this.dockPanel4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+            this.dockPanel4.ID = new System.Guid("6e5a27bc-fbab-41ad-8621-1c6bbd8954d4");
+            this.dockPanel4.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel4.Name = "dockPanel4";
+            this.dockPanel4.Options.ShowCloseButton = false;
+            this.dockPanel4.OriginalSize = new System.Drawing.Size(200, 200);
+            this.dockPanel4.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+            this.dockPanel4.SavedIndex = 1;
+            this.dockPanel4.Size = new System.Drawing.Size(200, 547);
+            this.dockPanel4.Text = "Properties";
+            this.dockPanel4.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
+            // 
+            // dockPanel4_Container
+            // 
+            this.dockPanel4_Container.Controls.Add(this.fld_prodgcProperty);
+            this.dockPanel4_Container.Location = new System.Drawing.Point(4, 26);
+            this.dockPanel4_Container.Name = "dockPanel4_Container";
+            this.dockPanel4_Container.Size = new System.Drawing.Size(193, 518);
+            this.dockPanel4_Container.TabIndex = 0;
+            // 
+            // fld_prodgcProperty
+            // 
+            this.fld_prodgcProperty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fld_prodgcProperty.Location = new System.Drawing.Point(0, 0);
+            this.fld_prodgcProperty.Name = "fld_prodgcProperty";
+            this.fld_prodgcProperty.Size = new System.Drawing.Size(193, 518);
+            this.fld_prodgcProperty.TabIndex = 0;
             // 
             // dockPanel2
             // 
@@ -292,8 +332,8 @@
             this.navBarItem11,
             this.navBarItem12,
             this.item_ScreenMain,
-            this.navBarItem15,
-            this.navBarItem16,
+            this.item_ScreenDetail,
+            this.item_ScreenSearch,
             this.navBarItem13,
             this.navBarItem14,
             this.navBarItem17});
@@ -307,7 +347,6 @@
             // navBarGroup1
             // 
             this.navBarGroup1.Caption = "Controls";
-            this.navBarGroup1.Expanded = true;
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2),
@@ -452,8 +491,8 @@
             this.navBarGroup2.Expanded = true;
             this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.item_ScreenMain),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem15),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem16)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.item_ScreenDetail),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.item_ScreenSearch)});
             this.navBarGroup2.Name = "navBarGroup2";
             // 
             // item_ScreenMain
@@ -464,19 +503,21 @@
             this.item_ScreenMain.Name = "item_ScreenMain";
             this.item_ScreenMain.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.item_ScreenMain_LinkClicked);
             // 
-            // navBarItem15
+            // item_ScreenDetail
             // 
-            this.navBarItem15.Caption = "Screen Detail";
-            this.navBarItem15.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem15.ImageOptions.LargeImage")));
-            this.navBarItem15.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem15.ImageOptions.SmallImage")));
-            this.navBarItem15.Name = "navBarItem15";
+            this.item_ScreenDetail.Caption = "Screen Detail";
+            this.item_ScreenDetail.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("item_ScreenDetail.ImageOptions.LargeImage")));
+            this.item_ScreenDetail.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("item_ScreenDetail.ImageOptions.SmallImage")));
+            this.item_ScreenDetail.Name = "item_ScreenDetail";
+            this.item_ScreenDetail.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.item_ScreenDetail_LinkClicked);
             // 
-            // navBarItem16
+            // item_ScreenSearch
             // 
-            this.navBarItem16.Caption = "Screen Search";
-            this.navBarItem16.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem16.ImageOptions.LargeImage")));
-            this.navBarItem16.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem16.ImageOptions.SmallImage")));
-            this.navBarItem16.Name = "navBarItem16";
+            this.item_ScreenSearch.Caption = "Screen Search";
+            this.item_ScreenSearch.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("item_ScreenSearch.ImageOptions.LargeImage")));
+            this.item_ScreenSearch.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("item_ScreenSearch.ImageOptions.SmallImage")));
+            this.item_ScreenSearch.Name = "item_ScreenSearch";
+            this.item_ScreenSearch.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.item_ScreenSearch_LinkClicked);
             // 
             // dockPanel1
             // 
@@ -526,36 +567,17 @@
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
-            // dockPanel4
+            // barButtonItem2
             // 
-            this.dockPanel4.Controls.Add(this.dockPanel4_Container);
-            this.dockPanel4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
-            this.dockPanel4.ID = new System.Guid("6e5a27bc-fbab-41ad-8621-1c6bbd8954d4");
-            this.dockPanel4.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel4.Name = "dockPanel4";
-            this.dockPanel4.Options.ShowCloseButton = false;
-            this.dockPanel4.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel4.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;
-            this.dockPanel4.SavedIndex = 1;
-            this.dockPanel4.Size = new System.Drawing.Size(200, 547);
-            this.dockPanel4.Text = "Properties";
-            this.dockPanel4.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
+            this.barButtonItem2.Caption = "Nhập";
+            this.barButtonItem2.Id = 1;
+            this.barButtonItem2.Name = "barButtonItem2";
             // 
-            // dockPanel4_Container
+            // barButtonItem3
             // 
-            this.dockPanel4_Container.Controls.Add(this.fld_prodgcProperty);
-            this.dockPanel4_Container.Location = new System.Drawing.Point(4, 26);
-            this.dockPanel4_Container.Name = "dockPanel4_Container";
-            this.dockPanel4_Container.Size = new System.Drawing.Size(193, 518);
-            this.dockPanel4_Container.TabIndex = 0;
-            // 
-            // fld_prodgcProperty
-            // 
-            this.fld_prodgcProperty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fld_prodgcProperty.Location = new System.Drawing.Point(0, 0);
-            this.fld_prodgcProperty.Name = "fld_prodgcProperty";
-            this.fld_prodgcProperty.Size = new System.Drawing.Size(193, 518);
-            this.fld_prodgcProperty.TabIndex = 0;
+            this.barButtonItem3.Caption = "Xuất";
+            this.barButtonItem3.Id = 2;
+            this.barButtonItem3.Name = "barButtonItem3";
             // 
             // errorProvider1
             // 
@@ -565,39 +587,44 @@
             // 
             this.fld_imgcltImage.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("fld_imgcltImage.ImageStream")));
             // 
-            // hideContainerRight
+            // toolStrip1
             // 
-            this.hideContainerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.hideContainerRight.Controls.Add(this.dockPanel4);
-            this.hideContainerRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.hideContainerRight.Location = new System.Drawing.Point(986, 25);
-            this.hideContainerRight.Name = "hideContainerRight";
-            this.hideContainerRight.Size = new System.Drawing.Size(21, 543);
+            this.toolStrip1.Location = new System.Drawing.Point(200, 25);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(786, 25);
+            this.toolStrip1.TabIndex = 7;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // barButtonItem5
+            // btn_DeleteScreen
             // 
-            this.barButtonItem5.Caption = "Tạo mới Module";
-            this.barButtonItem5.Id = 4;
-            this.barButtonItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
-            this.barButtonItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
-            this.barButtonItem5.Name = "barButtonItem5";
+            this.btn_DeleteScreen.Caption = "Xóa màn hình";
+            this.btn_DeleteScreen.Id = 5;
+            this.btn_DeleteScreen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
+            this.btn_DeleteScreen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
+            this.btn_DeleteScreen.Name = "btn_DeleteScreen";
+            this.btn_DeleteScreen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_DeleteScreen_ItemClick);
             // 
             // frmDesignModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 568);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panelContainer1);
             this.Controls.Add(this.hideContainerRight);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmDesignModule.IconOptions.Image")));
             this.IsMdiContainer = true;
             this.Name = "frmDesignModule";
-            this.Text = "Thiết kế Module";
+            this.Text = "Thiết kế giao diện chứng năng";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
+            this.hideContainerRight.ResumeLayout(false);
+            this.dockPanel4.ResumeLayout(false);
+            this.dockPanel4_Container.ResumeLayout(false);
             this.dockPanel2.ResumeLayout(false);
             this.panelContainer1.ResumeLayout(false);
             this.dockPanel3.ResumeLayout(false);
@@ -607,11 +634,8 @@
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fld_dgcModules)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.dockPanel4.ResumeLayout(false);
-            this.dockPanel4_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fld_imgcltImage)).EndInit();
-            this.hideContainerRight.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -660,13 +684,15 @@
         private System.Windows.Forms.PropertyGrid fld_prodgcProperty;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraNavBar.NavBarItem item_ScreenMain;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem15;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem16;
+        private DevExpress.XtraNavBar.NavBarItem item_ScreenDetail;
+        private DevExpress.XtraNavBar.NavBarItem item_ScreenSearch;
         private DevExpress.Utils.ImageCollection fld_imgcltImage;
         private DevExpress.XtraNavBar.NavBarItem navBarItem13;
         private DevExpress.XtraNavBar.NavBarItem navBarItem14;
         private DevExpress.XtraNavBar.NavBarItem navBarItem17;
         private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerRight;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private DevExpress.XtraBars.BarButtonItem btn_DeleteScreen;
     }
 }

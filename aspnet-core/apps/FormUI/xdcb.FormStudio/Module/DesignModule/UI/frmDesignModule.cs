@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using xdcb.FormServices.BaseForm;
 using xdcb.FormServices.Component;
 using xdcb.FormServices.Shared;
+using xdcb.FormStudio.Properties;
 
 namespace xdcb.FormStudio
 {
@@ -18,7 +19,7 @@ namespace xdcb.FormStudio
         public enum SamePosType { Left, Right, Top, Bottom };
         private Control CurrentControl = new Control();
         private Point ptCursorOffset = new Point();
-
+        private static ImageList SectionImageList = new ImageList();
         #endregion
 
         #region Resizing Control
@@ -43,17 +44,134 @@ namespace xdcb.FormStudio
             InitializeComponent();
         }
 
+        #region Action
+        private void btn_DeleteScreen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (this.ActiveMdiChild != null)
+            {
+                string name = this.ActiveMdiChild.Name;
+
+                if (GGFunctions.ShowMessageYesNo("Màn hình '" + name + "' có chắc chắn muốn xóa không?") == DialogResult.Yes)
+                {
+                    // Xóa màn hình
+                    foreach (var screen in lstOpenScreens)
+                    {
+                        if (screen.Name.ToString() == name)
+                        {
+                            screen.Close();
+                            lstOpenScreens.Remove(screen);
+                            break;
+                        }
+                    }
+                    //Xóa thông tin
+                    foreach (ToolStripItem item in toolStrip1.Items)
+                    {
+                        if (item.Name.ToString() == name)
+                        {
+                            toolStrip1.Items.Remove(item);
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                GGFunctions.ShowMessage("Chưa có màn hình để xóa! Vui lòng kiểm tra lại");
+            }
+        }
+        #endregion
+
         #region Thêm mới Screen
         private void item_ScreenMain_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
+            ShowScreenForLinkClicked("ScreenMain");
+        }
+
+        private void item_ScreenDetail_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            ShowScreenForLinkClicked("ScreenDetail");
+        }
+        private void item_ScreenSearch_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            ShowScreenForLinkClicked("ScreenSearch");
+        }
+        private void ShowScreenForLinkClicked(string name)
+        {
+            foreach (var screen in lstOpenScreens)
+            {
+                if (screen.Name.ToString() == name)
+                {
+                    GGFunctions.ShowMessage("Đã có màn hình này. Vui lòng kiểm tra lại!");
+                    return;
+                }
+            }
             GGScreen scr = new GGScreen();
-            string strTemplateScreenName = "gui" + "ScreenMain";
-            scr.Name = InitScreenName(strTemplateScreenName);
+            scr.Name = InitScreenName(name);
             scr.Text = scr.Name;
-            scr.Tag = "ScreenMain";
+            scr.Tag = Name;
             scr.Module = Module;
             lstOpenScreens.Add(scr);
+            AddOpenModuleToOpenModulesToolStrip(name);
             ShowScreen(scr);
+        }
+
+        #endregion
+
+        #region ToolStrip
+        public void AddOpenModuleToOpenModulesToolStrip(String moduleName)
+        {
+            ToolStripButton tsbtnModule = PopulateOpenModulesToolStripButton(moduleName);
+            toolStrip1.Items.Add(tsbtnModule);
+            tsbtnModule.Visible = true;
+            CheckOpenModuleToolStripButton(tsbtnModule);
+        }
+
+        private ToolStripButton PopulateOpenModulesToolStripButton(String moduleName)
+        {
+            ModuleName status;
+            Enum.TryParse(moduleName, out status);
+            string moduleDesc = moduleName;
+            ToolStripButton tsbtnOpenModules = new ToolStripButton(moduleDesc, Resources.data_grid1, OpenModulesToolStrip_Click, moduleName);
+            tsbtnOpenModules.TextImageRelation = TextImageRelation.ImageBeforeText;
+            tsbtnOpenModules.CheckOnClick = true;
+            return tsbtnOpenModules;
+        }
+
+        private void OpenModulesToolStrip_Click(object sender, EventArgs e)
+        {
+            ToolStripButton tsbtnModule = (ToolStripButton)sender;
+            CheckOpenModuleToolStripButton(tsbtnModule);
+            ShowForm(tsbtnModule.Name);
+        }
+
+        private void CheckOpenModuleToolStripButton(ToolStripButton tsbtnModule)
+        {
+            tsbtnModule.Checked = true;
+            foreach (ToolStripButton tsbtnOpenedModule in toolStrip1.Items)
+            {
+                if (tsbtnOpenedModule.Name != tsbtnModule.Name)
+                {
+                    tsbtnOpenedModule.Checked = false;
+                    foreach (var screen in lstOpenScreens)
+                    {
+                        if (screen.Name.ToString() == tsbtnOpenedModule.Name)
+                        {
+                            screen.Hide();
+                        }
+                    }
+                }
+
+            }
+        }
+        private void ShowForm(String name)
+        {
+            foreach (var screen in lstOpenScreens)
+            {
+                if (screen.Name.ToString() == name)
+                {
+                    screen.Show();
+                }
+            }
         }
         #endregion
 
@@ -92,6 +210,7 @@ namespace xdcb.FormStudio
             //scr.TopLevel = false;
             //this.IsMdiContainer = true;
             //pn_view.Controls.Add(scr);
+            scr.Dock = DockStyle.Fill;
             scr.MdiParent = this;
             scr.ControlBox = true;
             scr.AutoScroll = true;
@@ -1095,5 +1214,6 @@ namespace xdcb.FormStudio
                 AddAvailableFields(ctrl.Controls);
         }
         #endregion
+
     }
 }
