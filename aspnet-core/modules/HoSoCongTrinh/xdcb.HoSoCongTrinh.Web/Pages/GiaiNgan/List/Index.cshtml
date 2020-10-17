@@ -1,0 +1,118 @@
+﻿@page
+@using DevExtreme.AspNet.Mvc
+@using xdcb.HoSoCongTrinh.Constants
+@model xdcb.GiaiNgan.ListView.IndexModel
+
+<script src="~/js/devextreme/dx.all.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+
+@section scripts
+{
+    
+    <script src="/Pages/GiaiNgan/List/index.js"></script>
+    <script>
+        var chuDauTuId = '@Model.ChuDauTuId';
+    </script>
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <h4>@ViewTextConsts.GiaiNgan.Title</h4>
+            </div>
+            <div class="text-right col-md-4">
+                <a href="/GiaiNgan/Create"><button class="btn btn-add-general" type="button" data-busy-text="Processing..."><i class="fa fa-plus"></i> <span>@ViewTextConsts.GiaiNgan.Add</span></button></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="card  card-search">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="card-title">@ViewTextConsts.GiaiNgan.Search</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="search-item-container">
+                        <div class="row">
+                           
+                            <div class="col-12 col-md-12 col-lg-12">
+                                <div class="form-group multiple-select-form">
+                                    <label for="TrangThaiHoSo">@ViewTextConsts.GiaiNgan.Nam</label>
+                                    <select class="custom-select form-control search-form-control" id="Year" placeholder="Chọn năm">
+                                        <option value="0">Tất cả</option>
+                                        @foreach (var i in Model.Year)
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="search-button-container">
+                        <div class="form-group">
+                            <span class="input-group-append">
+                                <button id="Search" type="button" class="btn btn-search">
+                                    <span>@ViewTextConsts.GiaiNgan.Search</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <span class="text-danger field-validation-valid" data-valmsg-replace="true">
+                </span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6"></div>
+                                <div class="col-sm-12 col-md-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="table-responsive col-sm-12">
+                                    <table id="GiaiNganTable" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.GiaiNgan.STT</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.GiaiNgan.NamBaoCao</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.GiaiNgan.KeHoachKeoDaiDen</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.GiaiNgan.TongGiaTri</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.GiaiNgan.TrangThai</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.GiaiNgan.ThaoTac</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

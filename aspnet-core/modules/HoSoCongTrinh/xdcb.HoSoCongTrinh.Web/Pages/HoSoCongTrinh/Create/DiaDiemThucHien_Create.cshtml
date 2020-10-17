@@ -1,0 +1,63 @@
+﻿@using DevExtreme.AspNet.Mvc
+@model xdcb.HoSoCongTrinhs.CreateView.IndexModel
+@inject xdcb.Common.DanhMuc.DonViHanhChinhs.IDonViHanhChinhAppService _donViHanhChinhService
+
+@{
+    var thanhPhoSelectItems = await _donViHanhChinhService.GetDonViCapThanhPhoHuyenThiXa();
+}
+
+<div class="row mb-2 pt-2">
+    <div class="col-sm-6">
+        <h6>Địa điểm thực hiện</h6>
+    </div>
+    <div class="text-right col-md-6">
+        <button class="btn btn-add-general" type="button" data-busy-text="Processing..." onclick="addRowDiaDiemThucHien()">
+            <i class="fa fa-plus"></i> <span>Thêm mới</span>
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        @(Html.DevExtreme().DataGrid<xdcb.HoSoCongTrinh.Dtos.DiaDiemThucHienViewModel>()
+            .ID("diadiemthuchien-table")
+            .NoDataText("Không có dữ liệu")
+            .ShowBorders(true)
+            .Editing(editing => {
+                editing.Mode(GridEditMode.Row);
+                editing.AllowUpdating(true).UseIcons(true);
+                editing.AllowAdding(false);
+                editing.AllowDeleting(true).UseIcons(true).ConfirmDelete(false);
+            })
+            .Columns(columns =>
+            {
+                columns.Add().DataField("Stt").Caption("#").Width(60)
+                    .AllowEditing(false)
+                    .CellTemplate(new JS("orderRowItemNo"));
+
+                columns.AddFor(m => m.DonViHanhChinhChaId)
+                    .ValidationRules(valid => valid.AddRequired().Message("Trường này là bắt buộc"))
+                    .SetCellValue("setThanhPhoValue")
+                    .Lookup(lookup => lookup
+                        .DataSource(thanhPhoSelectItems)
+                        .DisplayExpr("TenDonViHanhChinh")
+                        .ValueExpr("Id"));
+
+                columns.AddFor(m => m.DonViHanhChinhId)
+                    .Lookup(lookup => lookup
+                        .DataSource("getPhuongs")
+                        .DisplayExpr("tenDonViHanhChinh")
+                        .ValueExpr("id"));
+
+                columns.AddFor(m => m.GhiChu)
+                    .ValidationRules(valid => valid.AddStringLength().Max(100).Message("Trường này phải ít hơn 100 ký tự"));
+            })
+            .DataSource(Model.DiaDiemThucHiens)
+            .OnContentReady("GetDataDiaDiemThucHien")
+            .OnEditorPreparing("onEditorPreparingDiaDiemThucHien")
+            .OnEditingStart("onEditingStartDiaDiemThucHien")
+            .OnInitNewRow("onInitNewRowDiaDiemThucHien")
+            .Paging(paging => paging.Enabled(false))
+        )
+    </div>
+</div>

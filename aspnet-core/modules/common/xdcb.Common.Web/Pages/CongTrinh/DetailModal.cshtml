@@ -1,0 +1,244 @@
+﻿@page
+@using DevExtreme.AspNet.Mvc
+@using xdcb.Common.DanhMuc.CongTrinhs
+@using xdcb.Common.DanhMuc
+@model DetailModalModel
+
+
+@section scripts
+{
+    <abp-script src="/Pages/CongTrinh/createupdate.js" />
+    <script>
+        var chuDauTuId = '@Model.ChuDauTuId';
+    </script>
+}
+@{ 
+    int i = 1;
+}
+
+<script src="~/js/devextreme/dx.all.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+
+
+<form id="CongTrinh" abp-model="CongTrinh" data-ajaxForm="true" asp-page="/CongTrinh/EditModal">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-8">
+                    <h4>@ViewTextConsts.CongTrinh.DetailTitle</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <abp-input asp-for="Id" />
+                            <div class="col-12">
+                                <h3 class="card-title">@ViewTextConsts.CongTrinh.ThongTinChung</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="row">
+                            
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <label>@ViewTextConsts.CongTrinh.ChuDauTu</label>
+                                        <p>@Model.CongTrinh.TenChuDauTu</p>
+                                    </div>
+                                </div>
+
+                           
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.MaCongTrinh</label>
+                                    <p>@Model.CongTrinh.MaCongTrinh</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.TenCongTrinh</label>
+                                    <p>@Model.CongTrinh.TenCongTrinh</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.DienTich</label>
+                                    <p>@(Model.CongTrinh.DienTich??0)</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.NhomCongTrinh</label>
+                                    <p>@Model.CongTrinh.TenNhomCongTrinh</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.MaSoDuAn</label>
+                                    <p>@Model.CongTrinh.MaSoDuAn</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.MaLoaiKhoan</label>
+                                    <p>@Model.CongTrinh.MaLoaiKhoan</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.MaCTMTQG</label>
+                                    <p>@Model.CongTrinh.MaCTMTQG</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.LoaiCongTrinh</label>
+                                    <p>@Model.CongTrinh.TenLoaiCongTrinh</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="card-title">@ViewTextConsts.CongTrinh.ThoiGianThucHien</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.TuNam</label>
+                                    <p>@(Model.CongTrinh.ThoiGianThucHienDenNgay != null ? Model.CongTrinh.ThoiGianThucHienTuNgay.Value.ToString("dd/MM/yyyy") : "")</p>
+                                </div>
+                                
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.DenNam</label>
+                                    <p>@(Model.CongTrinh.ThoiGianThucHienDenNgay != null?Model.CongTrinh.ThoiGianThucHienDenNgay.Value.ToString("dd/MM/yyyy") : "")</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="card-title">@ViewTextConsts.CongTrinh.ThongTinQuyetDinhDauTu</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.SoQDDT</label>
+                                    <p>@Model.CongTrinh.SoQuyetDinhDauTu</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.NgayQuyetDinh</label>
+                                    <p>@(Model.CongTrinh.NgayQuyetDinhDauTu!=null? Model.CongTrinh.NgayQuyetDinhDauTu.Value.ToString("dd/MM/yyyy"):"")</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.TongMucDauTu</label>
+                                    <p>@(Model.CongTrinh.TongMucDauTu??0)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.NST</label>
+                                    <p>@(Model.CongTrinh.NST??0)</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.NSTW</label>
+                                    <p>@(Model.CongTrinh.NSTW??0)</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.CongTrinh.ODA</label>
+                                    <p>@(Model.CongTrinh.ODA??0)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="card-title">@ViewTextConsts.CongTrinh.DiaDiemXayDung</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div></div>
+                        <table border="1" class="file-list table table-bordered table-hover dtr-inline no-footer table_congtrinh">
+                            <thead>
+                                <tr>
+                                    <th>@ViewTextConsts.Common.STT</th>
+                                    <th>@ViewTextConsts.CongTrinh.ThanhPho</th>
+                                    <th>@ViewTextConsts.CongTrinh.Phuong</th>
+                                    <th>@ViewTextConsts.CongTrinh.GhiChu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.diaDiemThucHienDtos)
+                                {
+                                    <tr>
+                                        <td>@(i++)</td>
+                                        <td>@item.ThanhPho</td>
+                                        <td>@item.Phuong</td>
+                                        <td>@item.GhiChu</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div style="height:60px">
+    </div>
+    <div class="footer-action-group">
+        <a href="~/CongTrinh">
+            <div class="btn btn-secondary">@ViewTextConsts.Common.Back</div>
+        </a>
+    </div>
+</form>

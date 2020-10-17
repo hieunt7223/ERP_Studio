@@ -1,0 +1,38 @@
+﻿@using DevExtreme.AspNet.Mvc
+@model xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietViewModel
+@(Html.DevExtreme().DataGrid<xdcb.HoSoCongTrinh.Dtos.ThanhPhanHoSoViewModel>()
+        .NoDataText("Không có dữ liệu")
+        .DataSource(@Model.ThanhPhanHoSos)
+        .ShowBorders(true)
+        .WordWrapEnabled(true)
+        .Columns(columns =>
+        {
+        columns.Add().DataField("Stt").Caption("#").Width(60)
+            .Alignment(HorizontalAlignment.Left)
+            .AllowEditing(false)
+            .CellTemplate(new JS("orderRowItemNo"));
+
+        columns.Add().Caption("Tên thành phần hồ sơ").CellTemplate(new JS("renderTenThanhPhanHoSoTemplate"));
+
+        columns.AddFor(m => m.SoQuyetDinh).Width(120);
+
+        columns.AddFor(m => m.NgayBanHanhFormat).Width(120);
+
+        columns.AddFor(m => m.TenDonViBanHanh);
+
+        columns.AddFor(m => m.Files).CellTemplate(@<text>
+                <%= FormatItems(data.Files) %>
+            </text>);
+
+        columns.Add().Width(80).CellTemplate(@<text>
+                <div class="text-center">
+                    <button class="btn-action btn-detail" _id="<%=data.Id%>" _files="<%= getFileListString(data.Files) %>" onclick="ChiTietHoSo(this)"  data-toggle="modal" data-target=".ThanhPhanHoSoDetail"  >
+                        <i class="fa fa-eye"></i>
+                    </button>
+                </div>
+
+                </text>);
+        })
+        .OnContentReady("OnContentReadyThanhPhanHoSoView")
+        .Paging(paging => paging.Enabled(false))
+)

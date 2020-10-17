@@ -1,0 +1,30 @@
+﻿@using DevExtreme.AspNet.Mvc
+@model xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietViewModel
+@(Html.DevExtreme().DataGrid<xdcb.HoSoCongTrinh.Dtos.CoSoPhapLyViewModel>()
+    .NoDataText("Không có dữ liệu")
+    .DataSource(@Model.CoSoPhapLys)
+    .ShowBorders(true)
+    .WordWrapEnabled(true)
+    .Columns(columns =>
+    {
+        columns.AddFor(m => m.Stt).Width(60)
+            .Alignment(HorizontalAlignment.Left)
+            .AllowEditing(false)
+            .CellTemplate(new JS("orderRowItemNo"));
+
+        columns.AddFor(m => m.NoiDung);
+
+        columns.AddFor(m => m.Files).CellTemplate(@<text>
+            <%= formatFilesCoSoPhapLy(data) %>
+        </text>).Width(350);
+
+        columns.Add().Width(80).CellTemplate(@<text>
+            <div class="text-center">
+                <button class="btn-action btn-detail" onclick="ChiTietCoSoPhapLy(this)" id="view" _thuvienvanbanid="<%= data.ThuVienVanBanId %>"  data-toggle="modal" data-target=".CoSoPhapLyDetail" type="button">
+                    <i class="fa fa-eye"></i>
+                </button>
+            </div>
+            </text>);
+    })
+    .Paging(paging => paging.Enabled(false))
+)

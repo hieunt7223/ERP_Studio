@@ -1,0 +1,142 @@
+﻿@using xdcb.Common.DanhMuc.LoaiVanBanDtos
+@using xdcb.Common.DanhMuc
+@model xdcb.HoSoCongTrinhs.ComponentsView.IndexModel
+@inject xdcb.Common.DanhMuc.LoaiVanBans.ILoaiVanBanAppService _loaiVanBanService
+@inject xdcb.Common.DanhMuc.DonViBanHanhs.IDonViBanHanhAppService _donViBanHanhService
+
+@{
+    var filter = new Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto { 
+        MaxResultCount = 1000,
+        SkipCount = 0
+    };
+
+    var loaiVanBan = (List<LoaiVanBanDto>)await _loaiVanBanService.GetLoaiVanBanListAsync() ?? new List<LoaiVanBanDto>();
+    var donViBanHanhs = await _donViBanHanhService.GetListAsync(filter);
+}
+
+<form data-ajaxForm="true" id="thanhPhanHoSoForm">
+    <abp-modal centered="true" size="Large" id="modalNewThanhPhanHoSo">
+        <div class="modal-header">
+            <h5 class="modal-title" id="tphsTitle"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <abp-modal-body>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="LoaiVanBan">Loại văn bản</label><span> * </span><br />
+                            <select data-val="true" data-val-required="Loại văn bản là bắt buộc" name="LoaiVanBan" class="custom-select form-control valid" id="selectLoaiVanBan">
+                                <option value=""></option>
+                                @foreach (var item in loaiVanBan)
+                                {
+                                    <option value="@item.Id">@item.TenLoaiVanBan</option>
+                                }
+                            </select>
+                            <div class="text-danger field-validation-valid" data-valmsg-for="LoaiVanBan" data-valmsg-replace="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="ThanhPhanHoSo">Thành phần hồ sơ</label><span> * </span><br />
+                            <select data-val="true" data-val-required="Thành phần hồ sơ là bắt buộc" name="ThanhPhanHoSo" class="custom-select form-control valid" id="thanhPhanHoSo">
+                            </select>
+                            <div class="text-danger field-validation-valid" data-valmsg-for="ThanhPhanHoSo" data-valmsg-replace="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="form-group">
+                            <label for="SoQuyetDinh">Số Quyết định</label><br />
+                            <input type="text" id="soQuyetDinh" name="SoQuyetDinh" value="" class="form-control vail" placeholder="Nhập trường này">
+                            <div class="text-danger soQuyetDinh-valid-exist d-none"></div>
+                            <div class="text-danger field-validation-valid" data-valmsg-for="SoQuyetDinh" data-valmsg-replace="true"></div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="form-group">
+                            <label for="NgayBanHanhTphs">Ngày ban hành</label><br />
+                            <div class="input-group date datepicker" data-date-format="dd/MM/yyyy">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </span>
+                                </div>
+                                <input type="date" id="ngayBanHanhTphs" value="" class="form-control vail float-right mb-2 mr-sm-2 mb-sm-0" placeholder="dd/mm/yyyy">
+                            </div>
+                            <div class="text-danger ngayBanHanhTphs-valid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="form-group">
+                            <label for="DonViBanHanhTphs">Đơn vị ban hành</label><br />
+                            <select name="DonViBanHanhTphs" class="custom-select form-control valid" id="donViBanHanhTphs">
+                                <option value=""></option>
+                                @foreach (var item in donViBanHanhs.Items)
+                                {
+                                    <option value="@item.Id">@item.Ten</option>
+                                }
+                            </select>
+                            <div class="text-danger field-validation-valid" data-valmsg-for="DonViBanHanhTphs" data-valmsg-replace="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="TrichYeuTphs">Trích yếu</label><br />
+                            <textarea id="trichYeuTphs" name="TrichYeuTphs" rows="4" class="form-control vail" data-val="true" data-val-length="Trường này phải ít hơn 500 ký tự" data-val-length-max="500"></textarea>
+                            <div class="text-danger field-validation-valid" data-valmsg-for="TrichYeuTphs" data-valmsg-replace="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="FileUploadstphs">File đính kèm</label><br />
+                            <div class="upload-btn-wrapper right">
+                                <button class="btn btn-upload file-chooser-tphs">
+                                    <input class="file-tphs form-control file-chooser-tphs__input " type="file" name="FileUploadsTphs" />
+                                    <i class="fa fa-cloud-upload"></i>
+                                    <span>Tải lên</span>
+                                </button>
+                                <span>@ViewTextConsts.ThuVienVanBan.FileSubpost</span>
+                            </div>
+                            <div class="text-danger field-validation-valid tphs-file_validate" data-valmsg-for="FileUploadsTphs" data-valmsg-replace="true">
+                            </div>
+                        </div>
+                    </div>
+                    <table border="1" class="tphs-file-list table table-bordered table-hover dtr-inline no-footer dataTable">
+                        <thead>
+                            <tr>
+                                <th>File đính kèm</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input type="hidden" value="false" id="batBuocTphs" />
+                    </div>
+                </div>
+            </div>
+        </abp-modal-body>
+        <abp-modal-footer>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary" id="tphsSaving" onclick="insertThanhPhanHoSo(this)">Lưu</button>
+        </abp-modal-footer>
+    </abp-modal>
+</form>

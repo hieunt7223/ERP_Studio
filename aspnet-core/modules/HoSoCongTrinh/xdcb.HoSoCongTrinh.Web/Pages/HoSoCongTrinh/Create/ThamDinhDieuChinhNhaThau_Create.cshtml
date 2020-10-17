@@ -1,0 +1,274 @@
+﻿@using DevExtreme.AspNet.Mvc
+@model xdcb.HoSoCongTrinhs.CreateView.IndexModel
+@inject xdcb.Common.DanhMuc.HinhThucChonNhaThaus.IHinhThucChonNhaThauAppService _hinhThucChonNhaThauService
+@inject xdcb.Common.DanhMuc.PhuongThucDauThaus.IPhuongThucDauThauAppService _phuongThucDauThauService
+@inject xdcb.Common.DanhMuc.HinhThucHopDongs.IHinhThucHopDongAppService _hinhThucHopDongService
+
+@{
+    var filter = new Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto
+    {
+        MaxResultCount = 1000,
+        SkipCount = 0
+    };
+
+    var hinhThucChonNhaThau = await _hinhThucChonNhaThauService.GetListAsync(filter);
+    var phuongThucDauThau = await _phuongThucDauThauService.GetListAsync(filter);
+    var hinhThucHopDong = await _hinhThucHopDongService.GetListAsync(filter);
+}
+
+<h6>NỘI DUNG KẾ HOẠCH LỰA CHỌN NHÀ THẦU CHỦ ĐẦU TƯ ĐỀ NGHỊ</h6>
+<div class="row pl-4 pr-2">
+    <div class="row mt-2">
+        <div class="col-sm-6">
+            <h6>Kế hoạch nhà thầu đã được phê duyệt</h6>
+        </div>
+        <div class="text-right col-6 mb-2">
+            <button class="btn btn-add-general" type="button" data-busy-text="Processing..." onclick="addRowGoiThauDuocPheDuyet()">
+                <i class="fa fa-plus"></i> <span>Thêm mới</span>
+            </button>
+        </div>
+        <div class="col-12">
+            @(Html.DevExtreme().TreeList<xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietGoiThauDto>()
+                .ID("goithauduocpheduyet-treelist")
+                .NoDataText("Không có dữ liệu")
+                .DataSource(@Model.GoiThaus, "GoiThauId")
+                .KeyExpr("GoiThauId")
+                .ParentIdExpr("GoiThauParentId")
+                .RootValue(Guid.Empty)
+                .AutoExpandAll(true)
+                .ColumnAutoWidth(true)
+                .WordWrapEnabled(true)
+                .ShowBorders(true)
+                .Editing(editing => editing
+                    .Mode(GridEditMode.Row)
+                    .AllowAdding(true)
+                    .AllowUpdating(true)
+                    .AllowDeleting(true).ConfirmDelete(false)
+                    .UseIcons(true)
+                )
+                .Columns(columns => {
+                    columns.AddFor(m => m.GoiThauId)
+                        .Lookup(lookup => lookup
+                        .DataSource("getGoiThauDuocPheDuyet")
+                        .ValueExpr("id")
+                        .DisplayExpr("tenGoiThau")
+                    );
+
+                    columns.AddFor(m => m.GiaGoiThau)
+                        .Alignment(HorizontalAlignment.Left)
+                        .DataType(GridColumnDataType.Number)
+                        .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                        .EditorOptions(new { format = "#,###.##", showClearButton = true });
+
+                    columns.AddFor(m => m.HinhThucLuaChonNhaThauId)
+                        .Lookup(lookup => lookup
+                        .DataSource(hinhThucChonNhaThau.Items)
+                        .ValueExpr("Id")
+                        .DisplayExpr("TenHinhThucChonNhaThau")
+                    );
+
+                    columns.AddFor(m => m.PhuongThucLuaChonNhaThauId)
+                        .Lookup(lookup => lookup
+                        .DataSource(phuongThucDauThau.Items)
+                        .ValueExpr("Id")
+                        .DisplayExpr("TenPhuongThucDauThau")
+                    );
+
+                    columns.AddFor(m => m.ThoiGianBatDau);
+
+                    columns.AddFor(m => m.LoaiHopDongId)
+                        .Lookup(lookup => lookup
+                        .DataSource(hinhThucHopDong.Items)
+                        .ValueExpr("Id")
+                        .DisplayExpr("TenHinhThucHopDong")
+                    );
+
+                    columns.AddFor(m => m.ThoiGianThucHien);
+                })
+                .Paging(paging => paging.Enabled(false))
+                .OnContentReady("getDataGoiThauDuocPheDuyet")
+                .OnEditorPreparing("onEditorPreparingGoiThauThamDinh")
+                .OnCellPrepared("onCellPreparedGoiThauThamDinh")
+                .OnDataErrorOccurred("checkValidDuplication")
+                .OnEditingStart("onEditingStartGoiThauDuocPheDuyet")
+                .OnInitNewRow("onInitNewRowGoiThauDuocPheDuyet")
+            )
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-6">
+            <h6>Kế hoạch đấu thầu đề nghị điều chỉnh</h6>
+        </div>
+        <div class="text-right col-6 mb-2">
+            <button class="btn btn-add-general" type="button" data-busy-text="Processing..." onclick="addRowGoiThauDeNghiDieuChinh()">
+                <i class="fa fa-plus"></i> <span>Thêm mới</span>
+            </button>
+        </div>
+        <div class="col-12">
+            @(Html.DevExtreme().TreeList<xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietGoiThauDto>()
+                .ID("goithaudenghidieuchinh-treelist")
+                .NoDataText("Không có dữ liệu")
+                .DataSource(@Model.GoiThaus, "GoiThauId")
+                .KeyExpr("GoiThauId")
+                .ParentIdExpr("GoiThauParentId")
+                .RootValue(Guid.Empty)
+                .AutoExpandAll(true)
+                .ColumnAutoWidth(true)
+                .WordWrapEnabled(true)
+                .ShowBorders(true)
+                .Editing(editing => editing
+                    .Mode(GridEditMode.Row)
+                    .AllowAdding(true)
+                    .AllowUpdating(true)
+                    .AllowDeleting(true).ConfirmDelete(false)
+                    .UseIcons(true)
+                )
+                .Columns(columns => {
+                    columns.AddFor(m => m.GoiThauId)
+                        .Lookup(lookup => lookup
+                        .DataSource("getGoiThauDeNghiDieuChinh")
+                        .ValueExpr("id")
+                        .DisplayExpr("tenGoiThau")
+                    );
+
+                    columns.AddFor(m => m.GiaGoiThau)
+                        .Alignment(HorizontalAlignment.Left)
+                        .DataType(GridColumnDataType.Number)
+                        .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                        .EditorOptions(new { format = "#,###.##", showClearButton = true });
+
+                    columns.AddFor(m => m.HinhThucLuaChonNhaThauId)
+                        .Lookup(lookup => lookup
+                        .DataSource(hinhThucChonNhaThau.Items)
+                        .ValueExpr("Id")
+                        .DisplayExpr("TenHinhThucChonNhaThau")
+                    );
+
+                    columns.AddFor(m => m.PhuongThucLuaChonNhaThauId)
+                        .Lookup(lookup => lookup
+                        .DataSource(phuongThucDauThau.Items)
+                        .ValueExpr("Id")
+                        .DisplayExpr("TenPhuongThucDauThau")
+                    );
+
+                    columns.AddFor(m => m.ThoiGianBatDau);
+
+                    columns.AddFor(m => m.LoaiHopDongId)
+                        .Lookup(lookup => lookup
+                        .DataSource(hinhThucHopDong.Items)
+                        .ValueExpr("Id")
+                        .DisplayExpr("TenHinhThucHopDong")
+                    );
+
+                    columns.AddFor(m => m.ThoiGianThucHien);
+                })
+                .Paging(paging => paging.Enabled(false))
+                .OnContentReady("getDataGoiThauDeNghiDieuChinh")
+                .OnEditorPreparing("onEditorPreparingGoiThauThamDinh")
+                .OnCellPrepared("onCellPreparedGoiThauThamDinh")
+                .OnDataErrorOccurred("checkValidDuplication")
+                .OnEditingStart("onEditingStartGoiThauDeNghiDieuChinh")
+                .OnInitNewRow("onInitNewRowGoiThauDeNghiDieuChinh")
+            )
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="form-group">
+            <label for="DanhGiaCoQuanThamDinh">NHẬN XÉT ĐÁNH GIÁ CỦA CƠ QUAN THẨM ĐỊNH</label>
+            <textarea id="danhGiaCoQuanThamDinh" name="DanhGiaCoQuanThamDinh" rows="4" class="form-control" placeholder="Nhập trường này"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-sm-6">
+        <h6>ĐỀ XUẤT</h6>
+    </div>
+    <div class="text-right col-6 mb-2">
+        <button class="btn btn-add-general" type="button" data-busy-text="Processing..." onclick="addRowGoiThauDeXuat()">
+            <i class="fa fa-plus"></i> <span>Thêm mới</span>
+        </button>
+    </div>
+    <div class="col-12">
+        @(Html.DevExtreme().TreeList<xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietGoiThauDto>()
+                .ID("goithaudexuat-treelist")
+                .NoDataText("Không có dữ liệu")
+                .DataSource(@Model.GoiThaus, "GoiThauId")
+                .KeyExpr("GoiThauId")
+                .ParentIdExpr("GoiThauParentId")
+                .RootValue(Guid.Empty)
+                .AutoExpandAll(true)
+                .ColumnAutoWidth(true)
+                .WordWrapEnabled(true)
+                .ShowBorders(true)
+                .Editing(editing => editing
+                    .Mode(GridEditMode.Row)
+                    .AllowAdding(true)
+                    .AllowUpdating(true)
+                    .AllowDeleting(true).ConfirmDelete(false)
+                    .UseIcons(true)
+                )
+                .Columns(columns => {
+                    columns.AddFor(m => m.GoiThauId)
+                        .Lookup(lookup => lookup
+                        .DataSource("getGoiThauDeXuat")
+                        .ValueExpr("id")
+                        .DisplayExpr("tenGoiThau")
+                    );
+
+                    columns.AddFor(m => m.GiaGoiThau)
+                        .Alignment(HorizontalAlignment.Left)
+                        .DataType(GridColumnDataType.Number)
+                        .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                        .EditorOptions(new { format = "#,###.##", showClearButton = true });
+
+                    columns.AddFor(m => m.HinhThucLuaChonNhaThauId)
+                        .Lookup(lookup => lookup
+                        .DataSource(hinhThucChonNhaThau.Items)
+                        .ValueExpr("Id")
+                        .DisplayExpr("TenHinhThucChonNhaThau")
+                    );
+
+                    columns.AddFor(m => m.ThoiGianBatDau);
+                })
+                .Paging(paging => paging.Enabled(false))
+                .OnContentReady("getDataGoiThauDeXuat")
+                .OnEditorPreparing("onEditorPreparingGoiThauThamDinh")
+                .OnCellPrepared("onCellPreparedGoiThauThamDinh")
+                .OnDataErrorOccurred("checkValidDuplication")
+                .OnEditingStart("onEditingStartGoiThauDeXuat")
+                .OnInitNewRow("onInitNewRowGoiThauDeXuat")
+            )
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="form-group">
+            <h6>NỘI DUNG TRÌNH VÀ KIẾN NGHỊ</h6>
+            @(Html.DevExtreme().HtmlEditor()
+                    .ID("noiDungThamMuu")
+                    .Height(300)
+                    .ValueType(HtmlEditorValueType.Markdown)
+                    .OnValueChanged("getValueNoiDungThamMuu")
+                    .Toolbar(toolbar => toolbar.Items(
+                        items => {
+                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.Separator);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.OrderedList);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                        })
+                    )
+                    .MediaResizing(m => m.Enabled(true))
+                )
+        </div>
+    </div>
+</div>

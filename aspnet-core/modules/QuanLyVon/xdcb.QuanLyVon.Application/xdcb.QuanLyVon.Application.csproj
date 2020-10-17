@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>xdcb.QuanLyVon</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Services\NhuCauKeHoachVonChiTietAppService.cs~RF426b50a.TMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="3.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\xdcb.Common.Application\xdcb.Common.Application.csproj" />
+    <ProjectReference Include="..\xdcb.QuanLyVon.Application.Contracts\xdcb.QuanLyVon.Application.Contracts.csproj" />
+    <ProjectReference Include="..\xdcb.QuanLyVon.Domain\xdcb.QuanLyVon.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

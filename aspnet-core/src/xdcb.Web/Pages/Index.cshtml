@@ -1,0 +1,222 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using xdcb.Localization
+@using Volo.Abp.Users
+@model xdcb.Web.Pages.IndexModel
+@inject IHtmlLocalizer<xdcbResource> L
+@inject ICurrentUser CurrentUser
+@section styles {
+    <abp-style-bundle>
+        <abp-style src="/Pages/Index.css" />
+    </abp-style-bundle>
+}
+@section scripts {
+    <abp-script-bundle>
+        <abp-script src="/Pages/Index.js" />
+    </abp-script-bundle>
+}
+@* <div class="jumbotron text-center">
+    <h1>@L["Welcome"]</h1>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <p>@L["LongWelcomeMessage"]</p>
+            <hr class="my-4"/>
+        </div>
+    </div>
+    <a href="https://abp.io?ref=tmpl" target="_blank" class="btn btn-primary px-4">abp.io</a>
+    @if (!CurrentUser.IsAuthenticated)
+    {
+        <a abp-button="Primary" href="/Account/Login" class="px-4"><i class="fa fa-sign-in"></i> @L["Login"]</a>
+    }
+</div> *@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Dashboard</h1>
+    </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+            <div class="inner">
+            <h3>150</h3>
+
+            <p>Danh mục</p>
+            </div>
+            <div class="icon">
+            <i class="nav-icon fa fa-folder-o"></i>
+            </div>
+        </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+            <div class="inner">
+            <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+            <p>Văn bản mới</p>
+            </div>
+            <div class="icon">
+            <i class="inav-icon fa fa-file-text-o"></i>
+            </div>
+        </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-warning">
+            <div class="inner">
+            <h3>44</h3>
+
+            <p>Hồ sơ công trình</p>
+            </div>
+            <div class="icon">
+            <i class="nav-icon fa fa-files-o"></i>
+            </div>
+        </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+            <div class="inner">
+            <h3>65</h3>
+
+            <p>Hồ sơ công trình mới</p>
+            </div>
+            <div class="icon">
+            <i class="nav-icon fa fa-files-o"></i>
+            </div>
+        </div>
+        </div>
+        <!-- ./col -->
+    </div>
+    <!-- /.row -->
+    <!-- Main row -->
+    <div class="row">
+        <!-- Left col -->
+        <section class="col-lg-7 connectedSortable ui-sortable">
+        <!-- Custom tabs (Charts with tabs)-->
+        <div class="card">
+            <div class="card-header ui-sortable-handle" style="cursor: move;">
+                <h3 class="card-title">
+                    <i class="fas fa-chart-pie mr-1"></i>
+                    Thống kê hồ sơ công trình
+                </h3>
+            </div><!-- /.card-header -->
+            <div class="card-body">
+                <div class="chart">
+                    <div class="chartjs-size-monitor">
+                        <div class="chartjs-size-monitor-expand">
+                            <div class=""></div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink">
+                            <div class=""></div>
+                        </div>
+                    </div>
+                    <canvas id="areaChart" style="min-height: 250px; height: 100%; width: 100%; max-width: 100%; display: block;" class="chartjs-render-monitor"></canvas>
+                </div>
+            </div><!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+        <!-- donut chart -->
+        <div class="card">
+            <div class="card-header">
+            <h3 class="card-title">
+                <i class="fas fa-chart-pie mr-1"></i>
+                Thống kê danh mục
+            </h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+            </div>
+            </div>
+            <div class="card-body">
+                <div class="chartjs-size-monitor">
+                    <div class="chartjs-size-monitor-expand">
+                        <div class=""></div>
+                    </div>
+                    <div class="chartjs-size-monitor-shrink">
+                        <div class=""></div>
+                        </div>
+                    </div>
+                <canvas id="donutChart" style="min-height: 250px; height: 100%; width: 100%; max-width: 100%; display: block;" class="chartjs-render-monitor"></canvas>
+            </div>
+        </div>
+        <!-- /.card -->
+        </section>
+        <!-- /.Left col -->
+        <!-- right col (We are only adding the ID to make the widgets sortable)-->
+        <section class="col-lg-5 connectedSortable ui-sortable">
+        <!-- solid sales graph -->
+        <div class="card">
+            <div class="card-header" style="cursor: move;">
+                <h3 class="card-title">
+                    <i class="fas fa-th mr-1"></i>
+                    Thống kê trạng thái công trình
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="chartjs-size-monitor">
+                    <div class="chartjs-size-monitor-expand">
+                        <div class=""></div>
+                    </div>
+                    <div class="chartjs-size-monitor-shrink">
+                        <div class=""></div>
+                    </div>
+                </div>
+                <canvas class="chart chartjs-render-monitor" id="line-chart" style="min-height: 250px; height: 100%; width: 100%; max-width: 100%; display: block;"></canvas>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+        <div class="info-box mb-3 bg-success">
+            <span class="info-box-icon">
+                <i class="far fa-heart"></i>
+            </span>
+            <div class="info-box-content">
+                <span class="info-box-text">Mentions</span>
+                <span class="info-box-number">92,050</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <div class="info-box mb-3 bg-danger">
+            <span class="info-box-icon">
+                <i class="fas fa-cloud-download-alt"></i>
+            </span>
+            <div class="info-box-content">
+                <span class="info-box-text">Downloads</span>
+                <span class="info-box-number">114,381</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <div class="info-box mb-3 bg-info">
+            <span class="info-box-icon">
+                <i class="far fa-comment"></i>
+            </span>
+            <div class="info-box-content">
+                <span class="info-box-text">Direct Messages</span>
+                <span class="info-box-number">163,921</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        </section>
+        <!-- right col -->
+    </div>
+    <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->

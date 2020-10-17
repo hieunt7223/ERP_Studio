@@ -1,0 +1,82 @@
+﻿@using xdcb.Common.DanhMuc.LoaiVanBanDtos;
+@model xdcb.HoSoCongTrinhs.ComponentsView.IndexModel
+@inject xdcb.Common.DanhMuc.LoaiVanBans.ILoaiVanBanAppService _loaiVanBanService
+@{
+    var loaiVanBan = (List<LoaiVanBanDto>)await _loaiVanBanService.GetLoaiVanBanListAsync() ?? new List<LoaiVanBanDto>();
+}
+
+<abp-modal centered="true" size="Large" id="modalNewThuVienVanBan">
+    <abp-modal-header title="Thêm mới Cơ sở pháp lý từ Thư viện văn bản"></abp-modal-header>
+    <abp-modal-body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-search">
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="search-item-container">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="ThuVienVanBan_Keywork">Từ khóa</label>
+                                                <input type="text" id="keyword" class="form-control search-form-control" placeholder="@xdcb.Common.DanhMuc.ViewTextConsts.ThuVienVanBan.PlaceholderKeywork" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-3">
+                                            <div class="form-group">
+                                                <label for="ThuVienVanBan_LoaiVanBan">Loại văn bản</label>
+                                                <select type="text" id="LoaiVanBan" class="form-control search-form-control">
+                                                    <option value="">Tất cả</option>
+                                                    @foreach (var item in loaiVanBan)
+                                                    {
+                                                        <option value="@item.Id">@item.TenLoaiVanBan</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-3">
+                                            <div class="form-group">
+                                                <label for="ThuVienVanBan_DonViBanHanh">Đơn vị ban hành</label>
+                                                <input type="text" id="DonViBanHanh" class="form-control search-form-control" placeholder="@xdcb.Common.DanhMuc.ViewTextConsts.ThuVienVanBan.PlaceholderDonViBanHanh" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="search-button-container">
+                                    <div class="form-group">
+                                        <span class="input-group-append">
+                                            <button id="Search_ThuVienVanBan" type="button" class="btn btn-search">
+                                                <span>@xdcb.Common.DanhMuc.ViewTextConsts.Common.Search</span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <span class="text-danger field-validation-valid" data-valmsg-for="ThuVienVanBan.SoVanBan" data-valmsg-replace="true">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="dataGirdMultiple"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </abp-modal-body>
+    <abp-modal-footer>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeDataGridMultiple">Đóng</button>
+        <button type="button" class="btn btn-primary" onclick="insertThuVienVanBan()">Lưu</button>
+    </abp-modal-footer>
+</abp-modal>

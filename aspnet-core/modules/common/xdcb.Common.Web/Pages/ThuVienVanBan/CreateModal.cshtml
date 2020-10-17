@@ -1,0 +1,182 @@
+﻿@page
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using xdcb.Common.DanhMuc
+@model xdcb.Common.DanhMuc.ThuVienVanBans.CreateModalModel
+@{
+    Layout = null;
+}
+
+<form id="ThuVienVanBan" abp-model="ThuVienVanBan" data-ajaxForm="true" asp-page="/ThuVienVanBan/CreateModal" enctype="multipart/form-data">
+    <div class="modal fade show" tabindex="-1" role="dialog" aria-modal="true" style="padding-right: 17px; display: block;">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <abp-modal-header title="@ViewTextConsts.ThuVienVanBan.CreateTitle"></abp-modal-header>
+                <abp-modal-body>
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <abp-input asp-for="@Model.ThuVienVanBan.SoKyHieu"></abp-input>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <abp-input asp-for="@Model.ThuVienVanBan.NgayBanHanh" data-date-format="dd/MM/yyyy"></abp-input>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <abp-select asp-for="@Model.ThuVienVanBan.DonViBanHanhId" asp-items="@Model.SelectListDonViBanHanh"></abp-select>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <abp-select asp-for="@Model.ThuVienVanBan.CapBanHanh" asp-items="@Model.SelectListCapBanHanh"></abp-select>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <abp-select asp-for="@Model.ThuVienVanBan.LoaiVanBanId" asp-items="@Model.SelectListLoaiVanBan"></abp-select>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <abp-select asp-for="@Model.ThuVienVanBan.LinhVucVanBanId" asp-items="@Model.SelectListLinhVucVanBan"></abp-select>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <abp-input asp-for="@Model.ThuVienVanBan.TrichYeu"></abp-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="FileUploads">File đính kèm</label><span> * </span><br />
+                                <div class="upload-btn-wrapper upload_thuvienvanban">
+                                    <button class="btn btn-upload file-chooser">
+                                        <input class="file_thuvienvanban form-control file-chooser__input " type="file" data-val="true" data-val-required="File đính kèm là bắt buộc" name="FileUploads" />
+                                        <i class="fa fa-cloud-upload"></i>
+                                        <span>Tải lên</span>
+                                    </button>
+                                    <span>@ViewTextConsts.ThuVienVanBan.FileSubpost</span>
+                                </div>
+                                <div class="text-danger field-validation-valid" data-valmsg-for="FileUploads" data-valmsg-replace="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table border="1" class="file-list table table-bordered table-hover dtr-inline no-footer dataTable">
+                        <thead>
+                            <tr>
+                                <th>File đính kèm</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </abp-modal-body>
+                <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    //jQuery plugin
+    (function ($) {
+
+        $('.file-list').hide();
+
+        $.fn.uploader = function (options) {
+            var settings = $.extend({
+                acceptedFileTypes: ['pdf', 'jpg', 'jpeg', 'png', 'doc', 'docx']
+            }, options);
+
+            var uploadId = 1;
+
+            var fileList = $('<ul class="file-list"></ul>');
+            var hiddenInputs = $('<div class="hidden-inputs hidden" style="display:none"></div>');
+            $('.file-uploader__message-area').after(fileList);
+            $('.file-list').after(hiddenInputs);
+
+            //xử lý khi chọn file
+            $('.file-chooser__input').on('change', function () {
+                var file = $('.file-chooser__input').val();
+                var fileName = (file.match(/([^\\\/]+)$/)[0]);
+                $('.file-chooser__input').attr('name', 'FileUploads')
+                //validate the file
+                var check = checkFile(fileName);
+                if (check === "valid") {
+                    // thêm các file được upload
+                    $('.hidden-inputs').append($('.file-chooser__input'));
+                    var array_name = fileName.split('.');
+                    var kieu = array_name[array_name.length - 1];
+                    var imgFile;
+                    if (kieu == "pdf") {
+                        imgFile = "<img src='/img/pdf.svg' class='attached-icon'>";
+                    }
+                    else if (kieu == "doc" || kieu == "docx") {
+                        imgFile = "<img src='/img/word.svg' class='attached-icon'>";
+                    }
+                    else {
+                        imgFile = "<img src='/img/image.svg' class='attached-icon'>";
+                    }
+                    $('.file-chooser').append($('.file-chooser__input').clone({ withDataAndEvents: true }));
+
+                    $('.file-list tbody').append('<tr><td>' + imgFile + '<span>'
+                        + fileName + '</span></td><td class="table_action"><button class="btn-action btn-delete removal-button" data-uploadid="' + uploadId + '"><i class="fa fa-trash-o"></i> </button></td></tr>');
+
+                    $('.hidden-inputs .file-chooser__input').removeClass('file-chooser__input').attr('data-uploadId', uploadId);
+
+                    uploadId++;
+
+                    $('.removal-button').on('click', function (e) {
+                        e.preventDefault();
+                        $('.hidden-inputs input[data-uploadid="' + $(this).data('uploadid') + '"]').remove();
+
+                        $(this).parent().parent().hide("puff").delay(10).queue(function () { $(this).remove(); });
+                        function check() {
+                            if ($('.file-list tbody tr')[0]) {
+                                $('.file-list').show();
+                            } else {
+                                $('.file-list').hide();
+                            }
+                        }
+                        setTimeout(check, 1000);
+                    });
+
+                } else {
+
+                }
+
+                if ($('.file-list tbody tr')) {
+                    $('.file-list').show();
+                } else {
+                    $('.file-list').hide();
+                }
+                $('.file-chooser__input').attr('name', '');
+            });
+
+            var checkFile = function (fileName) {
+                var accepted = "invalid",
+                    acceptedFileTypes = this.acceptedFileTypes || settings.acceptedFileTypes,
+                    regex;
+
+                for (var i = 0; i < acceptedFileTypes.length; i++) {
+                    regex = new RegExp("\\." + acceptedFileTypes[i] + "$", "i");
+
+                    if (regex.test(fileName)) {
+                        accepted = "valid";
+                        break;
+                    } else {
+                        accepted = "badFileName";
+                    }
+                }
+
+                return accepted;
+            };
+        };
+    }(jQuery));
+
+    //init
+    $(document).ready(function () {
+        $('.fileUploader').uploader({
+        });
+    });
+
+</script>

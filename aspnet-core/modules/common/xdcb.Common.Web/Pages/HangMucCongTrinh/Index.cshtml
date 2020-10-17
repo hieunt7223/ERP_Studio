@@ -1,0 +1,35 @@
+﻿@page
+@model xdcb.Common.DanhMuc.HangMucCongTrinhs.IndexModel
+@using xdcb.Common.DanhMuc
+@section scripts
+{
+    <abp-script src="/Pages/HangMucCongTrinh/index.js" />
+}
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <h2>@ViewTextConsts.HangMucCongTrinh.Title</h2>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+                <abp-button id="NewHangMucCongTrinh"
+                            text="Thêm mới"
+                            icon="plus"
+                            button-type="Primary" />
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="HangMucCongTrinhTable">
+            <thead>
+                <tr>
+
+                    <th>Mã hạng mục công trình</th>
+                    <th>Tên hạng mục công trình</th>
+                    <th>Ghi chú</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

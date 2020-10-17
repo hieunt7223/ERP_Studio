@@ -1,0 +1,2403 @@
+﻿<XtraSerializer version="1.0" application="TreeList">
+  <property name="#LayoutVersion" />
+  <property name="#LayoutScaleFactor">@1,Width=1@1,Height=1</property>
+  <property name="AutoFillColumn" isnull="true" />
+  <property name="AutoFillFieldName" />
+  <property name="HierarchyColumn" isnull="true" />
+  <property name="HierarchyFieldName" />
+  <property name="TreeViewFieldName" />
+  <property name="TreeViewColumn" isnull="true" />
+  <property name="ViewStyle">Default</property>
+  <property name="ImageIndexFieldName">ImageIndex</property>
+  <property name="KeyFieldName">KeHoachVonId</property>
+  <property name="ParentFieldName">ParentId</property>
+  <property name="ChildListFieldName" />
+  <property name="PreviewFieldName" />
+  <property name="CheckBoxFieldName" />
+  <property name="OptionsView" isnull="true" iskey="true">
+    <property name="AutoWidth">false</property>
+    <property name="ShowColumns">false</property>
+    <property name="ShowSummaryFooter">true</property>
+  </property>
+  <property name="OptionsBehavior" isnull="true" iskey="true">
+    <property name="PopulateServiceColumns">true</property>
+  </property>
+  <property name="BorderStyle">Default</property>
+  <property name="ShowButtonMode">ShowForFocusedCell</property>
+  <property name="IndicatorWidth">-1</property>
+  <property name="PreviewLineCount">1</property>
+  <property name="RowHeight">-1</property>
+  <property name="ColumnPanelRowHeight">-1</property>
+  <property name="BandPanelRowHeight">-1</property>
+  <property name="FooterPanelHeight">-1</property>
+  <property name="HorzScrollVisibility">Always</property>
+  <property name="HorzScrollStep">3</property>
+  <property name="VertScrollVisibility">Auto</property>
+  <property name="CustomizationFormBounds">@1,X=0@1,Y=0@1,Width=0@1,Height=0</property>
+  <property name="Columns" iskey="true" value="32">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">TenDanhMuc</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">TenDanhMuc</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn1</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">0</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString" />
+        <property name="FormatType">None</property>
+      </property>
+      <property name="Width">307</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">TenChuDauTu</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">TenChuDauTu</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn2</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">1</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString" />
+        <property name="FormatType">None</property>
+      </property>
+      <property name="Width">196</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">LuyKeVonTongCong</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">LuyKeVonTongCong</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn3</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">18</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">112</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">Custom</property>
+      <property name="AllNodesSummary">true</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0:n3}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">LuyKeVonNamTruoc</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">LuyKeVonNamTruoc</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn4</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">19</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">89</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">Custom</property>
+      <property name="AllNodesSummary">true</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0:n3}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">KeHoachVonDauNam</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">KeHoachVonDauNam</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn5</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">-1</property>
+      <property name="Visible">false</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">95</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">Custom</property>
+      <property name="AllNodesSummary">true</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0:n3}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">KeHoachVonDauNamDuocDuyet</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">KeHoachVonDauNamDuocDuyet</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn6</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">20</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">124</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">Custom</property>
+      <property name="AllNodesSummary">true</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0:n3}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="Caption">GhiChuSoDauNam</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">GhiChuSoDauNam</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn7</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">-1</property>
+      <property name="Visible">false</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString" />
+        <property name="FormatType">None</property>
+      </property>
+      <property name="Width">221</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item8" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="Caption">GhiChuUyBanDauNam</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">GhiChuUyBanDauNam</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn8</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">-1</property>
+      <property name="Visible">false</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString" />
+        <property name="FormatType">None</property>
+      </property>
+      <property name="Width">201</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item9" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="Caption">GhiChuUyBanDieuChinh</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">GhiChuUyBanDieuChinh</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn9</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">27</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString" />
+        <property name="FormatType">None</property>
+      </property>
+      <property name="Width">128</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item10" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="Caption">GhiChuSoDieuChinh</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">GhiChuSoDieuChinh</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn10</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">26</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString" />
+        <property name="FormatType">None</property>
+      </property>
+      <property name="Width">158</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item11" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">KeHoachVonDieuChinhDuocDuyet</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">KeHoachVonDieuChinhDuocDuyet</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn11</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">25</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">95</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">Custom</property>
+      <property name="AllNodesSummary">true</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0:n3}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item12" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">KeHoachVonDieuChinh</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">KeHoachVonDieuChinh</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn12</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">24</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">110</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">Custom</property>
+      <property name="AllNodesSummary">true</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0:n3}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item13" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">DieuChinhGiam</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">DieuChinhGiam</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn13</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">22</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">93</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">Custom</property>
+      <property name="AllNodesSummary">true</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0:n3}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item14" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">DieuChinhTang</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">DieuChinhTang</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn14</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">23</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">93</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">Custom</property>
+      <property name="AllNodesSummary">true</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0:n3}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item15" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">MaSoDuAn</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">MaSoDuAn</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn15</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">2</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString" />
+        <property name="FormatType">None</property>
+      </property>
+      <property name="Width">88</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item16" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">MaSoChuong</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">MaSoChuong</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn16</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">3</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString" />
+        <property name="FormatType">None</property>
+      </property>
+      <property name="Width">86</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item17" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">MaLoaiKhoan</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">MaLoaiKhoan</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn17</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">4</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString" />
+        <property name="FormatType">None</property>
+      </property>
+      <property name="Width">83</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item18" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">SoQuyetDinh</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">SoQuyetDinh</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn18</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">5</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString" />
+        <property name="FormatType">None</property>
+      </property>
+      <property name="Width">91</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item19" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">TongMucDauTu</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">TongMucDauTu</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn19</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">6</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">105</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item20" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">MucDauTuNSTW</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">MucDauTuNSTW</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn20</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">7</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">79</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item21" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">TrungHanGiaiDoanTongCong</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">TrungHanGiaiDoanTongCong</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn21</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">8</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">115</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item22" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">TrungHanGiaiDoanNSTW</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">TrungHanGiaiDoanNSTW</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn22</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">9</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">113</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item23" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">TrungHanNamTongCong</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">TrungHanNamTongCong</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn23</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">10</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">108</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item24" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">TrungHanNamNSTW</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">TrungHanNamNSTW</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn24</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">11</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">107</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item25" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">KeHoachNamTruocTongCong</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">KeHoachNamTruocTongCong</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn25</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">12</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">62</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item26" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">KeHoachNamTruocNSTW</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">KeHoachNamTruocNSTW</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn26</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">13</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">62</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item27" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">GiaiNganNamTruocTongCong</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">GiaiNganNamTruocTongCong</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn27</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">14</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">60</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item28" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">GiaiNganNamTruocNSTW</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">GiaiNganNamTruocNSTW</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn28</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">15</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">60</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item29" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">TyLeGiaiNganNamTruocTongCong</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">TyLeGiaiNganNamTruocTongCong</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn29</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">16</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">75</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item30" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">TyLeGiaiNganNamTruocNSTW</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">TyLeGiaiNganNamTruocNSTW</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn30</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">17</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">75</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item31" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">NhuCauKeHoachVonDauNam</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">NhuCauKeHoachVonDauNam</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn31</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">-1</property>
+      <property name="Visible">false</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">104</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+    <property name="Item32" isnull="true" iskey="true">
+      <property name="ImageIndex">-1</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">NhuCauKeHoachVonDieuChinh</property>
+      <property name="ToolTip" />
+      <property name="CustomizationCaption" />
+      <property name="FieldName">NhuCauKeHoachVonDieuChinh</property>
+      <property name="FieldNameSort" />
+      <property name="Name">TreeListColumn32</property>
+      <property name="AllowIncrementalSearch">true</property>
+      <property name="Fixed">None</property>
+      <property name="ColumnEditName" />
+      <property name="ShowButtonMode">Default</property>
+      <property name="VisibleIndex">21</property>
+      <property name="Visible">true</property>
+      <property name="SortOrder">None</property>
+      <property name="SortIndex">-1</property>
+      <property name="SortMode">Default</property>
+      <property name="FilterMode">Value</property>
+      <property name="ShowUnboundExpressionMenu">false</property>
+      <property name="Format" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="Width">97</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="MaxWidth">0</property>
+      <property name="RowFooterSummary">None</property>
+      <property name="SummaryFooter">None</property>
+      <property name="AllNodesSummary">false</property>
+      <property name="RowFooterSummaryStrFormat">{0}</property>
+      <property name="SummaryFooterStrFormat">{0}</property>
+      <property name="Tag" isnull="true" />
+      <property name="UnboundType">Bound</property>
+      <property name="UnboundExpression" />
+      <property name="RowIndex">0</property>
+      <property name="RowCount">1</property>
+    </property>
+  </property>
+  <property name="MinWidth">20</property>
+  <property name="Caption" />
+  <property name="CaptionHeight">-1</property>
+  <property name="EnableDynamicLoading">true</property>
+  <property name="TreeLevelWidth">18</property>
+  <property name="FixedLineWidth">2</property>
+  <property name="NewItemRowText" />
+  <property name="ActiveFilterEnabled">true</property>
+  <property name="FindPanelVisible">false</property>
+  <property name="FindFilterText" />
+  <property name="Bands" iskey="true" value="15">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="0" />
+      <property name="Columns" iskey="true" value="1">
+        <property name="Item1">TreeListColumn1</property>
+      </property>
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Danh mục chương trình/ dự án</property>
+      <property name="Name">treeListBand1</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">307</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="0" />
+      <property name="Columns" iskey="true" value="1">
+        <property name="Item1">TreeListColumn2</property>
+      </property>
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Tên chủ đầu tư</property>
+      <property name="Name">treeListBand3</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">196</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="0" />
+      <property name="Columns" iskey="true" value="1">
+        <property name="Item1">TreeListColumn15</property>
+      </property>
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Mã số dự án</property>
+      <property name="Name">treeListBand2</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">88</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="0" />
+      <property name="Columns" iskey="true" value="1">
+        <property name="Item1">TreeListColumn16</property>
+      </property>
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Mã số chương</property>
+      <property name="Name">treeListBand9</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">86</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="0" />
+      <property name="Columns" iskey="true" value="1">
+        <property name="Item1">TreeListColumn17</property>
+      </property>
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Mã loại-khoản</property>
+      <property name="Name">treeListBand8</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">83</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="2">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="0" />
+          <property name="Columns" iskey="true" value="1">
+            <property name="Item1">TreeListColumn18</property>
+          </property>
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Số QĐ, Ngày tháng năm</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">treeListBand11</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">91</property>
+          <property name="RowCount">1</property>
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="2">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn19</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Tổng số</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand13</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">105</property>
+              <property name="RowCount">1</property>
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn20</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Trong đó: NSTW</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand14</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">79</property>
+              <property name="RowCount">1</property>
+            </property>
+          </property>
+          <property name="Columns" iskey="true" value="0" />
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Tổng mức đầu tư</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">treeListBand12</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">184</property>
+          <property name="RowCount">1</property>
+        </property>
+      </property>
+      <property name="Columns" iskey="true" value="0" />
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Quyết định đầu tư ban đầu, điều chỉnh đã được giao kế hoạch vốn</property>
+      <property name="Name">treeListBand6</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">275</property>
+      <property name="RowCount">2</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="2">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="2">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn21</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Tổng số</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand21</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">115</property>
+              <property name="RowCount">1</property>
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn22</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Trong đó: NSTW</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand22</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">113</property>
+              <property name="RowCount">1</property>
+            </property>
+          </property>
+          <property name="Columns" iskey="true" value="0" />
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Kế hoạch trung hạn giao đoạn đã được giao</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">treeListBand17</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">228</property>
+          <property name="RowCount">1</property>
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="2">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn23</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Tổng số</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand23</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">108</property>
+              <property name="RowCount">1</property>
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn24</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Trong đó: NSTW</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand24</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">107</property>
+              <property name="RowCount">1</property>
+            </property>
+          </property>
+          <property name="Columns" iskey="true" value="0" />
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">kế hoạch trung hạn giao đoạn đã giao năm</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">treeListBand18</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">215</property>
+          <property name="RowCount">1</property>
+        </property>
+      </property>
+      <property name="Columns" iskey="true" value="0" />
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Kế hoạch trung hạn giai đoạn đã được giao</property>
+      <property name="Name">treeListBand16</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">443</property>
+    </property>
+    <property name="Item8" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="3">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="2">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn25</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Tổng số</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand29</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">62</property>
+              <property name="RowCount">1</property>
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn26</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Trong đó: NSTW</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand30</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">62</property>
+              <property name="RowCount">1</property>
+            </property>
+          </property>
+          <property name="Columns" iskey="true" value="0" />
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Kế hoạch</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">treeListBand26</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">124</property>
+          <property name="RowCount">1</property>
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="2">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn27</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Tổng số</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand31</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">60</property>
+              <property name="RowCount">1</property>
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn28</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Trong đó: NSTW</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand32</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">60</property>
+              <property name="RowCount">1</property>
+            </property>
+          </property>
+          <property name="Columns" iskey="true" value="0" />
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Giải ngân</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">treeListBand27</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">120</property>
+          <property name="RowCount">1</property>
+        </property>
+        <property name="Item3" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="2">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn29</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Tổng số</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand33</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">75</property>
+              <property name="RowCount">1</property>
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn30</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Trong đó: NSTW</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand34</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">75</property>
+              <property name="RowCount">1</property>
+            </property>
+          </property>
+          <property name="Columns" iskey="true" value="0" />
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Tỷ lệ giải ngân</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">treeListBand28</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">150</property>
+          <property name="RowCount">1</property>
+        </property>
+      </property>
+      <property name="Columns" iskey="true" value="0" />
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Kế hoạch vốn năm </property>
+      <property name="Name">Band_KeHoachNamTruoc</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">394</property>
+    </property>
+    <property name="Item9" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="2">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="0" />
+          <property name="Columns" iskey="true" value="1">
+            <property name="Item1">TreeListColumn3</property>
+          </property>
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Tổng số</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">treeListBand7</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">112</property>
+          <property name="RowCount">1</property>
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="0" />
+          <property name="Columns" iskey="true" value="1">
+            <property name="Item1">TreeListColumn4</property>
+          </property>
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Trong đó: năm trước</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">Band_LuyKeNam</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">89</property>
+          <property name="RowCount">1</property>
+        </property>
+      </property>
+      <property name="Columns" iskey="true" value="0" />
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Lũy kế bố trí vốn năm trước</property>
+      <property name="Name">Band_LuyKe</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">201</property>
+      <property name="RowCount">2</property>
+    </property>
+    <property name="Item10" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="0" />
+          <property name="Columns" iskey="true" value="1">
+            <property name="Item1">TreeListColumn6</property>
+          </property>
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Tổng số</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">treeListBand15</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">124</property>
+          <property name="RowCount">1</property>
+        </property>
+      </property>
+      <property name="Columns" iskey="true" value="0" />
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Kế hoạch năm nay đã giao</property>
+      <property name="Name">Band_KeHoachVonDauNam</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">124</property>
+      <property name="RowCount">2</property>
+    </property>
+    <property name="Item11" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="0" />
+      <property name="Columns" iskey="true" value="2">
+        <property name="Item1">TreeListColumn32</property>
+        <property name="Item2">TreeListColumn31</property>
+      </property>
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Nhu cầu kế hoạch vốn điều chỉnh năm </property>
+      <property name="Name">Band_NhuCauVon</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">97</property>
+    </property>
+    <property name="Item12" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="3">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="1">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="2">
+                <property name="Item1">TreeListColumn13</property>
+                <property name="Item2">TreeListColumn5</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">NoWrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Tổng số</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand25</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">93</property>
+              <property name="RowCount">1</property>
+            </property>
+          </property>
+          <property name="Columns" iskey="true" value="0" />
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Điều chỉnh giảm</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">Band_DieuChinhGiam</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">93</property>
+          <property name="RowCount">1</property>
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="1">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn14</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Tổng số</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand35</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">93</property>
+              <property name="RowCount">1</property>
+            </property>
+          </property>
+          <property name="Columns" iskey="true" value="0" />
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Điều chỉnh tăng</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">Band_DieuChinhTang</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">93</property>
+          <property name="RowCount">1</property>
+        </property>
+        <property name="Item3" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="1">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="Bands" iskey="true" value="0" />
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">TreeListColumn12</property>
+              </property>
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="Caption">Tổng số</property>
+              <property name="ToolTip" />
+              <property name="CustomizationCaption" />
+              <property name="Name">treeListBand4</property>
+              <property name="Visible">true</property>
+              <property name="SeparatorWidth">0</property>
+              <property name="MinWidth">20</property>
+              <property name="Fixed">None</property>
+              <property name="Width">110</property>
+              <property name="RowCount">1</property>
+            </property>
+          </property>
+          <property name="Columns" iskey="true" value="0" />
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Kế hoạch vốn năm </property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">Band_KeHoachVonDieuChinh</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">110</property>
+          <property name="RowCount">1</property>
+        </property>
+      </property>
+      <property name="Columns" iskey="true" value="0" />
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Đề xuất điều chỉnh kế hoạch vốn năm </property>
+      <property name="Name">Band_DeXuat</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">296</property>
+    </property>
+    <property name="Item13" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Bands" iskey="true" value="0" />
+          <property name="Columns" iskey="true" value="1">
+            <property name="Item1">TreeListColumn11</property>
+          </property>
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="Caption">Tổng số</property>
+          <property name="ToolTip" />
+          <property name="CustomizationCaption" />
+          <property name="Name">treeListBand5</property>
+          <property name="Visible">true</property>
+          <property name="SeparatorWidth">0</property>
+          <property name="MinWidth">20</property>
+          <property name="Fixed">None</property>
+          <property name="Width">95</property>
+          <property name="RowCount">1</property>
+        </property>
+      </property>
+      <property name="Columns" iskey="true" value="0" />
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Kế hoạch vốn điều chỉnh năm nay theo quyết định của UB</property>
+      <property name="Name">Band_KeHoachVonDieuChinhDuocDuyet</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">95</property>
+    </property>
+    <property name="Item14" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="0" />
+      <property name="Columns" iskey="true" value="2">
+        <property name="Item1">TreeListColumn10</property>
+        <property name="Item2">TreeListColumn7</property>
+      </property>
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Ghi chú Sở</property>
+      <property name="Name">treeListBand19</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">158</property>
+      <property name="RowCount">5</property>
+    </property>
+    <property name="Item15" isnull="true" iskey="true">
+      <property name="Bands" iskey="true" value="0" />
+      <property name="Columns" iskey="true" value="2">
+        <property name="Item1">TreeListColumn9</property>
+        <property name="Item2">TreeListColumn8</property>
+      </property>
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Caption">Ghi chú Ủy Ban</property>
+      <property name="Name">treeListBand20</property>
+      <property name="SeparatorWidth">0</property>
+      <property name="MinWidth">20</property>
+      <property name="Width">128</property>
+    </property>
+  </property>
+  <property name="FormatConditions" iskey="true" value="0" />
+  <property name="ActiveFilterString" />
+  <property name="FormatRules" iskey="true" value="0" />
+</XtraSerializer>

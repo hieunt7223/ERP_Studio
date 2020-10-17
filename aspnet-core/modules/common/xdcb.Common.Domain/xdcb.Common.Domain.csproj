@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\xdcb.Common.Application.Contracts\xdcb.Common.Application.Contracts.csproj" />
+    <ProjectReference Include="..\xdcb.Common.Domain.Shared\xdcb.Common.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Ddd.Domain" Version="3.0.3" />
+  </ItemGroup>
+
+</Project>

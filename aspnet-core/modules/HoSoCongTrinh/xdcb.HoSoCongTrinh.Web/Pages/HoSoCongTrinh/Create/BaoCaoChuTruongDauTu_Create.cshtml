@@ -1,0 +1,189 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using xdcb.HoSoCongTrinh.Extensions
+@using xdcb.HoSoCongTrinh.Enums
+@model xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietViewModel
+@inject xdcb.Common.DanhMuc.ChuDauTus.IChuDauTuAppService chuDauTuService
+
+@{
+    var chuDauTus = await chuDauTuService.GetChuDauTuListAsync();
+    var hinhThucThamDinhs = EnumHelperExtensions.GetEnumDictionary<HinhThucThamDinhEnum>();
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <label for="DonViChuTriThamDinh">Đơn vị chủ trì thẩm định</label><br />
+            <select name="DonViChuTriThamDinh" class="custom-select form-control" id="donViChuTriThamDinh">
+                <option value="" disabled selected hidden>Chọn trường này</option>
+                @foreach (var item in chuDauTus)
+                {
+                    <option value="@item.Id">@item.Ten</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label>Đơn vị phối hợp thẩm định</label><br />
+            @(Html.DevExtreme().TagBox()
+                .ID("donViPhoiHopThamDinh")
+                .DataSource(chuDauTus)
+                .DisplayExpr("Ten")
+                .ValueExpr("Id")
+                .Placeholder("Chọn trường này")
+            )
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="HinhThucThamDinh">Hình thức thẩm định</label><br />
+            <select name="HinhThucThamDinh" class="custom-select form-control" id="hinhThucThamDinh">
+                @foreach (var item in hinhThucThamDinhs)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <label for="CQDChuTrươngDauTu">Cấp quyết định chủ trương đầu tư dự án</label><br />
+            <select name="CQDChuTrươngDauTu" class="custom-select form-control" id="cqdChuTrươngDauTu">
+                <option value="" disabled selected hidden>Chọn trường này</option>
+                @foreach (var item in chuDauTus)
+                {
+                    <option value="@item.Id">@item.Ten</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="CQDDauTu">Cấp quyết định đầu tư</label><br />
+            <select name="CQDDauTu" class="custom-select form-control" id="cqdDauTu">
+                <option value="" disabled selected hidden>Chọn trường này</option>
+                @foreach (var item in chuDauTus)
+                {
+                    <option value="@item.Id">@item.Ten</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h6>TỔNG HỢP Ý KIẾN THẨM ĐỊNH CỦA ĐƠN VỊ PHỐI HỢP</h6>
+        @(Html.DevExtreme().HtmlEditor()
+            .ID("yKienCuaDonViPhoiHop")
+            .Height(300)
+            .ValueType(HtmlEditorValueType.Markdown)
+            .OnValueChanged("getValueYKienCuaDonViPhoiHop")
+            .Toolbar(toolbar => toolbar.Items(
+                items => {
+                    items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+
+                    items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+
+                    items.Add().FormatName(HtmlEditorToolbarItem.Separator);
+
+                    items.Add().FormatName(HtmlEditorToolbarItem.OrderedList);
+
+                    items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                })
+            )
+            .MediaResizing(m => m.Enabled(true))
+        )
+    </div>
+</div>
+
+<h6 class="mt-3">Ý KIẾN THẨM ĐỊNH CỦA CƠ QUAN THẨM ĐỊNH</h6>
+<div class="row pl-4">
+    <div class="col-12">
+        <div class="form-group">
+            <label for="SuCanThiet">Sự cần thiết đầu tư</label>
+            <textarea id="suCanThiet" name="SuCanThiet" rows="4" class="form-control" placeholder="Nhập trường này"></textarea>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="SuTuanThu">Sự tuân thủ các quy định của pháp luật trong nội dung hồ sơ trình thẩm định</label>
+            <textarea id="suTuanThu" name="SuTuanThu" rows="4" class="form-control" placeholder="Nhập trường này"></textarea>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="SuPhuHopMucTieu">Sự phù hợp với các mục tiêu chiến lược</label>
+            <textarea id="suPhuHopMucTieu" name="SuPhuHopMucTieu" rows="4" class="form-control" placeholder="Nhập trường này"></textarea>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="SuPhuHopTieuChi">Sự phù hợp với tiêu chí phân loại dự án nhóm A, nhóm B và nhóm C</label>
+            <textarea id="suPhuHopTieuChi" name="SuPhuHopTieuChi" rows="4" class="form-control" placeholder="Nhập trường này"></textarea>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <h6>Các nội dung đầu tư</h6>
+            @(Html.DevExtreme().HtmlEditor()
+                .ID("noiDungDauTu")
+                .Height(300)
+                .ValueType(HtmlEditorValueType.Markdown)
+                .OnValueChanged("getValueNoiDungDauTu")
+                .Toolbar(toolbar => toolbar.Items(
+                    items =>
+                    {
+                        items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.Separator);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.OrderedList);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                    })
+                )
+                .MediaResizing(m => m.Enabled(true))
+            )
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="YKienDonViThamDinh">@(Model.TenViewLoaiHoSo == "ThamDinhDieuChinhChuTruongDauTu" ? "Kiến nghị của đơn vị thẩm định" : "Ý kiến của đơn vị thẩm định")</label>
+            <textarea id="yKienDonViThamDinh" name="YKienDonViThamDinh" rows="4" class="form-control" placeholder="Nhập trường này"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <h6>NỘI DUNG TRÌNH VÀ KIẾN NGHỊ</h6>
+            @(Html.DevExtreme().HtmlEditor()
+                .ID("noiDungThamMuu")
+                .Height(300)
+                .ValueType(HtmlEditorValueType.Markdown)
+                .OnValueChanged("getValueNoiDungThamMuu")
+                .Toolbar(toolbar => toolbar.Items(
+                    items => {
+                        items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.Separator);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.OrderedList);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                    })
+                )
+                .MediaResizing(m => m.Enabled(true))
+            )
+        </div>
+    </div>
+</div>

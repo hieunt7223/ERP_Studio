@@ -1,0 +1,490 @@
+﻿@using DevExtreme.AspNet.Mvc
+@model xdcb.HoSoCongTrinhs.CreateView.IndexModel
+@inject xdcb.Common.DanhMuc.HinhThucChonNhaThaus.IHinhThucChonNhaThauAppService _hinhThucChonNhaThauService
+@inject xdcb.Common.DanhMuc.PhuongThucDauThaus.IPhuongThucDauThauAppService _phuongThucDauThauService
+@inject xdcb.Common.DanhMuc.HinhThucHopDongs.IHinhThucHopDongAppService _hinhThucHopDongService
+@inject xdcb.Common.DanhMuc.ChuDauTus.IChuDauTuAppService _chuDauTuService
+
+@{
+    var filter = new Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto
+    {
+        MaxResultCount = 1000,
+        SkipCount = 0
+    };
+
+    var hinhThucChonNhaThau = await _hinhThucChonNhaThauService.GetListAsync(filter);
+    var phuongThucDauThau = await _phuongThucDauThauService.GetListAsync(filter);
+    var hinhThucHopDong = await _hinhThucHopDongService.GetListAsync(filter);
+    var chuDauTus = await _chuDauTuService.GetChuDauTuListAsync() ?? new List<xdcb.Common.DanhMuc.ChuDauTuDtos.ChuDauTuDto>();
+}
+
+<div class="row pt-2">
+    <div class="col-6">
+        <h6>Tổng hợp kết quả thẩm định về căn cứ pháp lý</h6>
+    </div>
+    <div class="text-right col-6 mb-2">
+        <button class="btn btn-add-general" type="button" data-busy-text="Processing..." onclick="addRowKetQuaThamDinhPhapLy()">
+            <i class="fa fa-plus"></i> <span>Thêm mới</span>
+        </button>
+    </div>
+    <div class="col-12">
+        @(Html.DevExtreme().DataGrid<xdcb.HoSoCongTrinh.Dtos.KetQuaThamDinhPhapLyDto>()
+            .ID("ketquathamdinhphaply-table")
+            .NoDataText("Không có dữ liệu")
+            .ShowBorders(true)
+            .WordWrapEnabled(true)
+            .Editing(editing =>
+            {
+                editing.Mode(GridEditMode.Row);
+                editing.AllowUpdating(true).UseIcons(true);
+                editing.AllowAdding(false);
+                editing.AllowDeleting(true).UseIcons(true).ConfirmDelete(false);
+            })
+            .Columns(
+                columns => {
+                    columns.Add().Caption("#").Width(60)
+                        .Alignment(HorizontalAlignment.Left)
+                        .AllowEditing(false)
+                        .CellTemplate(new JS("orderRowItemNo"));
+
+                    columns.AddFor(m => m.TenNoiDungKiemTra)
+                        .Lookup(lookup => lookup
+                            .DataSource("getKetQuaThamDinh")
+                            );
+
+                    columns.AddFor(m => m.IsKetQuaThamDinh);
+                })
+            .DataSource(@Model.KetQuaThamDinhPhapLys)
+            .Paging(paging => paging.Enabled(false))
+            .OnContentReady("getDataKetQuaThamDinh")
+            .OnEditingStart("onEditingStartKetQuaThamDinh")
+            .OnEditorPreparing("onEditorPreparingKetQuaThamDinh")
+        )
+    </div>
+</div>
+
+<div class="row pt-2">
+    <div class="col-12">
+        <div class="form-group">
+            <label for="YKienThamDinhPhapLy">Ý kiến thẩm định về căn cứ pháp lý</label>
+            <textarea id="yKienThamDinhPhapLy" name="YKienThamDinhPhapLy" rows="4" class="form-control" placeholder="Nhập trường này"></textarea>
+        </div>
+    </div>
+</div>
+
+<h6>Ý KIẾN THẨM ĐỊNH CỦA CƠ QUAN THẨM ĐỊNH</h6>
+<div class="row pl-4 pr-2">
+    <div class="row pt-2">
+        <div class="col-sm-6">
+            <h6>Phần công việc đã thực hiện</h6>
+        </div>
+        <div class="text-right col-6 mb-2">
+            <button class="btn btn-add-general" type="button" data-busy-text="Processing..." onclick="addRowCongViecThucHien()">
+                <i class="fa fa-plus"></i> <span>Thêm mới</span>
+            </button>
+        </div>
+        <div class="col-12">
+            @(Html.DevExtreme().DataGrid<xdcb.HoSoCongTrinh.Dtos.CongViecThucHienDto>()
+                .ID("congviecthuchien-table")
+                .NoDataText("Không có dữ liệu")
+                .ShowBorders(true)
+                .WordWrapEnabled(true)
+                .Editing(editing =>
+                {
+                    editing.Mode(GridEditMode.Row);
+                    editing.AllowUpdating(true).UseIcons(true);
+                    editing.AllowAdding(false);
+                    editing.AllowDeleting(true).UseIcons(true).ConfirmDelete(false);
+                })
+                .Columns(
+                    columns => {
+                        columns.Add().Caption("#").Width(60)
+                            .Alignment(HorizontalAlignment.Left)
+                            .AllowEditing(false)
+                            .CellTemplate(new JS("orderRowItemNo"));
+
+                        columns.AddFor(m => m.CongViecGoiThauId)
+                            .Lookup(lookup => lookup
+                            .DataSource("getCongViecThucHien")
+                            .ValueExpr("id")
+                            .DisplayExpr("tenGoiThau"));
+
+                        columns.AddFor(m => m.DonViThucHien);
+
+                        columns.AddFor(m => m.GiaTriThucHien)
+                            .Alignment(HorizontalAlignment.Left)
+                            .DataType(GridColumnDataType.Number)
+                            .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                            .EditorOptions(new { format = "#,###.##", showClearButton = true });
+                    })
+                .Summary(s => s.TotalItems(items =>
+                    {
+                        items.Add()
+                        .Name("TongGiaTriThucHien")
+                        .ShowInColumn("DonViThucHien")
+                        .SummaryType(SummaryType.Custom)
+                        .Alignment(HorizontalAlignment.Left);
+
+                        items.Add()
+                            .Name("GiaTriThucHienRowsSummary")
+                            .ShowInColumn("GiaTriThucHien")
+                            .SummaryType(SummaryType.Custom)
+                            .ValueFormat(f => f.Type(Format.FixedPoint).Precision(2))
+                            .Alignment(HorizontalAlignment.Left);
+                    })
+                    .CalculateCustomSummary(@<text>
+                        function (options) {
+                            if (options.name === "GiaTriThucHienRowsSummary") {
+                                if (options.summaryProcess === "start") {
+                                    options.totalValue = 0;
+                                }
+                                if (options.summaryProcess === "calculate") {
+                                    options.totalValue = options.totalValue + options.value.GiaTriThucHien;
+                                }
+                            }
+                            else {
+                                options.totalValue = "Tổng giá trị thực hiện";
+                            }
+                        }
+                    </text>)
+                    )
+                .DataSource(@Model.CongViecThucHiens)
+                .Paging(paging => paging.Enabled(false))
+                .OnContentReady("getDataCongViecThucHien")
+                .OnEditingStart("onEditingStartCongViecThucHien")
+                .OnEditorPreparing("onEditorPreparingCongViecThucHien")
+            )
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-6">
+            <h6>Phần công việc không áp dụng được một trong các hình thức lựa chọn nhà thầu</h6>
+        </div>
+        <div class="text-right col-6 mb-2">
+            <button class="btn btn-add-general" type="button" data-busy-text="Processing..." onclick="addRowCongViecKhongApDung()">
+                <i class="fa fa-plus"></i> <span>Thêm mới</span>
+            </button>
+        </div>
+        <div class="col-12">
+            @(Html.DevExtreme().DataGrid<xdcb.HoSoCongTrinh.Dtos.CongViecKhongApDungDto>()
+                .ID("congvieckhongapdung-table")
+                .NoDataText("Không có dữ liệu")
+                .ShowBorders(true)
+                .WordWrapEnabled(true)
+                .Editing(editing =>
+                {
+                    editing.Mode(GridEditMode.Row);
+                    editing.AllowUpdating(true).UseIcons(true);
+                    editing.AllowAdding(false);
+                    editing.AllowDeleting(true).UseIcons(true).ConfirmDelete(false);
+                })
+                .Columns(
+                    columns => {
+                        columns.Add().Caption("#").Width(60)
+                            .Alignment(HorizontalAlignment.Left)
+                            .AllowEditing(false)
+                            .CellTemplate(new JS("orderRowItemNo"));
+
+                        columns.AddFor(m => m.CongViecGoiThauId)
+                            .Lookup(lookup => lookup
+                            .DataSource("getCongViecKhongApDung")
+                            .ValueExpr("id")
+                            .DisplayExpr("tenGoiThau"));
+
+                        columns.AddFor(m => m.DonViThucHienId)
+                            .Lookup(lookup => lookup
+                            .DataSource(chuDauTus)
+                            .ValueExpr("Id")
+                            .DisplayExpr("Ten"));
+
+                        columns.AddFor(m => m.GiaTriThucHien)
+                            .Alignment(HorizontalAlignment.Left)
+                            .DataType(GridColumnDataType.Number)
+                            .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                            .EditorOptions(new { format = "#,###.##", showClearButton = true });
+                    })
+                .Summary(s => s.TotalItems(items =>
+                    {
+                        items.Add()
+                        .Name("TongGiaTriThucHien")
+                        .ShowInColumn("DonViThucHienId")
+                        .SummaryType(SummaryType.Custom)
+                        .Alignment(HorizontalAlignment.Left);
+
+                        items.Add()
+                            .Name("GiaTriThucHienRowsSummary")
+                            .ShowInColumn("GiaTriThucHien")
+                            .SummaryType(SummaryType.Custom)
+                            .ValueFormat(f => f.Type(Format.FixedPoint).Precision(2))
+                            .Alignment(HorizontalAlignment.Left);
+                    })
+                    .CalculateCustomSummary(@<text>
+                        function (options) {
+                            if (options.name === "GiaTriThucHienRowsSummary") {
+                                if (options.summaryProcess === "start") {
+                                    options.totalValue = 0;
+                                }
+                                if (options.summaryProcess === "calculate") {
+                                    options.totalValue = options.totalValue + options.value.GiaTriThucHien;
+                                }
+                            }
+                            else {
+                                options.totalValue = "Tổng giá trị thực hiện";
+                            }
+                        }
+                    </text>)
+                    )
+                .DataSource(@Model.CongViecKhongApDungs)
+                .Paging(paging => paging.Enabled(false))
+                .OnContentReady("getDataCongViecKhongApDung")
+                .OnEditingStart("onEditingStartCongViecKhongApDung")
+                .OnEditorPreparing("onEditorPreparingCongViecKhongApDung")
+            )
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-6">
+            <h6>Phần công việc thuộc kế hoạch lựa chọn nhà thầu</h6>
+        </div>
+        <div class="text-right col-6 mb-2">
+            <button class="btn btn-add-general" type="button" data-busy-text="Processing..." onclick="addRowCongViecThuocKeHoach()">
+                <i class="fa fa-plus"></i> <span>Thêm mới</span>
+            </button>
+        </div>
+        <div class="col-12">
+            @(Html.DevExtreme().DataGrid<xdcb.HoSoCongTrinh.Dtos.CongViecThuocKeHoachDto>()
+                .ID("congviecthuockehoach-table")
+                .NoDataText("Không có dữ liệu")
+                .ShowBorders(true)
+                .WordWrapEnabled(true)
+                .Editing(editing =>
+                {
+                    editing.Mode(GridEditMode.Row);
+                    editing.AllowUpdating(true).UseIcons(true);
+                    editing.AllowAdding(false);
+                    editing.AllowDeleting(true).UseIcons(true).ConfirmDelete(false);
+                })
+                .Columns(
+                    columns => {
+                        columns.Add().Caption("#").Width(60)
+                            .Alignment(HorizontalAlignment.Left)
+                            .AllowEditing(false)
+                            .CellTemplate(new JS("orderRowItemNo"));
+
+                        columns.AddFor(m => m.CongViecGoiThauId)
+                            .Lookup(lookup => lookup
+                            .DataSource("getCongViecThuocKeHoach")
+                            .ValueExpr("id")
+                            .DisplayExpr("tenGoiThau"));
+
+                        columns.AddFor(m => m.IsTuanThuPhuHop);
+                    })
+                .DataSource(@Model.CongViecThuocKeHoachs)
+                .Paging(paging => paging.Enabled(false))
+                .OnContentReady("getDataCongViecThuocKeHoach")
+                .OnEditingStart("onEditingStartCongViecThuocKeHoach")
+                .OnEditorPreparing("onEditorPreparingCongViecThuocKeHoach")
+            )
+        </div>
+    </div>
+
+    <div class="row pt-2">
+        <div class="col-6">
+            <h6>Phần công việc chưa đủ điều kiện lập kế hoạch lựa chọn nhà thầu</h6>
+        </div>
+        <div class="text-right col-6 mb-2">
+            <button class="btn btn-add-general" type="button" data-busy-text="Processing..." onclick="addRowCongViecChuaDuDieuKienLapKeHoach()">
+                <i class="fa fa-plus"></i> <span>Thêm mới</span>
+            </button>
+        </div>
+        <div class="col-12">
+            @(Html.DevExtreme().DataGrid<xdcb.HoSoCongTrinh.Dtos.CongViecChuaDuDieuKienLapKeHoachDto>()
+                .ID("congviecchuadudieukienlapkehoach-table")
+                .NoDataText("Không có dữ liệu")
+                .ShowBorders(true)
+                .WordWrapEnabled(true)
+                .Editing(editing =>
+                {
+                    editing.Mode(GridEditMode.Row);
+                    editing.AllowUpdating(true).UseIcons(true);
+                    editing.AllowAdding(false);
+                    editing.AllowDeleting(true).UseIcons(true).ConfirmDelete(false);
+                })
+                .Columns(
+                    columns => {
+                        columns.Add().Caption("#").Width(60)
+                            .Alignment(HorizontalAlignment.Left)
+                            .AllowEditing(false)
+                            .CellTemplate(new JS("orderRowItemNo"));
+
+                        columns.AddFor(m => m.CongViecGoiThauId)
+                            .Lookup(lookup => lookup
+                            .DataSource("getCongViecChuaDuDieuKienLapKeHoach")
+                            .ValueExpr("id")
+                            .DisplayExpr("tenGoiThau"));
+
+                        columns.AddFor(m => m.GiaTri)
+                            .Alignment(HorizontalAlignment.Left)
+                            .DataType(GridColumnDataType.Number)
+                            .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                            .EditorOptions(new { format = "#,###.##", showClearButton = true });
+                    })
+                .Summary(s => s.TotalItems(items =>
+                    {
+                        items.Add()
+                        .Name("TongGiaTri")
+                        .ShowInColumn("CongViecGoiThauId")
+                        .SummaryType(SummaryType.Custom)
+                        .Alignment(HorizontalAlignment.Left);
+
+                        items.Add()
+                            .Name("GiaTriRowsSummary")
+                            .ShowInColumn("GiaTri")
+                            .SummaryType(SummaryType.Custom)
+                            .ValueFormat(f => f.Type(Format.FixedPoint).Precision(2))
+                            .Alignment(HorizontalAlignment.Left);
+                    })
+                    .CalculateCustomSummary(@<text>
+                        function (options) {
+                            if (options.name === "GiaTriRowsSummary") {
+                                if (options.summaryProcess === "start") {
+                                    options.totalValue = 0;
+                                }
+                                if (options.summaryProcess === "calculate") {
+                                    options.totalValue = options.totalValue + options.value.GiaTri;
+                                }
+                            }
+                            else {
+                                options.totalValue = "Tổng giá trị các phần công việc";
+                            }
+                        }
+                    </text>)
+                    )
+                .DataSource(@Model.CongViecChuaDuDieuKienLapKeHoachs)
+                .Paging(paging => paging.Enabled(false))
+                .OnContentReady("getDataCongViecChuaDuDieuKienLapKeHoach")
+                .OnEditingStart("onEditingStartCongViecChuaDuDieuKienLapKeHoach")
+                .OnEditorPreparing("onEditorPreparingCongViecChuaDuDieuKienLapKeHoach")
+            )
+        </div>
+    </div>
+
+    <div class="col-12 pt-2">
+        <div class="form-group">
+            <label for="YKienThamDinhNoiDungKeHoach">Ý kiến thẩm định về nội dung kế hoạch lựa chọn nhà thầu</label>
+            <textarea id="yKienThamDinhNoiDungKeHoach" name="YKienThamDinhNoiDungKeHoach" rows="4" class="form-control" placeholder="Nhập trường này"></textarea>
+        </div>
+    </div>
+    <div class="col-12 pl-0 pr-0">
+        <div class="form-group">
+            <label for="YKienThamDinhTongGiaTriCongViec">Ý kiến thẩm định về tổng giá trị của các phần công việc</label>
+            <textarea id="yKienThamDinhTongGiaTriCongViec" name="YKienThamDinhTongGiaTriCongViec" rows="4" class="form-control" placeholder="Nhập trường này"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <h6>KIẾN NGHỊ</h6>
+    </div>
+    <div class="text-right col-6 mb-2">
+        <button class="btn btn-add-general" type="button" data-busy-text="Processing..." onclick="addRowGoiThauThamDinh()">
+            <i class="fa fa-plus"></i> <span>Thêm mới</span>
+        </button>
+    </div>
+    <div class="col-12">
+        @(Html.DevExtreme().TreeList<xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietGoiThauDto>()
+        .ID("goithauthamdinh-treelist")
+        .NoDataText("Không có dữ liệu")
+        .DataSource(@Model.GoiThaus, "GoiThauId")
+        .KeyExpr("GoiThauId")
+        .ParentIdExpr("GoiThauParentId")
+        .RootValue(Guid.Empty)
+        .AutoExpandAll(true)
+        .ColumnAutoWidth(true)
+        .WordWrapEnabled(true)
+        .ShowBorders(true)
+        .Editing(editing => editing
+            .Mode(GridEditMode.Row)
+            .AllowAdding(true)
+            .AllowUpdating(true)
+            .AllowDeleting(true).ConfirmDelete(false)
+            .UseIcons(true)
+        )
+        .Columns(columns => {
+            columns.AddFor(m => m.GoiThauId)
+                .Lookup(lookup => lookup
+                    .DataSource("getGoiThauThamDinh")
+                    .ValueExpr("id")
+                    .DisplayExpr("tenGoiThau")
+                );
+
+            columns.AddFor(m => m.GiaGoiThau)
+                .Alignment(HorizontalAlignment.Left)
+                .DataType(GridColumnDataType.Number)
+                .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                .EditorOptions(new { format = "#,###.##", showClearButton = true });
+
+            columns.AddFor(m => m.HinhThucLuaChonNhaThauId)
+                .Lookup(lookup => lookup
+                    .DataSource(hinhThucChonNhaThau.Items)
+                    .ValueExpr("Id")
+                    .DisplayExpr("TenHinhThucChonNhaThau")
+                );
+
+            columns.AddFor(m => m.PhuongThucLuaChonNhaThauId)
+                .Lookup(lookup => lookup
+                    .DataSource(phuongThucDauThau.Items)
+                    .ValueExpr("Id")
+                    .DisplayExpr("TenPhuongThucDauThau")
+                );
+
+            columns.AddFor(m => m.ThoiGianBatDau);
+
+            columns.AddFor(m => m.LoaiHopDongId)
+                .Lookup(lookup => lookup
+                    .DataSource(hinhThucHopDong.Items)
+                    .ValueExpr("Id")
+                    .DisplayExpr("TenHinhThucHopDong")
+                );
+
+            columns.AddFor(m => m.ThoiGianThucHien);
+        })
+        .Paging(paging => paging.Enabled(false))
+        .OnContentReady("getDataGoiThauThamDinh")
+        .OnEditorPreparing("onEditorPreparingGoiThauThamDinh")
+        .OnCellPrepared("onCellPreparedGoiThauThamDinh")
+        .OnDataErrorOccurred("checkValidDuplication")
+        .OnEditingStart("onEditingStartGoiThauThamDinh")
+        .OnInitNewRow("onInitNewRowGoiThauThamDinh")
+    )
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="form-group">
+            <h6>NỘI DUNG TRÌNH VÀ KIẾN NGHỊ</h6>
+            @(Html.DevExtreme().HtmlEditor()
+                    .ID("noiDungThamMuu")
+                    .Height(300)
+                    .ValueType(HtmlEditorValueType.Markdown)
+                    .OnValueChanged("getValueNoiDungThamMuu")
+                    .Toolbar(toolbar => toolbar.Items(
+                        items => {
+                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.Separator);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.OrderedList);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                        })
+                    )
+                    .MediaResizing(m => m.Enabled(true))
+                )
+        </div>
+    </div>
+</div>

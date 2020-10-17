@@ -1,0 +1,85 @@
+﻿@using xdcb.HoSoCongTrinh.Constants
+@model xdcb.HoSoCongTrinhs.ComponentsView.IndexModel
+
+<div class="modal fade ThanhPhanHoSoDetail" tabindex="-1" role="dialog" aria-labelledby="ThanhPhanHoSoDetail" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">@ViewTextConsts.ChiTietHoSoCongTrinh.Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>@ViewTextConsts.ChiTietHoSoCongTrinh.LoaiVanBan</label>
+                            <div>
+                                <p id="TenVanBan"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>@ViewTextConsts.ChiTietHoSoCongTrinh.TenThanhPhanHoSo</label>
+                            <div>
+                                <p id="TenThanhPhan"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label>@ViewTextConsts.ChiTietHoSoCongTrinh.SoQuyetDinh</label>
+                            <div>
+                                <p id="soQuyetDinh"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label>@ViewTextConsts.ChiTietHoSoCongTrinh.NgayBanHanh</label>
+                            <div>
+                                <p id="ngayBanHanh"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label>@ViewTextConsts.ChiTietHoSoCongTrinh.DonViBanHanh</label>
+                            <div>
+                                <p id="donViBanHanh"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 ">
+                        <div class="form-group">
+                            <label>@ViewTextConsts.ChiTietHoSoCongTrinh.TrichYeu</label>
+                            <div>
+                                <p id="trichYeu"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 ">
+                        <div class="form-group">
+                            <label>@ViewTextConsts.ChiTietHoSoCongTrinh.FileDinhKem</label>
+                            <div id="FileHoSo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>

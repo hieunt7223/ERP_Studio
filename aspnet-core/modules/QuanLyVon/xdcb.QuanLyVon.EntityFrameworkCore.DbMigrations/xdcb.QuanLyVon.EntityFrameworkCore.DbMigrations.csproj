@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>xdcb.QuanLyVon</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.4" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="3.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\xdcb.QuanLyVon.Domain\xdcb.QuanLyVon.Domain.csproj" />
+    <ProjectReference Include="..\xdcb.QuanLyVon.EntityFrameworkCore\xdcb.QuanLyVon.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+</Project>

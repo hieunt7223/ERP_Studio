@@ -1,0 +1,35 @@
+﻿@page
+@model xdcb.BookStore.Web.Pages.Books.IndexModel
+@section scripts
+{
+    <abp-script src="/Pages/Books/index.js" />
+}
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <h2>Books</h2>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+                <abp-button id="NewBookButton"
+                            text="NewBook"
+                            icon="plus"
+                            button-type="Primary" />
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="BooksTable">
+            <thead>
+                <tr>
+                    <th>Actions</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>PublishDate</th>
+                    <th>Price</th>
+                    <th>CreationTime</th>
+                </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

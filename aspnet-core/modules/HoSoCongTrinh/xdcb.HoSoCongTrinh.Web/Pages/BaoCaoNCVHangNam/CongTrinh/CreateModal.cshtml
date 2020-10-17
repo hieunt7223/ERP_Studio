@@ -1,0 +1,281 @@
+﻿@page
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using xdcb.Common.DanhMuc
+@using DevExtreme.AspNet.Mvc
+@model xdcb.BaoCaoNCVHangNam.CongTrinh.CreateModalModel
+@inject xdcb.Common.DanhMuc.DonViHanhChinhs.IDonViHanhChinhAppService _donViHanhChinhService
+@section scripts
+{
+    <script>
+        var chuDauTuId = '@Model.ChuDauTuId';
+        var userId = '@Model.UserId';
+    </script>
+}
+
+@{
+    Layout = null;
+    var filter = new Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto
+    {
+        SkipCount = 0,
+        MaxResultCount = 1000
+    };
+
+    var thanhPhoSelectItems = await _donViHanhChinhService.GetDonViCapThanhPhoHuyenThiXa();
+}
+<form id="CongTrinh" abp-model="CongTrinh" data-ajaxForm="true" asp-page="CreateModal">
+    <div class="modal fade show" tabindex="-1" role="dialog" aria-modal="true" style="padding-right: 17px; display: block;">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-centered-cspl" role="document">
+            <div class="modal-content">
+                <abp-modal-header title="@ViewTextConsts.CongTrinh.CreateTitle"></abp-modal-header>
+                <abp-modal-body>
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h3 class="card-title">@ViewTextConsts.CongTrinh.ThongTinChung</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+
+                                        <div class="row">
+                                            <div hidden>
+                                                <abp-input asp-for="@Model.ChuDauTuId" hidden />
+                                            </div>
+
+                                            @if (Model.ChuDauTuId == null)
+                                            {
+                                                <div class="col-12 col-md-6 col-lg-4">
+                                                    <abp-select asp-for="@Model.CongTrinh.ChuDauTuId" asp-items="@Model.SelectChuDauTuList"></abp-select>
+                                                </div>
+                                            }
+                                            <div class="col-12 col-md-6 @(Model.ChuDauTuId==null? "col-lg-4":"col-lg-8")">
+                                                <abp-input asp-for="@Model.CongTrinh.MaCongTrinh"></abp-input>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <abp-input asp-for="@Model.CongTrinh.TenCongTrinh"></abp-input>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <abp-input asp-for="@Model.CongTrinh.DienTich" data-val-number="@Messages.MSG_Number"></abp-input>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <abp-select asp-for="@Model.CongTrinh.NhomCongTrinhId" asp-items="@Model.SelectNhomCongTrinhList"></abp-select>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <abp-input asp-for="@Model.CongTrinh.MaSoDuAn"></abp-input>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <abp-select asp-for="@Model.CongTrinh.LoaiKhoanId" asp-items="@Model.SelectMaLoaiKhoanList"></abp-select>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <abp-select asp-for="@Model.CongTrinh.CTMTQuocGiaId" asp-items="@Model.SelectChuongTrinhMucTieuQuocGia"></abp-select>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <abp-select asp-for="@Model.CongTrinh.LoaiCongTrinhId" asp-items="@Model.SelectLoaiCongTrinh"></abp-select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h3 class="card-title">@ViewTextConsts.CongTrinh.ThoiGianThucHien</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <label>@ViewTextConsts.CongTrinh.TuNgay</label>
+                                                <div class="input-group date datepicker">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="far fa-calendar-alt"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="date" id="CongTrinh_ThoiGianThucHienTuNgay" name="CongTrinh.ThoiGianThucHienTuNgay" value="" data-val="true" class="form-control float-right" placeholder="dd/mm/yyyy">
+                                                </div>
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="CongTrinh.ThoiGianThucHienTuNgay" data-valmsg-replace="true"></span>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <label>@ViewTextConsts.CongTrinh.DenNgay</label>
+                                                <div class="input-group date datepicker">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="far fa-calendar-alt"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="date" id="CongTrinh_ThoiGianThucHienDenNgay" name="CongTrinh.ThoiGianThucHienDenNgay" value="" data-val="true" class="form-control float-right" placeholder="dd/mm/yyyy">
+                                                </div>
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="CongTrinh.ThoiGianThucHienDenNgay" data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h3 class="card-title">@ViewTextConsts.CongTrinh.ThongTinQuyetDinhDauTu</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <abp-input asp-for="@Model.CongTrinh.SoQuyetDinhDauTu"></abp-input>
+                                            </div>
+
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <label>@ViewTextConsts.CongTrinh.NgayQuyetDinh</label>
+                                                <div class="input-group date datepicker">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="far fa-calendar-alt"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="date" id="CongTrinh_NgayQuyetDinhDauTu" name="CongTrinh.NgayQuyetDinhDauTu" value="" data-val="true" class="form-control float-right" placeholder="dd/mm/yyyy">
+                                                </div>
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="CongTrinh.NgayQuyetDinhDauTu" data-valmsg-replace="true"></span>
+                                            </div>
+
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <abp-input asp-for="@Model.CongTrinh.TongMucDauTu" data-val-number="@Messages.MSG_Number"></abp-input>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h3 class="card-title">@ViewTextConsts.CongTrinh.DiaDiemXayDung</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        @(Html.DevExtreme().DataGrid<xdcb.Common.DanhMuc.CongTrinhDtos.DiaDiemThucHienDto>()
+                                                .ShowBorders(true)
+                                                .Editing(editing => {
+                                                    editing.Mode(GridEditMode.Row);
+                                                    editing.AllowUpdating(true).UseIcons(true);
+                                                    editing.AllowAdding(true);
+                                                    editing.AllowDeleting(true).UseIcons(true).ConfirmDelete(false);
+                                                })
+                                                .Columns(columns =>
+                                                {
+                                                    columns.Add().DataField("Stt").Caption("#").Width(60).CellTemplate(@<text>
+                                                        <%= OrderRowDiaDiemThucHienCreateUpdate() %>
+                                                    </text>).AllowEditing(false).Visible(false);
+
+                                                    columns.AddFor(m => m.Id)
+                                                        .SetCellValue("setThanhPhoValue")
+                                                        .Lookup(lookup => lookup
+                                                            .DataSource(thanhPhoSelectItems)
+                                                            .DisplayExpr("TenDonViHanhChinh")
+                                                            .ValueExpr("Id"));
+
+                                                    columns.AddFor(m => m.DonViHanhChinhId)
+                                                        .Lookup(lookup => lookup
+                                                            .DataSource("getPhuongs")
+                                                            .DisplayExpr("tenDonViHanhChinh")
+                                                            .ValueExpr("id"));
+
+                                                    columns.AddFor(m => m.GhiChu);
+                                                })
+                                                .DataSource(Model.DiaDiemThucHiens)
+                                                .OnToolbarPreparing("OnToolbarPreparingDiaDiemThucHien")
+                                                .OnContentReady("GetDataDiaDiemThucHien")
+                                                //.OnEditorPreparing("ResetOrderRowDiaDiemThucHienCreateUpdate")
+                                                .OnEditorPreparing("onEditorPreparingDiaDiemThucHien")
+                                                .OnEditingStart("onEditingStartDiaDiemThucHien")
+                                                .OnInitNewRow("onInitNewRowDiaDiemThucHien")
+                                                //.OnRowRemoving("ResetOrderRowDiaDiemThucHienCreateUpdate")
+                                                .Paging(paging => paging.Enabled(false))
+
+                                        )
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div hidden>
+                        <abp-input asp-for="@Model.diaDiemXayDungStr" hidden></abp-input>
+
+                    </div>
+
+                </abp-modal-body>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                    <button type="button" id="SaveCongTrinh"  class="btn btn-primary" data-busy-text="Đang lưu..."><i class="fa fa-check"></i> <span>Lưu</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $('#CongTrinh').on('click', '#SaveCongTrinh', function () {
+        var id = $('#Id').val();
+        if (id === undefined) {
+            id = '00000000-0000-0000-0000-000000000000'
+        }
+        if ($('#SaveCongTrinh').attr('type') == 'button') {
+            if ($('#CongTrinh_MaCongTrinh').val() === "" || $('#CongTrinh_TenCongTrinh').val() === "") {
+                $('#SaveCongTrinh').attr('type', 'submit');
+                $('#SaveCongTrinh').trigger("click");
+                $('#SaveCongTrinh').attr('type', 'button');
+                return true;
+            }
+            var e = event;
+            e.preventDefault();
+            var str = JSON.stringify(dataDiaDiemThucHien);
+            $('#diaDiemXayDungStr').val(str);
+            e.preventDefault();
+            $.ajax({
+                url: '/api/app/congTrinh/' + id + '/isMaExist?ma=' + $('#CongTrinh_MaCongTrinh').val(),
+                type: 'get',
+                contentType: "application/json; charset=utf-8",
+                async: false
+            }).done(function (data_result) {
+                e.preventDefault();
+                if (data_result) {
+                    e.preventDefault();
+                    $('#CongTrinh_MaCongTrinh').parent().find('.text-danger').first().html('<span class="text-danger field-validation-error" data-valmsg-for="CongTrinh.TenCongTrinh" data-valmsg-replace="true"><span id="CongTrinh_TenCongTrinh-error" class="">Mã công trình đã được sử dụng trong hệ thống</span></span>');
+                    return false;
+                } else {
+                    $.ajax({
+                        url: '/api/app/congTrinh/' + id + '/isNameExist?name=' + $('#CongTrinh_TenCongTrinh').val(),
+                        type: 'get',
+                        contentType: "application/json; charset=utf-8",
+                        async: false
+                    }).done(function (data_result) {
+                        if (data_result) {
+                            e.preventDefault();
+                            $('#CongTrinh_TenCongTrinh').parent().find('.text-danger').first().html('<span class="text-danger field-validation-error" data-valmsg-for="CongTrinh.TenCongTrinh" data-valmsg-replace="true"><span id="CongTrinh_TenCongTrinh-error" class="">Tên công trình đã được sử dụng trong hệ thống</span></span>');
+                            return false;
+                        } else {
+                            $('#SaveCongTrinh').attr('type', 'submit');
+                            $('#SaveCongTrinh').trigger("click");
+                            return true;
+                        }
+                    });
+                }
+            });
+        }
+    });
+</script>

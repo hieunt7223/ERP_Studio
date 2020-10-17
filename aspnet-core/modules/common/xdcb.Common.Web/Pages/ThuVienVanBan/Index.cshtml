@@ -1,0 +1,161 @@
+﻿@page
+@model xdcb.Common.DanhMuc.ThuVienVanBans.IndexModel
+@using xdcb.Common.DanhMuc
+@section scripts
+{
+    <abp-script src="/Pages/ThuVienVanBan/index.js" />
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>@ViewTextConsts.ThuVienVanBan.Title</h1>
+            </div>
+            <div class="text-right col-md-6">
+                <button id="NewThuVienVanBan" class="btn btn-add-general" type="button" data-busy-text="Processing..."><i class="fa fa-plus"></i> <span>Thêm mới</span></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-search">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewTextConsts.Common.Search</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="search-item-container">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label for="ThuVienVanBan_Keywork">@ViewTextConsts.Common.KeyTitle</label>
+                                            <input type="text" id="keyword" class="form-control search-form-control" placeholder="@ViewTextConsts.ThuVienVanBan.PlaceholderKeywork">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label for="ThuVienVanBan_CapBanHanh">@ViewTextConsts.ThuVienVanBan.CapBanHanh</label>
+                                            <select id="CapBanHanh" class="custom-select form-control search-form-control">
+                                                <option value="0">Tất cả</option>
+                                                <option value="1">Trung ương</option>
+                                                <option value="2">Địa phương</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label for="ThuVienVanBan_DonViBanHanh">@ViewTextConsts.ThuVienVanBan.DonViBanHanh</label>
+                                            <select type="text" id="DonViBanHanh" class="custom-select form-control search-form-control" placeholder="@ViewTextConsts.ThuVienVanBan.PlaceholderDonViBanHanh">
+                                                <option value="">Tất cả</option>
+                                                @foreach (var item in Model.DonViBanHanhDtos)
+                                                {
+                                                    <option value="@item.Id">@item.Ten</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                               
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label for="ThuVienVanBan_LoaiVanBan">@ViewTextConsts.ThuVienVanBan.LoaiVanBan</label>
+                                            <select type="text" id="LoaiVanBan" class="custom-select form-control search-form-control" placeholder="@ViewTextConsts.Common.PlaceholderSearch">
+                                                <option value="">Tất cả</option>
+                                                @foreach (var item in Model.LoaiVanBanDtos)
+                                                {
+                                                    <option value="@item.Id">@item.TenLoaiVanBan</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label>@ViewTextConsts.ThuVienVanBan.StartDate</label>
+                                            <div class="input-group date datepicker">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="far fa-calendar-alt"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="date" id="StartDate" data-val="true" class="form-control float-right" placeholder="dd/mm/yyyy">
+                                            </div>
+                                            <span class="validate_start text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label>@ViewTextConsts.ThuVienVanBan.EndDate</label>
+                                            <div class="input-group date datepicker">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="far fa-calendar-alt"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="date" id="EndDate" class="form-control float-right" placeholder="dd/mm/yyyy">
+                                            </div>
+                                            <span class="validate_end text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-button-container">
+                                <div class="form-group">
+                                    <span class="input-group-append">
+                                        <button id="Search" type="button" class="btn btn-search">
+                                            <span>@ViewTextConsts.Common.Search</span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                            <span class="text-danger field-validation-valid" data-valmsg-for="ThuVienVanBan.SoVanBan" data-valmsg-replace="true">
+                            </span>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6"></div>
+                                <div class="col-sm-12 col-md-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="ThuVienVanBanTable" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th rowspan="1" colspan="1">@ViewTextConsts.Common.STT</th>
+                                                <th rowspan="1" colspan="1">@ViewTextConsts.ThuVienVanBan.SoKyHieu</th>
+                                                <th rowspan="1" colspan="1">@ViewTextConsts.ThuVienVanBan.LoaiVanBan</th>
+                                                <th rowspan="1" colspan="1">@ViewTextConsts.ThuVienVanBan.TrichYeu</th>
+                                                <th rowspan="1" colspan="1">@ViewTextConsts.ThuVienVanBan.DonViBanHanh</th>
+                                                <th rowspan="1" colspan="1">@ViewTextConsts.ThuVienVanBan.NgayBanHanh</th>
+                                                <th rowspan="1" colspan="1"></th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

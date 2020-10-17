@@ -1,0 +1,182 @@
+﻿@page
+@using xdcb.HoSoCongTrinh.Constants
+@model xdcb.GiaiNgan.CreateView.IndexModel
+
+<script src="~/js/devextreme/dx.all.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+
+@section scripts
+{
+    <script src="/Pages/GiaiNgan/CreateUpdate.js"></script>
+
+    <script>
+        var chuDauTuId = '@Model.ChuDauTuId';
+        var isEdit = 'false';
+    </script>
+}
+
+
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8">
+                <h4>@ViewTextConsts.GiaiNganDetail.CreateTitle</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="card  card-search">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="card-title">Giải ngân các dự án kế hoạch năm <span id="title_year">@(DateTime.Now.Year+1)</span>  <span id="kehoach"></span> </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="search-item-container">
+                        <div class="row">
+
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <div class="form-group multiple-select-form">
+                                    <label for="TrangThaiHoSo">@ViewTextConsts.GiaiNganDetail.Nam</label>
+                                    <select class="custom-select form-control search-form-control" id="Year" placeholder="Chọn năm">
+                                        @for (int i = (DateTime.Now.Year - 5); i < (DateTime.Now.Year + 10); i++)
+                                        {
+                                            if (i == (DateTime.Now.Year + 1))
+                                            {
+                                                <option value="@i" selected="selected">@i</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@i">@i</option>
+                                            }
+
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input class="custom-control-input" type="checkbox" id="KeHoachKeoGiai" value="option1">
+                                        <label for="KeHoachKeoGiai" class="custom-control-label">@ViewTextConsts.GiaiNganDetail.KeHoachKeoGiai</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row isKeoDai">
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="GiaiNganTheo">@ViewTextConsts.GiaiNganDetail.GiaiNganTheo</label>
+                                    <select id="GiaiNganTheo" class="custom-select form-control search-form-control">
+                                        <option value="THANG">tháng</option>
+                                        <option value="QUY">Quý</option>
+                                        <option value="NAM">Năm</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6 thang">
+                                <div class="form-group">
+                                    <label for="Thang">@ViewTextConsts.GiaiNganDetail.Thang</label>
+                                    <select id="Thang" class="custom-select form-control search-form-control">
+                                        @for (int i = 1; i < 13; i++)
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6 quy">
+                                <div class="form-group">
+                                    <label for="Quy">@ViewTextConsts.GiaiNganDetail.Quy</label>
+                                    <select id="Quy" class="custom-select form-control search-form-control">
+                                        <option value="1">I</option>
+                                        <option value="2">II</option>
+                                        <option value="3">III</option>
+                                        <option value="4">IV</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="search-button-container">
+                        <div class="form-group">
+                            <span class="input-group-append">
+                                <button id="AddGiaiNgan" type="button" class="btn btn-search">
+                                    <span>@ViewTextConsts.GiaiNganDetail.Add</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <span class="text-danger field-validation-valid" data-valmsg-replace="true">
+                </span>
+            </div>
+        </div>
+
+        <div id="frameGiaiNgan">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Thêm nhu giải ngân hàng năm</h3>
+                </div>
+
+                <div class="card-body">
+                    <ul class="nav nav-pills" role="tablist">
+                        <li class="nav-item"><a class="nav-link   active" data-toggle="pill" href="#NST" role="tab" aria-selected="true">Nguồn Ngân sách Tỉnh</a></li>
+                        <li class="nav-item" id="tab_TW"><a class="nav-link  " data-toggle="pill" href="#TW" role="tab" aria-controls="TW" aria-selected="false">Nguồn Ngân sách trung ương</a></li>
+                        <li class="nav-item"><a class="nav-link  " data-toggle="pill" href="#ODA" role="tab" aria-controls="ODA" aria-selected="false">Nguồn ODA</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade   show active" id="NST" role="tabpanel" aria-labelledby="NST-tab">
+                            <div id="gridNST" class="baocao_ncv"></div>
+                        </div>
+                        <div class="tab-pane fade active" id="TW" role="tabpanel" aria-labelledby="TW-tab">
+                            <div id="gridTW" class="baocao_ncv"></div>
+                        </div>
+                        <div class="tab-pane fade active" id="ODA" role="tabpanel" aria-labelledby="ODA-tab">
+                            <div id="gridNSODA" class="baocao_ncv"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="text-right">
+                <button type="button" id="Save" class="btn btn-primary" data-busy-text="Đang lưu..."><span>Lưu</span></button>
+                <button type="button" id="Send" class="btn btn-primary" data-busy-text="Đang gửi..."><span>Gửi</span></button>
+                @*<button type="button" id="Export" class="btn btn-info" data-busy-text="Đang xuất file..."><span>Xuất excel</span></button>*@
+            </div>
+
+
+        </div>
+
+    </div>
+</section>
+
+<div style="height:60px">
+</div>
+
+<div class="footer-action-group">
+
+    <a href="~/GiaiNgan/List">
+        <div class="btn btn-secondary">Đóng</div>
+    </a>
+
+</div>
+
+
+

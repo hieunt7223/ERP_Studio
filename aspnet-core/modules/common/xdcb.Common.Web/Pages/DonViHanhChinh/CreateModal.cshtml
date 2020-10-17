@@ -1,0 +1,87 @@
+﻿@page
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@model xdcb.Common.DanhMuc.DonViHanhChinhs.CreateModalModel
+@using xdcb.Common.DanhMuc
+@{
+    Layout = null;
+}
+<abp-dynamic-form abp-model="DonViHanhChinh" data-ajaxForm="true" asp-page="/DonViHanhChinh/CreateModal">
+    <div class="modal fade show" tabindex="-1" role="dialog" aria-modal="true" style="padding-right: 17px; display: block;">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <abp-modal-header title="@ViewTextConsts.DonViHanhChinh.Title @ViewTextConsts.Common.CreateTitle"></abp-modal-header>
+                <abp-modal-body>
+                    <abp-form-content />
+                </abp-modal-body>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                    <button type="button" id="Save" class="btn btn-primary" data-busy-text="Đang lưu..."><i class="fa fa-check"></i> <span>Lưu</span></button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</abp-dynamic-form>
+<script>
+    $("#DonViHanhChinh_ParentId").attr('disabled', 'disabled');
+    $("#DonViHanhChinh_CapDonViHanhChinh").on('change', function () {
+        if ($("#DonViHanhChinh_CapDonViHanhChinh").val() !== "Tinh" && $("#DonViHanhChinh_CapDonViHanhChinh").val() !== "ThanhPhoTrucThuocTrungUong") {
+            $("#DonViHanhChinh_ParentId").removeAttr('disabled');
+        } else {
+            $("#DonViHanhChinh_ParentId").attr('disabled', 'disabled');
+        }
+    });
+    $('#Save').click(function (e) {
+        if ($('#Save').attr('type') == 'button') {
+            if ($('#DonViHanhChinh_MaDonViHanhChinh').val() === "" || $('#DonViHanhChinh_TenDonViHanhChinh').val() === "") {
+                $('#Save').attr('type', 'submit');
+                $('#Save').trigger("click");
+                $('#Save').attr('type', 'button');
+                return true;
+            }
+            var id = $('#Id').val();
+            var parentId = $('#DonViHanhChinh_ParentId').val();
+            if (id === undefined) {
+                id = '00000000-0000-0000-0000-000000000000'
+            }
+
+            if (parentId === "") {
+                parentId = '00000000-0000-0000-0000-000000000000';
+            }
+
+
+            var e = event;
+            e.preventDefault();
+            $.ajax({
+                url: '/api/app/donViHanhChinh/{'+id+'}/isMaExist?ma='+  $('#DonViHanhChinh_MaDonViHanhChinh').val(),
+                type: 'get',
+                contentType: "application/json; charset=utf-8",
+                async: false
+            }).done(function (data_result) {
+                e.preventDefault();
+                if (data_result) {
+                    e.preventDefault();
+                    $('#DonViHanhChinh_MaDonViHanhChinh').parent().find('.text-danger').first().html('<span class="text-danger field-validation-error" data-valmsg-for="CongTrinh.TenCongTrinh" data-valmsg-replace="true"><span id="CongTrinh_TenCongTrinh-error" class="">Mã đơn vị hành chính đã được sử dụng trong hệ thống</span></span>');
+                    return false;
+                } else {
+                    $.ajax({
+                        url: '/api/app/donViHanhChinh/{'+id+'}/isNameExist/' + parentId + '?name='+  $('#DonViHanhChinh_TenDonViHanhChinh').val(),
+                        type: 'get',
+                        contentType: "application/json; charset=utf-8",
+                        async: false
+                    }).done(function (data_result) {
+                        if (data_result) {
+                            e.preventDefault();
+                            $('#DonViHanhChinh_TenDonViHanhChinh').parent().find('.text-danger').first().html('<span class="text-danger field-validation-error" data-valmsg-for="CongTrinh.TenCongTrinh" data-valmsg-replace="true"><span id="CongTrinh_TenCongTrinh-error" class="">Tên đơn vị hành chính đã được sử dụng trong hệ thống</span></span>');
+                            return false;
+                        } else {
+                            $('#Save').attr('type', 'submit');
+                            $('#Save').trigger("click");
+                            return true;
+                        }
+                    });
+                }
+            });
+        }
+    });
+</script>

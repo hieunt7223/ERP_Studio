@@ -1,0 +1,64 @@
+﻿@page
+@using xdcb.Common.DanhMuc.ChuDauTus
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using xdcb.Common.DanhMuc
+@model EditModalModel
+@{
+    Layout = null;
+}
+<form abp-model="ChuDauTu" data-ajaxForm="true" asp-page="/ChuDauTu/EditModal">
+    <div class="modal fade show" tabindex="-1" role="dialog" aria-modal="true" style="padding-right: 17px; display: block;">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <abp-modal-header title="@ViewTextConsts.CreateUpdateChuDauTu.EditTitle"></abp-modal-header>
+                <abp-modal-body>
+                    <abp-input asp-for="Id" />
+                    <div class="row">
+                        <div class="col-12">
+                            <abp-input asp-for="@Model.ChuDauTu.MaSoChuong"></abp-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <abp-input asp-for="@Model.ChuDauTu.Ten"></abp-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <abp-input asp-for="@Model.ChuDauTu.Email"></abp-input>
+                        </div>
+                        <div class="col-6">
+                            <abp-input asp-for="@Model.ChuDauTu.SoDienThoai"></abp-input>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <abp-input asp-for="@Model.ChuDauTu.DiaChi"></abp-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <abp-input asp-for="@Model.ChuDauTu.NguoiDaiDien"></abp-input>
+                        </div>
+                        <div class="col-6">
+                            <abp-input asp-for="@Model.ChuDauTu.SDTNguoiDaiDien"></abp-input>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <abp-input asp-for="@Model.ChuDauTu.GhiChu"></abp-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <abp-select asp-for="@Model.NguoiDungs" multiple asp-items="@Model.SelectList"></abp-select>
+                        </div>
+                    </div>
+                </abp-modal-body>
+                <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+            </div>
+        </div>
+    </div>
+</form>

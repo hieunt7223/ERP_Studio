@@ -1,0 +1,141 @@
+﻿@page
+@using DevExtreme.AspNet.Mvc
+@using xdcb.HoSoCongTrinh.Enums
+@using xdcb.HoSoCongTrinh.Dtos
+@using Newtonsoft.Json
+@using xdcb.HoSoCongTrinh.Constants
+@model xdcb.HoSoCongTrinhs.ListView.IndexModel
+
+<script src="~/js/devextreme/dx.all.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+
+
+@section scripts
+{
+    <abp-script src="/Pages/HoSoCongTrinh/List.js" />
+    <script>
+        var isChuDauTu = '@Model.ChuDauTuId';
+        var loaiHoSoCount = '@Model.LoaiHoSoSelectItems.Count';
+        var stt = '@ViewTextConsts.DanhSachHoSoCongTrinh.STT';
+        var tenCongTrinh = '@ViewTextConsts.DanhSachHoSoCongTrinh.TenCongTrinh';
+    </script>
+
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8">
+                <h4>@ViewTextConsts.DanhSachHoSoCongTrinh.Title</h4>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="card  card-search">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="card-title">@ViewTextConsts.CommonViewModel.Search</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="search-item-container">
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label>@ViewTextConsts.HoSoCongTrinhSearchInput.TenCongTrinh</label>
+                                        <input type="text" id="keyword" class="form-control search-form-control" placeholder="@ViewTextConsts.HoSoCongTrinhSearchInputPlaceHoder.TenCongTrinh">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="form-group multiple-select-form">
+                                        <label for="TrangThaiHoSo">@ViewTextConsts.HoSoCongTrinhSearchInput.NamThucHienCongTrinh</label>
+                                        <select class="custom-select form-control search-form-control" id="Year"  placeholder="Chọn năm">
+                                            <option value="">Tất cả</option>
+                                            @for (var i = DateTime.Now.Year; i > DateTime.Now.Year - 10; i--)
+                                            {
+                                                <option value="@i">@i</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="form-group">
+                                        <label for="TrangThaiHoSo">@ViewTextConsts.HoSoCongTrinhSearchInput.TrangThaiHoSo</label>
+                                        <select id="TrangThaiHoSo" class="custom-select form-control search-form-control">
+                                            <option value="0">Tất cả</option>
+                                            <option value="1">Đang soạn</option>
+                                            <option value="2">Đang xử lý</option>
+                                            <option value="3">Yêu cầu chỉnh sửa</option>
+                                            <option value="4">Hoàn thành</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="LoaiHoSo">@ViewTextConsts.HoSoCongTrinhSearchInput.LoaiHoSoId</label>
+                                        <select id="LoaiHoSo" class="custom-select form-control search-form-control">
+                                            <option value="">Tất cả</option>
+                                            @foreach (var item in Model.LoaiHoSoSelectItems)
+                                            {
+                                                <option value="@item.Id">@item.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                @if (Model.ChuDauTuId == null)
+                                {
+                                    <div class="col-12 col-md-6 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="ChuDauTu">@ViewTextConsts.HoSoCongTrinhSearchInput.ChuDauTuId</label>
+                                            <select id="ChuDauTu" class="custom-select form-control search-form-control">
+                                                <option value="">Tất cả</option>
+                                                @foreach (var item in Model.ChuDauTuSelectItems)
+                                                {
+                                                    <option value="@item.Id">@item.Ten</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="search-button-container">
+                            <div class="form-group">
+                                <span class="input-group-append">
+                                    <button id="Search" type="button" class="btn btn-search">
+                                        <span>@ViewTextConsts.CommonViewModel.Search</span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-danger field-validation-valid" data-valmsg-replace="true">
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-12">
+            <div id="list">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewTextConsts.DanhSachHoSoCongTrinh.Title</h3>
+                        <div id="loaihoso_select" _loaiHoSo="@JsonConvert.SerializeObject(Model.LoaiHoSoSelectItems)" hidden></div>
+                    </div>
+                    <div class="card-body">
+                        <div id="hosocongtrinhlist"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

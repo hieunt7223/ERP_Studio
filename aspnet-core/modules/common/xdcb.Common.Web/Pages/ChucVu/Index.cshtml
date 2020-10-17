@@ -1,0 +1,85 @@
+﻿@page
+@model xdcb.Common.DanhMuc.ChucVus.IndexModel
+@using xdcb.Common.DanhMuc
+@section scripts
+{
+    <abp-script src="/Pages/ChucVu/index.js" />
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>@ViewTextConsts.ChucVu.Title</h1>
+            </div>
+            <div class="text-right col-md-6">
+                <button id="NewChucVu" class="btn btn-add-general" type="button" data-busy-text="Processing..."><i class="fa fa-plus"></i> <span>Thêm mới</span></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-search">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewTextConsts.Common.Search</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="card-body">
+                        <div class="form-group search-form-group">
+                            <label>@ViewTextConsts.Common.KeyTitle</label>
+                            <div class="input-group search-input-group">
+                                <input type="text" id="keyword" class="form-control search-form-control" placeholder="@ViewTextConsts.PlaceholderChucVu.PlaceholderSearch">
+                                <span class="input-group-append">
+                                    <button id="Search" type="button" class="btn btn-search">
+                                        <span>@ViewTextConsts.Common.Search</span>
+                                    </button>
+                                </span>
+                            </div>
+                            <span class="text-danger field-validation-valid" data-valmsg-replace="true">
+                            </span>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6"></div>
+                                <div class="col-sm-12 col-md-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="ChucVuTable" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th rowspan="1" colspan="1">@ViewTextConsts.Common.STT</th>
+                                                <th rowspan="1" colspan="1">@ViewTextConsts.ChucVu.TenChucVu</th>
+                                                <th rowspan="1" colspan="1">@ViewTextConsts.ChucVu.MaChucVu</th>
+                                                <th rowspan="1" colspan="1"></th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

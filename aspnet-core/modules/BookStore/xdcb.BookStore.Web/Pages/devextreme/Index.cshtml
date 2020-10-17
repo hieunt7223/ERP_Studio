@@ -1,0 +1,52 @@
+﻿@page
+@using DevExtreme.AspNet.Mvc
+@inject xdcb.BookStore.IBookAppService _service
+
+    <link href="~/css/devextreme/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/devextreme/dx.common.css" rel="stylesheet" />
+    <link href="~/css/devextreme/dx.light.css" rel="stylesheet" />
+
+    <script src="~/js/devextreme/jquery.js"></script>
+    <script src="~/js/devextreme/bootstrap.js"></script>
+    <script src="~/js/devextreme/dx.all.js"></script>
+    <script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+    <script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+
+    @{
+        var filter = new Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto
+        {
+            SkipCount = 0,
+            MaxResultCount = 1000
+        };
+
+        var data = await _service.GetListAsync(filter);
+    }
+
+    <abp-card>
+        @(Html.DevExtreme().DataGrid()
+        .ID("Book")
+        .RemoteOperations(true)
+         .Editing(editing =>
+         {
+             editing.Mode(GridEditMode.Row);
+             editing.AllowAdding(true);
+             editing.AllowDeleting(true);
+             editing.AllowUpdating(true);
+         })
+        .Columns(columns =>
+        {
+            columns.Add().DataField("Name");
+            columns.Add().DataField("Id");
+            columns.Add().DataField("Type");
+        })
+        .ShowBorders(true)
+        .RowDragging(rd => rd
+            .AllowReordering(true)
+            .ShowDragIcons(true)
+        )
+        .Grouping(grouping => grouping.AutoExpandAll(true))
+        .SearchPanel(searchPanel => searchPanel.Visible(true))
+        .GroupPanel(groupPanel => groupPanel.Visible(true))
+        .DataSource(data.Items)
+    )
+    </abp-card>

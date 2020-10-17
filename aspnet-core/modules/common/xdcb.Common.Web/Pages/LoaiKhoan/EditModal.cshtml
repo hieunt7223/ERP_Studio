@@ -1,0 +1,46 @@
+﻿@page
+@using xdcb.Common.DanhMuc.LoaiKhoans
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@model EditModalModel
+@using xdcb.Common.DanhMuc
+@{
+    Layout = null;
+}
+
+<abp-dynamic-form abp-model="LoaiKhoan" data-ajaxForm="true" asp-page="/LoaiKhoan/EditModal">
+    <div class="modal fade show" tabindex="-1" role="dialog" aria-modal="true" style="padding-right: 17px; display: block;">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <abp-modal-header title="@ViewTextConsts.LoaiKhoan.EditTitle"></abp-modal-header>
+                <abp-modal-body>
+                    <abp-input asp-for="Id" />
+                    <abp-form-content />
+                    <input id="loaiKhoanCha" hidden loaiKhoanId="@Model.LoaiKhoan.LoaiKhoanChaID" />
+                </abp-modal-body>
+                <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+            </div>
+        </div>
+    </div>
+</abp-dynamic-form>
+<script>
+    if ($("#LoaiKhoan_LoaiLoaiKhoan").val() === "Loai") {
+        $("#LoaiKhoan_LoaiKhoanChaID").val("");
+        $("#LoaiKhoan_LoaiKhoanChaID").attr("disabled", "disabled");
+    }
+    $("#LoaiKhoan_LoaiLoaiKhoan").on('change', function () {
+        if ($("#LoaiKhoan_LoaiLoaiKhoan").val() === "Loai") {
+            $("#LoaiKhoan_LoaiKhoanChaID").val("");
+            $("#LoaiKhoan_LoaiKhoanChaID").attr("disabled", "disabled");
+        }
+        if ($("#LoaiKhoan_LoaiLoaiKhoan").val() === "Khoan") {
+            $("#LoaiKhoan_LoaiKhoanChaID").val($("#LoaiKhoan_LoaiKhoanChaID option:first").val());
+            $("#LoaiKhoan_LoaiKhoanChaID").removeAttr("disabled");
+        }
+
+    });
+    $('#LoaiKhoan_LoaiKhoanChaID').find('option').each(function () {
+        if ($(this).val() === $('#loaiKhoanCha').attr("loaiKhoanId")) {
+            $(this).select();
+        }
+    });
+</script>

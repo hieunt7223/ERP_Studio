@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>xdcb.FormServices</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.4" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="3.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\xdcb.FormServices.Domain\xdcb.FormServices.Domain.csproj" />
+    <ProjectReference Include="..\xdcb.FormServices.EntityFrameworkCore\xdcb.FormServices.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+</Project>

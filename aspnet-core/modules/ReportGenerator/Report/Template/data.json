@@ -1,0 +1,13 @@
+﻿{
+  "year": "2020",
+  "project": {
+    "group": "Nhóm dự án B",
+    "name": "Tên dự án đầu tư",
+    "chudautu": "Tên chủ đầu tư",
+    "cosophaply": "- Căn cứ nghị định abc\r\n - Căn cứ quyết định xyz",
+    "thanhphanhoso": "- Thành phần hồ sơ abc\r\n- Thành phần hồ sơ xyz",
+    "diadiem": "Địa điểm thực hiện dự án",
+    "tongmucdautu": "100.000",
+    "thoigianthuchien": "2 năm"
+  }
+}

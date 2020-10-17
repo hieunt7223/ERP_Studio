@@ -1,0 +1,1458 @@
+﻿<XtraSerializer version="1.0" application="View">
+  <property name="#LayoutVersion" />
+  <property name="#LayoutScaleFactor">@1,Width=1@1,Height=1</property>
+  <property name="Columns" iskey="true" value="27">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="VisibleIndex">0</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn1</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">STT</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">STT</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">59</property>
+      <property name="MinWidth">20</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="VisibleIndex">0</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn2</property>
+      <property name="Caption">IsSelect</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">IsSelect</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">54</property>
+      <property name="MinWidth">20</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="VisibleIndex">1</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn3</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">TenCongTrinh</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">TenCongTrinh</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">219</property>
+      <property name="MinWidth">20</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="VisibleIndex">3</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn4</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">MaSoDuAn</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">MaSoDuAn</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">109</property>
+      <property name="MinWidth">20</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="VisibleIndex">4</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn5</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">MaSoChuong</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">MaSoChuong</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">100</property>
+      <property name="MinWidth">20</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="VisibleIndex">5</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn6</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">MaLoaiKhoan</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">MaLoaiKhoan</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">119</property>
+      <property name="MinWidth">20</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
+      <property name="VisibleIndex">2</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn7</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">TenChuDauTu</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">TenChuDauTu</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">175</property>
+      <property name="MinWidth">20</property>
+    </property>
+    <property name="Item8" isnull="true" iskey="true">
+      <property name="VisibleIndex">6</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn8</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">SoQuyetDinh</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">SoQuyetDinh</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">137</property>
+      <property name="MinWidth">20</property>
+    </property>
+    <property name="Item9" isnull="true" iskey="true">
+      <property name="VisibleIndex">15</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn9</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">NhuCauVonDauNamTongCong</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">NhuCauVonDauNamTongCong</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">124</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">NhuCauVonDauNamTongCong</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item10" isnull="true" iskey="true">
+      <property name="VisibleIndex">9</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn10</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">NhuCauVonDieuChinhTongCong</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">NhuCauVonDieuChinhTongCong</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">75</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">NhuCauVonDieuChinhTongCong</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item11" isnull="true" iskey="true">
+      <property name="VisibleIndex">-1</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn11</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">LuyKeKhoiLuongNamTruocTongCong</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">LuyKeKhoiLuongNamTruocTongCong</property>
+      <property name="ColumnEditName" />
+      <property name="Width">125</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">LuyKeKhoiLuongNamTruocTongCong</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item12" isnull="true" iskey="true">
+      <property name="VisibleIndex">11</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn12</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">LuyKeVonNamTruocTongCong</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">LuyKeVonNamTruocTongCong</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">134</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">LuyKeVonNamTruocTongCong</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item13" isnull="true" iskey="true">
+      <property name="VisibleIndex">7</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn13</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">TongMucDauTu</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">TongMucDauTu</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">111</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">TongMucDauTu</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item14" isnull="true" iskey="true">
+      <property name="VisibleIndex">8</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn14</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">MucDauTuNST</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">MucDauTuNST</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">108</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">MucDauTuNST</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item15" isnull="true" iskey="true">
+      <property name="VisibleIndex">9</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn15</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">MucDauTuNSTW</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">MucDauTuNSTW</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">106</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">MucDauTuNSTW</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item16" isnull="true" iskey="true">
+      <property name="VisibleIndex">10</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn16</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">MucDauTuODA</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">MucDauTuODA</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">103</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">MucDauTuODA</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item17" isnull="true" iskey="true">
+      <property name="VisibleIndex">-1</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn17</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">LuyKeKhoiLuongNamTruocNST</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">LuyKeKhoiLuongNamTruocNST</property>
+      <property name="ColumnEditName" />
+      <property name="Width">122</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">LuyKeKhoiLuongNamTruocNST</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item18" isnull="true" iskey="true">
+      <property name="VisibleIndex">-1</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn18</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">LuyKeKhoiLuongNamTruocNSTW</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">LuyKeKhoiLuongNamTruocNSTW</property>
+      <property name="ColumnEditName" />
+      <property name="Width">113</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">LuyKeKhoiLuongNamTruocNSTW</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item19" isnull="true" iskey="true">
+      <property name="VisibleIndex">-1</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn19</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">LuyKeKhoiLuongNamTruocODA</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">LuyKeKhoiLuongNamTruocODA</property>
+      <property name="ColumnEditName" />
+      <property name="Width">114</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">LuyKeKhoiLuongNamTruocODA</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item20" isnull="true" iskey="true">
+      <property name="VisibleIndex">12</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn20</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">LuyKeVonNamTruocNST</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">LuyKeVonNamTruocNST</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">110</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">LuyKeVonNamTruocNST</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item21" isnull="true" iskey="true">
+      <property name="VisibleIndex">13</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn21</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">LuyKeVonNamTruocNSTW</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">LuyKeVonNamTruocNSTW</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">107</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">LuyKeVonNamTruocNSTW</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item22" isnull="true" iskey="true">
+      <property name="VisibleIndex">14</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn22</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">LuyKeVonNamTruocODA</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">LuyKeVonNamTruocODA</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">106</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">LuyKeVonNamTruocODA</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item23" isnull="true" iskey="true">
+      <property name="VisibleIndex">16</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn23</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">NhuCauVonDauNamNST</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">NhuCauVonDauNamNST</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">126</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">NhuCauVonDauNamNST</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item24" isnull="true" iskey="true">
+      <property name="VisibleIndex">17</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn24</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">NhuCauVonDauNamNSTW</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">NhuCauVonDauNamNSTW</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">117</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">NhuCauVonDauNamNSTW</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item25" isnull="true" iskey="true">
+      <property name="VisibleIndex">18</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn25</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">NhuCauVonDauNamODA</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">NhuCauVonDauNamODA</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">130</property>
+      <property name="DisplayFormat" isnull="true" iskey="true">
+        <property name="FormatString">n3</property>
+        <property name="FormatType">Numeric</property>
+      </property>
+      <property name="MinWidth">20</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">NhuCauVonDauNamODA</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Mode">AllRows</property>
+          <property name="DisplayFormat">{0:n3}</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item26" isnull="true" iskey="true">
+      <property name="VisibleIndex">19</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn26</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">GhiChuDauNamNST</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">GhiChuDauNamNST</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">223</property>
+      <property name="MinWidth">20</property>
+    </property>
+    <property name="Item27" isnull="true" iskey="true">
+      <property name="VisibleIndex">20</property>
+      <property name="Fixed">None</property>
+      <property name="Name">BandedGridColumn27</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+      </property>
+      <property name="Caption">GhiChuChuyenVienDauNamNST</property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="FieldName">GhiChuChuyenVienDauNamNST</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">182</property>
+      <property name="MinWidth">20</property>
+    </property>
+  </property>
+  <property name="MinBandPanelRowCount">1</property>
+  <property name="OptionsView" isnull="true" iskey="true">
+    <property name="ColumnAutoWidth">false</property>
+    <property name="ShowColumnHeaders">false</property>
+    <property name="ShowFooter">true</property>
+  </property>
+  <property name="BandPanelRowHeight">-1</property>
+  <property name="FixedLineWidth">2</property>
+  <property name="IndicatorWidth">-1</property>
+  <property name="ColumnPanelRowHeight">-1</property>
+  <property name="RowSeparatorHeight">0</property>
+  <property name="FooterPanelHeight">-1</property>
+  <property name="HorzScrollVisibility">Always</property>
+  <property name="VertScrollVisibility">Auto</property>
+  <property name="RowHeight">-1</property>
+  <property name="GroupRowHeight">-1</property>
+  <property name="GroupFormat">{0}: [#image]{1} {2}</property>
+  <property name="ChildGridLevelName" />
+  <property name="VertScrollTipFieldName" />
+  <property name="PreviewFieldName" />
+  <property name="GroupPanelText" />
+  <property name="NewItemRowText" />
+  <property name="LevelIndent">-1</property>
+  <property name="PreviewIndent">-1</property>
+  <property name="PreviewLineCount">-1</property>
+  <property name="ScrollStyle">LiveVertScroll, LiveHorzScroll</property>
+  <property name="FocusRectStyle">CellFocus</property>
+  <property name="HorzScrollStep">0</property>
+  <property name="ActiveFilterEnabled">true</property>
+  <property name="ViewCaptionHeight">-1</property>
+  <property name="ViewCaption" />
+  <property name="BorderStyle">Default</property>
+  <property name="SynchronizeClones">true</property>
+  <property name="DetailTabHeaderLocation">Top</property>
+  <property name="Name">bandedGridView1</property>
+  <property name="DetailHeight">350</property>
+  <property name="Tag" isnull="true" />
+  <property name="Bands" iskey="true" value="7">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="Width">54</property>
+      <property name="MinWidth">10</property>
+      <property name="Columns" iskey="true" value="1">
+        <property name="Item1">BandedGridColumn2</property>
+      </property>
+      <property name="Visible">false</property>
+      <property name="Children" iskey="true" value="0" />
+      <property name="Caption">Chọn</property>
+      <property name="Name">gridBand1</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="Width">59</property>
+      <property name="MinWidth">10</property>
+      <property name="Columns" iskey="true" value="1">
+        <property name="Item1">BandedGridColumn1</property>
+      </property>
+      <property name="Children" iskey="true" value="0" />
+      <property name="Caption">STT</property>
+      <property name="Name">gridBand2</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="Width">1287</property>
+      <property name="MinWidth">10</property>
+      <property name="Columns" iskey="true" value="0" />
+      <property name="Children" iskey="true" value="6">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="ImageAlignment">Near</property>
+          <property name="ImageIndex">-1</property>
+          <property name="Fixed">None</property>
+          <property name="Width">219</property>
+          <property name="AutoFillDown">true</property>
+          <property name="MinWidth">10</property>
+          <property name="Columns" iskey="true" value="1">
+            <property name="Item1">BandedGridColumn3</property>
+          </property>
+          <property name="RowCount">1</property>
+          <property name="Visible">true</property>
+          <property name="Children" iskey="true" value="0" />
+          <property name="Caption">Danh sách công trình</property>
+          <property name="CustomizationCaption" />
+          <property name="ToolTip" />
+          <property name="Name">gridBand4</property>
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="ImageAlignment">Near</property>
+          <property name="ImageIndex">-1</property>
+          <property name="Fixed">None</property>
+          <property name="Width">175</property>
+          <property name="AutoFillDown">true</property>
+          <property name="MinWidth">10</property>
+          <property name="Columns" iskey="true" value="1">
+            <property name="Item1">BandedGridColumn7</property>
+          </property>
+          <property name="RowCount">1</property>
+          <property name="Visible">true</property>
+          <property name="Children" iskey="true" value="0" />
+          <property name="Caption">Đơn vị báo cáo</property>
+          <property name="CustomizationCaption" />
+          <property name="ToolTip" />
+          <property name="Name">gridBand5</property>
+        </property>
+        <property name="Item3" isnull="true" iskey="true">
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="ImageAlignment">Near</property>
+          <property name="ImageIndex">-1</property>
+          <property name="Fixed">None</property>
+          <property name="Width">109</property>
+          <property name="AutoFillDown">true</property>
+          <property name="MinWidth">10</property>
+          <property name="Columns" iskey="true" value="1">
+            <property name="Item1">BandedGridColumn4</property>
+          </property>
+          <property name="RowCount">1</property>
+          <property name="Visible">true</property>
+          <property name="Children" iskey="true" value="0" />
+          <property name="Caption">Mã số dự án</property>
+          <property name="CustomizationCaption" />
+          <property name="ToolTip" />
+          <property name="Name">gridBand6</property>
+        </property>
+        <property name="Item4" isnull="true" iskey="true">
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="ImageAlignment">Near</property>
+          <property name="ImageIndex">-1</property>
+          <property name="Fixed">None</property>
+          <property name="Width">100</property>
+          <property name="AutoFillDown">true</property>
+          <property name="MinWidth">10</property>
+          <property name="Columns" iskey="true" value="1">
+            <property name="Item1">BandedGridColumn5</property>
+          </property>
+          <property name="RowCount">1</property>
+          <property name="Visible">true</property>
+          <property name="Children" iskey="true" value="0" />
+          <property name="Caption">Mã số chương</property>
+          <property name="CustomizationCaption" />
+          <property name="ToolTip" />
+          <property name="Name">gridBand7</property>
+        </property>
+        <property name="Item5" isnull="true" iskey="true">
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="ImageAlignment">Near</property>
+          <property name="ImageIndex">-1</property>
+          <property name="Fixed">None</property>
+          <property name="Width">119</property>
+          <property name="AutoFillDown">true</property>
+          <property name="MinWidth">10</property>
+          <property name="Columns" iskey="true" value="1">
+            <property name="Item1">BandedGridColumn6</property>
+          </property>
+          <property name="RowCount">1</property>
+          <property name="Visible">true</property>
+          <property name="Children" iskey="true" value="0" />
+          <property name="Caption">Mã loại - khoản</property>
+          <property name="CustomizationCaption" />
+          <property name="ToolTip" />
+          <property name="Name">gridBand8</property>
+        </property>
+        <property name="Item6" isnull="true" iskey="true">
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="ImageAlignment">Near</property>
+          <property name="ImageIndex">-1</property>
+          <property name="Fixed">None</property>
+          <property name="Width">565</property>
+          <property name="AutoFillDown">true</property>
+          <property name="MinWidth">10</property>
+          <property name="Columns" iskey="true" value="0" />
+          <property name="RowCount">1</property>
+          <property name="Visible">true</property>
+          <property name="Children" iskey="true" value="2">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="ImageAlignment">Near</property>
+              <property name="ImageIndex">-1</property>
+              <property name="Fixed">None</property>
+              <property name="Width">137</property>
+              <property name="AutoFillDown">true</property>
+              <property name="MinWidth">10</property>
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">BandedGridColumn8</property>
+              </property>
+              <property name="RowCount">1</property>
+              <property name="Visible">true</property>
+              <property name="Children" iskey="true" value="0" />
+              <property name="Caption">Số QĐ, Ngày tháng năm</property>
+              <property name="CustomizationCaption" />
+              <property name="ToolTip" />
+              <property name="Name">gridBand10</property>
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="ImageAlignment">Near</property>
+              <property name="ImageIndex">-1</property>
+              <property name="Fixed">None</property>
+              <property name="Width">428</property>
+              <property name="AutoFillDown">true</property>
+              <property name="MinWidth">10</property>
+              <property name="Columns" iskey="true" value="0" />
+              <property name="RowCount">1</property>
+              <property name="Visible">true</property>
+              <property name="Children" iskey="true" value="2">
+                <property name="Item1" isnull="true" iskey="true">
+                  <property name="AppearanceHeader" isnull="true" iskey="true">
+                    <property name="Options" isnull="true" iskey="true">
+                      <property name="UseTextOptions">true</property>
+                    </property>
+                    <property name="TextOptions" isnull="true" iskey="true">
+                      <property name="WordWrap">Wrap</property>
+                      <property name="HAlignment">Center</property>
+                    </property>
+                  </property>
+                  <property name="ImageAlignment">Near</property>
+                  <property name="ImageIndex">-1</property>
+                  <property name="Fixed">None</property>
+                  <property name="Width">111</property>
+                  <property name="AutoFillDown">true</property>
+                  <property name="MinWidth">10</property>
+                  <property name="Columns" iskey="true" value="1">
+                    <property name="Item1">BandedGridColumn13</property>
+                  </property>
+                  <property name="RowCount">1</property>
+                  <property name="Visible">true</property>
+                  <property name="Children" iskey="true" value="0" />
+                  <property name="Caption">Tổng số</property>
+                  <property name="CustomizationCaption" />
+                  <property name="ToolTip" />
+                  <property name="Name">gridBand12</property>
+                </property>
+                <property name="Item2" isnull="true" iskey="true">
+                  <property name="AppearanceHeader" isnull="true" iskey="true">
+                    <property name="Options" isnull="true" iskey="true">
+                      <property name="UseTextOptions">true</property>
+                    </property>
+                    <property name="TextOptions" isnull="true" iskey="true">
+                      <property name="WordWrap">Wrap</property>
+                      <property name="HAlignment">Center</property>
+                    </property>
+                  </property>
+                  <property name="ImageAlignment">Near</property>
+                  <property name="ImageIndex">-1</property>
+                  <property name="Fixed">None</property>
+                  <property name="Width">317</property>
+                  <property name="AutoFillDown">true</property>
+                  <property name="MinWidth">10</property>
+                  <property name="Columns" iskey="true" value="0" />
+                  <property name="RowCount">1</property>
+                  <property name="Visible">true</property>
+                  <property name="Children" iskey="true" value="3">
+                    <property name="Item1" isnull="true" iskey="true">
+                      <property name="AppearanceHeader" isnull="true" iskey="true">
+                        <property name="Options" isnull="true" iskey="true">
+                          <property name="UseTextOptions">true</property>
+                        </property>
+                        <property name="TextOptions" isnull="true" iskey="true">
+                          <property name="WordWrap">Wrap</property>
+                          <property name="HAlignment">Center</property>
+                        </property>
+                      </property>
+                      <property name="ImageAlignment">Near</property>
+                      <property name="ImageIndex">-1</property>
+                      <property name="Fixed">None</property>
+                      <property name="Width">108</property>
+                      <property name="AutoFillDown">true</property>
+                      <property name="MinWidth">10</property>
+                      <property name="Columns" iskey="true" value="1">
+                        <property name="Item1">BandedGridColumn14</property>
+                      </property>
+                      <property name="RowCount">1</property>
+                      <property name="Visible">true</property>
+                      <property name="Children" iskey="true" value="0" />
+                      <property name="Caption">NST</property>
+                      <property name="CustomizationCaption" />
+                      <property name="ToolTip" />
+                      <property name="Name">gridBand14</property>
+                    </property>
+                    <property name="Item2" isnull="true" iskey="true">
+                      <property name="AppearanceHeader" isnull="true" iskey="true">
+                        <property name="Options" isnull="true" iskey="true">
+                          <property name="UseTextOptions">true</property>
+                        </property>
+                        <property name="TextOptions" isnull="true" iskey="true">
+                          <property name="WordWrap">Wrap</property>
+                          <property name="HAlignment">Center</property>
+                        </property>
+                      </property>
+                      <property name="ImageAlignment">Near</property>
+                      <property name="ImageIndex">-1</property>
+                      <property name="Fixed">None</property>
+                      <property name="Width">106</property>
+                      <property name="AutoFillDown">true</property>
+                      <property name="MinWidth">10</property>
+                      <property name="Columns" iskey="true" value="1">
+                        <property name="Item1">BandedGridColumn15</property>
+                      </property>
+                      <property name="RowCount">1</property>
+                      <property name="Visible">true</property>
+                      <property name="Children" iskey="true" value="0" />
+                      <property name="Caption">NSTW</property>
+                      <property name="CustomizationCaption" />
+                      <property name="ToolTip" />
+                      <property name="Name">gridBand15</property>
+                    </property>
+                    <property name="Item3" isnull="true" iskey="true">
+                      <property name="AppearanceHeader" isnull="true" iskey="true">
+                        <property name="Options" isnull="true" iskey="true">
+                          <property name="UseTextOptions">true</property>
+                        </property>
+                        <property name="TextOptions" isnull="true" iskey="true">
+                          <property name="WordWrap">Wrap</property>
+                          <property name="HAlignment">Center</property>
+                        </property>
+                      </property>
+                      <property name="ImageAlignment">Near</property>
+                      <property name="ImageIndex">-1</property>
+                      <property name="Fixed">None</property>
+                      <property name="Width">103</property>
+                      <property name="AutoFillDown">true</property>
+                      <property name="MinWidth">10</property>
+                      <property name="Columns" iskey="true" value="1">
+                        <property name="Item1">BandedGridColumn16</property>
+                      </property>
+                      <property name="RowCount">1</property>
+                      <property name="Visible">true</property>
+                      <property name="Children" iskey="true" value="0" />
+                      <property name="Caption">ODA</property>
+                      <property name="CustomizationCaption" />
+                      <property name="ToolTip" />
+                      <property name="Name">gridBand16</property>
+                    </property>
+                  </property>
+                  <property name="Caption">Trong đó</property>
+                  <property name="CustomizationCaption" />
+                  <property name="ToolTip" />
+                  <property name="Name">gridBand13</property>
+                </property>
+              </property>
+              <property name="Caption">Tổng mức đầu tư</property>
+              <property name="CustomizationCaption" />
+              <property name="ToolTip" />
+              <property name="Name">gridBand11</property>
+            </property>
+          </property>
+          <property name="Caption">Quyết định đầu tư</property>
+          <property name="CustomizationCaption" />
+          <property name="ToolTip" />
+          <property name="Name">gridBand9</property>
+        </property>
+      </property>
+      <property name="Caption">Thông tin chung của công trình</property>
+      <property name="Name">gridBand3</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="Width">457</property>
+      <property name="MinWidth">10</property>
+      <property name="Columns" iskey="true" value="0" />
+      <property name="Children" iskey="true" value="2">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="ImageAlignment">Near</property>
+          <property name="ImageIndex">-1</property>
+          <property name="Fixed">None</property>
+          <property name="Width">134</property>
+          <property name="AutoFillDown">true</property>
+          <property name="MinWidth">10</property>
+          <property name="Columns" iskey="true" value="1">
+            <property name="Item1">BandedGridColumn12</property>
+          </property>
+          <property name="RowCount">1</property>
+          <property name="Visible">true</property>
+          <property name="Children" iskey="true" value="0" />
+          <property name="Caption">Tổng số</property>
+          <property name="CustomizationCaption" />
+          <property name="ToolTip" />
+          <property name="Name">gridBand24</property>
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="ImageAlignment">Near</property>
+          <property name="ImageIndex">-1</property>
+          <property name="Fixed">None</property>
+          <property name="Width">323</property>
+          <property name="AutoFillDown">true</property>
+          <property name="MinWidth">10</property>
+          <property name="Columns" iskey="true" value="0" />
+          <property name="RowCount">1</property>
+          <property name="Visible">true</property>
+          <property name="Children" iskey="true" value="3">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="ImageAlignment">Near</property>
+              <property name="ImageIndex">-1</property>
+              <property name="Fixed">None</property>
+              <property name="Width">110</property>
+              <property name="AutoFillDown">true</property>
+              <property name="MinWidth">10</property>
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">BandedGridColumn20</property>
+              </property>
+              <property name="RowCount">1</property>
+              <property name="Visible">true</property>
+              <property name="Children" iskey="true" value="0" />
+              <property name="Caption">NST</property>
+              <property name="CustomizationCaption" />
+              <property name="ToolTip" />
+              <property name="Name">gridBand26</property>
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="ImageAlignment">Near</property>
+              <property name="ImageIndex">-1</property>
+              <property name="Fixed">None</property>
+              <property name="Width">107</property>
+              <property name="AutoFillDown">true</property>
+              <property name="MinWidth">10</property>
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">BandedGridColumn21</property>
+              </property>
+              <property name="RowCount">1</property>
+              <property name="Visible">true</property>
+              <property name="Children" iskey="true" value="0" />
+              <property name="Caption">NSTW</property>
+              <property name="CustomizationCaption" />
+              <property name="ToolTip" />
+              <property name="Name">gridBand27</property>
+            </property>
+            <property name="Item3" isnull="true" iskey="true">
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="ImageAlignment">Near</property>
+              <property name="ImageIndex">-1</property>
+              <property name="Fixed">None</property>
+              <property name="Width">106</property>
+              <property name="AutoFillDown">true</property>
+              <property name="MinWidth">10</property>
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">BandedGridColumn22</property>
+              </property>
+              <property name="RowCount">1</property>
+              <property name="Visible">true</property>
+              <property name="Children" iskey="true" value="0" />
+              <property name="Caption">ODA</property>
+              <property name="CustomizationCaption" />
+              <property name="ToolTip" />
+              <property name="Name">gridBand28</property>
+            </property>
+          </property>
+          <property name="Caption">Trong đó</property>
+          <property name="CustomizationCaption" />
+          <property name="ToolTip" />
+          <property name="Name">gridBand25</property>
+        </property>
+      </property>
+      <property name="Caption">Lũy kế vốn bố trí đến hết năm trước</property>
+      <property name="Name">gridBand23</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="Width">497</property>
+      <property name="MinWidth">10</property>
+      <property name="Columns" iskey="true" value="0" />
+      <property name="Children" iskey="true" value="2">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="WordWrap">Wrap</property>
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="ImageAlignment">Near</property>
+          <property name="ImageIndex">-1</property>
+          <property name="Fixed">None</property>
+          <property name="Width">124</property>
+          <property name="AutoFillDown">true</property>
+          <property name="MinWidth">10</property>
+          <property name="Columns" iskey="true" value="1">
+            <property name="Item1">BandedGridColumn9</property>
+          </property>
+          <property name="RowCount">1</property>
+          <property name="Visible">true</property>
+          <property name="Children" iskey="true" value="0" />
+          <property name="Caption">Tổng số</property>
+          <property name="CustomizationCaption" />
+          <property name="ToolTip" />
+          <property name="Name">gridBand47</property>
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="AppearanceHeader" isnull="true" iskey="true">
+            <property name="Options" isnull="true" iskey="true">
+              <property name="UseTextOptions">true</property>
+            </property>
+            <property name="TextOptions" isnull="true" iskey="true">
+              <property name="HAlignment">Center</property>
+            </property>
+          </property>
+          <property name="ImageAlignment">Center</property>
+          <property name="ImageIndex">-1</property>
+          <property name="Fixed">None</property>
+          <property name="Width">373</property>
+          <property name="AutoFillDown">true</property>
+          <property name="MinWidth">10</property>
+          <property name="Columns" iskey="true" value="0" />
+          <property name="RowCount">1</property>
+          <property name="Visible">true</property>
+          <property name="Children" iskey="true" value="3">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="ImageAlignment">Near</property>
+              <property name="ImageIndex">-1</property>
+              <property name="Fixed">None</property>
+              <property name="Width">126</property>
+              <property name="AutoFillDown">true</property>
+              <property name="MinWidth">10</property>
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">BandedGridColumn23</property>
+              </property>
+              <property name="RowCount">1</property>
+              <property name="Visible">true</property>
+              <property name="Children" iskey="true" value="0" />
+              <property name="Caption">NST</property>
+              <property name="CustomizationCaption" />
+              <property name="ToolTip" />
+              <property name="Name">gridBand49</property>
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="ImageAlignment">Near</property>
+              <property name="ImageIndex">-1</property>
+              <property name="Fixed">None</property>
+              <property name="Width">117</property>
+              <property name="AutoFillDown">true</property>
+              <property name="MinWidth">10</property>
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">BandedGridColumn24</property>
+              </property>
+              <property name="RowCount">1</property>
+              <property name="Visible">true</property>
+              <property name="Children" iskey="true" value="0" />
+              <property name="Caption">NSTW</property>
+              <property name="CustomizationCaption" />
+              <property name="ToolTip" />
+              <property name="Name">gridBand50</property>
+            </property>
+            <property name="Item3" isnull="true" iskey="true">
+              <property name="AppearanceHeader" isnull="true" iskey="true">
+                <property name="Options" isnull="true" iskey="true">
+                  <property name="UseTextOptions">true</property>
+                </property>
+                <property name="TextOptions" isnull="true" iskey="true">
+                  <property name="WordWrap">Wrap</property>
+                  <property name="HAlignment">Center</property>
+                </property>
+              </property>
+              <property name="ImageAlignment">Near</property>
+              <property name="ImageIndex">-1</property>
+              <property name="Fixed">None</property>
+              <property name="Width">130</property>
+              <property name="AutoFillDown">true</property>
+              <property name="MinWidth">10</property>
+              <property name="Columns" iskey="true" value="1">
+                <property name="Item1">BandedGridColumn25</property>
+              </property>
+              <property name="RowCount">1</property>
+              <property name="Visible">true</property>
+              <property name="Children" iskey="true" value="0" />
+              <property name="Caption">ODA</property>
+              <property name="CustomizationCaption" />
+              <property name="ToolTip" />
+              <property name="Name">gridBand51</property>
+            </property>
+          </property>
+          <property name="Caption">Trong đó</property>
+          <property name="CustomizationCaption" />
+          <property name="ToolTip" />
+          <property name="Name">gridBand48</property>
+        </property>
+      </property>
+      <property name="Caption">Nhu cầu kế hoạch vốn trung hạn giai đoạn</property>
+      <property name="Name">gridBand46</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="Width">223</property>
+      <property name="MinWidth">10</property>
+      <property name="Columns" iskey="true" value="1">
+        <property name="Item1">BandedGridColumn26</property>
+      </property>
+      <property name="Children" iskey="true" value="0" />
+      <property name="Caption">Ghi chú </property>
+      <property name="Name">gridBand35</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="WordWrap">Wrap</property>
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="ImageAlignment">Near</property>
+      <property name="ImageIndex">-1</property>
+      <property name="Width">182</property>
+      <property name="MinWidth">10</property>
+      <property name="Columns" iskey="true" value="1">
+        <property name="Item1">BandedGridColumn27</property>
+      </property>
+      <property name="Children" iskey="true" value="0" />
+      <property name="Caption">Ghi chú chuyên viên</property>
+      <property name="Name">gridBand36</property>
+    </property>
+  </property>
+  <property name="GroupSummary" iskey="true" value="0" />
+  <property name="ActiveFilterString" />
+  <property name="FormatRules" iskey="true" value="0" />
+  <property name="FormatConditions" iskey="true" value="0" />
+  <property name="GroupSummarySortInfoState" />
+  <property name="FindFilterText" />
+  <property name="FindPanelVisible">false</property>
+</XtraSerializer>

@@ -1,0 +1,45 @@
+﻿@using DevExtreme.AspNet.Mvc
+@model xdcb.HoSoCongTrinhs.CreateView.IndexModel
+
+<div class="row mb-2">
+    <div class="text-right col-12">
+        <button class="btn btn-add-general" type="button" onclick="getCoSoPhapLyModal()" data-busy-text="Processing..." data-toggle="modal" data-target="#modalNewCoSoPhapLy"><i class="fa fa-plus"></i> <span>Thêm mới</span></button>
+        <button id="NewThuVienVanBan" class="btn btn-add-general" type="button" onclick="getThuVienVanBanModal()" data-busy-text="Processing..." data-toggle="modal" data-target="#modalNewThuVienVanBan"><i class="fa fa-plus"></i> <span>Thêm mới từ thư viện văn bản</span></button>
+    </div>
+</div>
+
+@(Html.DevExtreme().DataGrid<xdcb.HoSoCongTrinh.Dtos.CoSoPhapLyViewModel>()
+        .ID("cosophaply-table")
+        .NoDataText("Không có dữ liệu")
+        .ShowBorders(true)
+        .WordWrapEnabled(true)
+        .Columns(
+            columns => {
+                columns.Add().DataField("Stt").Caption("#").Width(60)
+                    .Alignment(HorizontalAlignment.Left)
+                    .AllowEditing(false)
+                    .CellTemplate(new JS("orderRowItemNo"));
+
+                columns.AddFor(m => m.NoiDung);
+
+                columns.AddFor(m => m.Files).CellTemplate(@<text>
+                    <%= formatFilesCoSoPhapLy(data) %>
+                </text>).Width(350);
+
+                columns.Add().Width(100).CellTemplate(@<text>
+                    <div class="text-center">
+                        <% if (data.ThuVienVanBanId == null) { %>
+                            <button class="btn-action btn-edit" _id="<%=data.Id%>" _model="<%=data.CoSoPhapLyJsonViewModel %>" onclick="editCoSoPhapLy(this)"  data-toggle="modal" data-target="#modalNewCoSoPhapLy">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </button>
+                        <% } %>
+                        <button class="btn-action btn-delete" _id="<%=data.Id%>" _files="<%= formatFileStringCoSoPhapLy(data) %>" onclick="deleteCoSoPhapLyOnRow(this)">
+                            <i class="fa fa-trash-o"></i>
+                        </button>
+                    </div>
+                </text>);
+            })
+        .DataSource(Model.CoSoPhapLys)
+        .OnContentReady("GetDataCoSoPhapLy")
+        .Paging(paging => paging.Enabled(false))
+    )

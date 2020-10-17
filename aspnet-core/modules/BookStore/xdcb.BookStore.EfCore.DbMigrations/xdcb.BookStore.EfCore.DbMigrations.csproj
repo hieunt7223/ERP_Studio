@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="3.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\xdcb.BookStore.Domain\xdcb.BookStore.Domain.csproj" />
+    <ProjectReference Include="..\xdcb.BookStore.EntityFrameworkCore\xdcb.BookStore.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+</Project>

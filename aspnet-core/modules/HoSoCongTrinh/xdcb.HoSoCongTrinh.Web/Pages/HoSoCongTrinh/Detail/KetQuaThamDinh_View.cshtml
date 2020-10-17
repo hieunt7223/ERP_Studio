@@ -1,0 +1,55 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using xdcb.HoSoCongTrinh.Constants
+@model xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietViewModel
+
+@{
+    var ketQuaThamDinh = @Model.KetQuaThamDinhs;
+}
+<table border="1" class="table table-bordered table-hover dtr-inline no-footer dataTable nav-pills">
+    <thead>
+        <tr>
+            <th class="td-width-4">#</th>
+            <th>File đính kèm</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @if (ketQuaThamDinh != null && ketQuaThamDinh.Any())
+        {
+            var imgFile = "";
+            int i = 1;
+            @foreach (var fileName in ketQuaThamDinh)
+            {
+
+                if (fileName.File == null) continue;
+                if (string.IsNullOrEmpty(fileName.File.TenFile)) continue;
+                var array = fileName.File.TenFile.Split('.');
+                string kieu = array[array.Length - 1].ToLower();
+                if (kieu == "pdf")
+                {
+                    imgFile = "<img src='/img/pdf.svg' class='attached-icon'>";
+                }
+                else if (kieu == "doc" || kieu == "docx")
+                {
+                    imgFile = "<img src='/img/word.svg' class='attached-icon'>";
+                }
+                else
+                {
+                    imgFile = "<img src='/img/image.svg' class='attached-icon'>";
+                }
+                <tr>
+                    <td class="td-width-4">@i</td>
+                    <td><a href="/api/app/documentStore/download/@fileName.File.Id">@Html.Raw(imgFile) <span>@fileName.File.TenFile</span></a></td>
+                </tr>
+                i++;
+            }
+
+        }
+        else
+        {
+            <tr>
+                <td colspan="2" align="center">@ViewTextConsts.CommonViewModel.NoData</td>
+            </tr>
+        }
+    </tbody>
+</table>

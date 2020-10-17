@@ -1,0 +1,65 @@
+﻿@using xdcb.HoSoCongTrinh.Constants
+@model xdcb.HoSoCongTrinhs.ComponentsView.IndexModel
+
+<div class="modal fade XuatFilePopUp" tabindex="-1" role="dialog" aria-labelledby="XuatFilePopUp" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="csplTitle">@ViewTextConsts.XuatFileMacDinh.Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <table class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                    <thead>
+                        <tr role="row">
+                            <th rowspan="1" colspan="1">@ViewTextConsts.XuatFileMacDinh.STT</th>
+                            <th rowspan="1" colspan="1">@ViewTextConsts.XuatFileMacDinh.TenBieuMau</th>
+                            <th rowspan="1" colspan="1">@ViewTextConsts.XuatFileMacDinh.FileDinhKem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr role="row" class="d-none" id="baoCaoDeXuatTemplate">
+                            <td rowspan="1" colspan="1">
+                                <span>1   </span>
+                                <div class="custom-control custom-checkbox " style="float:right">
+                                    <input class="custom-control-input xuatfile-checkbox" type="checkbox" id="BaoCaoDeXuat">
+                                    <label for="BaoCaoDeXuat" class="custom-control-label"></label>
+                                </div>
+                            </td>
+                            <td rowspan="1" colspan="1">Thẩm định đề xuất chủ trương đầu tư dự án</td>
+
+                            <td>
+                                <img src='/img/word.svg' class='attached-icon'><span>   Báo cáo.docx</span>
+                            </td>
+                        </tr>
+                        <tr role="row" class="d-none" id="baoCaoDieuChinhTemplate">
+                            <td rowspan="1" colspan="1">
+                                <span>1   </span>
+                                <div class="custom-control custom-checkbox " style="float:right">
+                                    <input class="custom-control-input xuatfile-checkbox" type="checkbox" id="BaoCaoDieuChinh">
+                                    <label for="BaoCaoDieuChinh" class="custom-control-label"></label>
+                                </div>
+                            </td>
+                            <td rowspan="1" colspan="1">Thẩm định điều chỉnh chủ trương đầu tư dự án</td>
+
+                            <td>
+                                <img src='/img/word.svg' class='attached-icon'><span>   Báo cáo.docx</span>
+                            </td>
+                        </tr>
+                        <tr role="row" class="d-none" id="noDataTemplate">
+                            <td colspan="3" class="text-center">Không có dữ liệu</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button id="report" type="button" class="btn btn-info">Xuất file</button>
+            </div>
+        </div>
+    </div>
+</div>

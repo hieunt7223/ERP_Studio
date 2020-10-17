@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>xdcb.HoSoCongTrinh</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapper.Contrib" Version="2.0.35" />
+    <PackageReference Include="Mapster" Version="5.3.2" />
+    <PackageReference Include="Volo.Abp.Ddd.Domain" Version="3.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\xdcb.HoSoCongTrinh.Application.Contracts\xdcb.HoSoCongTrinh.Application.Contracts.csproj" />
+    <ProjectReference Include="..\xdcb.HoSoCongTrinh.Domain.Shared\xdcb.HoSoCongTrinh.Domain.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

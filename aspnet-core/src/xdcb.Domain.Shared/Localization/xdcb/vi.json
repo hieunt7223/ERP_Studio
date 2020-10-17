@@ -1,0 +1,23 @@
+{
+  "culture": "vi",
+  "texts": {
+    "Menu:Home": "Trang chủ",
+    "Welcome": "Chào mừng bạn",
+    "LongWelcomeMessage": "Chào mừng bạn đến ứng dụng. Đây là một dự án khởi nghiệp dựa trên khung ABP. Để biết thêm thông tin, hãy truy cập abp.io.",
+    "Enum:MaDoUuTien.Uutien1": "Ưu tiên 1",
+    "Enum:MaDoUuTien.Uutien2": "Ưu tiên 2",
+    "Enum:MaDoUuTien.DanTienDo": "Dãn tiến độ",
+    "Enum:MaDoUuTien.ChuaXacDinh": "Chưa xác định",
+    "Enum:CapDonVi.Tinh": "Tỉnh",
+    "Enum:CapDonVi.ThanhPhoTrucThuocTrungUong": "Thành phố trực thuộc trung ương",
+    "Enum:CapDonVi.ThanhPho": "Thành phố",
+    "Enum:CapDonVi.Quan": "Quận",
+    "Enum:CapDonVi.Huyen": "Huyện",
+    "Enum:CapDonVi.ThiXa": "Thị xã",
+    "Enum:CapDonVi.ThiTran": "Thị trấn",
+    "Enum:CapDonVi.Phuong": "Phường",
+    "Enum:CapDonVi.Xa": "Xã",
+    "Enum:LoaiKhoanType.Loai": "Loại",
+    "Enum:LoaiKhoanType.Khoan": "Khoản"
+  }
+}

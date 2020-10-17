@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>xdcb.HoSoCongTrinh</RootNamespace>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="3.0.3" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="3.0.3" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\xdcb.HoSoCongTrinh.Domain\xdcb.HoSoCongTrinh.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

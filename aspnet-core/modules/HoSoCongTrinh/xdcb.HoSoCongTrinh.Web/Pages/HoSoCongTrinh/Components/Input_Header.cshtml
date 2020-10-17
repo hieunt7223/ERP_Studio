@@ -1,0 +1,96 @@
+﻿@model xdcb.HoSoCongTrinh.Dtos.FormModel
+@inject xdcb.Common.DanhMuc.ChuDauTus.IChuDauTuAppService chuDauTuService
+@inject Volo.Abp.Users.ICurrentUser currentUser
+
+@{
+    Guid? chuDauTuId = null;
+    Guid? userId = currentUser.Id;
+    if (userId != null)
+    {
+        chuDauTuId = await chuDauTuService.CheckChuDauTuAsync((Guid)userId);
+    }
+}
+
+<div class="history-request-block">
+    @if (Model.ActionName == "CreateUpdate")
+    {
+        <div class="form-group">
+            <label class="@(Model.HoSoCongTrinhChiTiet.SoLanDieuChinhChiTiet < 1 ? "d-none" : "")" for="soLanDieuChinh">Điều chỉnh lần thứ</label>
+            <select class="custom-select form-control search-form-control @(Model.HoSoCongTrinhChiTiet.SoLanDieuChinhChiTiet < 1 ? "d-none" : "")" id="soLanDieuChinh">
+                @for (int item = Model.HoSoCongTrinhChiTiet.SoLanDieuChinhChiTiet; item < 11; item++)
+                {
+                    <option value="@item">@item</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="hanXuLy" class="@(chuDauTuId != null ? "d-none" : "")">Hạn xử lý</label>
+            <input type="hidden" value="@Model.HoSoCongTrinhChiTiet.HanXuLyChiTiet.ToString("dd/MM/yyyy")" id="hanXuLyDefault" />
+            <div class="input-group date datepicker @(chuDauTuId != null ? "d-none" : "")">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="far fa-calendar-alt"></i>
+                    </span>
+                </div>
+                <input type="date" id="hanXuLy" data-val="true" class="form-control float-right" placeholder="dd/mm/yyyy">
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <span class="mr-sm-2 @(chuDauTuId != null ? "d-none" : "")"><b>Hạn xử lý:</b></span>
+            <span class="@(chuDauTuId != null ? "d-none" : "")">@Model.HoSoCongTrinhChiTiet.HanXuLyChiTiet.ToString("dd/MM/yyyy")</span>
+        </div>
+    }
+
+    <span class="edit-request">
+        <i class="fas fa-info-circle"></i>
+        @if (chuDauTuId != null)
+        {
+            <a href="#" data-toggle="modal" data-target="#modalNoiDungYeuCauChinhSua" onclick="openModalNoiDungYeuCauChinhSua(this)" id="@Model.HoSoCongTrinhChiTiet.HoSoCongTrinhChiTietId">Yêu cầu chỉnh sửa</a>
+        }
+        else
+        {
+            <a href="#" data-toggle="modal" data-target="#modalYeuCauChinhSua" onclick="openModalYeuCauChinhSua(this)" id="@Model.HoSoCongTrinhChiTiet.HoSoCongTrinhChiTietId">Yêu cầu chỉnh sửa</a>
+        }
+    </span>
+</div>
+
+<script>
+    function openModalYeuCauChinhSua(btn) {
+        $("#yeuCauChinhSua").val("");
+        $("#yeuCauChinhSuaHoSoCongTrinhChiTietId").val($(btn).attr("id"));
+    }
+
+    function openModalNoiDungYeuCauChinhSua(btn) {
+        $("#noiDungYeuCauChinhSua").children().remove();
+        var hoSoCongTrinhCHiTietId = $(btn).attr("id");
+        var noiDung = "";
+
+        $.ajax("/api/app/noiDungYeuCauChinhSua/noiDungYeuCausById/" + hoSoCongTrinhCHiTietId, {
+            method: "get",
+            type: "get",
+            dataType: "json",
+            contentType: "application/json",
+            cache: false,
+            xhrFields: { withCredentials: true }
+        }).done(function (data) {
+            if (data.length > 0) {
+                data.forEach(function (item) {
+                    var date = new Date(item.creationTime);
+                    var day = date.getDate();
+                    var month = date.getMonth() + 1;
+                    var year = date.getFullYear();
+                    var hour = date.getHours();
+                    var min = date.getMinutes();
+                    noiDung += "<h6>Ngày " + day + "/" + month + "/" + year + " " + hour + ":" + min + "</h6>" +
+                        "<span>- </span><span>" + item.noiDung + "</span>";
+                })
+            }
+
+            $("#noiDungYeuCauChinhSua").append(noiDung);
+        });
+    }
+</script>

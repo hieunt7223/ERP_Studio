@@ -1,0 +1,70 @@
+﻿@using DevExtreme.AspNet.Mvc
+@model xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietViewModel
+
+<div class="row mb-2">
+    <div class="text-right col-12">
+        <button id="NewThanhPhanHoSo" class="btn btn-add-general" type="button" data-busy-text="Processing..." data-toggle="modal" data-target="#modalNewThanhPhanHoSo"><i class="fa fa-plus"></i> <span>Thêm mới</span></button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        @(Html.DevExtreme().DataGrid<xdcb.HoSoCongTrinh.Dtos.ThanhPhanHoSoViewModel>()
+        .ID("thanhphanhoso-table")
+        .NoDataText("Không có dữ liệu")
+        .DataSource(@Model.ThanhPhanHoSos)
+        .ShowBorders(true)
+        .WordWrapEnabled(true)
+        .Columns(columns =>
+        {
+            columns.Add().DataField("Stt").Caption("#").Width(60)
+                .Alignment(HorizontalAlignment.Left)
+                .AllowEditing(false)
+                .CellTemplate(new JS("orderRowItemNo"));
+
+            columns.AddFor(m => m.ThanhPhanHoSoId).Visible(false);
+
+            columns.AddFor(m => m.LoaiVanBanId).Visible(false);
+
+            columns.AddFor(m => m.DonViBanHanhId).Visible(false);
+
+            columns.Add().Caption("Tên thành phần hồ sơ").Width(350).CellTemplate(new JS("renderTenThanhPhanHoSoTemplate"));
+
+            columns.AddFor(m => m.SoQuyetDinh).Width(120).CellTemplate(new JS("renderSoQuyetDinhTemplate"));
+
+            columns.AddFor(m => m.NgayBanHanhFormat).Width(120).CellTemplate(new JS("renderNgaybanHanhTemplate"));
+
+            columns.AddFor(m => m.TenDonViBanHanh).CellTemplate(new JS("renderDonViBanHanhTemplate"));
+
+            columns.AddFor(m => m.Files).CellTemplate(new JS("renderFileTemplate"));
+
+            columns.Add().Width(100).CellTemplate(@<text>
+                <div class="text-center">
+                    <% if(data.BatBuoc) { %>
+                        <button class="btn-action btn-edit" _id="<%=data.ThanhPhanHoSoId%>" _files="<%= getFileListString(data.Files) %>" onclick="editThanhPhanHoSoDefault(this)" data-toggle="modal" data-target="#modalNewThanhPhanHoSo"  >
+                            <i class="fa fa-pencil-square-o"></i>
+                        </button>
+                    <% } else { %>
+                        <button class="btn-action btn-edit" _id="<%=data.ThanhPhanHoSoId%>" _files="<%= getFileListString(data.Files) %>" onclick="editThanhPhanHoSo(this)" data-toggle="modal" data-target="#modalNewThanhPhanHoSo"  >
+                            <i class="fa fa-pencil-square-o"></i>
+                        </button>
+                        <button class="btn-action btn-delete" _id="<%=data.ThanhPhanHoSoId%>" _files="<%= getFileListString(data.Files) %>" onclick="deleteThanhPhanHoSoOnRow(this)"  >
+                            <i class="fa fa-trash-o"></i>
+                        </button>
+                    <% } %>
+
+                </div>
+
+                </text>);
+        })
+        .OnContentReady("GetDataThanhPhanHoSo")
+        .Paging(paging => paging.Enabled(false))
+        )
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-12">
+        <span class="description-note"><span class="text-danger">*</span> Vui lòng nhập thông tin đầy đủ các cột cho các hồ sơ bắt buộc</span>
+    </div>
+</div>

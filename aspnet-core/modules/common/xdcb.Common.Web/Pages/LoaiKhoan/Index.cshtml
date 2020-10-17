@@ -1,0 +1,110 @@
+﻿@page
+@model xdcb.Common.DanhMuc.LoaiKhoans.IndexModel
+@using xdcb.Common.DanhMuc
+@using DevExtreme.AspNet.Mvc
+@inject xdcb.Common.DanhMuc.LoaiKhoans.ILoaiKhoanAppService _loaiKhoanService;
+
+<script src="~/js/devextreme/dx.all.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+
+@section scripts
+{
+    <abp-script src="/Pages/LoaiKhoan/index.js" />
+}
+@{
+    var loaiKhoans = await _loaiKhoanService.GetAllAsync();
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>@ViewTextConsts.LoaiKhoan.Title</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-search">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewTextConsts.Common.Search</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="card-body">
+                        <div class="form-group search-form-group">
+                            <label>@ViewTextConsts.Common.KeyTitle</label>
+                            <div class="input-group search-input-group">
+                                <input type="text" id="keyword" class="form-control search-form-control" placeholder="@ViewTextConsts.PlaceholderLoaiKhoan.PlaceholderSearch">
+                                <span class="input-group-append">
+                                    <button id="Search" type="button" class="btn btn-search">
+                                        <span>@ViewTextConsts.Common.Search</span>
+                                    </button>
+                                </span>
+                            </div>
+                            <span class="text-danger field-validation-valid" data-valmsg-replace="true">
+                            </span>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body loaikhoan">
+                        @(Html.DevExtreme().TreeList()
+                                    .ID("LoaiKhoan")
+                                    .NoDataText("Không có dữ liệu")
+                                    .DataSource(loaiKhoans)
+                                    .KeyExpr("Id")
+                                    .ParentIdExpr("LoaiKhoanChaID")
+                                    .AutoExpandAll(true)
+                                    .ColumnAutoWidth(true)
+                                    .ShowRowLines(true)
+                                    .ShowBorders(true)
+                                    .Scrolling(scrolling => scrolling.Mode(TreeListScrollingMode.Standard))
+                                    .RootValue(Guid.Empty)
+                                     .Sorting(sorting => sorting.Mode(GridSortingMode.Multiple))
+                                    .Paging(paging =>
+                                    {
+                                        paging.Enabled(true);
+                                        paging.PageSize(10);
+                                    })
+                                    .Pager(pager =>
+                                    {
+                                        pager.ShowNavigationButtons(true);
+                                        pager.ShowInfo(true);
+                                        pager.InfoText("Hiển thị {2} kết quả");
+                                    })
+                                    .Columns(columns => {
+                                     columns.Add()
+                                         .DataField("STT")
+                                         .Caption(@ViewTextConsts.Common.STT)
+                                         .Width("10%");
+                                     columns.Add()
+                                         .DataField("TenLoaiLoaiKhoan")
+                                         .Caption(@ViewTextConsts.LoaiKhoan.LoaiLoaiKhoan);
+                                     columns.Add().DataField("MaSo").Caption(@ViewTextConsts.LoaiKhoan.MaLoaiKhoan);
+                                     columns.Add().DataField("TenLoaiKhoan").Caption(@ViewTextConsts.LoaiKhoan.TenLoaiKhoan);
+                                     columns.Add().DataField("GhiChu").Caption(@ViewTextConsts.LoaiKhoan.GhiChu);
+                                    })
+                             )
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

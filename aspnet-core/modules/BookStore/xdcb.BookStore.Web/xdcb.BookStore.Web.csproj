@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\Books\CreateModal.cshtml" />
+    <None Remove="Pages\Books\EditModal.cshtml" />
+    <None Remove="Pages\Books\Index.cshtml" />
+    <None Remove="Pages\devextreme\Index.cshtml" />
+    <None Remove="Pages\Style\Search.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Books\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\Books\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\Books\Index.cshtml" />
+    <EmbeddedResource Include="Pages\devextreme\Index.cshtml" />
+    <EmbeddedResource Include="Pages\Style\Search.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="20.1.3" />
+    <PackageReference Include="DevExtreme.AspNet.Data" Version="2.6.1" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI" Version="3.0.3" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Bootstrap" Version="3.0.3" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="3.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\xdcb.BookStore.Application.Contracts\xdcb.BookStore.Application.Contracts.csproj" />
+    <ProjectReference Include="..\xdcb.BookStore.Application\xdcb.BookStore.Application.csproj" />
+    <ProjectReference Include="..\xdcb.BookStore.Domain.Shared\xdcb.BookStore.Domain.Shared.csproj" />
+    <ProjectReference Include="..\xdcb.BookStore.EntityFrameworkCore\xdcb.BookStore.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+</Project>

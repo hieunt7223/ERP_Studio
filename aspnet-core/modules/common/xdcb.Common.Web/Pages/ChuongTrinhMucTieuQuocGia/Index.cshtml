@@ -1,0 +1,109 @@
+﻿@page
+@model xdcb.Common.DanhMuc.ChuongTrinhMucTieuQuocGias.IndexModel
+@using xdcb.Common.DanhMuc
+@using DevExtreme.AspNet.Mvc
+@inject xdcb.Common.DanhMuc.ChuongTrinhMucTieuQuocGias.IChuongTrinhMucTieuQuocGiaAppService _chuongTrinhMucTieuQuocGiaService;
+
+<script src="~/js/devextreme/dx.all.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+@section scripts
+{
+    <abp-script src="/Pages/ChuongTrinhMucTieuQuocGia/index.js" />
+    <script>
+        var chuongTrinhMucTieuQuocGia = {
+            ma: '@ViewTextConsts.ChuongTrinhMucTieuQuocGia.MaChuongTrinhMucTieuQuocGia',
+            ten: '@ViewTextConsts.ChuongTrinhMucTieuQuocGia.TenChuongTrinhMucTieuQuocGia',
+        }
+    </script>
+}
+
+@{
+    var chuongTrinhMucTieuQuocGias = await _chuongTrinhMucTieuQuocGiaService.GetAllAsync();
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>@ViewTextConsts.ChuongTrinhMucTieuQuocGia.Title</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-search">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewTextConsts.Common.Search</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="card-body">
+                        <div class="form-group search-form-group">
+                            <label>@ViewTextConsts.Common.KeyTitle</label>
+                            <div class="input-group search-input-group">
+                                <input type="text" id="keyword" class="form-control search-form-control" placeholder="@ViewTextConsts.PlaceholderChuongTrinhMucTieuQuocGia.PlaceholderSearch">
+                                <span class="input-group-append">
+                                    <button id="Search" type="button" class="btn btn-search">
+                                        <span>@ViewTextConsts.Common.Search</span>
+                                    </button>
+                                </span>
+                            </div>
+                            <span class="text-danger field-validation-valid" data-valmsg-replace="true">
+                            </span>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body chuongtrinhmuctieuquocgia">
+                        @(Html.DevExtreme().TreeList()
+                                    .ID("ChuongTrinhMucTieuQuocGia")
+                                    .DataSource(chuongTrinhMucTieuQuocGias)
+                                    .KeyExpr("Id")
+                                    .ParentIdExpr("ParentId")
+                                    .AutoExpandAll(true)
+                                    .ColumnAutoWidth(false)
+                                    .ShowRowLines(true)
+                                    .ShowBorders(true)
+                                    .Scrolling(scrolling => scrolling.Mode(TreeListScrollingMode.Standard))
+                                    .RootValue(Guid.Empty)
+                                     .Sorting(sorting => sorting.Mode(GridSortingMode.Multiple))
+                                    .Paging(paging =>
+                                    {
+                                        paging.Enabled(true);
+                                        paging.PageSize(10);
+                                    })
+                                    .Pager(pager =>
+                                    {
+                                        pager.ShowNavigationButtons(true);
+                                        pager.ShowInfo(true);
+                                        pager.InfoText("Hiển thị {2} kết quả");
+                                    })
+                                    .Columns(columns => {
+                                    columns.Add()
+                                        .DataField("MaChuongTrinhMucTieuQuocGia").Width("10%")
+                                        .Caption(@ViewTextConsts.ChuongTrinhMucTieuQuocGia.MaChuongTrinhMucTieuQuocGia);
+                                    columns.Add().DataField("TenChuongTrinhMucTieuQuocGia").Caption(@ViewTextConsts.ChuongTrinhMucTieuQuocGia.TenChuongTrinhMucTieuQuocGia);
+                                    })
+                             )
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,140 @@
+﻿@using xdcb.Common.DanhMuc.LoaiVanBanDtos
+@using xdcb.Common.DanhMuc.LinhVucVanBanDtos
+@using xdcb.Common.DanhMuc
+@model xdcb.HoSoCongTrinhs.ComponentsView.IndexModel
+@inject xdcb.Common.DanhMuc.LoaiVanBans.ILoaiVanBanAppService _loaiVanBanService
+@inject xdcb.Common.DanhMuc.LinhVucVanBans.ILinhVucVanBanAppService _linhVucVanBanService
+@inject xdcb.Common.DanhMuc.ThuVienVanBans.IThuVienVanBanAppService _thuVienVanBanService
+
+@{
+    var loaiVanBan = (List<LoaiVanBanDto>)await _loaiVanBanService.GetLoaiVanBanListAsync() ?? new List<LoaiVanBanDto>();
+    var linhVucVanBan = (List<LinhVucVanBanDto>)await _linhVucVanBanService.GetLinhVucVanBanListAsync() ?? new List<LinhVucVanBanDto>();
+    var capBanHanh = _thuVienVanBanService.GetCapBanHanhs();
+}
+
+<form id="coSoPhapLyForm" data-ajaxForm="true">
+    <abp-modal centered="true" size="Large" id="modalNewCoSoPhapLy">
+        <div class="modal-header">
+            <h5 class="modal-title csplTitle"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <abp-modal-body>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="form-group">
+                        <label for="SoKyHieu">Số ký hiệu</label><span> * </span><br />
+                        <input type="text" data-val="true" data-val-required="Trường này là bắt buộc nhập" data-val-length="Trường này phải ít hơn 50 ký tự" data-val-length-max="50" id="soKyHieu" name="SoKyHieu" value="" class="form-control vail" placeholder="Nhập số/ký hiệu">
+                        <div class="text-danger soKyHieu-valid-exist d-none"></div>
+                        <div class="text-danger field-validation-valid" data-valmsg-for="SoKyHieu" data-valmsg-replace="true"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="form-group">
+                        <label for="NgayBanHanh">Ngày ban hành</label><span> * </span><br />
+                        <div class="input-group date datepicker" data-date-format="dd/MM/yyyy">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="far fa-calendar-alt"></i>
+                                </span>
+                            </div>
+                            <input type="date" id="ngayBanHanh" data-val="true" value="" class="form-control vail float-right mb-2 mr-sm-2 mb-sm-0" placeholder="dd/mm/yyyy">
+                        </div>
+                        <div class="text-danger ngayBanHanh-valid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="form-group">
+                        <label for="DonViBanHanh">Đơn vị ban hành</label><span> * </span><br />
+                        <input type="text" data-val="true" data-val-required="Trường này là bắt buộc nhập" data-val-length="Trường này phải ít hơn 50 ký tự" data-val-length-max="50" id="donViBanHanh" name="DonViBanHanh" value="" class="form-control vail" placeholder="Nhập đơn vị hành">
+                        <div class="text-danger field-validation-valid" data-valmsg-for="DonViBanHanh" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="form-group">
+                        <label for="CapBanHanh">Cấp ban hành</label>
+                        <select name="CapBanHanh" class="custom-select form-control" id="capBanHanh">
+                            @foreach (var item in capBanHanh)
+                            {
+                                <option value="@item.Key">@item.Value</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="form-group">
+                        <label for="LoaiVanBan">Loại văn bản</label><span> * </span><br />
+                        <select data-val="true" data-val-required="Trường này là bắt buộc nhập" name="LoaiVanBan" class="custom-select form-control valid" id="loaiVanBan">
+                            <option value=""></option>
+                            @foreach (var item in loaiVanBan)
+                            {
+                                <option value="@item.Id">@item.TenLoaiVanBan</option>
+                            }
+                        </select>
+                        <div class="text-danger field-validation-valid" data-valmsg-for="LoaiVanBan" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="form-group">
+                        <label for="LinhVucVanBan">Lĩnh vực văn bản</label>
+                        <select name="LinhVucVanBan" class="custom-select form-control" id="linhVucVanBan">
+                            <option value=""></option>
+                            @foreach (var item in linhVucVanBan)
+                            {
+                                <option value="@item.Id">@item.TenLinhVuc</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="TrichYeu">Trích yếu</label>
+                        <textarea id="trichYeu" name="TrichYeu" rows="4" class="form-control vail" data-val="true" data-val-length="Trường này phải ít hơn 500 ký tự" data-val-length-max="500"></textarea>
+                        <div class="text-danger field-validation-valid" data-valmsg-for="TrichYeu" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="FileUploadsCspl">File đính kèm</label><span> * </span><br />
+                        <div class="upload-btn-wrapper">
+                            <button class="btn btn-upload file-chooser-cspl">
+                                <input class="file-cspl form-control file-chooser-cspl__input" type="file" data-val="true" data-val-required="File đính kèm là bắt buộc" name="FileUploadsCspl" />
+                                <i class="fa fa-cloud-upload"></i>
+                                <span>Tải lên</span>
+                            </button>
+                            <span>@ViewTextConsts.ThuVienVanBan.FileSubpost</span>
+                        </div>
+                        <div class="text-danger cspl-file_validate" data-valmsg-for="FileUploadsCspl" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table border="1" class="cspl-file-list table table-bordered table-hover dtr-inline no-footer dataTable">
+                <thead>
+                    <tr>
+                        <th>File đính kèm</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </abp-modal-body>
+        <abp-modal-footer>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary" id="csplSaving" onclick="insertCoSoPhapLy(this)">Lưu</button>
+        </abp-modal-footer>
+    </abp-modal>
+</form>

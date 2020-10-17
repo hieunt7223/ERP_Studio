@@ -1,0 +1,94 @@
+﻿@using DevExtreme.AspNet.Mvc
+@model xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietViewModel
+@inject xdcb.Common.DanhMuc.NganhLinhVucSuDungs.INganhLinhVucSuDungAppService nganhLinhVucSuDungService
+
+@{ 
+    var filter = new Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto
+    {
+        SkipCount = 0,
+        MaxResultCount = 1000
+    };
+
+    var nganhLinhVucSuDungs = await nganhLinhVucSuDungService.GetListAsync(filter);
+}
+
+@if (Model.TenViewLoaiHoSo == "ThamDinhDeXuatChuTruongDauTu"
+    || Model.TenViewLoaiHoSo == "ThamDinhBaoCaoKinhTeKyThuat"
+    || Model.TenViewLoaiHoSo == "ThamDinhDuAnDauTu"
+    || Model.TenViewLoaiHoSo == "ThamDinhHoSoMoiThau")
+{
+    <div class="row pt-2">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="NganhLinhVucDauTu">Ngành, lĩnh vực sử dụng nguồn vốn đầu tư</label><br />
+                <select name="NganhLinhVucDauTu" class="custom-select form-control" id="nganhLinhVucDauTu">
+                    <option value="" disabled selected hidden>Chọn trường này</option>
+                    @foreach (var item in nganhLinhVucSuDungs.Items)
+                    {
+                        <option value="@item.Id">@item.TenNganhLinhVucSuDung</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="MucTieuDauTu">Mục tiêu đầu tư</label><br />
+                <textarea id="mucTieuDauTu" name="MucTieuDauTu" rows="4" class="form-control" placeholder="Nhập trường này"></textarea>
+            </div>
+        </div>
+    </div>
+}
+else if (Model.TenViewLoaiHoSo == "ThamDinhDieuChinhChuTruongDauTu")
+{
+    <div class="row pt-2">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="NganhLinhVucDauTu">Ngành, lĩnh vực sử dụng nguồn vốn đầu tư</label><br />
+                <select name="NganhLinhVucDauTu" class="custom-select form-control" id="nganhLinhVucDauTu">
+                    <option value="" disabled selected hidden>Chọn trường này</option>
+                    @foreach (var item in nganhLinhVucSuDungs.Items)
+                    {
+                        <option value="@item.Id">@item.TenNganhLinhVucSuDung</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="MucTieuDauTu">Mục tiêu đầu tư</label><br />
+                <textarea id="mucTieuDauTu" name="MucTieuDauTu" rows="4" class="form-control" placeholder="Nhập trường này"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <h6>NỘI DUNG ĐIỀU CHỈNH</h6>
+                @(Html.DevExtreme().HtmlEditor()
+                    .ID("quyMoDauTuDieuChinh")
+                    .Height(300)
+                    .ValueType(HtmlEditorValueType.Markdown)
+                    .OnValueChanged("getValueQuyMoDauTuDieuChinh")
+                    .Toolbar(toolbar => toolbar.Items(
+                        items => {
+                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.Separator);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.OrderedList);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                        })
+                    )
+                    .MediaResizing(m => m.Enabled(true))
+                )
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,63 @@
+﻿@page
+@using xdcb.Common.DanhMuc.HinhThucHopDongs
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using xdcb.Common.DanhMuc
+@model EditModalModel
+@{
+    Layout = null;
+}
+<abp-dynamic-form abp-model="HinhThucHopDong" data-ajaxForm="true" asp-page="/HinhThucHopDong/EditModal">
+    <div class="modal fade show" tabindex="-1" role="dialog" aria-modal="true" style="padding-right: 17px; display: block;">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <abp-modal-header title="@ViewTextConsts.HinhThucHopDong.Title @ViewTextConsts.Common.EditTitle"></abp-modal-header>
+                <abp-modal-body>
+                    <abp-input asp-for="Id" />
+                    <abp-form-content />
+                </abp-modal-body>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                    <button type="button" id="Save" class="btn btn-primary" data-busy-text="Đang lưu..."><i class="fa fa-check"></i> <span>@ViewTextConsts.Common.Save</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</abp-dynamic-form>
+<script>
+    $('#Save').click(function (e) {
+        if ($('#Save').attr('type') == 'button') {
+            if ($('#HinhThucHopDong_TenHinhThucHopDong').val() === "") {
+                $('#Save').attr('type', 'submit');
+                $('#Save').trigger("click");
+                $('#Save').attr('type', 'button');
+                return true;
+            }
+
+            var id = $('#Id').val();
+            if (id === undefined) {
+                id = '00000000-0000-0000-0000-000000000000'
+            }
+            var e = event;
+            e.preventDefault();
+            $.ajax({
+                url: '/api/app/hinhThucHopDong/{' + id + '}/isNameExist?name=' + $('#HinhThucHopDong_TenHinhThucHopDong').val(),
+                type: 'get',
+                contentType: "application/json; charset=utf-8",
+                async: false
+            }).done(function (data_result) {
+                e.preventDefault();
+                if (data_result) {
+                    e.preventDefault();
+                    $('#HinhThucHopDong_TenHinhThucHopDong').parent().find('.text-danger').first().html('<span class="text-danger field-validation-error" data-valmsg-for="HinhThucHopDong" data-valmsg-replace="true"><span id="HinhThucHopDong-error" class="">Tên hình thức hợp đồng đã được sử dụng trong hệ thống</span></span>');
+                    return false;
+                } else {
+
+                    $('#Save').attr('type', 'submit');
+                    $('#Save').trigger("click");
+                    return true;
+                }
+
+            });
+        }
+    });
+</script>

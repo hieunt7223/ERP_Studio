@@ -1,0 +1,28 @@
+﻿@using DevExtreme.AspNet.Mvc
+@model xdcb.HoSoCongTrinhs.CreateView.IndexModel
+
+<div class="row">
+    <div class="col-12">
+        <h6>Sự cần thiết đầu tư</h6>
+        @(Html.DevExtreme().TextArea()
+            .ID("suCanThietDauTu")
+            .Height(90)
+            .Placeholder("Nhập trường này")
+            .IsValid(true).MaxLength(500)
+            .OnChange("GetValueSuCanThietDauTu")
+        )
+    </div>
+</div>
+
+<div class="row pt-2">
+    <div class="col-12">
+        <h6>Quy mô đầu tư</h6>
+        @(Html.DevExtreme().TextArea()
+            .ID("quyMoDauTu")
+            .Height(90)
+            .Placeholder("Nhập trường này")
+            .IsValid(true).MaxLength(500)
+            .OnChange("GetValueQuyMoDauTu")
+        )
+    </div>
+</div>

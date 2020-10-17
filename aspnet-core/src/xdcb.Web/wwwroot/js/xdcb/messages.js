@@ -1,0 +1,22 @@
+﻿var messages =
+{
+    delete : "Bạn có muốn xóa mục này không ?",
+    delete_tree : "Tất cả các mục con(nếu có) sẽ bị mất hết, Bạn có muốn xóa ?",
+    delete_title: "Xác nhận xóa",
+    SuccessfullyDeleted: "Xóa thành công",
+    no_data: "Không có dữ liệu",
+    NOtSuccessfullyDeleted: "Xóa không thành công",
+    data_exist: "Dữ liệu đang được sử dụng",
+    loading_panel: "Vui lòng chờ...",
+    SuccessfullyCreate: "Thêm dữ liệu thành công",
+    NOtSuccessfullyCreate: "Thêm dữ liệu thất bại",
+    SuccessfullyUpdate: "Cập nhật dữ liệu thành công",
+    NOtSuccessfullyUpdate: "Cập nhật dữ liệu thất bại",
+    Permission:"Bạn không đủ quyền",
+    NotFileCheck:"Không có biểu mẫu nào được chọn để xuất file",
+    NotFile:"Không có file đề xuất",
+    NotAddBaoCao:"Không đủ điều kiện để thêm mới báo cáo nhu cầu",
+    NotBaoCao: "Bạn không phải là chủ đầu tư nên không thể thêm báo cáo",
+    NotEnoughData: "Bạn cần phải nhập đủ dữ liệu",
+    NotAllowDuplicate: "Dữ liệu được chọn đang bị trùng",
+};

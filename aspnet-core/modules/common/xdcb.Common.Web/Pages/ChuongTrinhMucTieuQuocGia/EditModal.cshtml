@@ -1,0 +1,32 @@
+﻿@page
+@using xdcb.Common.DanhMuc.ChuongTrinhMucTieuQuocGias
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using xdcb.Common.DanhMuc
+@model EditModalModel
+@{
+    Layout = null;
+}
+
+<abp-dynamic-form abp-model="ChuongTrinhMucTieuQuocGia" data-ajaxForm="true" asp-page="/ChuongTrinhMucTieuQuocGia/EditModal">
+    <div class="modal fade show" tabindex="-1" role="dialog" aria-modal="true" style="padding-right: 17px; display: block;">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <abp-modal-header title="@ViewTextConsts.ChuongTrinhMucTieuQuocGia.EditTitle"></abp-modal-header>
+                <abp-modal-body>
+                    <abp-input asp-for="Id" />
+                    <abp-form-content />
+                    <input id="ChuongTrinhMucTieuQuocGiaCha" hidden ChuongTrinhMucTieuQuocGiaId="@Model.ChuongTrinhMucTieuQuocGia.ParentId" />
+                </abp-modal-body>
+                <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+            </div>
+        </div>
+    </div>
+</abp-dynamic-form>
+<script>
+
+    $('#ChuongTrinhMucTieuQuocGia_ParentId').find('option').each(function () {
+        if ($(this).val() === $('#ChuongTrinhMucTieuQuocGiaCha').attr("ChuongTrinhMucTieuQuocGiaId")) {
+            $(this).select();
+        }
+    });
+</script>

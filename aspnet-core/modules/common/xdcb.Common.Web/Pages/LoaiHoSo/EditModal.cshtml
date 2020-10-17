@@ -1,0 +1,370 @@
+﻿@page
+@using DevExtreme.AspNet.Mvc
+@using xdcb.Common.DanhMuc
+@using xdcb.Common.DanhMuc.LoaiVanBanDtos
+@model xdcb.Common.DanhMuc.LoaiHoSos.EditModalModel
+@inject xdcb.Common.DanhMuc.LoaiVanBans.ILoaiVanBanAppService _loaiVanBanService
+@inject xdcb.Common.DanhMuc.ThanhPhanHoSos.IThanhPhanHoSoAppService _thanhPhanHoSoService
+
+<script src="~/js/devextreme/dx.all.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+
+@section scripts
+{
+    <script src="~/libs/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js"></script>
+    <abp-script src="/Pages/LoaiHoSo/createupdate.js" />
+}
+
+@{
+    var loaiVanBan = (List<LoaiVanBanDto>)await _loaiVanBanService.GetLoaiVanBanListAsync() ?? new List<LoaiVanBanDto>();
+    var thanhPhanHoSos = await _thanhPhanHoSoService.GetThanhPhanHoSosAsync();
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>@ViewTextConsts.LoaiHoSo.CreateTitle</h1>
+                <input type="hidden" value="@Model.Id" id="loaiHoSoId" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<form id="form_loaihoso" method="post" data-ajaxForm="true" data-ajax-method="post" data-ajax-complete="completed">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-search">
+                        <div class="card-header">
+                            <h3 class="card-title">@ViewTextConsts.LoaiHoSo.ThongTin</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="card-body">
+                            <div class="form-group search-form-group">
+                                <abp-input asp-for="@Model.LoaiHoSo.TenLoaiHoSo"></abp-input>
+                                <abp-input asp-for="@Model.LoaiHoSo.IsDieuChinh"></abp-input>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+
+                        <hr />
+                        <div class="card-body">
+                            <h3 class="card-title"><b>@ViewTextConsts.LoaiHoSo.ThoiGianXuLy</b></h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="card-body">
+                            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6"></div>
+                                    <div class="col-sm-12 col-md-6"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th style="width:5%">@ViewTextConsts.Common.STT</th>
+                                                    <th style="width:60%" class="nhomduan">@ViewTextConsts.LoaiHoSo.NhomDuAn</th>
+                                                    <th style="width:35%">@ViewTextConsts.LoaiHoSo.NgayXuLy</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="row">
+                                                    <td style="width:5%">1</td>
+                                                    <td style="width:60%">@ViewTextConsts.LoaiHoSo.NhomA</td>
+                                                    <td style="width:35%">
+                                                        <input id="thoi_gian_nhom_a" min="0" onkeydown="return false" class="fullwidth" asp-for="@Model.LoaiHoSo.ThoiGianXuLyQuyDinhNhomA" />
+                                                    </td>
+                                                </tr>
+                                                <tr role="row">
+                                                    <td style="width:5%">2</td>
+                                                    <td style="width:60%">@ViewTextConsts.LoaiHoSo.NhomB</td>
+                                                    <td style="width:35%">
+                                                        <input id="thoi_gian_nhom_b" min="0" onkeydown="return false" class="fullwidth" asp-for="@Model.LoaiHoSo.ThoiGianXuLyQuyDinhNhomB" />
+                                                    </td>
+                                                </tr>
+                                                <tr role="row">
+                                                    <td style="width:5%">3</td>
+                                                    <td style="width:60%">@ViewTextConsts.LoaiHoSo.NhomC</td>
+                                                    <td style="width:35%">
+                                                        <input id="thoi_gian_nhom_c" min="0" onkeydown="return false" class="fullwidth" asp-for="@Model.LoaiHoSo.ThoiGianXuLyQuyDinhNhomC" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h3 class="card-title"><b>@ViewTextConsts.LoaiHoSo.ThanhPhanHoSo</b></h3>
+                                </div>
+                                <div class="text-right col-md-6">
+                                    <button id="themThanhPhanHoSo" class="btn btn-add-general" type="button" data-busy-text="Processing..." onclick="addRowThanhPhanHoSo()">
+                                        <i class="fa fa-plus"></i> <span>@ViewTextConsts.LoaiHoSo.ThemThanhPhanHoSo</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="card-body">
+                            @(Html.DevExtreme().DataGrid<xdcb.Common.DanhMuc.ThanhPhanHoSoDtos.ThanhPhanHoSoDto>()
+                                    .ID("thanhphanhoso-table")
+                                    .NoDataText("Không có dữ liệu")
+                                    .ShowBorders(true)
+                                    .Editing(
+                                         editing =>{
+                                             editing.Mode(GridEditMode.Row);
+                                             editing.AllowAdding(false);
+                                             editing.AllowUpdating(false);
+                                             editing.AllowDeleting(true).UseIcons(true).ConfirmDelete(false);
+                                         })
+                                    .Columns(
+                                         columns => {
+                                             columns.AddFor(s => s.Id)
+                                                    .Caption("Tên thành phần hồ sơ")
+                                                    .SetCellValue("setLoaiVanBanValue")
+                                                    .AllowSorting(false)
+                                                    .Width("60%")
+                                                    .Lookup(lookup => lookup
+                                                        .DataSource(thanhPhanHoSos)
+                                                        .DisplayExpr("TenThanhPhanHoSo")
+                                                        .ValueExpr("Id"));
+                                             columns.AddFor(s => s.LoaiVanBan)
+                                                    .Width("20%")
+                                                    .AllowSorting(false)
+                                                    .AllowEditing(false)
+                                                    .Caption("Loại văn bản");
+                                             columns.AddFor(s => s.IsBatBuoc)
+                                                    .Caption("Bắt buộc")
+                                                    .Width("10%");
+                                         })
+                                    .DataSource(Model.ThanhPhanHoSoDtos)
+                                    .OnEditorPreparing("onEditorPreparingThanhPhanHoSo")
+                                    .OnRowValidating(@<text>rowThanhPhanHoSoValidating</text>)
+                                    .Paging(paging => paging.Enabled(false))
+                                )
+                        </div>
+                        <hr />
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h3 class="card-title"><b>@ViewTextConsts.LoaiHoSo.CoSoPhapLy</b></h3>
+                                </div>
+                                <div class="text-right col-6">
+                                    <button id="NewThuVienVanBan" class="btn btn-add-general" type="button" onclick="OpenModal()" data-busy-text="Processing..." data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> <span>Thêm mới từ thư viện văn bản</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="card-body">
+                            @(Html.DevExtreme().DataGrid<xdcb.Common.DanhMuc.ThuVienVanBanDtos.ThuVienVanBanDto>()
+                                    .ID("cosophaply-table")
+                                    .NoDataText("Không có dữ liệu")
+                                    .ShowBorders(true)
+                                    .Editing(editing => {
+                                        editing.Mode(GridEditMode.Row);
+                                        editing.AllowAdding(false);
+                                        editing.AllowUpdating(false);
+                                        editing.AllowDeleting(true).UseIcons(true).ConfirmDelete(false);
+                                    })
+                                    .Columns(
+                                        columns => {
+                                            columns.Add().DataField("Stt").Caption("#").Width(60).CellTemplate(@<text>
+                                             <%= OrderRowCoSoPhapLyCreateUpdate() %>
+                                                </text>).Visible(false);
+
+                                            columns.AddFor(m => m.SoKyHieu).Caption("Số ký hiệu").Width("20%");
+                                            columns.AddFor(m => m.TrichYeu).Caption("Trích yếu").Width("40%");
+                                            columns.AddFor(m => m.NgayBanHanhFormat).Caption("Ngày ban hành").Width("15%");
+                                            columns.AddFor(m => m.TenLoaiVanBan).Caption("Loại văn bản").Width("25%");
+                                        })
+                                    .DataSource(Model.CoSoPhapLys)
+                                    .OnContentReady("GetDataCoSoPhapLy")
+                                    .Paging(paging => paging.Enabled(false))
+                                )
+                        </div>
+                        <hr />
+                        <div class="card-body" style="margin-bottom:50px">
+                            <div class="row">
+                                <div class="col-12">
+                                    <abp-input asp-for="@Model.LoaiHoSo.IsTrangThai"></abp-input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <abp-modal centered="true" size="Large" id="myModal">
+            <abp-modal-header title="Thêm mới Cơ sở pháp lý từ Thư viện văn bản"></abp-modal-header>
+            <abp-modal-body>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card card-search">
+                                <div class="card-body">
+
+                                    <div class="row">
+                                        <div class="search-item-container">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="ThuVienVanBan_Keywork">Từ khóa</label>
+                                                        <input type="text" id="keyword" class="form-control search-form-control" placeholder="@xdcb.Common.DanhMuc.ViewTextConsts.ThuVienVanBan.PlaceholderKeywork" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-3">
+                                                    <div class="form-group">
+                                                        <label for="ThuVienVanBan_LoaiVanBan">Loại văn bản</label>
+                                                        <select type="text" id="LoaiVanBan" class="form-control search-form-control">
+                                                            <option value="">Tất cả</option>
+                                                            @foreach (var item in loaiVanBan)
+                                                            {
+                                                                <option value="@item.Id">@item.TenLoaiVanBan</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-3">
+                                                    <div class="form-group">
+                                                        <label for="ThuVienVanBan_DonViBanHanh">Đơn vị ban hành</label>
+                                                        <input type="text" id="DonViBanHanh" class="form-control search-form-control" placeholder="@xdcb.Common.DanhMuc.ViewTextConsts.ThuVienVanBan.PlaceholderDonViBanHanh" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="search-button-container">
+                                            <div class="form-group">
+                                                <span class="input-group-append">
+                                                    <button id="Search_ThuVienVanBan" type="button" class="btn btn-search">
+                                                        <span>@xdcb.Common.DanhMuc.ViewTextConsts.Common.Search</span>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="ThuVienVanBan.SoVanBan" data-valmsg-replace="true">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div id="dataGirdMultiple"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </abp-modal-body>
+            <abp-modal-footer>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeDataGridMultiple">Đóng</button>
+                <button type="button" class="btn btn-primary" onclick="InsertDataRow()">Lưu</button>
+            </abp-modal-footer>
+        </abp-modal>
+        <div class="modal fade CoSoPhapLyDetail" tabindex="-1" role="dialog" aria-labelledby="CoSoPhapLyDetail" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="csplTitle"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.ThuVienVanBan.SoKyHieu</label>
+                                    <div>
+                                        <p id="SoKyHieu"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.ThuVienVanBan.NgayBanHanh</label>
+                                    <div><p id="NgayBanHanh"></p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.ThuVienVanBan.DonViBanHanh</label>
+                                    <div>
+                                        <p id="DonViBanHanh"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.ThuVienVanBan.CapBanHanh</label>
+                                    <div><p id="CapBanHanh"></p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.ThuVienVanBan.LoaiVanBan</label>
+                                    <div>
+                                        <p id="LoaiVanBan"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.ThuVienVanBan.LinhVucVanBan</label>
+                                    <div><p id="LinhVucVanBan"></p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 ">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.ThuVienVanBan.TrichYeu</label>
+                                    <div>
+                                        <p id="TrichYeu"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 ">
+                                <div class="form-group">
+                                    <label>@ViewTextConsts.ThuVienVanBan.TapTin</label>
+                                    <div id="FileCoSo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="footer-action-group">
+        <a href="~/LoaiHoSo">
+            <div class="btn btn-secondary">@ViewTextConsts.Common.Back</div>
+        </a>
+        <input type="submit" id="onSaveLoaiHoSo" class="btn btn-primary" data-busy-text="Đang lưu..." value="Lưu">
+    </div>
+</form>

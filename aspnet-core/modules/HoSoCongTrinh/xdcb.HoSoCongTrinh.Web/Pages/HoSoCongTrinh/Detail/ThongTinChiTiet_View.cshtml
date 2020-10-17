@@ -1,0 +1,309 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using xdcb.HoSoCongTrinh.Dtos
+@model xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietViewModel
+@inject xdcb.Common.DanhMuc.ChuDauTus.IChuDauTuAppService chuDauTuService
+@inject Volo.Abp.Users.ICurrentUser currentUser
+
+@{
+    Guid? chuDauTuId = null;
+    Guid? userId = currentUser.Id;
+    if (userId != null)
+    {
+        chuDauTuId = await chuDauTuService.CheckChuDauTuAsync((Guid)userId);
+    }
+}
+
+<div class="row">
+    <div class="col-12">
+        <h6>Sự cần thiết đầu tư</h6>
+        <span>@Model.ThongTinChiTiet.SuCanThietDauTu</span>
+    </div>
+</div>
+<div class="row pt-2">
+    <div class="col-12">
+        <h6>Quy mô đầu tư</h6>
+        <span>@Model.ThongTinChiTiet.QuyMoDauTu</span>
+    </div>
+</div>
+
+<div class="row pt-2">
+    <div class="col-12">
+        <h6>Địa điểm thực hiện</h6>
+        @(Html.DevExtreme().DataGrid<xdcb.HoSoCongTrinh.Dtos.DiaDiemThucHienViewModel>()
+            .NoDataText("Không có dữ liệu")
+            .DataSource(@Model.ThongTinChiTiet.DiaDiemThucHiens)
+            .ShowBorders(true)
+            .Columns(columns =>
+            {
+                columns.AddFor(m => m.Stt).Width(60)
+                    .Alignment(HorizontalAlignment.Left)
+                    .AllowEditing(false)
+                    .CellTemplate(new JS("orderRowItemNo"));
+
+                columns.AddFor(m => m.ThanhPho);
+
+                columns.AddFor(m => m.Phuong);
+
+                columns.AddFor(m => m.GhiChu);
+            })
+            .Paging(paging => paging.Enabled(false))
+        )
+    </div>
+</div>
+
+@if (Model.TenViewLoaiHoSo == "ThamDinhDieuChinhChuTruongDauTu" 
+    || Model.TenViewLoaiHoSo == "ThamDinhKeHoachLuaChonNhaThau"
+    || Model.TenViewLoaiHoSo == "ThamDinhDieuChinhKeHoachLuaChonNhaThau")
+{
+    <div class="row pt-2">
+        <div class="col-12 col-md-6 col-lg-6">
+            @if (Model.TenViewLoaiHoSo == "ThamDinhDieuChinhChuTruongDauTu")
+            {
+                <h6>Tổng mức đầu tư (đã phê duyệt)</h6>
+                <span>@Model.ThongTinChiTiet.MucDauTuPheDuyet</span>
+            }
+            else
+            {
+                <h6>Tổng mức đầu tư</h6>
+                <span>@Model.ThongTinChiTiet.TongMucDauTu</span>
+            }
+        </div>
+        <div class="col-12 col-md-6 col-lg-6">
+            @if (Model.TenViewLoaiHoSo == "ThamDinhDieuChinhChuTruongDauTu")
+            {
+                <h6>Tổng mức đầu tư bổ sung</h6>
+                <span>@Model.ThongTinChiTiet.MucDauTuBoSung</span>
+            }
+            else
+            {
+                <h6>Tổng mức dự toán được duyệt </h6>
+                <span>@Model.ThongTinChiTiet.MucDuToanDuocDuyet</span>
+            }
+        </div>
+    </div>
+}
+
+<div class="row pt-2">
+    <div class="col-12">
+        <h6>Nguồn vốn đầu tư</h6>
+        @if (Model.TenViewLoaiHoSo == "ThamDinhDeXuatChuTruongDauTu"
+            || Model.TenViewLoaiHoSo == "ThamDinhBaoCaoKinhTeKyThuat"
+            || Model.TenViewLoaiHoSo == "ThamDinhDuAnDauTu"
+            || Model.TenViewLoaiHoSo == "ThamDinhHoSoMoiThau")
+        {
+            @if (chuDauTuId != null)
+            {
+                @(Html.DevExtreme().DataGrid<HoSoCongTrinhChiTietNguonVonDto>()
+                    .NoDataText("Không có dữ liệu")
+                    .ShowBorders(true)
+                    .Columns(columns => {
+                        columns.Add().DataField("Stt").Caption("#").Width(60)
+                            .Alignment(HorizontalAlignment.Left)
+                            .AllowEditing(false)
+                            .CellTemplate(new JS("orderRowItemNo"));
+
+                        columns.AddFor(m => m.TenNguonVon);
+
+                        columns.AddFor(m => m.GiaTriDeNghi)
+                            .DataType(GridColumnDataType.Number)
+                            .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                            .EditorOptions(new { format = "#,###.##", showClearButton = true });
+                    })
+                    .Summary(s => s.TotalItems(items =>
+                    {
+                        items.Add()
+                            .Name("MucDauTuDuKien")
+                            .ShowInColumn("TenNguonVon")
+                            .SummaryType(SummaryType.Custom)
+                            .Alignment(HorizontalAlignment.Left);
+
+                        items.Add()
+                            .Name("GiaTriDeNghiRowsSummary")
+                            .ShowInColumn("GiaTriDeNghi")
+                            .SummaryType(SummaryType.Custom)
+                            .ValueFormat(f => f.Type(Format.FixedPoint).Precision(2))
+                            .Alignment(HorizontalAlignment.Right);
+                    })
+                    .CalculateCustomSummary(@<text>
+                        function (options) {
+                            if (options.name === "GiaTriDeNghiRowsSummary") {
+                                if (options.summaryProcess === "start") {
+                                    options.totalValue = 0;
+                                }
+                                if (options.summaryProcess === "calculate") {
+                                    options.totalValue = options.totalValue + options.value.GiaTriDeNghi;
+                                }
+                            }
+                            else {
+                                options.totalValue = "Dự kiến tổng mức đầu tư";
+                            }
+                        }
+                    </text>)
+                    )
+                    .DataSource(@Model.ThongTinChiTiet.NguonVons)
+                    .Paging(paging => paging.Enabled(false))
+                )
+            }
+            else
+            {
+                @(Html.DevExtreme().DataGrid<HoSoCongTrinhChiTietNguonVonDto>()
+                    .NoDataText("Không có dữ liệu")
+                    .ShowBorders(true)
+                    .Columns(columns => {
+                        columns.Add().DataField("Stt").Caption("#").Width(60)
+                            .Alignment(HorizontalAlignment.Left)
+                            .AllowEditing(false)
+                            .CellTemplate(new JS("orderRowItemNo"));
+
+                        columns.AddFor(m => m.TenNguonVon);
+
+                        columns.AddFor(m => m.GiaTriDeNghi)
+                            .DataType(GridColumnDataType.Number)
+                            .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                            .EditorOptions(new { format = "#,###.##", showClearButton = true });
+
+                        columns.AddFor(m => m.GiaTriThamDinh)
+                            .DataType(GridColumnDataType.Number)
+                            .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                            .EditorOptions(new { format = "#,###.##", showClearButton = true });
+                    })
+                    .Summary(s => s.TotalItems(items =>
+                    {
+                        items.Add()
+                            .Name("MucDauTuDuKien")
+                            .ShowInColumn("TenNguonVon")
+                            .SummaryType(SummaryType.Custom)
+                            .Alignment(HorizontalAlignment.Left);
+
+                        items.Add()
+                            .Name("GiaTriDeNghiRowsSummary")
+                            .ShowInColumn("GiaTriDeNghi")
+                            .SummaryType(SummaryType.Custom)
+                            .ValueFormat(f => f.Type(Format.FixedPoint).Precision(2))
+                            .Alignment(HorizontalAlignment.Right);
+
+                        items.Add()
+                            .Name("GiaTriThamDinhRowsSummary")
+                            .ShowInColumn("GiaTriThamDinh")
+                            .SummaryType(SummaryType.Custom)
+                            .ValueFormat(f => f.Type(Format.FixedPoint).Precision(2))
+                            .Alignment(HorizontalAlignment.Right);
+                    })
+                    .CalculateCustomSummary(@<text>
+                        function (options) {
+                            if (options.name === "GiaTriDeNghiRowsSummary") {
+                                if (options.summaryProcess === "start") {
+                                    options.totalValue = 0;
+                                }
+                                if (options.summaryProcess === "calculate") {
+                                    options.totalValue = options.totalValue + options.value.GiaTriDeNghi;
+                                }
+                            }
+                            else if (options.name === "MucDauTuDuKien") {
+                                options.totalValue = "Dự kiến tổng mức đầu tư";
+                            }
+                            else {
+                                if (options.summaryProcess === "start") {
+                                    options.totalValue = 0;
+                                }
+                                if (options.summaryProcess === "calculate") {
+                                    options.totalValue = options.totalValue + options.value.GiaTriThamDinh;
+                                }
+                            }
+                        }
+                    </text>)
+                    )
+                    .DataSource(@Model.ThongTinChiTiet.NguonVons)
+                    .Paging(paging => paging.Enabled(false))
+            )
+            }
+        }
+        else
+        {
+            @(Html.DevExtreme().DataGrid<HoSoCongTrinhChiTietNguonVonDto>()
+                .NoDataText("Không có dữ liệu")
+                .ShowBorders(true)
+                .Columns(columns => {
+                    columns.Add().DataField("Stt").Caption("#").Width(60)
+                        .Alignment(HorizontalAlignment.Left)
+                        .AllowEditing(false)
+                        .CellTemplate(new JS("orderRowItemNo"));
+
+                    columns.AddFor(m => m.TenNguonVon);
+
+                    columns.AddFor(m => m.GiaTriNguonVon);
+                })
+                    .DataSource(@Model.ThongTinChiTiet.NguonVons)
+                    .Paging(paging => paging.Enabled(false))
+                )
+        }
+
+    </div>
+</div>
+
+@if (Model.TenViewLoaiHoSo == "ThamDinhDeXuatChuTruongDauTu"
+    || Model.TenViewLoaiHoSo == "ThamDinhBaoCaoKinhTeKyThuat"
+    || Model.TenViewLoaiHoSo == "ThamDinhDuAnDauTu"
+    || Model.TenViewLoaiHoSo == "ThamDinhHoSoMoiThau")
+{
+    <div class="row pt-2">
+        <div class="col-12">
+            <h6>Ngành, lĩnh vực sử dụng nguồn vốn đầu tư</h6>
+            <span>@Model.ThongTinChiTiet.NganhLinhVucSuDung.TenNganhLinhVucSuDung</span>
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-12">
+            <h6>Mục tiêu đầu tư</h6>
+            <span>@Model.ThongTinChiTiet.MucTieuDauTu</span>
+        </div>
+    </div>
+}
+
+@if (Model.TenViewLoaiHoSo == "ThamDinhDieuChinhChuTruongDauTu")
+{
+    <div class="row pt-2">
+        <div class="col-12">
+            <h6>Ngành, lĩnh vực sử dụng nguồn vốn đầu tư</h6>
+            <span>@Model.ThongTinChiTiet.NganhLinhVucSuDung.TenNganhLinhVucSuDung</span>
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-12">
+            <h6>Mục tiêu đầu tư</h6>
+            <span>@Model.ThongTinChiTiet.MucTieuDauTu</span>
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col-12">
+            <h6>NỘI DUNG ĐIỀU CHỈNH</h6>
+            @if (@Model.ThongTinChiTiet.NoiDungQuyMoDauTuDeXuatDieuChinh != null)
+            {
+                @(Html.DevExtreme().HtmlEditor()
+                    .Height(300)
+                    .ReadOnly(true)
+                    .Content(@Model.ThongTinChiTiet.NoiDungQuyMoDauTuDeXuatDieuChinh)
+                    .Toolbar(toolbar => toolbar.Items(
+                        items => {
+                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.Separator);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.OrderedList);
+
+                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                        })
+                    )
+                    .MediaResizing(m => m.Enabled(true))
+                )
+            } else
+            {
+                <span></span>
+            }
+        </div>
+    </div>
+}
+
+

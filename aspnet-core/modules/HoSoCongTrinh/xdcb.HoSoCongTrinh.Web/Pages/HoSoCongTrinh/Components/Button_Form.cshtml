@@ -1,0 +1,55 @@
+﻿@model xdcb.HoSoCongTrinh.Dtos.FormModel
+@inject xdcb.Common.DanhMuc.ChuDauTus.IChuDauTuAppService chuDauTuService
+@inject Volo.Abp.Users.ICurrentUser currentUser
+
+@{
+    Guid? chuDauTuId = null;
+    Guid? userId = currentUser.Id;
+    if (userId != null)
+    {
+        chuDauTuId = await chuDauTuService.CheckChuDauTuAsync((Guid)userId);
+    }
+}
+
+<div class="row pt-4">
+    <div class="col-12 text-right">
+        @if (Model.ActionName == "Update")
+        {
+            @if (chuDauTuId != null)
+            {
+                <input type="submit" class="btn btn-info submitButton" id="OnSendCDT" value="Gửi" />
+                <input type="submit" class="btn btn-primary submitButton" id="OnSaveCDT" value="Lưu" />
+            }
+            else
+            {
+                <input data-toggle="modal" data-target=".XuatFilePopUp" type="button" class="btn btn-info text-left xuatfile-btn" tenviewloaihoso="@Model.HoSoCongTrinhChiTiet.TenViewLoaiHoSo" hosocongtrinhchitietid="@Model.HoSoCongTrinhChiTiet.HoSoCongTrinhChiTietId" hosocongtrinhid="@Model.HoSoCongTrinhId" value="Xuất file" />
+                <input type="submit" class="btn btn-warning text-white submitButton" id="OnRequestEditCV" value="Yêu cầu chỉnh sửa" />
+                <input type="submit" class="btn btn-primary submitButton" id="OnCompleteCV" value="Hoàn thành" />
+                <input type="submit" class="btn btn-primary submitButton" id="OnSaveCV" value="Lưu" />
+            }
+        }
+        else if (Model.ActionName == "Create")
+        {
+            @if (chuDauTuId != null)
+            {
+                <input type="submit" class="btn btn-info submitButton" id="OnSendCDT" value="Gửi" />
+                <input type="submit" class="btn btn-primary submitButton" id="OnSaveCDT" value="Lưu" />
+            }
+            else
+            {
+                <input type="submit" class="btn btn-warning text-white submitButton" id="OnRequestEditCV" value="Yêu cầu chỉnh sửa" />
+                <input type="submit" class="btn btn-primary submitButton" id="OnCompleteCV" value="Hoàn thành" />
+                <input type="submit" class="btn btn-primary submitButton" id="OnSaveCV" value="Lưu" />
+            }
+        }
+        else
+        {
+            @if (chuDauTuId == null)
+            {
+                <input data-toggle="modal" data-target=".XuatFilePopUp" type="button" class="btn btn-info text-left xuatfile-btn" tenviewloaihoso="@Model.HoSoCongTrinhChiTiet.TenViewLoaiHoSo" hosocongtrinhchitietid="@Model.HoSoCongTrinhChiTiet.HoSoCongTrinhChiTietId" hosocongtrinhid="@Model.HoSoCongTrinhId" value="Xuất file" />
+            }
+        }
+    </div>
+</div>
+
+

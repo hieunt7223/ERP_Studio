@@ -1,0 +1,128 @@
+﻿<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-search">
+                    <div class="card-header">
+                        <h3 class="card-title">Tìm kiếm</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="search-item-container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="ThuVienVanBan_Keywork">Tên công trình</label>
+                                            <input type="text" id="keyword" class="form-control search-form-control" placeholder="Nhập tên công trình">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label for="ThuVienVanBan_Keywork">Từ khóa</label>
+                                            <input type="text" id="keyword" class="form-control search-form-control" placeholder="Nhập số/ký hiệu,trích yếu">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label for="ThuVienVanBan_CapBanHanh">Cấp ban hành</label>
+                                            <select id="CapBanHanh" class="custom-select form-control search-form-control">
+                                                <option value="0">Tất cả Tất cảTất cảTất cảTất cảTất cảTất cả</option>
+                                                <option value="1">Trung ương</option>
+                                                <option value="2">Địa phương</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label for="ThuVienVanBan_DonViBanHanh">Đơn vị ban hành</label>
+                                            <input type="text" id="DonViBanHanh" class="form-control search-form-control" placeholder="Nhập đơn vị ban hành">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label for="ThuVienVanBan_LoaiVanBan">Loại văn bản</label>
+                                            <select type="text" id="LoaiVanBan" class="custom-select form-control search-form-control" placeholder="Nhập từ khóa">
+                                                <option value="">Tất cả</option>
+                                                <option value="1b0c958b-798d-4527-9d13-21da0f2ce82c">Luật xây dựng Luật xây dựng Luật xây dựng Luật xây dựng Luật xây dựng Luật xây dựng Luật xây dựng Luật xây dựng </option>
+                                                <option value="0929adcf-a63c-436f-978f-32c70428e8f2">Tờ trình</option>
+                                                <option value="476e0c6f-b5ca-40cc-a34d-3d3d3448e411">Nghị quyết</option>
+                                                <option value="581b1f5a-93e4-417a-bd69-590ab691170c">Công văn </option>
+                                                <option value="3c28291e-d010-45fe-a9cd-677a16066f0c">Thông tư </option>
+                                                <option value="935d5fd4-3d17-4330-b3a8-757c12dae392">Luật đấu thầu</option>
+                                                <option value="55f2b8b2-0ded-4f4f-8e4f-7e7dd415ffb1">Chỉ thị</option>
+                                                <option value="efa847d8-cc66-4edd-a007-850f16e7249b">Hiến pháp</option>
+                                                <option value="7300d5e9-a954-47dc-8ead-85351bb090c1">Báo cáo </option>
+                                                <option value="c2dd96fd-8476-476b-bcc1-90377973699f">Phiếu trình </option>
+                                                <option value="59e64991-3e00-4d0e-bf72-9f8a4d3f92bb">Thông báo </option>
+                                                <option value="4444c916-2ca2-4d4f-9a93-ae024316f41b">Nghị định</option>
+                                                <option value="97ce4bae-e02b-4fc9-8063-bafb5ee52007">Luật đầu tư công</option>
+                                                <option value="a76bbb30-51f4-4a59-b861-cef9bc2cd38d">Quyết định</option>
+                                                <option value="794254f5-4c01-42ab-b32e-fe8a10e7dac2">Luật </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label>Từ ngày</label>
+                                            <div class="input-group date datepicker">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="far fa-calendar-alt"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="text" id="StartDate" data-val="true" class="form-control float-right" placeholder="dd/mm/yyyy">
+                                            </div>
+                                            <span class="validate_start text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label>Đến ngày</label>
+                                            <div class="input-group date datepicker">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="far fa-calendar-alt"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="text" id="EndDate" class="form-control float-right" placeholder="dd/mm/yyyy">
+                                            </div>
+                                            <span class="validate_end text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group multiple-select-form">
+                                            <label>Năm thực hiện công trình</label>
+                                            <select class="js-select2" multiple placeholder="Chọn năm">
+                                                <option value="">Tất cả</option>
+                                                <option value="1b0c958b-798d-4527-9d13-21da0f2ce82c">Luật xây dựng </option>
+                                                <option value="0929adcf-a63c-436f-978f-32c70428e8f2">Tờ trình</option>
+                                                <option value="476e0c6f-b5ca-40cc-a34d-3d3d3448e411">Nghị quyết</option>
+                                                <option value="581b1f5a-93e4-417a-bd69-590ab691170c">Công văn </option>
+                                                <option value="3c28291e-d010-45fe-a9cd-677a16066f0c">Thông tư </option>
+                                                <option value="935d5fd4-3d17-4330-b3a8-757c12dae392">Luật đấu thầu</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-button-container">
+                                <div class="form-group">
+                                    <span class="input-group-append">
+                                        <button id="Search" type="button" class="btn btn-search">
+                                            <span>Tìm kiếm</span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="text-danger field-validation-valid" data-valmsg-for="ThuVienVanBan.SoVanBan" data-valmsg-replace="true">
+                        </span>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

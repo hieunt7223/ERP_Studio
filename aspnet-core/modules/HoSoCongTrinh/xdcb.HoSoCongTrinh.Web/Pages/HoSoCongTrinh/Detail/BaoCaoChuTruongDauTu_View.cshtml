@@ -1,0 +1,228 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using xdcb.HoSoCongTrinh.Extensions
+@using xdcb.HoSoCongTrinh.Enums
+@model xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietViewModel
+
+@{
+    var hinhThucThamDinhs = EnumHelperExtensions.GetEnumDictionary<HinhThucThamDinhEnum>();
+}
+
+<div class="row">
+    <div class="col-12">
+        <h6>Đơn vị chủ trì thẩm định</h6>
+        @if (@Model.YKienThamDinh != null && @Model.YKienThamDinh.DonViChuTriThamDinh != null)
+        {
+            <span>@Model.YKienThamDinh.DonViChuTriThamDinh.Ten</span>
+        }
+        else
+        {
+            <span></span>
+        }
+    </div>
+    <div class="col-12 mt-3">
+        <h6>Đơn vị phối hợp thẩm định</h6>
+        @if (@Model.YKienThamDinh != null && @Model.YKienThamDinh.DonViPhoiHopThamDinhs.Count > 0)
+        {
+            @foreach (var item in Model.YKienThamDinh.DonViPhoiHopThamDinhs)
+            {
+                <span>- @item.Ten</span><br />
+            }
+        }
+        else
+        {
+            <span></span>
+        }
+    </div>
+    <div class="col-12 mt-3">
+        <h6>Hình thức thẩm định</h6>
+        
+        @foreach (var item in hinhThucThamDinhs)
+        {
+            if ((int)Model.YKienThamDinh.HinhThucThamDinh == item.Key)
+            {
+                <span>@item.Value</span>
+            }
+            else
+            {
+               <span></span>
+            }
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 mt-3">
+        <h6>Cấp quyết định chủ trương đầu tư dự án</h6>
+        @if (@Model.YKienThamDinh != null && @Model.YKienThamDinh.CapQuyetDinhChuTruong != null)
+        {
+            <span>@Model.YKienThamDinh.CapQuyetDinhChuTruong.Ten</span>
+        }
+        else
+        {
+            <span></span>
+        }
+    </div>
+    <div class="col-12 mt-3">
+        <h6>Cấp quyết định đầu tư</h6>
+        @if (@Model.YKienThamDinh != null && @Model.YKienThamDinh.CapQuyetDinhDauTuDuAn != null)
+        {
+            <span>@Model.YKienThamDinh.CapQuyetDinhDauTuDuAn.Ten</span>
+        }
+        else
+        {
+            <span></span>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 mt-3">
+        <h6>TỔNG HỢP Ý KIẾN THẨM ĐỊNH CỦA ĐƠN VỊ PHỐI HỢP</h6>
+        @if (@Model.YKienThamDinh != null)
+        {
+            @(Html.DevExtreme().HtmlEditor()
+                .Height(300)
+                .ReadOnly(true)
+                .Content(@Model.YKienThamDinh.YKienThamDinhDonViPhoiHop)
+                .Toolbar(toolbar => toolbar.Items(
+                    items => {
+                        items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.Separator);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.OrderedList);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                    })
+                )
+                .MediaResizing(m => m.Enabled(true))
+            )
+        }
+        else
+        {
+            <span></span>
+        }
+    </div>
+</div>
+
+<h6 class="mt-3">Ý KIẾN THẨM ĐỊNH CỦA CƠ QUAN THẨM ĐỊNH</h6>
+<div class="row pl-4">
+    <div class="col-12 mt-3">
+        <h6>Sự cần thiết đầu tư</h6>
+        @if (@Model.YKienThamDinh != null)
+        {
+            <span>@Model.YKienThamDinh.SuCanThietDauTuDuAn</span>
+        }
+        else
+        {
+            <span></span>
+        }
+    </div>
+    <div class="col-12 mt-3">
+        <h6>Sự tuân thủ các quy định của pháp luật trong nội dung hồ sơ trình thẩm định</h6>
+        @if (@Model.YKienThamDinh != null)
+        {
+            <span>@Model.YKienThamDinh.SuTuanThuQuyDinh</span>
+        }
+        else
+        {
+            <span></span>
+        }
+    </div>
+    <div class="col-12 mt-3">
+        <h6>Sự phù hợp với các mục tiêu chiến lược</h6>
+        @if (@Model.YKienThamDinh != null)
+        {
+            <span>@Model.YKienThamDinh.SuPhuHopMucTieuChienLuoc</span>
+        }
+        else
+        {
+            <span></span>
+        }
+    </div>
+    <div class="col-12 mt-3">
+        <h6>Sự phù hợp với tiêu chí phân loại dự án nhóm A, nhóm B và nhóm C</h6>
+        @if (@Model.YKienThamDinh != null)
+        {
+            <span>@Model.YKienThamDinh.SuPhuHopMucTieuPhanLoai</span>
+        }
+        else
+        {
+            <span></span>
+        }
+    </div>
+    <div class="col-12 mt-3">
+        <h6>Các nội dung đầu tư</h6>
+        @if (@Model.YKienThamDinh != null)
+        {
+            @(Html.DevExtreme().HtmlEditor()
+                .Height(300)
+                .ReadOnly(true)
+                .Content(@Model.YKienThamDinh.NoiDungDauTu)
+                .Toolbar(toolbar => toolbar.Items(
+                    items => {
+                        items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.Separator);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.OrderedList);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                    })
+                )
+                .MediaResizing(m => m.Enabled(true))
+            )
+        }
+        else
+        {
+            <span></span>
+        }
+    </div>
+    <div class="col-12 mt-3">
+        <h6>@(Model.TenViewLoaiHoSo == "ThamDinhDieuChinhChuTruongDauTu" ? "Kiến nghị của đơn vị thẩm định" : "Ý kiến của đơn vị thẩm định")</h6>
+        @if (@Model.YKienThamDinh != null)
+        {
+            <span>@Model.YKienThamDinh.YKienCuaDonViThamDinh</span>
+        }
+        else
+        {
+            <span></span>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 mt-3">
+        <h6>NỘI DUNG TRÌNH VÀ KIẾN NGHỊ</h6>
+        @if (@Model.YKienThamDinh != null)
+        {
+            @(Html.DevExtreme().HtmlEditor()
+                .Height(300)
+                .ReadOnly(true)
+                .Content(@Model.YKienThamDinh.NoiDungTrinhVaKienNghi)
+                .Toolbar(toolbar => toolbar.Items(
+                    items => {
+                        items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.Separator);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.OrderedList);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                    })
+                )
+                .MediaResizing(m => m.Enabled(true))
+            )
+        }
+        else
+        {
+            <span></span>
+        }
+    </div>
+</div>

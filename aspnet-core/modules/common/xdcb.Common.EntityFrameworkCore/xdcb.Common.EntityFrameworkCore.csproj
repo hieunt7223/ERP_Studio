@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EFCore.BulkExtensions" Version="3.2.4" />
+    <PackageReference Include="Enums.NET" Version="3.0.3" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="3.0.3" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="3.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\xdcb.Common.Application.Contracts\xdcb.Common.Application.Contracts.csproj" />
+    <ProjectReference Include="..\xdcb.Common.Domain.Shared\xdcb.Common.Domain.Shared.csproj" />
+    <ProjectReference Include="..\xdcb.Common.Domain\xdcb.Common.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

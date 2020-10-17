@@ -1,0 +1,186 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@model xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietViewModel
+
+@{
+    var ketQuaThamDinh = @Model.KetQuaThamDinhs;
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group upload-right">
+            <div class="upload-btn-wrapper upload_ketquathamdinh_edit right">
+                <button class="btn btn-upload file-chooser">
+                    <input class="file_ketquathamdinh form-control file-chooser__input " type="file" name="FileKetQuaThamDinhUploadsEdit" />
+                    <i class="fa fa-cloud-upload"></i>
+                    <span>Tải lên</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<table border="1" class="kqtd-file-list table table-bordered table-hover dtr-inline no-footer dataTable">
+    <thead>
+        <tr>
+            <th class="td-width-4">#</th>
+            <th>File đính kèm</th>
+            <th class="td-width-5"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (ketQuaThamDinh != null && ketQuaThamDinh.Count > 0)
+        {
+            var imgFile = "";
+            var index = 0;
+            @foreach (var fileName in ketQuaThamDinh)
+            {
+                @if (fileName.File != null)
+                {
+                    var array = fileName.File.TenFile.Split('.');
+                    string kieu = array[array.Length - 1].ToLower();
+                    if (kieu == "pdf")
+                    {
+                        imgFile = "<img src='/img/pdf.svg' class='attached-icon'>";
+                    }
+                    else if (kieu == "doc" || kieu == "docx")
+                    {
+                        imgFile = "<img src='/img/word.svg' class='attached-icon'>";
+                    }
+                    else
+                    {
+                        imgFile = "<img src='/img/image.svg' class='attached-icon'>";
+                    }
+                    <tr>
+                        <td class="stt td-width-4">@(++index)</td>
+                        <td><a href="/api/app/documentStore/download/@fileName.File.Id">@Html.Raw(imgFile) <span>@fileName.File.TenFile</span></a></td>
+                        <td class="table_action td-width-5"><button class="btn-action btn-delete defaultFiles" Id_File="@fileName.File.Id"><i class="fa fa-trash-o"></i> </button></td>
+                    </tr>
+                }
+            }
+        }
+        else
+        {
+            <tr class="nodata">
+                <td colspan="3" align="center">Không có dữ liệu</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<script>
+    //jQuery plugin
+    (function ($) {
+        $.fn.uploaderfile = function (options) {
+            var settings = $.extend({
+                acceptedFileTypes: ['pdf', 'jpg', 'jpeg', 'png', 'doc', 'docx']
+            }, options);
+
+            var uploadId = 1;
+
+            var fileList = $('<ul class="kqtd-file-list"></ul>');
+            var hiddenInputs = $('<div class="hidden-inputs hidden" style="display:none"></div>');
+            $('.file-uploader__message-area').after(fileList);
+            $('.kqtd-file-list').after(hiddenInputs);
+
+            //xử lý khi chọn file
+            $('.file-chooser__input').on('change', function () {
+                var file = $('.file-chooser__input').val();
+                var fileName = (file.match(/([^\\\/]+)$/)[0]);
+                $('.file-chooser__input').attr('name', 'FileKetQuaThamDinhUploadsEdit')
+                //validate the file
+                var check = checkFile(fileName);
+                if (check === "valid") {
+                    $('.nodata').hide();
+                    // thêm các file được upload
+                    $('.hidden-inputs').append($('.file-chooser__input'));
+                    var array_name = fileName.split('.');
+                    var kieu = array_name[array_name.length - 1];
+                    var imgFile;
+                    if (kieu == "pdf") {
+                        imgFile = "<img src='/img/pdf.svg' class='attached-icon'>";
+                    }
+                    else if (kieu == "doc" || kieu == "docx") {
+                        imgFile = "<img src='/img/word.svg' class='attached-icon'>";
+                    }
+                    else {
+                        imgFile = "<img src='/img/image.svg' class='attached-icon'>";
+                    }
+                    $('.file-chooser').append($('.file-chooser__input').clone({ withDataAndEvents: true }));
+
+                    $('.kqtd-file-list tbody').append(
+                        '<tr>' + '<td class="stt td-width-4">' + ++$('.kqtd-file-list tbody tr').length + '</td>' + '<td>' + imgFile + '<span>'
+                        + fileName + '</span></td><td class="table_action td-width-5"><button class="btn-action btn-delete removal-button" data-uploadid="' + uploadId + '"><i class="fa fa-trash-o"></i> </button></td></tr>'
+                    );
+
+                    $('.hidden-inputs .file-chooser__input').removeClass('file-chooser__input').attr('data-uploadId', uploadId);
+
+                    uploadId++;
+
+                    $('.removal-button').on('click', function (e) {
+                        e.preventDefault();
+                        $('.hidden-inputs input[data-uploadid="' + $(this).data('uploadid') + '"]').remove();
+
+                        $(this).parent().parent().hide("puff").delay(10).queue(function () { $(this).remove(); });
+
+                        if ($('.kqtd-file-list tbody tr .table_action')[0]) {
+                        } else {
+                            $('.nodata').show();
+                        }
+                        for (var j = 1; j < $('.kqtd-file-list tbody tr').length; j++) {
+                            $('.kqtd-file-list tbody tr').eq(j).find('.stt').html(j);
+                        }
+                    });
+
+                }
+
+                if ($('.kqtd-file-list tbody tr')) {
+                    $('.kqtd-file-list').show();
+                } else {
+                    $('.kqtd-file-list').hide();
+                }
+                $('.file-chooser__input').attr('name', '');
+            });
+
+            var checkFile = function (fileName) {
+                var accepted = "invalid",
+                    acceptedFileTypes = this.acceptedFileTypes || settings.acceptedFileTypes,
+                    regex;
+
+                for (var i = 0; i < acceptedFileTypes.length; i++) {
+                    regex = new RegExp("\\." + acceptedFileTypes[i] + "$", "i");
+
+                    if (regex.test(fileName)) {
+                        accepted = "valid";
+                        break;
+                    } else {
+                        accepted = "badFileName";
+                    }
+                }
+                return accepted;
+            };
+
+            $(".defaultFiles").click(function () {
+                deletedFileIds.push($(this).attr("Id_File"));
+                $(this).parent().parent().hide("puff").delay(10).queue(function () { $(this).remove(); });
+
+                if ($('.kqtd-file-list tbody tr .table_action')[0]) {
+                } else {
+                    $('.nodata').show();
+                }
+                for (var j = 1; j < $('.kqtd-file-list tbody tr').length; j++) {
+                    $('.kqtd-file-list tbody tr').eq(j).find('.stt').html(j);
+                }
+            });
+        };
+    }(jQuery));
+
+    //init
+    $(document).ready(function () {
+        $('.FileKetQuaThamDinhUploadsEdit').uploaderfile({
+        });
+    });
+
+</script>

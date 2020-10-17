@@ -1,0 +1,248 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\CongTrinh\CreateModal.cshtml" />
+    <None Remove="Pages\CongTrinh\DetailModal.cshtml" />
+    <None Remove="Pages\CongTrinh\EditModal.cshtml" />
+    <None Remove="Pages\CongTrinh\Index.cshtml" />
+    <None Remove="Pages\CongTrinh\index.js" />
+    <None Remove="Pages\GoiThau\CreateModal.cshtml" />
+    <None Remove="Pages\GoiThau\EditModal.cshtml" />
+    <None Remove="Pages\GoiThau\Index.cshtml" />
+    <None Remove="Pages\GoiThau\index.js" />
+    <None Remove="Pages\HoSoCongTrinh\Index.cshtml" />
+    <None Remove="Pages\HoSoCongTrinh\index.js" />
+    <None Remove="Pages\HoSoCongTrinh\List\Index.cshtml" />
+    <None Remove="Pages\DonViBanHanh\CreateModal.cshtml" />
+    <None Remove="Pages\DonViBanHanh\EditModal.cshtml" />
+    <None Remove="Pages\DonViBanHanh\Index.cshtml" />
+    <None Remove="Pages\DonViBanHanh\index.js" />
+    <None Remove="Pages\LoaiHoSo\CreateModal.cshtml" />
+    <None Remove="Pages\LoaiHoSo\DetailModal.cshtml" />
+    <None Remove="Pages\LoaiHoSo\EditModal.cshtml" />
+    <None Remove="Pages\LoaiHoSo\Index.cshtml" />
+    <None Remove="Pages\LoaiHoSo\index.js" />
+    <None Remove="Pages\NganhLinhVucSuDung\CreateModal.cshtml" />
+    <None Remove="Pages\NganhLinhVucSuDung\EditModal.cshtml" />
+    <None Remove="Pages\NganhLinhVucSuDung\Index.cshtml" />
+    <None Remove="Pages\NganhLinhVucSuDung\index.js" />
+    <None Remove="Pages\PhongBan\CreateModal.cshtml" />
+    <None Remove="Pages\PhongBan\EditModal.cshtml" />
+    <None Remove="Pages\PhongBan\Index.cshtml" />
+    <None Remove="Pages\PhongBan\index.js" />
+    <None Remove="Pages\ThuVienVanBan\CreateModal.cshtml" />
+    <None Remove="Pages\ThuVienVanBan\EditModal.cshtml" />
+    <None Remove="Pages\ThuVienVanBan\Index.cshtml" />
+    <None Remove="Pages\ThuVienVanBan\index.js" />
+    <None Remove="Pages\LoaiKhoan\CreateModal.cshtml" />
+    <None Remove="Pages\LoaiKhoan\EditModal.cshtml" />
+    <None Remove="Pages\LoaiKhoan\Index.cshtml" />
+    <None Remove="Pages\LoaiKhoan\index.js" />
+    <None Remove="Pages\ChiPhiDauTu\CreateModal.cshtml" />
+    <None Remove="Pages\ChiPhiDauTu\EditModal.cshtml" />
+    <None Remove="Pages\ChiPhiDauTu\Index.cshtml" />
+    <None Remove="Pages\ChiPhiDauTu\index.js" />
+    <None Remove="Pages\DonViHanhChinh\CreateModal.cshtml" />
+    <None Remove="Pages\DonViHanhChinh\EditModal.cshtml" />
+    <None Remove="Pages\DonViHanhChinh\Index.cshtml" />
+    <None Remove="Pages\DonViHanhChinh\index.js" />
+    <None Remove="Pages\ChucVu\CreateModal.cshtml" />
+    <None Remove="Pages\ChucVu\EditModal.cshtml" />
+    <None Remove="Pages\ChucVu\Index.cshtml" />
+    <None Remove="Pages\ChucVu\index.js" />
+    <None Remove="Pages\DoUuTien\CreateModal.cshtml" />
+    <None Remove="Pages\DoUuTien\EditModal.cshtml" />
+    <None Remove="Pages\DoUuTien\Index.cshtml" />
+    <None Remove="Pages\DoUuTien\index.js" />
+    <None Remove="Pages\PhuongThucDauThau\CreateModal.cshtml" />
+    <None Remove="Pages\PhuongThucDauThau\EditModal.cshtml" />
+    <None Remove="Pages\PhuongThucDauThau\Index.cshtml" />
+    <None Remove="Pages\PhuongThucDauThau\index.js" />
+    <None Remove="Pages\KhoanChi\CreateModal.cshtml" />
+    <None Remove="Pages\KhoanChi\EditModal.cshtml" />
+    <None Remove="Pages\KhoanChi\Index.cshtml" />
+    <None Remove="Pages\KhoanChi\index.js" />
+    <None Remove="Pages\NhomCongTrinh\CreateModal.cshtml" />
+    <None Remove="Pages\NhomCongTrinh\EditModal.cshtml" />
+    <None Remove="Pages\NhomCongTrinh\Index.cshtml" />
+    <None Remove="Pages\NhomCongTrinh\index.js" />
+    <None Remove="Pages\LoaiCongTrinh\CreateModal.cshtml" />
+    <None Remove="Pages\LoaiCongTrinh\EditModal.cshtml" />
+    <None Remove="Pages\LoaiCongTrinh\Index.cshtml" />
+    <None Remove="Pages\LoaiCongTrinh\index.js" />
+    <None Remove="Pages\HangMucCongTrinh\CreateModal.cshtml" />
+    <None Remove="Pages\HangMucCongTrinh\EditModal.cshtml" />
+    <None Remove="Pages\HangMucCongTrinh\Index.cshtml" />
+    <None Remove="Pages\HangMucCongTrinh\index.js" />
+    <None Remove="Pages\HinhThucChonNhaThau\CreateModal.cshtml" />
+    <None Remove="Pages\HinhThucChonNhaThau\EditModal.cshtml" />
+    <None Remove="Pages\HinhThucChonNhaThau\Index.cshtml" />
+    <None Remove="Pages\HinhThucChonNhaThau\index.js" />
+    <None Remove="Pages\LinhVucVanBan\CreateModal.cshtml" />
+    <None Remove="Pages\LinhVucVanBan\EditModal.cshtml" />
+    <None Remove="Pages\LinhVucVanBan\Index.cshtml" />
+    <None Remove="Pages\LinhVucVanBan\index.js" />
+    <None Remove="Pages\HinhThucHopDong\CreateModal.cshtml" />
+    <None Remove="Pages\HinhThucHopDong\EditModal.cshtml" />
+    <None Remove="Pages\HinhThucHopDong\Index.cshtml" />
+    <None Remove="Pages\HinhThucHopDong\index.js" />
+    <None Remove="Pages\LoaiVanBan\CreateModal.cshtml" />
+    <None Remove="Pages\LoaiVanBan\EditModal.cshtml" />
+    <None Remove="Pages\LoaiVanBan\Index.cshtml" />
+    <None Remove="Pages\LoaiVanBan\index.js" />
+    <None Remove="Pages\ThanhPhanHoSo\CreateModal.cshtml" />
+    <None Remove="Pages\ThanhPhanHoSo\EditModal.cshtml" />
+    <None Remove="Pages\ThanhPhanHoSo\Index.cshtml" />
+    <None Remove="Pages\ThanhPhanHoSo\index.js" />
+    <None Remove="Pages\NghiQuyet\CreateModal.cshtml" />
+    <None Remove="Pages\NghiQuyet\EditModal.cshtml" />
+    <None Remove="Pages\NghiQuyet\Index.cshtml" />
+    <None Remove="Pages\NghiQuyet\index.js" />
+    <None Remove="Pages\ChuDauTu\CreateModal.cshtml" />
+    <None Remove="Pages\ChuDauTu\EditModal.cshtml" />
+    <None Remove="Pages\ChuDauTu\Index.cshtml" />
+    <None Remove="Pages\ChuDauTu\index.js" /> 
+    <None Remove="Pages\NguonVon\CreateModal.cshtml" />
+    <None Remove="Pages\NguonVon\EditModal.cshtml" />
+    <None Remove="Pages\NguonVon\Index.cshtml" />
+    <None Remove="Pages\NguonVon\index.js" />
+    <None Remove="Pages\ChuongTrinhMucTieuQuocGia\CreateModal.cshtml" />
+    <None Remove="Pages\ChuongTrinhMucTieuQuocGia\EditModal.cshtml" />
+    <None Remove="Pages\ChuongTrinhMucTieuQuocGia\Index.cshtml" />
+    <None Remove="Pages\ChuongTrinhMucTieuQuocGia\index.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CongTrinh\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\CongTrinh\DetailModal.cshtml" />
+    <EmbeddedResource Include="Pages\CongTrinh\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\CongTrinh\Index.cshtml" />
+    <EmbeddedResource Include="Pages\CongTrinh\index.js" />
+    <EmbeddedResource Include="Pages\DonViBanHanh\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\DonViBanHanh\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\DonViBanHanh\Index.cshtml" />
+    <EmbeddedResource Include="Pages\DonViBanHanh\index.js" />
+    <EmbeddedResource Include="Pages\GoiThau\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\GoiThau\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\GoiThau\Index.cshtml" />
+    <EmbeddedResource Include="Pages\GoiThau\index.js" />
+    <EmbeddedResource Include="Pages\LoaiHoSo\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiHoSo\DetailModal.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiHoSo\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiHoSo\Index.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiHoSo\index.js" />
+    <EmbeddedResource Include="Pages\NganhLinhVucSuDung\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\NganhLinhVucSuDung\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\NganhLinhVucSuDung\Index.cshtml" />
+    <EmbeddedResource Include="Pages\NganhLinhVucSuDung\index.js" />
+    <EmbeddedResource Include="Pages\PhongBan\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\PhongBan\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\PhongBan\Index.cshtml" />
+    <EmbeddedResource Include="Pages\PhongBan\index.js" />
+    <EmbeddedResource Include="Pages\ThuVienVanBan\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\ThuVienVanBan\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\ThuVienVanBan\Index.cshtml" />
+    <EmbeddedResource Include="Pages\ThuVienVanBan\index.js" />
+    <EmbeddedResource Include="Pages\ChiPhiDauTu\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\ChiPhiDauTu\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\ChiPhiDauTu\Index.cshtml" />
+    <EmbeddedResource Include="Pages\ChiPhiDauTu\index.js" />
+    <EmbeddedResource Include="Pages\LoaiKhoan\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiKhoan\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiKhoan\Index.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiKhoan\index.js" />
+    <EmbeddedResource Include="Pages\DonViHanhChinh\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\DonViHanhChinh\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\DonViHanhChinh\Index.cshtml" />
+    <EmbeddedResource Include="Pages\DonViHanhChinh\index.js" />
+    <EmbeddedResource Include="Pages\ChucVu\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\ChucVu\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\ChucVu\Index.cshtml" />
+    <EmbeddedResource Include="Pages\ChucVu\index.js" />
+    <EmbeddedResource Include="Pages\DoUuTien\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\DoUuTien\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\DoUuTien\Index.cshtml" />
+    <EmbeddedResource Include="Pages\DoUuTien\index.js" />
+    <EmbeddedResource Include="Pages\PhuongThucDauThau\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\PhuongThucDauThau\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\PhuongThucDauThau\Index.cshtml" />
+    <EmbeddedResource Include="Pages\PhuongThucDauThau\index.js" />
+    <EmbeddedResource Include="Pages\KhoanChi\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\KhoanChi\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\KhoanChi\Index.cshtml" />
+    <EmbeddedResource Include="Pages\KhoanChi\index.js" />
+    <EmbeddedResource Include="Pages\NhomCongTrinh\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\NhomCongTrinh\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\NhomCongTrinh\Index.cshtml" />
+    <EmbeddedResource Include="Pages\NhomCongTrinh\index.js" />
+    <EmbeddedResource Include="Pages\LoaiCongTrinh\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiCongTrinh\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiCongTrinh\Index.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiCongTrinh\index.js" />
+    <EmbeddedResource Include="Pages\HangMucCongTrinh\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\HangMucCongTrinh\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\HangMucCongTrinh\Index.cshtml" />
+    <EmbeddedResource Include="Pages\HangMucCongTrinh\index.js" />
+    <EmbeddedResource Include="Pages\HinhThucChonNhaThau\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\HinhThucChonNhaThau\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\HinhThucChonNhaThau\Index.cshtml" />
+    <EmbeddedResource Include="Pages\HinhThucChonNhaThau\index.js" />
+    <EmbeddedResource Include="Pages\LinhVucVanBan\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\LinhVucVanBan\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\LinhVucVanBan\Index.cshtml" />
+    <EmbeddedResource Include="Pages\LinhVucVanBan\index.js" />
+    <EmbeddedResource Include="Pages\HinhThucHopDong\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\HinhThucHopDong\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\HinhThucHopDong\Index.cshtml" />
+    <EmbeddedResource Include="Pages\HinhThucHopDong\index.js" />
+    <EmbeddedResource Include="Pages\LoaiVanBan\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiVanBan\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiVanBan\Index.cshtml" />
+    <EmbeddedResource Include="Pages\LoaiVanBan\index.js" />
+    <EmbeddedResource Include="Pages\ThanhPhanHoSo\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\ThanhPhanHoSo\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\ThanhPhanHoSo\Index.cshtml" />
+    <EmbeddedResource Include="Pages\ThanhPhanHoSo\index.js" />
+<EmbeddedResource Include="Pages\NghiQuyet\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\NghiQuyet\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\NghiQuyet\Index.cshtml" />
+    <EmbeddedResource Include="Pages\NghiQuyet\index.js" />
+    <EmbeddedResource Include="Pages\ChuDauTu\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\ChuDauTu\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\ChuDauTu\Index.cshtml" />
+    <EmbeddedResource Include="Pages\ChuDauTu\index.js" />
+    <EmbeddedResource Include="Pages\NguonVon\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\NguonVon\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\NguonVon\Index.cshtml" />
+    <EmbeddedResource Include="Pages\NguonVon\index.js" />
+    <EmbeddedResource Include="Pages\ChuongTrinhMucTieuQuocGia\CreateModal.cshtml" />
+    <EmbeddedResource Include="Pages\ChuongTrinhMucTieuQuocGia\EditModal.cshtml" />
+    <EmbeddedResource Include="Pages\ChuongTrinhMucTieuQuocGia\Index.cshtml" />
+    <EmbeddedResource Include="Pages\ChuongTrinhMucTieuQuocGia\index.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="20.1.3" />
+    <PackageReference Include="DevExtreme.AspNet.Data" Version="2.6.1" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI" Version="3.0.3" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Bootstrap" Version="3.0.3" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="3.0.3" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="3.0.3" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="3.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FileService\xdcb.FileService.Application\xdcb.FileService.Application.csproj" />
+    <ProjectReference Include="..\..\FileService\xdcb.FileService.EfCore.DbMigrations\xdcb.FileService.EfCore.DbMigrations.csproj" />
+    <ProjectReference Include="..\..\FileService\xdcb.FileService.Web\xdcb.FileService.Web.csproj" />
+    <ProjectReference Include="..\xdcb.Common.Application.Contracts\xdcb.Common.Application.Contracts.csproj" />
+    <ProjectReference Include="..\xdcb.Common.Application\xdcb.Common.Application.csproj" />
+    <ProjectReference Include="..\xdcb.Common.Domain.Shared\xdcb.Common.Domain.Shared.csproj" />
+    <ProjectReference Include="..\xdcb.Common.EntityFrameworkCore\xdcb.Common.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,164 @@
+﻿@using DevExtreme.AspNet.Mvc
+@model xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietViewModel
+
+<h6>NỘI DUNG KẾ HOẠCH LỰA CHỌN NHÀ THẦU CHỦ ĐẦU TƯ ĐỀ NGHỊ</h6>
+<div class="row pl-4 pr-2">
+    <div class="row mt-2">
+        <div class="col-sm-6">
+            <h6>Kế hoạch nhà thầu đã được phê duyệt</h6>
+        </div>
+        <div class="col-12">
+            @(Html.DevExtreme().TreeList<xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietGoiThauDto>()
+                .NoDataText("Không có dữ liệu")
+                .DataSource(@Model.ThamDinhDieuChinhGoiThau.GoiThauDuocPheDuyets)
+                .KeyExpr("GoiThauId")
+                .ParentIdExpr("GoiThauParentId")
+                .RootValue(Guid.Empty)
+                .AutoExpandAll(true)
+                .ColumnAutoWidth(true)
+                .WordWrapEnabled(true)
+                .ShowBorders(true)
+                .Columns(columns => {
+                    columns.AddFor(m => m.GoiThauId)
+                        .Lookup(lookup => lookup
+                        .DataSource("getGoiThauThamDinhs")
+                        .ValueExpr("id")
+                        .DisplayExpr("tenGoiThau")
+                    );
+
+                    columns.AddFor(m => m.GiaGoiThau)
+                        .Alignment(HorizontalAlignment.Left)
+                        .DataType(GridColumnDataType.Number)
+                        .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                        .EditorOptions(new { format = "#,###.##", showClearButton = true });
+
+                    columns.AddFor(m => m.TenHinhThucLuaChonNhaThau);
+
+                    columns.AddFor(m => m.TenPhuongThucLuaChonNhaThau);
+
+                    columns.AddFor(m => m.ThoiGianBatDau);
+
+                    columns.AddFor(m => m.TenLoaiHopDong);
+
+                    columns.AddFor(m => m.ThoiGianThucHien);
+                })
+                .Paging(paging => paging.Enabled(false))
+            )
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-6">
+            <h6>Kế hoạch đấu thầu đề nghị điều chỉnh</h6>
+        </div>
+        <div class="col-12">
+            @(Html.DevExtreme().TreeList<xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietGoiThauDto>()
+                .NoDataText("Không có dữ liệu")
+                .DataSource(@Model.ThamDinhDieuChinhGoiThau.GoiThauDeNghiDieuChinhs)
+                .KeyExpr("GoiThauId")
+                .ParentIdExpr("GoiThauParentId")
+                .RootValue(Guid.Empty)
+                .AutoExpandAll(true)
+                .ColumnAutoWidth(true)
+                .WordWrapEnabled(true)
+                .ShowBorders(true)
+                .Columns(columns => {
+                    columns.AddFor(m => m.GoiThauId)
+                        .Lookup(lookup => lookup
+                        .DataSource("getGoiThauThamDinhs")
+                        .ValueExpr("id")
+                        .DisplayExpr("tenGoiThau")
+                    );
+
+                    columns.AddFor(m => m.GiaGoiThau)
+                        .Alignment(HorizontalAlignment.Left)
+                        .DataType(GridColumnDataType.Number)
+                        .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                        .EditorOptions(new { format = "#,###.##", showClearButton = true });
+
+                    columns.AddFor(m => m.TenHinhThucLuaChonNhaThau);
+
+                    columns.AddFor(m => m.TenPhuongThucLuaChonNhaThau);
+
+                    columns.AddFor(m => m.ThoiGianBatDau);
+
+                    columns.AddFor(m => m.TenLoaiHopDong);
+
+                    columns.AddFor(m => m.ThoiGianThucHien);
+                })
+                .Paging(paging => paging.Enabled(false))
+            )
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12">
+        <h6>NHẬN XÉT ĐÁNH GIÁ CỦA CƠ QUAN THẨM ĐỊNH</h6>
+        <span>@Model.ThamDinhDieuChinhGoiThau.DanhGiaCoQuanThamDinh</span>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-sm-6">
+        <h6>ĐỀ XUẤT</h6>
+    </div>
+    <div class="col-12">
+        @(Html.DevExtreme().TreeList<xdcb.HoSoCongTrinh.Dtos.HoSoCongTrinhChiTietGoiThauDto>()
+                .NoDataText("Không có dữ liệu")
+                .DataSource(@Model.ThamDinhDieuChinhGoiThau.GoiThauDeXuats)
+                .KeyExpr("GoiThauId")
+                .ParentIdExpr("GoiThauParentId")
+                .RootValue(Guid.Empty)
+                .AutoExpandAll(true)
+                .ColumnAutoWidth(true)
+                .WordWrapEnabled(true)
+                .ShowBorders(true)
+                .Columns(columns => {
+                    columns.AddFor(m => m.GoiThauId)
+                        .Lookup(lookup => lookup
+                        .DataSource("getGoiThauThamDinhs")
+                        .ValueExpr("id")
+                        .DisplayExpr("tenGoiThau")
+                    );
+
+                    columns.AddFor(m => m.GiaGoiThau)
+                        .Alignment(HorizontalAlignment.Left)
+                        .DataType(GridColumnDataType.Number)
+                        .Format(f => f.Type(Format.FixedPoint).Precision(2))
+                        .EditorOptions(new { format = "#,###.##", showClearButton = true });
+
+                    columns.AddFor(m => m.TenHinhThucLuaChonNhaThau);
+
+                    columns.AddFor(m => m.ThoiGianBatDau);
+                })
+                .Paging(paging => paging.Enabled(false))
+            )
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="form-group">
+            <h6>NỘI DUNG TRÌNH VÀ KIẾN NGHỊ</h6>
+            @(Html.DevExtreme().HtmlEditor()
+                .Height(300)
+                .ReadOnly(true)
+                .Content(@Model.ThamDinhDieuChinhGoiThau.NoiDungTrinhVaKienNghi)
+                .Toolbar(toolbar => toolbar.Items(
+                    items => {
+                        items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.Separator);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.OrderedList);
+
+                        items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                    })
+                )
+                .MediaResizing(m => m.Enabled(true))
+            )
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿@model xdcb.HoSoCongTrinhs.ComponentsView.IndexModel
+
+<form data-ajaxForm="true" id="yeuCauChinhSuaForm">
+    <abp-modal centered="true" size="Large" id="modalYeuCauChinhSua">
+        <div class="modal-header">
+            <h5 class="modal-title">Yêu cầu chỉnh sửa</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <abp-modal-body>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="hidden" id="yeuCauChinhSuaHoSoCongTrinhChiTietId"/>
+                            <label for="YeuCauChinhSua">Yêu cầu chỉnh sửa</label><span> * </span><br />
+                            <textarea id="yeuCauChinhSua" name="YeuCauChinhSua" rows="4" class="form-control vail" data-val="true" data-val-required="Trường này là bắt buộc" placeholder="Nhập yêu cầu chỉnh sửa"></textarea>
+                            <div class="text-danger field-validation-valid" data-valmsg-for="YeuCauChinhSua" data-valmsg-replace="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </abp-modal-body>
+        <abp-modal-footer>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-info" onclick="sendYeuCauChinhSua()">Gửi</button>
+        </abp-modal-footer>
+    </abp-modal>
+</form>
+
+<script>
+    function sendYeuCauChinhSua() {
+        if ($("#yeuCauChinhSuaForm").valid()) {
+            var data = {
+                hoSoCongTrinhChiTietId: $("#yeuCauChinhSuaHoSoCongTrinhChiTietId").val(),
+                noiDung: $("#yeuCauChinhSua").val()
+            };
+            $.ajax("/api/app/noiDungYeuCauChinhSua", {
+                method: "post",
+                type: "post",
+                dataType: "json",
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                cache: false,
+                xhrFields: { withCredentials: true }
+            }).done(function () {
+                $('#modalYeuCauChinhSua').modal('hide');
+            });
+        }
+        
+    }
+</script>

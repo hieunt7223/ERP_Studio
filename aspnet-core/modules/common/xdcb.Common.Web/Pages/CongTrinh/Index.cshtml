@@ -1,0 +1,136 @@
+﻿@page
+@using xdcb.Common.DanhMuc
+@model xdcb.Common.DanhMuc.CongTrinhs.IndexModel
+@section scripts
+{
+    <abp-script src="/Pages/CongTrinh/index.js" />
+    <script>
+        var chuDauTuId = '@Model.ChuDauTuId';
+          var userId = '@Model.UserId';
+    </script>
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>@ViewTextConsts.CongTrinh.Title</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-search">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewTextConsts.Common.Search</h3>
+                    </div>
+                    <!-- /.box-header -->
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="search-item-container">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 @(Model.ChuDauTuId==null? "col-lg-4":"col-lg-8")">
+                                        <div class="form-group">
+                                            <label>@ViewTextConsts.Common.KeyTitle</label>
+                                            <input type="text" id="keyword" class="form-control search-form-control" placeholder="@ViewTextConsts.PlaceholderCongTrinh.TenCongTrinh">
+                                        </div>
+                                    </div>
+                                    @if (Model.ChuDauTuId == null)
+                                    {
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="ChuDauTu">@ViewTextConsts.CongTrinh.ChuDauTu</label>
+                                                <select id="ChuDauTu" name="ChuDauTu" class="custom-select form-control search-form-control">
+                                                    <option value="">Tất cả</option>
+                                                    @foreach (var item in Model.chuDauTuSelect)
+                                                    {
+                                                        <option value="@item.Id">@item.Ten</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    }
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label for="NhomCongTrinh">@ViewTextConsts.CongTrinh.NhomCongTrinh</label>
+                                            <select id="NhomCongTrinh" name="NhomCongTrinh" class="custom-select form-control search-form-control">
+                                                <option value="">Tất cả</option>
+                                                @foreach (var item in Model.nhomCongTrinhSelect)
+                                                {
+                                                    <option value="@item.Id">@item.TenNhomCongTrinh</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="search-button-container">
+                                <div class="form-group">
+                                    <span class="input-group-append">
+                                        <button id="Search" type="button" class="btn btn-search">
+                                            <span>@ViewTextConsts.Common.Search</span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-danger field-validation-valid" data-valmsg-replace="true">
+                        </span>
+                    </div>
+
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6"></div>
+                                <div class="col-sm-12 col-md-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="table-responsive col-sm-12">
+                                    <table id="CongTrinhTable" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.Common.STT</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.CongTrinh.TenCongTrinh</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.CongTrinh.ChuDauTu</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.CongTrinh.NhomCongTrinh</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.CongTrinh.MaSoDuAn</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.CongTrinh.MaChuong</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.CongTrinh.MaLoaiKhoan</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.CongTrinh.SoQDDT</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.CongTrinh.TongMucDauTu</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"></th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,334 @@
+﻿@page
+@using DevExtreme.AspNet.Mvc
+@using xdcb.HoSoCongTrinhs.ComponentsView
+@using xdcb.HoSoCongTrinh.Constants
+@model xdcb.HoSoCongTrinhs.DetailView.IndexModel
+@inject xdcb.Common.DanhMuc.ChuDauTus.IChuDauTuAppService chuDauTuService
+@inject Volo.Abp.Users.ICurrentUser currentUser
+
+<script src="~/js/HtmlEditor/quill.min.js"></script>
+<script src="~/js/devextreme/dx.all.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+
+@section scripts
+{
+    <abp-script src="/Pages/HoSoCongTrinh/HoSoCongTrinh.js" />
+    <abp-script src="/Pages/HoSoCongTrinh/Detail.js" />
+}
+
+@{
+    var componentModel = new IndexModel();
+    Guid? chuDauTuId = null;
+    Guid? userId = currentUser.Id;
+    if (userId != null)
+    {
+        chuDauTuId = await chuDauTuService.CheckChuDauTuAsync((Guid)userId);
+    }
+}
+
+
+
+<div class="container-fluid">
+    <div class="row detail">
+        <div class="col-12">
+            @(Html.DevExtreme().MultiView()
+                    .ID("multiview-container")
+                    .Height("auto")
+                    .DataSource(Model.ThongTinChungs)
+                    .SelectedIndex(0)
+                    .Loop(false)
+                    .AnimationEnabled(true)
+                    .ItemTemplate(@<text>
+                        <h4><%- CongTrinh.Ten %></h4>
+                        <div class="multiview">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <h3 class="card-title">Thông tin cơ bản của Công trình / Dự án</h3>
+                                        </div>
+                                        @*<div class="col-4 text-right">
+                                            <a href="#">Lịch sử xử lý</a>
+                                        </div>*@
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h6>Mã công trình</h6>
+                                             <% if(CongTrinh.MaCongTrinh != null){%>
+                                             <p> <%- CongTrinh.MaCongTrinh %> </p>
+                                             <%}else{%>
+                                             <p></p>
+                                             <% }%>
+                                        </div>
+                                        <div class="col-4">
+                                            <h6>Chủ đầu tư</h6>
+                                            <% if(ChuDauTu.Ten != null){%>
+                                            <p><%- ChuDauTu.Ten %></p>
+                                            <%}else{%>
+                                            <p></p>
+                                            <% }%>
+                                            <input type="hidden" value="<%- HoSoCongTrinhId%>" id="hoSoCongTrinhId" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h6>Mã loại - khoản</h6>
+                                            <% if(CongTrinh.MaLoaiKhoan != null){%>
+                                            <p><%- CongTrinh.MaLoaiKhoan %></p>
+                                            <%}else{%>
+                                            <p></p>
+                                            <% }%>
+                                        </div>
+                                        <div class="col-4">
+                                            <h6>Mã chương trình mục tiêu quốc gia</h6>
+                                            <% if(CongTrinh.MaChuongTrinhMucTieuQuocGia != null){%>
+                                            <p><%- CongTrinh.MaChuongTrinhMucTieuQuocGia %></p>
+                                            <%}else{%>
+                                            <p></p>
+                                            <% }%>
+                                        </div>
+                                        <div class="col-4">
+                                            <h6>Nhóm công trình</h6>
+                                            <% if(CongTrinh.NhomCongTrinh != null){%>
+                                            <p><%- CongTrinh.NhomCongTrinh %></p>
+                                            <%}else{%>
+                                            <p></p>
+                                            <% }%>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h6>Loại công trình</h6>
+                                            <% if(CongTrinh.LoaiCongTrinh != null){%>
+                                            <p><%- CongTrinh.LoaiCongTrinh %></p>
+                                            <%}else{%>
+                                            <p></p>
+                                            <% }%>
+                                        </div>
+                                        <div class="col-4">
+                                            <h6>Thời gian thực hiện</h6>
+                                            <% if(CongTrinh.ThoiGianThucHienTuNgay != null && CongTrinh.ThoiGianThucHienDenNgay != null){%>
+                                            <p><%- CongTrinh.ThoiGianThucHienTuNgay %> - <%- CongTrinh.ThoiGianThucHienDenNgay %></p>
+                                            <% }else if(CongTrinh.ThoiGianThucHienTuNgay != null){%>
+                                            <p><%- CongTrinh.ThoiGianThucHienTuNgay %></p>
+                                            <% }else if(CongTrinh.ThoiGianThucHienDenNgay != null){%>
+                                            <p><%- CongTrinh.ThoiGianThucHienDenNgay %></p>
+                                            <%}else{%>
+                                            <p></p>
+                                            <% }%>
+                                        </div>
+                                        <div class="col-4">
+                                            <h6>Diện tích (m2)</h6>
+                                            <% if(CongTrinh.DienTich != null){%>
+                                            <p><%- CongTrinh.DienTich %></p>
+                                            <%}else{%>
+                                            <p></p>
+                                            <% }%>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </text>)
+            )
+        </div>
+
+        <div class="col-12">
+            <div class="accordion" id="accordionContainer">
+                @foreach (var congTrinhChiTiet in Model.CongTrinhChiTiets)
+                {
+                    <div class="card">
+                        <div class="card-header card-header-custom" id="heading-@congTrinhChiTiet.LoaiHoSoId">
+                            <div class="row">
+                                <div class="col-8">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-@congTrinhChiTiet.LoaiHoSoId" aria-expanded="true" aria-controls="collapseOne">
+                                            @congTrinhChiTiet.TenLoaiHoSo
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <span class="badge @(@congTrinhChiTiet.TrangThaiXuLy.Ma == "HOAN_THANH" ? "badge-success" : "badge-primary") mt-3">@congTrinhChiTiet.TrangThaiXuLy.Ten</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapse-@congTrinhChiTiet.LoaiHoSoId" class="collapse @(congTrinhChiTiet.Expand ? "isOpened" : "")" aria-labelledby="heading-@congTrinhChiTiet.LoaiHoSoId" data-parent="#accordionContainer">
+                            <div class="card-body">
+                                @if (@congTrinhChiTiet.HoSoCongTrinhChiTiets != null && @congTrinhChiTiet.HoSoCongTrinhChiTiets.Count > 0)
+                                {
+                                    @if (@congTrinhChiTiet.HoSoCongTrinhChiTiets[0].SoLanDieuChinhChiTiet == 0 && @congTrinhChiTiet.HoSoCongTrinhChiTiets.Count == 1)
+                                    {
+                                        @await Html.PartialAsync("../Components/Input_Header", new xdcb.HoSoCongTrinh.Dtos.FormModel
+                                        {
+                                            HoSoCongTrinhChiTiet = @congTrinhChiTiet.HoSoCongTrinhChiTiets[0],
+                                            ActionName = "View"
+                                        })
+                                        <abp-tabs tab-style="Pill">
+                                            <abp-tab title="Thông tin chi tiết">
+                                                @await Html.PartialAsync("ThongTinChiTiet_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[0])
+                                            </abp-tab>
+                                            <abp-tab title="Thành phần hồ sơ">
+                                                @await Html.PartialAsync("ThanhPhanHoSo_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[0])
+                                            </abp-tab>
+                                            <abp-tab title="Căn cứ pháp lý">
+                                                @await Html.PartialAsync("CoSoPhapLy_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[0])
+                                            </abp-tab>
+                                            @if (chuDauTuId == null)
+                                            {
+                                                if (congTrinhChiTiet.HoSoCongTrinhChiTiets[0].TenViewLoaiHoSo == "ThamDinhDeXuatChuTruongDauTu"
+                                                    || congTrinhChiTiet.HoSoCongTrinhChiTiets[0].TenViewLoaiHoSo == "ThamDinhDieuChinhChuTruongDauTu"
+                                                    || congTrinhChiTiet.HoSoCongTrinhChiTiets[0].TenViewLoaiHoSo == "ThamDinhBaoCaoKinhTeKyThuat"
+                                                    || congTrinhChiTiet.HoSoCongTrinhChiTiets[0].TenViewLoaiHoSo == "ThamDinhDuAnDauTu"
+                                                    || congTrinhChiTiet.HoSoCongTrinhChiTiets[0].TenViewLoaiHoSo == "ThamDinhHoSoMoiThau")
+                                                {
+                                                    <abp-tab title="Ý kiến thẩm định">
+                                                        @await Html.PartialAsync("BaoCaoChuTruongDauTu_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[0])
+                                                    </abp-tab>
+                                                } else if (congTrinhChiTiet.HoSoCongTrinhChiTiets[0].TenViewLoaiHoSo == "ThamDinhKeHoachLuaChonNhaThau")
+                                                {
+                                                    <abp-tab title="Ý kiến thẩm định">
+                                                        @await Html.PartialAsync("ThamDinhKeHoachNhaThau_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[0])
+                                                    </abp-tab>
+                                                } else
+                                                {
+                                                    <abp-tab title="Ý kiến thẩm định">
+                                                        @await Html.PartialAsync("ThamDinhDieuChinhNhaThau_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[0])
+                                                    </abp-tab>
+                                                }
+                                            } else
+                                            {
+                                                if (congTrinhChiTiet.HoSoCongTrinhChiTiets[0].TenViewLoaiHoSo == "ThamDinhKeHoachLuaChonNhaThau")
+                                                {
+                                                    <abp-tab title="Ý kiến thẩm định">
+                                                        @await Html.PartialAsync("ThamDinhKeHoachNhaThau_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[0])
+                                                    </abp-tab>
+                                                } else if (congTrinhChiTiet.HoSoCongTrinhChiTiets[0].TenViewLoaiHoSo == "ThamDinhDieuChinhKeHoachLuaChonNhaThau")
+                                                {
+                                                    <abp-tab title="Ý kiến thẩm định">
+                                                        @await Html.PartialAsync("ThamDinhDieuChinhNhaThau_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[0])
+                                                    </abp-tab>
+                                                }
+                                            }
+                                            <abp-tab title="Kết quả thẩm định">
+                                                @await Html.PartialAsync("KetQuaThamDinh_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[0])
+                                            </abp-tab>
+                                        </abp-tabs>
+                                        @await Html.PartialAsync("../Components/Button_Form", new xdcb.HoSoCongTrinh.Dtos.FormModel
+                                        {
+                                            ActionName = "View",
+                                            HoSoCongTrinhId = @congTrinhChiTiet.HoSoCongTrinhId,
+                                            HoSoCongTrinhChiTiet = @congTrinhChiTiet.HoSoCongTrinhChiTiets[0]
+                                        })
+                                    }
+                                    else
+                                    {
+                                        @for (var index = 0; index < congTrinhChiTiet.HoSoCongTrinhChiTiets.Count; index++)
+                                        {
+                                            <div class="accordion" id="accordionDetail">
+                                                <div class="card">
+                                                    <div class="card-header card-header-custom card-header-small" id="heading-@index">
+                                                        <div class="row">
+                                                            <div class="col-8">
+                                                                <h2 class="mb-0">
+                                                                    <button class="btn btn-link btn-link-small" type="button" data-toggle="collapse" data-target="#collapse-@index" aria-expanded="true" aria-controls="collapseOne">
+                                                                        Số lần điều chỉnh @congTrinhChiTiet.HoSoCongTrinhChiTiets[index].SoLanDieuChinhChiTiet
+                                                                    </button>
+                                                                </h2>
+                                                            </div>
+                                                            <div class="col-4 text-right">
+                                                                <span class="badge @(@congTrinhChiTiet.HoSoCongTrinhChiTiets[index].TrangThaiXuLy.Ma == "HOAN_THANH" ? "badge-success" : "badge-primary") mt-3">@congTrinhChiTiet.HoSoCongTrinhChiTiets[index].TrangThaiXuLy.Ten</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="collapse-@index" class="collapse @(congTrinhChiTiet.HoSoCongTrinhChiTiets[index].Expand ? "isOpened" : "")" aria-labelledby="heading-@index" data-parent="#accordionDetail">
+                                                        <div class="card-body">
+                                                            @await Html.PartialAsync("../Components/Input_Header", new xdcb.HoSoCongTrinh.Dtos.FormModel
+                                                            {
+                                                                HoSoCongTrinhChiTiet = @congTrinhChiTiet.HoSoCongTrinhChiTiets[index],
+                                                                ActionName = "View"
+                                                            })
+                                                            <abp-tabs tab-style="Pill">
+                                                                <abp-tab title="Thông tin chi tiết">
+                                                                    @await Html.PartialAsync("ThongTinChiTiet_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[index])
+                                                                </abp-tab>
+                                                                <abp-tab title="Thành phần hồ sơ">
+                                                                    @await Html.PartialAsync("ThanhPhanHoSo_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[index])
+                                                                </abp-tab>
+                                                                <abp-tab title="Căn cứ pháp lý">
+                                                                    @await Html.PartialAsync("CoSoPhapLy_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[index])
+                                                                </abp-tab>
+                                                                @if (chuDauTuId == null)
+                                                                {
+                                                                    if (congTrinhChiTiet.HoSoCongTrinhChiTiets[index].TenViewLoaiHoSo == "ThamDinhDeXuatChuTruongDauTu"
+                                                                        || congTrinhChiTiet.HoSoCongTrinhChiTiets[index].TenViewLoaiHoSo == "ThamDinhDieuChinhChuTruongDauTu"
+                                                                        || congTrinhChiTiet.HoSoCongTrinhChiTiets[index].TenViewLoaiHoSo == "ThamDinhBaoCaoKinhTeKyThuat"
+                                                                        || congTrinhChiTiet.HoSoCongTrinhChiTiets[index].TenViewLoaiHoSo == "ThamDinhDuAnDauTu"
+                                                                        || congTrinhChiTiet.HoSoCongTrinhChiTiets[index].TenViewLoaiHoSo == "ThamDinhHoSoMoiThau")
+                                                                    {
+                                                                        <abp-tab title="Ý kiến thẩm định">
+                                                                            @await Html.PartialAsync("BaoCaoChuTruongDauTu_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[index])
+                                                                        </abp-tab>
+                                                                    }
+                                                                    else if (congTrinhChiTiet.HoSoCongTrinhChiTiets[index].TenViewLoaiHoSo == "ThamDinhKeHoachLuaChonNhaThau")
+                                                                    {
+                                                                        <abp-tab title="Ý kiến thẩm định">
+                                                                            @await Html.PartialAsync("ThamDinhKeHoachNhaThau_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[index])
+                                                                        </abp-tab>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <abp-tab title="Ý kiến thẩm định">
+                                                                            @await Html.PartialAsync("ThamDinhDieuChinhNhaThau_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[index])
+                                                                        </abp-tab>
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    if (congTrinhChiTiet.HoSoCongTrinhChiTiets[index].TenViewLoaiHoSo == "ThamDinhKeHoachLuaChonNhaThau")
+                                                                    {
+                                                                        <abp-tab title="Ý kiến thẩm định">
+                                                                            @await Html.PartialAsync("ThamDinhKeHoachNhaThau_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[index])
+                                                                        </abp-tab>
+                                                                    }
+                                                                    else if (congTrinhChiTiet.HoSoCongTrinhChiTiets[index].TenViewLoaiHoSo == "ThamDinhDieuChinhKeHoachLuaChonNhaThau")
+                                                                    {
+                                                                        <abp-tab title="Ý kiến thẩm định">
+                                                                            @await Html.PartialAsync("ThamDinhDieuChinhNhaThau_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[index])
+                                                                        </abp-tab>
+                                                                    }
+                                                                }
+                                                                <abp-tab title="Kết quả thẩm định">
+                                                                    @await Html.PartialAsync("KetQuaThamDinh_View", @congTrinhChiTiet.HoSoCongTrinhChiTiets[index])
+                                                                </abp-tab>
+                                                            </abp-tabs>
+                                                            @await Html.PartialAsync("../Components/Button_Form", new xdcb.HoSoCongTrinh.Dtos.FormModel
+                                                            {
+                                                                ActionName = "View",
+                                                                HoSoCongTrinhId = @congTrinhChiTiet.HoSoCongTrinhId,
+                                                                HoSoCongTrinhChiTiet = @congTrinhChiTiet.HoSoCongTrinhChiTiets[index]
+                                                            })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    @await Html.PartialAsync("../Components/ThanhPhanHoSo_Detail_Modal", @componentModel)
+    @await Html.PartialAsync("../Components/ThuVienVanBan_Detail_Modal", @componentModel)
+    @await Html.PartialAsync("../Components/Button_Back", @componentModel)
+    @*@await Html.PartialAsync("../Components/XuatFile_Modal", @componentModel)*@
+</div>
+

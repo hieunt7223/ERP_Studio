@@ -1,0 +1,112 @@
+﻿@page
+@model xdcb.Common.DanhMuc.GoiThaus.IndexModel
+@using xdcb.Common.DanhMuc
+@using DevExtreme.AspNet.Mvc
+@inject xdcb.Common.DanhMuc.GoiThaus.IGoiThauAppService _goiThauAppService;
+
+<script src="~/js/devextreme/dx.all.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+
+@section scripts
+    {
+    <abp-script src="/Pages/GoiThau/index.js" />
+}
+@{
+    var goiThauDtos = await _goiThauAppService.GetGoiThausAsync();
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Danh sách gói thầu</h1>
+            </div>
+            <div class="text-right col-md-6">
+                <button id="NewGoiThau" class="btn btn-add-general" type="button" data-busy-text="Processing..."><i class="fa fa-plus"></i> <span>Thêm mới</span></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-search">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewTextConsts.Common.Search</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="card-body">
+                        <div class="form-group search-form-group">
+                            <label>@ViewTextConsts.Common.KeyTitle</label>
+                            <div class="input-group search-input-group">
+                                <input type="text" id="keyword" class="form-control dx-texteditor-input search-form-control" placeholder="Nhập tên gói thầu ...">
+                                <span class="input-group-append">
+                                    <button id="Search" type="button" class="btn btn-search">
+                                        <span>@ViewTextConsts.Common.Search</span>
+                                    </button>
+                                </span>
+                            </div>
+                            <span class="text-danger field-validation-valid" data-valmsg-replace="true">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        @(Html.DevExtreme().TreeList()
+                                    .ID("GoiThauTreeList")
+                                    .NoDataText("Không có dữ liệu")
+                                    .DataSource(goiThauDtos)
+                                    .KeyExpr("Id")
+                                    .ParentIdExpr("GoiThauParentId")
+                                    .AutoExpandAll(true)
+                                    .ColumnAutoWidth(true)
+                                    .ShowRowLines(true)
+                                    .ShowBorders(true)
+                                    .Scrolling(scrolling => scrolling.Mode(TreeListScrollingMode.Standard))
+                                    .RootValue(Guid.Empty)
+                                     .Sorting(sorting => sorting.Mode(GridSortingMode.Multiple))
+                                    .Paging(paging =>
+                                    {
+                                        paging.Enabled(true);
+                                        paging.PageSize(10);
+                                    })
+                                    .Pager(pager =>
+                                    {
+                                        pager.ShowNavigationButtons(true);
+                                        pager.ShowInfo(true);
+                                        pager.InfoText("Hiển thị {2} kết quả");
+                                    })
+                                    .Columns(columns => {
+                                    columns.Add().DataField("TenGoiThau").Caption("Tên");
+                                    columns.Add().CssClass("action_table").Width("10%").CellTemplate(@<text>
+                                        <div class="text-center">
+                                            <button class="btn-action btn-edit" type="button" _type="edit" _id="<%-data.Id%>"><i class="fa fa-pencil-square-o"></i></button>
+                                            <button class="btn-action btn-delete" type="button" _id="<%-data.Id%>"><i class="fa fa-trash-o"></i> </button>
+                                        </div>
+                                    </text>);
+                                    })
+                             )
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

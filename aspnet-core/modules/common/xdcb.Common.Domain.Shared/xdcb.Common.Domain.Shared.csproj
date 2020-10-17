@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Localization\xdcbCommon\ar.json" />
+    <None Remove="Localization\xdcbCommon\cs.json" />
+    <None Remove="Localization\xdcbCommon\en.json" />
+    <None Remove="Localization\xdcbCommon\pl-PL.json" />
+    <None Remove="Localization\xdcbCommon\pt-BR.json" />
+    <None Remove="Localization\xdcbCommon\ru.json" />
+    <None Remove="Localization\xdcbCommon\sl.json" />
+    <None Remove="Localization\xdcbCommon\tr.json" />
+    <None Remove="Localization\xdcbCommon\vi.json" />
+    <None Remove="Localization\xdcbCommon\zh-Hans.json" />
+    <None Remove="Localization\xdcbCommon\zh-Hant.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\xdcbCommon\ar.json" />
+    <EmbeddedResource Include="Localization\xdcbCommon\cs.json" />
+    <EmbeddedResource Include="Localization\xdcbCommon\en.json" />
+    <EmbeddedResource Include="Localization\xdcbCommon\pl-PL.json" />
+    <EmbeddedResource Include="Localization\xdcbCommon\pt-BR.json" />
+    <EmbeddedResource Include="Localization\xdcbCommon\ru.json" />
+    <EmbeddedResource Include="Localization\xdcbCommon\sl.json" />
+    <EmbeddedResource Include="Localization\xdcbCommon\tr.json" />
+    <EmbeddedResource Include="Localization\xdcbCommon\vi.json" />
+    <EmbeddedResource Include="Localization\xdcbCommon\zh-Hans.json" />
+    <EmbeddedResource Include="Localization\xdcbCommon\zh-Hant.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Core" Version="3.0.3" />
+    <PackageReference Include="Volo.Abp.Localization" Version="3.0.3" />
+    <PackageReference Include="Volo.Abp.VirtualFileSystem" Version="3.0.3" />
+  </ItemGroup>
+
+</Project>

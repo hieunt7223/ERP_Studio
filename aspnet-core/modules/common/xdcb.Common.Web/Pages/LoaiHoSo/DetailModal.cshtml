@@ -1,0 +1,180 @@
+﻿@page
+@using DevExtreme.AspNet.Mvc
+@using xdcb.Common.DanhMuc
+@model xdcb.Common.DanhMuc.LoaiHoSos.DetailModal
+
+<script src="~/js/devextreme/dx.all.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+<script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+
+@section scripts
+{
+    <script src="~/libs/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js"></script>
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>@ViewTextConsts.LoaiHoSo.CreateTitle</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row detail">
+        <div class="col-12">
+            <div class="card card-search">
+                <div class="card-header">
+                    <h3 class="card-title">@ViewTextConsts.LoaiHoSo.ThongTin</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="card-body">
+                    <div class="form-group search-form-group">
+                        <abp-input asp-for="@Model.LoaiHoSo.TenLoaiHoSo" readonly="@(true)"></abp-input>
+                        <abp-input asp-for="@Model.LoaiHoSo.IsDieuChinh" onclick="return false;" readonly="@(true)"></abp-input>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <hr />
+                <div class="card-body">
+                    <h3 class="card-title"><b>@ViewTextConsts.LoaiHoSo.ThoiGianXuLy</b></h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="card-body">
+                    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6"></div>
+                            <div class="col-sm-12 col-md-6"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th style="width:5%">@ViewTextConsts.Common.STT</th>
+                                            <th style="width:60%" class="nhomduan">@ViewTextConsts.LoaiHoSo.NhomDuAn</th>
+                                            <th style="width:35%">@ViewTextConsts.LoaiHoSo.NgayXuLy</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr role="row">
+                                            <td style="width:5%">1</td>
+                                            <td style="width:60%">@ViewTextConsts.LoaiHoSo.NhomA</td>
+                                            <td style="width:35%">
+                                                <input id="thoi_gian_nhom_a" readonly="@(true)" min="0" onkeydown="return false" class="fullwidth" asp-for="@Model.LoaiHoSo.ThoiGianXuLyQuyDinhNhomA" />
+                                            </td>
+                                        </tr>
+                                        <tr role="row">
+                                            <td style="width:5%">2</td>
+                                            <td style="width:60%">@ViewTextConsts.LoaiHoSo.NhomB</td>
+                                            <td style="width:35%">
+                                                <input id="thoi_gian_nhom_b" readonly="@(true)" min="0" onkeydown="return false" class="fullwidth" asp-for="@Model.LoaiHoSo.ThoiGianXuLyQuyDinhNhomB" />
+                                            </td>
+                                        </tr>
+                                        <tr role="row">
+                                            <td style="width:5%">3</td>
+                                            <td style="width:60%">@ViewTextConsts.LoaiHoSo.NhomC</td>
+                                            <td style="width:35%">
+                                                <input id="thoi_gian_nhom_c" readonly="@(true)" min="0" onkeydown="return false" class="fullwidth" asp-for="@Model.LoaiHoSo.ThoiGianXuLyQuyDinhNhomC" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="card-title"><b>@ViewTextConsts.LoaiHoSo.ThanhPhanHoSo</b></h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="card-body">
+                    @(Html.DevExtreme().DataGrid<xdcb.Common.DanhMuc.ThanhPhanHoSoDtos.ThanhPhanHoSoDto>()
+                                    .ID("thanhphanhoso-table")
+                                    .NoDataText("Không có dữ liệu")
+                                    .ShowBorders(true)
+                                    .Editing(
+                                         editing =>{
+                                             editing.Mode(GridEditMode.Row);
+                                             editing.AllowAdding(false);
+                                             editing.AllowUpdating(false);
+                                             editing.AllowDeleting(false);
+                                         })
+                                    .Columns(
+                                         columns => {
+                                             columns.AddFor(s => s.TenThanhPhanHoSo)
+                                                    .Caption("Tên thành phần hồ sơ")
+                                                    .AllowSorting(false)
+                                                    .Width("60%");
+                                             columns.AddFor(s => s.LoaiVanBan)
+                                                    .Width("20%")
+                                                    .AllowSorting(false)
+                                                    .AllowEditing(false)
+                                                    .Caption("Loại văn bản");
+                                             columns.AddFor(s => s.IsBatBuoc)
+                                                    .Caption("Bắt buộc")
+                                                    .Width("10%");
+                                         })
+                                    .DataSource(Model.ThanhPhanHoSoDtos)
+                                    .Paging(paging => paging.Enabled(false))
+                                )
+                </div>
+                <hr />
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="card-title"><b>@ViewTextConsts.LoaiHoSo.CoSoPhapLy</b></h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="card-body">
+                    @(Html.DevExtreme().DataGrid<xdcb.Common.DanhMuc.ThuVienVanBanDtos.ThuVienVanBanDto>()
+                                    .ID("cosophaply-table")
+                                    .NoDataText("Không có dữ liệu")
+                                    .ShowBorders(true)
+                                    .Editing(editing => {
+                                        editing.Mode(GridEditMode.Row);
+                                        editing.AllowAdding(false);
+                                        editing.AllowUpdating(false);
+                                        editing.AllowDeleting(false);
+                                    })
+                                    .Columns(
+                                        columns => {
+                                            columns.Add().DataField("Stt").Caption("#").Width(60).CellTemplate(@<text>
+                                             <%= OrderRowCoSoPhapLyCreateUpdate() %>
+                                                </text>).Visible(false);
+
+                                            columns.AddFor(m => m.SoKyHieu).Caption("Số ký hiệu").Width("20%");
+                                            columns.AddFor(m => m.TrichYeu).Caption("Trích yếu").Width("40%");
+                                            columns.AddFor(m => m.NgayBanHanhFormat).Caption("Ngày ban hành").Width("15%");
+                                            columns.AddFor(m => m.TenLoaiVanBan).Caption("Loại văn bản").Width("25%");
+                                        })
+                                    .DataSource(Model.CoSoPhapLys)
+                                    .Paging(paging => paging.Enabled(false))
+                                )
+                </div>
+                <hr />
+                <div class="card-body" style="margin-bottom:50px">
+                    <div class="row">
+                        <div class="col-12">
+                            <abp-input asp-for="@Model.LoaiHoSo.IsTrangThai" onclick="return false;" readonly="@(true)"></abp-input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-action-group">
+        <a href="~/LoaiHoSo">
+            <div class="btn btn-secondary">@ViewTextConsts.Common.Back</div>
+        </a>
+    </div>
+</div>
+

@@ -1,0 +1,539 @@
+﻿@page
+@using xdcb.Common.DanhMuc
+@model xdcb.Common.DanhMuc.ChiPhiDauTus.IndexModel
+@section scripts
+{
+    <abp-script src="/Pages/ChiPhiDauTu/index.js" />
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>@ViewTextConsts.ChiPhiDauTu.Title</h1>
+            </div>
+            <div class="text-right col-md-6">
+                <button id="Export" class="btn btn-add-general" type="button" data-busy-text="Processing..."><i class="fas fa-file-export"></i> <span>Xuất Excel</span></button>
+                <button id="NewChiPhiDauTu" class="btn btn-add-general" type="button" data-busy-text="Processing..."><i class="fa fa-plus"></i> <span>@ViewTextConsts.Common.CreateButton</span></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-search">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewTextConsts.Common.Search</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="card-body">
+                        <div class="form-group search-form-group">
+                            <label for="search">@ViewTextConsts.Common.KeyTitle</label>
+                            <div class="input-group search-input-group">
+                                <input type="text" id="keyword" class="form-control search-form-control" placeholder="@ViewTextConsts.PlaceholderChiPhiDauTu.PlaceholderSearch">
+                                <span class="input-group-append">
+                                    <button type="button" class="btn btn-search" id="Search">
+                                        <span>@ViewTextConsts.Common.Search</span>
+                                    </button>
+                                </span>
+                            </div>
+                            <span class="text-danger field-validation-valid" data-valmsg-for="search" data-valmsg-replace="true">
+                            </span>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6"></div>
+                                <div class="col-sm-12 col-md-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="table-responsive col-sm-12">
+                                    <table id="ChiPhiDauTuTable" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending">#</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.ChiPhiDauTu.TenChiPhi</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">@ViewTextConsts.ChiPhiDauTu.LoaiChiPhi</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"></th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Start demo style-->
+@*<section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>Chi phí đầu tư</h1>
+                </div>
+                <div class="text-right col-md-6">
+                    <button id="NewChiPhiDauTu" class="btn btn-primary" type="button" data-busy-text="Processing..."><i class="fa fa-plus"></i> <span>Thêm mới</span></button>
+                </div>
+                 <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item">Identity management</li>
+                            <li class="breadcrumb-item active">Users</li>
+                        </ol>
+                    </div>
+            </div>
+        </div>
+    </section>
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-search">
+                        <div class="card-header">
+                            <h3 class="card-title">Tìm kiếm</h3>
+                        </div>
+                         /.box-header
+                        <div class="card-body">
+                            <div class="form-group search-form-group">
+                                <label for="ThuVienVanBan_SoVanBan">Từ khoá</label>
+                                <div class="input-group search-input-group">
+                                    <input type="text" class="form-control search-form-control" placeholder="Nhập từ khoá">
+                                    <span class="input-group-append">
+                                        <button type="button" class="btn btn-search">
+                                            <i class="fas fa-search"></i>
+                                            <span>Tìm kiếm</span>
+                                        </button>
+                                    </span>
+                                </div>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="ThuVienVanBan.SoVanBan" data-valmsg-replace="true">
+                                </span>
+                            </div>
+                        </div>
+                         /.box-body
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Chi phí đầu tư</h3>
+                        </div>
+                         /.card-header
+                        <div class="card-body">
+                            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6"></div>
+                                    <div class="col-sm-12 col-md-6"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">#</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Tên chi phí</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Loại chi phí</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Engine version</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">CSS grade</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="row" class="odd">
+                                                    <td tabindex="0" class="sorting_1">1</td>
+                                                    <td>Firefox 1.0</td>
+                                                    <td>Win 98+ / OSX.2+</td>
+                                                    <td>1.7</td>
+                                                    <td>
+                                                        <button class="btn-action btn-detail" type="button">
+                                                            <i class="fa fa-eye"></i>
+                                                        </button>
+                                                        <button class="btn-action btn-edit" type="button">
+                                                            <i class="fa fa-pencil-square-o"></i>
+                                                        </button>
+                                                        <button class="btn-action btn-delete" type="button">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </button>
+                                                        <button class="btn-action btn-add" type="button">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                        <button class="btn-action btn-small-add" type="button">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                        <button class="btn-action btn-attachment">
+                                                            <input type="file" id="files" name="files" multiple="">
+                                                            <i class="fa fa-paperclip"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="even">
+                                                    <td tabindex="0" class="sorting_1">2</td>
+                                                    <td>Firefox 1.5</td>
+                                                    <td>Win 98+ / OSX.2+</td>
+                                                    <td>1.8</td>
+                                                    <td>A</td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td tabindex="0" class="sorting_1">3</td>
+                                                    <td>Firefox 2.0</td>
+                                                    <td>Win 98+ / OSX.2+</td>
+                                                    <td>1.8</td>
+                                                    <td>A</td>
+                                                </tr>
+                                                <tr role="row" class="even">
+                                                    <td tabindex="0" class="sorting_1">4</td>
+                                                    <td>Firefox 3.0</td>
+                                                    <td>Win 2k+ / OSX.3+</td>
+                                                    <td>1.9</td>
+                                                    <td>A</td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td class="sorting_1" tabindex="0">5</td>
+                                                    <td>Camino 1.0</td>
+                                                    <td>OSX.2+</td>
+                                                    <td>1.8</td>
+                                                    <td>A</td>
+                                                </tr>
+                                                <tr role="row" class="even">
+                                                    <td class="sorting_1" tabindex="0">6</td>
+                                                    <td>Camino 1.5</td>
+                                                    <td>OSX.3+</td>
+                                                    <td>1.8</td>
+                                                    <td>A</td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td class="sorting_1" tabindex="0">7</td>
+                                                    <td>Netscape 7.2</td>
+                                                    <td>Win 95+ / Mac OS 8.6-9.2</td>
+                                                    <td>1.7</td>
+                                                    <td>A</td>
+                                                </tr>
+                                                <tr role="row" class="even">
+                                                    <td class="sorting_1" tabindex="0">8</td>
+                                                    <td>Netscape Browser 8</td>
+                                                    <td>Win 98SE+</td>
+                                                    <td>1.7</td>
+                                                    <td>A</td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td class="sorting_1" tabindex="0">9</td>
+                                                    <td>Netscape Navigator 9</td>
+                                                    <td>Win 98+ / OSX.2+</td>
+                                                    <td>1.8</td>
+                                                    <td>A</td>
+                                                </tr>
+                                                <tr role="row" class="even">
+                                                    <td class="sorting_1" tabindex="0">10</td>
+                                                    <td>Mozilla 1.0</td>
+                                                    <td>Win 95+ / OSX.1+</td>
+                                                    <td>1</td>
+                                                    <td>A</td>
+                                                </tr>
+                                                 </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th rowspan="1" colspan="1">Rendering engine</th>
+                                                            <th rowspan="1" colspan="1">Browser</th>
+                                                            <th rowspan="1" colspan="1">Platform(s)</th>
+                                                            <th rowspan="1" colspan="1">Engine version</th>
+                                                            <th rowspan="1" colspan="1">CSS grade</th>
+                                                        </tr>
+                                                    </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-5">
+                                        <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Hiển thị 1 đến 10 trên 57 kết quả</div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-7">
+                                        <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                                            <ul class="pagination">
+                                                <li class="paginate_button page-item previous disabled" id="example2_previous"><a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">«</a></li>
+                                                <li class="paginate_button page-item active"><a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                                                <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                                                <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                                                <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                                                <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                                                <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                                                <li class="paginate_button page-item next" id="example2_next"><a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">»</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         /.card-body
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                     Custom Tabs
+                    <div class="card">
+                        <div class="card-header d-flex p-0">
+                            <ul class="nav nav-pills tabs-custom p-2">
+                                <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Cập nhật công trình</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Địa điểm xây dựng</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Chức năng khác</a></li>
+                            </ul>
+                        </div>
+                         /.card-header
+                        <div class="card-body">
+                            <div>
+                                <span class="badge badge-primary">Hoàn thành</span>
+                                <span class="badge badge-success">Đang xử lý</span>
+                                <span class="badge badge-warning">Yêu cầu chỉnh sửa</span>
+                                <span class="badge badge-danger">Từ chối</span>
+                                <span class="badge badge-secondary">Đã huỷ</span>
+                                <span class="badge badge-info">Info</span>
+                                <span class="badge badge-light">Light</span>
+                                <span class="badge badge-dark">Dark</span>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <label>Date Picker:</label>
+                                    <div class="input-group date datepicker">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="far fa-calendar-alt"></i>
+                                            </span>
+                                        </div>
+                                        <input type="date" class="form-control float-right" placeholder="dd/mm/yyyy">
+                                    </div>
+                                     /.input group
+                                </div>
+                                <div class="form-group">
+                                    <a href="#" class="attached-file">
+                                        <img src="/img/word.svg" class="attached-icon">
+                                        <span>File word</span>
+                                    </a>
+                                </div>
+                                <div class="form-group">
+                                    <a href="#" class="attached-file">
+                                        <img src="/img/pdf.svg" class="attached-icon">
+                                        <span>File pdf</span>
+                                    </a>
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
+                                        <label for="customCheckbox1" class="custom-control-label">Custom Checkbox</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input class="custom-control-input" type="checkbox" id="customCheckbox2" checked="">
+                                        <label for="customCheckbox2" class="custom-control-label">Custom Checkbox checked</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input class="custom-control-input" type="checkbox" id="customCheckbox3" disabled="">
+                                        <label for="customCheckbox3" class="custom-control-label">Custom Checkbox disabled</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio">
+                                        <label for="customRadio1" class="custom-control-label">Custom Radio</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio" checked="">
+                                        <label for="customRadio2" class="custom-control-label">Custom Radio checked</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="customRadio3" disabled="">
+                                        <label for="customRadio3" class="custom-control-label">Custom Radio disabled</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="upload-btn-wrapper">
+                                        <button class="btn btn-upload">
+                                            <input type="file" id="files" name="files" multiple>
+                                            <i class="fa fa-cloud-upload"></i>
+                                            <span>Tải lên</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                                    <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
+                                    <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn btn-upload">
+                                        <input type="file" id="files" name="files" multiple>
+                                        <i class="fa fa-cloud-upload"></i>
+                                        <span>Tải lên</span>
+                                    </button>
+                                </div>
+                                 /.tab-pane
+                                <div class="tab-pane" id="tab_2">
+                                    The European languages are members of the same family. Their separate existence is a myth.
+                                    For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+                                    in their grammar, their pronunciation and their most common words. Everyone realizes why a
+                                    new common language would be desirable: one could refuse to pay expensive translators. To
+                                    achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+                                    words. If several languages coalesce, the grammar of the resulting language is more simple
+                                    and regular than that of the individual languages.
+                                </div>
+                                 /.tab-pane
+                                <div class="tab-pane active" id="tab_3">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic typesetting,
+                                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                                    like Aldus PageMaker including versions of Lorem Ipsum.
+                                </div>
+                                 /.tab-pane
+                            </div>
+                             /.tab-content
+                        </div>
+                         /.card-body
+                    </div>
+                     ./card
+                </div>
+                 /.col
+            </div>
+        </div>
+    </section>*@
+    @*Login page custom*@
+     @*<div class="login-page" style="min-height: 328.391px;">
+        <div class="login-box">
+            <div class="login-logo">
+            <div style="margin-bottom: 12px;">
+                <img class="img" src="/img/logo-xdcb.png" style="width: 100%; max-width: 100px;"></div>
+                <p style="
+                    font-style: normal;
+                    font-weight: 900;
+                    font-size: 26px !important;
+                    line-height: 30px !important;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: #FFFFFF;
+                    margin-bottom: 24px;
+                ">
+                    <a href="javascript:;" style="
+                        text-transform: uppercase;
+                        color: #FFFFFF;
+                    ">
+                    Quản lÝ xây dựng cơ bản
+tỉnh Quảng Nam
+                    </a>
+                </p>
+            </div>*@
+            @*<div class="card">
+                <div class="card-header" style="
+                    font-family: Source Sans Pro;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 20px;
+                    line-height: 28px;
+                    display: flex;
+                    align-items: center;
+                    color: #FFFFFF;
+                    background: #0D2952;
+                ">
+                    <p class="card-title" style="
+                        color: #fff!important;
+                        font-weight: 400 !important;
+                        font-size: 18px !important;
+                        line-height: 23px !important;
+                    ">
+                        Đăng nhập
+                    </p>
+                </div>
+                <div class="card-body login-card-body">  
+                    <form method="post" novalidate="novalidate">
+                        <input type="hidden" id="ReturnUrl" name="ReturnUrl" value="/">
+                        <input type="hidden" id="ReturnUrlHash" name="ReturnUrlHash" value="">
+                        <div class="form-group">
+                            <label for="email">Tên tài khoản</label>
+                        <div class="input-group mb-3">
+                            <input class="form-control" placeholder="Nhập tên tài khoản" type="text" data-val="true" data-val-length="The field Username or email address must be a string with a maximum length of 256." data-val-length-max="256" data-val-required="The Username or email address field is required." id="LoginInput_UserNameOrEmailAddress" maxlength="256" name="LoginInput.UserNameOrEmailAddress" value="">
+                            
+                            <span class="Microsoft.AspNetCore.Mvc.TagHelpers.TagHelperOutputExtensions+ClassAttributeHtmlContent text-danger" data-valmsg-for="LoginInput.UserNameOrEmailAddress" data-valmsg-replace="true"></span>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Mật khẩu</label>
+                        <div class="input-group mb-3">
+                            <input class="form-control" placeholder="Nhập mật khẩu" type="password" data-val="true" data-val-length="The field Password must be a string with a maximum length of 128." data-val-length-max="128" data-val-required="The Password field is required." id="LoginInput_Password" maxlength="128" name="LoginInput.Password">
+                            <div class="input-group-append">
+                                
+                            </div>
+                            <span class="Microsoft.AspNetCore.Mvc.TagHelpers.TagHelperOutputExtensions+ClassAttributeHtmlContent text-danger" data-valmsg-for="LoginInput.Password" data-valmsg-replace="true"></span>
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="icheck-primary">
+                                    <input type="checkbox" id="remember">
+                                    <label for="remember">Nhớ tài khoản</label>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" name="Action" value="Login" class="btn btn-login btn-block" data-busy-text="Processing...">Login</button>
+                        </div>
+                    </div>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8LeYjpG9t6xAu2RGO7uaH-BPH2QEcLmLA-kaKNw5spq0X3PLM920hR0nJeqJ-GsRpfw3CYiH38NaeFyGAuKbKGe9S9XEfl45mhHDs_WPBXknGQwYsRqfc4VVSPJi8jTPDpZ8l1Cw6GscpOCpWIFirQI"></form>
+                </div>
+            </div>
+            <p class="copyright-text">Địa chỉ: 02 Trần Phú, TP. Tam Kỳ, Quảng Nam  -  © 2020 Bản quyền thuộc Sở Kế hoạch và Đầu tư Quảng Nam</p>
+        </div>
+    </div>*@
+    @*<div class="form-group avatar-upload-form-group">
+        <div class="avatar-bg">
+            <img class="avatar-default-img img-circle" src="/img/default-avatar.png">
+        </div>
+        <div class="upload-btn-wrapper">
+            <button class="btn btn-upload btn-upload-avatar">
+                <input type="file" id="files" name="files" multiple>
+                <i class="fa fa-camera"></i>
+                <span>Cập nhật ảnh</span>
+            </button>
+        </div>
+    </div>
+    <div class="footer-action-group">
+        <button class="btn btn-secondary">Quay lại</button>
+        <button class="btn btn-primary">Lưu</button>
+    </div>*@ 
+<!--End demo style-->
