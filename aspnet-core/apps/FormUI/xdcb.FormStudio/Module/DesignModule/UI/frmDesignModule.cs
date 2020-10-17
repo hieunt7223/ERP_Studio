@@ -44,8 +44,12 @@ namespace xdcb.FormStudio
             InitializeComponent();
         }
 
-        #region Action
+        #region Action DeleteScreen
         private void btn_DeleteScreen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DeleteScreen();
+        }
+        private void DeleteScreen()
         {
             if (this.ActiveMdiChild != null)
             {
@@ -79,6 +83,7 @@ namespace xdcb.FormStudio
                 GGFunctions.ShowMessage("Chưa có màn hình để xóa! Vui lòng kiểm tra lại");
             }
         }
+
         #endregion
 
         #region Thêm mới Screen
@@ -101,7 +106,7 @@ namespace xdcb.FormStudio
             {
                 if (screen.Name.ToString() == name)
                 {
-                    GGFunctions.ShowMessage("Đã có màn hình này. Vui lòng kiểm tra lại!");
+                    GGFunctions.ShowMessage("Đã có màn hình '"+ name + "' này. Vui lòng kiểm tra lại!");
                     return;
                 }
             }
@@ -110,10 +115,13 @@ namespace xdcb.FormStudio
             scr.Text = scr.Name;
             scr.Tag = Name;
             scr.Module = Module;
+            scr.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+           
             lstOpenScreens.Add(scr);
             AddOpenModuleToOpenModulesToolStrip(name);
             ShowScreen(scr);
         }
+
 
         #endregion
 
@@ -212,7 +220,7 @@ namespace xdcb.FormStudio
             //pn_view.Controls.Add(scr);
             scr.Dock = DockStyle.Fill;
             scr.MdiParent = this;
-            scr.ControlBox = true;
+            scr.ControlBox = false;
             scr.AutoScroll = true;
             scr.AllowDrop = true;
             scr.DragDrop += new DragEventHandler(Screen_DragDrop);

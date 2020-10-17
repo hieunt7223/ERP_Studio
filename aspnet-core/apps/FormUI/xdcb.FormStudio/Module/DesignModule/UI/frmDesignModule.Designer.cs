@@ -34,6 +34,7 @@
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_DeleteScreen = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -80,7 +81,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fld_imgcltImage = new DevExpress.Utils.ImageCollection(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btn_DeleteScreen = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.hideContainerRight.SuspendLayout();
@@ -149,6 +149,15 @@
             this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
             this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
             this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // btn_DeleteScreen
+            // 
+            this.btn_DeleteScreen.Caption = "Xóa màn hình";
+            this.btn_DeleteScreen.Id = 5;
+            this.btn_DeleteScreen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_DeleteScreen.ImageOptions.Image")));
+            this.btn_DeleteScreen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_DeleteScreen.ImageOptions.LargeImage")));
+            this.btn_DeleteScreen.Name = "btn_DeleteScreen";
+            this.btn_DeleteScreen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_DeleteScreen_ItemClick);
             // 
             // barButtonItem1
             // 
@@ -595,15 +604,6 @@
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btn_DeleteScreen
-            // 
-            this.btn_DeleteScreen.Caption = "Xóa màn hình";
-            this.btn_DeleteScreen.Id = 5;
-            this.btn_DeleteScreen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
-            this.btn_DeleteScreen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
-            this.btn_DeleteScreen.Name = "btn_DeleteScreen";
-            this.btn_DeleteScreen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_DeleteScreen_ItemClick);
-            // 
             // frmDesignModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -619,7 +619,9 @@
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmDesignModule.IconOptions.Image")));
             this.IsMdiContainer = true;
             this.Name = "frmDesignModule";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thiết kế giao diện chứng năng";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.hideContainerRight.ResumeLayout(false);

@@ -75,7 +75,7 @@
             this.btnCommit.GGDataSource = null;
             this.btnCommit.GGFieldGroup = null;
             this.btnCommit.GGFieldRelation = null;
-            this.btnCommit.Image = global::xdcb.FormStudio.Properties.Resources.Save;
+            this.btnCommit.ImageOptions.Image = global::xdcb.FormStudio.Properties.Resources.Save;
             this.btnCommit.Location = new System.Drawing.Point(510, 15);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(75, 30);
@@ -89,7 +89,7 @@
             this.btnCancel.GGDataSource = null;
             this.btnCancel.GGFieldGroup = null;
             this.btnCancel.GGFieldRelation = null;
-            this.btnCancel.Image = global::xdcb.FormStudio.Properties.Resources.DeleteS;
+            this.btnCancel.ImageOptions.Image = global::xdcb.FormStudio.Properties.Resources.DeleteS;
             this.btnCancel.Location = new System.Drawing.Point(591, 15);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 30);
