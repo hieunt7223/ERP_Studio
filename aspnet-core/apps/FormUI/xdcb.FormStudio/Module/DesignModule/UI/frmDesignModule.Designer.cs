@@ -61,6 +61,8 @@
             this.navBarItem11 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem12 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem14 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem17 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.item_ScreenMain = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem15 = new DevExpress.XtraNavBar.NavBarItem();
@@ -75,6 +77,8 @@
             this.fld_prodgcProperty = new System.Windows.Forms.PropertyGrid();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fld_imgcltImage = new DevExpress.Utils.ImageCollection(this.components);
+            this.hideContainerRight = new DevExpress.XtraBars.Docking.AutoHideContainer();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel2.SuspendLayout();
@@ -90,6 +94,7 @@
             this.dockPanel4_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fld_imgcltImage)).BeginInit();
+            this.hideContainerRight.SuspendLayout();
             this.SuspendLayout();
             // 
             // barManager1
@@ -106,8 +111,9 @@
             this.barButtonItem1,
             this.barButtonItem2,
             this.barButtonItem3,
-            this.barButtonItem4});
-            this.barManager1.MaxItemId = 4;
+            this.barButtonItem4,
+            this.barButtonItem5});
+            this.barManager1.MaxItemId = 5;
             // 
             // bar1
             // 
@@ -117,16 +123,19 @@
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.FloatLocation = new System.Drawing.Point(56, 118);
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem5, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem4, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.bar1.OptionsBar.AllowQuickCustomization = false;
+            this.bar1.OptionsBar.DrawBorder = false;
             this.bar1.Text = "Tools";
             // 
             // barButtonItem1
             // 
             this.barButtonItem1.Caption = "Lưu";
             this.barButtonItem1.Id = 0;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
             this.barButtonItem1.Name = "barButtonItem1";
             // 
             // barButtonItem2
@@ -145,6 +154,8 @@
             // 
             this.barButtonItem4.Caption = "Chỉnh sửa";
             this.barButtonItem4.Id = 3;
+            this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+            this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
             this.barButtonItem4.Name = "barButtonItem4";
             // 
             // barDockControlTop
@@ -153,7 +164,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1007, 21);
+            this.barDockControlTop.Size = new System.Drawing.Size(1007, 25);
             // 
             // barDockControlBottom
             // 
@@ -167,27 +178,28 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 21);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 25);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 547);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 543);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1007, 21);
+            this.barDockControlRight.Location = new System.Drawing.Point(1007, 25);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 547);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 543);
             // 
             // dockManager1
             // 
+            this.dockManager1.AutoHideContainers.AddRange(new DevExpress.XtraBars.Docking.AutoHideContainer[] {
+            this.hideContainerRight});
             this.dockManager1.Form = this;
             this.dockManager1.HiddenPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
             this.dockPanel2});
             this.dockManager1.MenuManager = this.barManager1;
             this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.panelContainer1,
-            this.dockPanel4});
+            this.panelContainer1});
             this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -231,10 +243,11 @@
             this.panelContainer1.Controls.Add(this.dockPanel3);
             this.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.panelContainer1.ID = new System.Guid("a9b3d658-e0db-4678-9651-c145d9d0022a");
-            this.panelContainer1.Location = new System.Drawing.Point(0, 21);
+            this.panelContainer1.Location = new System.Drawing.Point(0, 25);
             this.panelContainer1.Name = "panelContainer1";
+            this.panelContainer1.Options.ShowCloseButton = false;
             this.panelContainer1.OriginalSize = new System.Drawing.Size(200, 200);
-            this.panelContainer1.Size = new System.Drawing.Size(200, 547);
+            this.panelContainer1.Size = new System.Drawing.Size(200, 543);
             this.panelContainer1.Tabbed = true;
             this.panelContainer1.Text = "panelContainer1";
             // 
@@ -245,8 +258,9 @@
             this.dockPanel3.ID = new System.Guid("65821a34-da22-4d5e-9b52-ff9ab0ef46c2");
             this.dockPanel3.Location = new System.Drawing.Point(3, 26);
             this.dockPanel3.Name = "dockPanel3";
-            this.dockPanel3.OriginalSize = new System.Drawing.Size(193, 493);
-            this.dockPanel3.Size = new System.Drawing.Size(193, 492);
+            this.dockPanel3.Options.ShowCloseButton = false;
+            this.dockPanel3.OriginalSize = new System.Drawing.Size(193, 492);
+            this.dockPanel3.Size = new System.Drawing.Size(193, 488);
             this.dockPanel3.Text = "ToolBox";
             // 
             // dockPanel3_Container
@@ -254,7 +268,7 @@
             this.dockPanel3_Container.Controls.Add(this.navBarControl1);
             this.dockPanel3_Container.Location = new System.Drawing.Point(0, 0);
             this.dockPanel3_Container.Name = "dockPanel3_Container";
-            this.dockPanel3_Container.Size = new System.Drawing.Size(193, 492);
+            this.dockPanel3_Container.Size = new System.Drawing.Size(193, 488);
             this.dockPanel3_Container.TabIndex = 0;
             // 
             // navBarControl1
@@ -280,11 +294,13 @@
             this.item_ScreenMain,
             this.navBarItem15,
             this.navBarItem16,
-            this.navBarItem13});
+            this.navBarItem13,
+            this.navBarItem14,
+            this.navBarItem17});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 193;
-            this.navBarControl1.Size = new System.Drawing.Size(193, 492);
+            this.navBarControl1.Size = new System.Drawing.Size(193, 488);
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             // 
@@ -305,7 +321,9 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem10),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem11),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem12),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem13)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem13),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem14),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem17)});
             this.navBarGroup1.Name = "navBarGroup1";
             // 
             // navBarItem1
@@ -362,7 +380,7 @@
             this.navBarItem7.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem7.ImageOptions.LargeImage")));
             this.navBarItem7.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem7.ImageOptions.SmallImage")));
             this.navBarItem7.Name = "navBarItem7";
-            this.navBarItem7.Tag = "ComboBase";
+            this.navBarItem7.Tag = "ComboBox";
             // 
             // navBarItem8
             // 
@@ -406,11 +424,27 @@
             // 
             // navBarItem13
             // 
-            this.navBarItem13.Caption = "LookUpEdit";
+            this.navBarItem13.Caption = "ComboBase";
             this.navBarItem13.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem13.ImageOptions.LargeImage")));
             this.navBarItem13.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem13.ImageOptions.SmallImage")));
             this.navBarItem13.Name = "navBarItem13";
-            this.navBarItem13.Tag = "LookUpEdit";
+            this.navBarItem13.Tag = "ComboBase";
+            // 
+            // navBarItem14
+            // 
+            this.navBarItem14.Caption = "GroupControl";
+            this.navBarItem14.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem14.ImageOptions.LargeImage")));
+            this.navBarItem14.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem14.ImageOptions.SmallImage")));
+            this.navBarItem14.Name = "navBarItem14";
+            this.navBarItem14.Tag = "GroupControl";
+            // 
+            // navBarItem17
+            // 
+            this.navBarItem17.Caption = "Line";
+            this.navBarItem17.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem17.ImageOptions.LargeImage")));
+            this.navBarItem17.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem17.ImageOptions.SmallImage")));
+            this.navBarItem17.Name = "navBarItem17";
+            this.navBarItem17.Tag = "Line";
             // 
             // navBarGroup2
             // 
@@ -451,8 +485,9 @@
             this.dockPanel1.ID = new System.Guid("2600df93-de1a-44cf-a819-c3906782e134");
             this.dockPanel1.Location = new System.Drawing.Point(3, 26);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(193, 493);
-            this.dockPanel1.Size = new System.Drawing.Size(193, 492);
+            this.dockPanel1.Options.ShowCloseButton = false;
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(193, 492);
+            this.dockPanel1.Size = new System.Drawing.Size(193, 488);
             this.dockPanel1.Text = "Module";
             // 
             // dockPanel1_Container
@@ -460,7 +495,7 @@
             this.dockPanel1_Container.Controls.Add(this.fld_dgcModules);
             this.dockPanel1_Container.Location = new System.Drawing.Point(0, 0);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(193, 492);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(193, 488);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // fld_dgcModules
@@ -470,7 +505,7 @@
             this.fld_dgcModules.MainView = this.gridView1;
             this.fld_dgcModules.MenuManager = this.barManager1;
             this.fld_dgcModules.Name = "fld_dgcModules";
-            this.fld_dgcModules.Size = new System.Drawing.Size(193, 492);
+            this.fld_dgcModules.Size = new System.Drawing.Size(193, 488);
             this.fld_dgcModules.TabIndex = 0;
             this.fld_dgcModules.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -496,11 +531,15 @@
             this.dockPanel4.Controls.Add(this.dockPanel4_Container);
             this.dockPanel4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.dockPanel4.ID = new System.Guid("6e5a27bc-fbab-41ad-8621-1c6bbd8954d4");
-            this.dockPanel4.Location = new System.Drawing.Point(807, 21);
+            this.dockPanel4.Location = new System.Drawing.Point(0, 0);
             this.dockPanel4.Name = "dockPanel4";
+            this.dockPanel4.Options.ShowCloseButton = false;
             this.dockPanel4.OriginalSize = new System.Drawing.Size(200, 200);
+            this.dockPanel4.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+            this.dockPanel4.SavedIndex = 1;
             this.dockPanel4.Size = new System.Drawing.Size(200, 547);
             this.dockPanel4.Text = "Properties";
+            this.dockPanel4.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
             // 
             // dockPanel4_Container
             // 
@@ -526,13 +565,30 @@
             // 
             this.fld_imgcltImage.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("fld_imgcltImage.ImageStream")));
             // 
+            // hideContainerRight
+            // 
+            this.hideContainerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.hideContainerRight.Controls.Add(this.dockPanel4);
+            this.hideContainerRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.hideContainerRight.Location = new System.Drawing.Point(986, 25);
+            this.hideContainerRight.Name = "hideContainerRight";
+            this.hideContainerRight.Size = new System.Drawing.Size(21, 543);
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "Tạo mới Module";
+            this.barButtonItem5.Id = 4;
+            this.barButtonItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
+            this.barButtonItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
+            this.barButtonItem5.Name = "barButtonItem5";
+            // 
             // frmDesignModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 568);
-            this.Controls.Add(this.dockPanel4);
             this.Controls.Add(this.panelContainer1);
+            this.Controls.Add(this.hideContainerRight);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -555,6 +611,7 @@
             this.dockPanel4_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fld_imgcltImage)).EndInit();
+            this.hideContainerRight.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -607,5 +664,9 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem16;
         private DevExpress.Utils.ImageCollection fld_imgcltImage;
         private DevExpress.XtraNavBar.NavBarItem navBarItem13;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem14;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem17;
+        private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerRight;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
     }
 }

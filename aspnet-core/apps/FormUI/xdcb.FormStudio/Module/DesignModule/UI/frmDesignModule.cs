@@ -309,6 +309,11 @@ namespace xdcb.FormStudio
                             GGGroupControl grp = GenerateGroupControlFromToolbox(navBarItemLinkControl, ptLocation);
                             return grp;
                         }
+                    case "Line":
+                        {
+                            GGLine line = GenerateLineFromToolbox(navBarItemLinkControl, ptLocation);
+                            return line;
+                        }
                     case "TabControl":
                         {
                             GGTabControl tab = GenerateTabControlFromToolbox(navBarItemLinkControl, ptLocation);
@@ -421,6 +426,14 @@ namespace xdcb.FormStudio
             grp.Name = GenerateControlName(navBarItemLinkControl.Item.Tag.ToString());
             grp.Location = ptLocation;
             return grp;
+        }
+
+        private GGLine GenerateLineFromToolbox(NavBarItemLink navBarItemLinkControl, Point ptLocation)
+        {
+            GGLine line = new GGLine();
+            line.Name = GenerateControlName(navBarItemLinkControl.Item.Tag.ToString());
+            line.Location = ptLocation;
+            return line;
         }
 
         private GGRadioGroup GenerateRadioGroupFromToolbox(NavBarItemLink navBarItemLinkControl, Point ptLocation)
