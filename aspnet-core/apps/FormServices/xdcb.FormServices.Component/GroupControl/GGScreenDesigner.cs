@@ -6,7 +6,7 @@ using xdcb.FormServices.BaseForm;
 
 namespace xdcb.FormServices.Component
 {
-    public class GGScreen : XtraForm
+    public class GGScreenDesigner : XtraForm
     {
         #region Windows Generated Code
         public HelpProvider ScreenHelper;
@@ -34,7 +34,7 @@ namespace xdcb.FormServices.Component
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GGScreen));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GGScreenDesigner));
             this.ScreenHelper = new System.Windows.Forms.HelpProvider();
             this.fld_ctmAction = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fld_mnuNew = new System.Windows.Forms.ToolStripMenuItem();
@@ -328,7 +328,7 @@ namespace xdcb.FormServices.Component
         }      
         #endregion
 
-        public GGScreen()
+        public GGScreenDesigner()
         {
             InitializeComponent();
             ControlBox = false;
@@ -370,9 +370,9 @@ namespace xdcb.FormServices.Component
 
         #region Functions to Init Screen
 
-        public virtual GGScreen Recreate()
+        public virtual GGScreenDesigner Recreate()
         {
-            GGScreen scr = new GGScreen();
+            GGScreenDesigner scr = new GGScreenDesigner();
             scr.Name = this.Name;
             scr.ScreenNumber = this.ScreenNumber;
             scr.Module = this.Module;

@@ -38,6 +38,9 @@ namespace xdcb.FormServices.Shared
         [EnumDescription("Thiết kế giao diện")]
         DesignForm,
 
+        [EnumDescription("Thiết kế chức năng")]
+        DesignModule,
+
         [EnumDescription("Danh mục công trình")]
         CongTrinh,
 

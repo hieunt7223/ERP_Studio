@@ -59,6 +59,11 @@ namespace xdcb.FormServices.BaseForm
         {
             FunctionModule.ShowModule(ModuleName.DesignForm.ToString());
         }
+
+        private void btnDesignModule_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FunctionModule.ShowModule(ModuleName.DesignModule.ToString());
+        }
         #endregion
 
         #region quản lý vốn
@@ -163,7 +168,5 @@ namespace xdcb.FormServices.BaseForm
                 MessageBox.Show("Chức năng này không hoạt động với phiên bản Debug.");
             }
         }
-
-       
     }
 }

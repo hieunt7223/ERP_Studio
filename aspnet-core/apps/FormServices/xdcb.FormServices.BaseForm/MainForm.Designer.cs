@@ -52,6 +52,8 @@
             this.btn_KHVTheoNghiQuyet = new DevExpress.XtraBars.BarButtonItem();
             this.btn_KHVTheoNganSachTinh = new DevExpress.XtraBars.BarButtonItem();
             this.btn_KHVTheoNganSachTrungUong = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem20 = new DevExpress.XtraBars.BarSubItem();
+            this.btn_TongHopGiaiNgan = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem12 = new DevExpress.XtraBars.BarSubItem();
             this.bbi_NghiQuyet = new DevExpress.XtraBars.BarButtonItem();
             this.bbi_CongTrinh = new DevExpress.XtraBars.BarButtonItem();
@@ -104,8 +106,7 @@
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
-            this.barSubItem20 = new DevExpress.XtraBars.BarSubItem();
-            this.btn_TongHopGiaiNgan = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDesignModule = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
@@ -182,9 +183,10 @@
             this.btn_DMChuongTrinhMucTieuQuocGia,
             this.barButtonItem12,
             this.barSubItem20,
-            this.btn_TongHopGiaiNgan});
+            this.btn_TongHopGiaiNgan,
+            this.btnDesignModule});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 81;
+            this.barManager1.MaxItemId = 82;
             // 
             // bar2
             // 
@@ -234,7 +236,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_GridView, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_TreeList, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_DesignForm, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_ImportData, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_ImportData, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDesignModule, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barSubItem13.Name = "barSubItem13";
             // 
             // btn_GenerateEntity
@@ -398,6 +401,23 @@
             this.btn_KHVTheoNganSachTrungUong.ImageOptions.Image = global::xdcb.FormServices.BaseForm.Properties.Resources.nghiep_vu;
             this.btn_KHVTheoNganSachTrungUong.Name = "btn_KHVTheoNganSachTrungUong";
             this.btn_KHVTheoNganSachTrungUong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_KHVTheoNganSachTrungUong_ItemClick);
+            // 
+            // barSubItem20
+            // 
+            this.barSubItem20.Caption = "Giải ngân";
+            this.barSubItem20.Id = 79;
+            this.barSubItem20.ImageOptions.Image = global::xdcb.FormServices.BaseForm.Properties.Resources.nghiep_vu;
+            this.barSubItem20.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_TongHopGiaiNgan, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.barSubItem20.Name = "barSubItem20";
+            // 
+            // btn_TongHopGiaiNgan
+            // 
+            this.btn_TongHopGiaiNgan.Caption = "Tổng hợp giải ngân";
+            this.btn_TongHopGiaiNgan.Id = 80;
+            this.btn_TongHopGiaiNgan.ImageOptions.Image = global::xdcb.FormServices.BaseForm.Properties.Resources.nghiep_vu;
+            this.btn_TongHopGiaiNgan.Name = "btn_TongHopGiaiNgan";
+            this.btn_TongHopGiaiNgan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_TongHopGiaiNgan_ItemClick);
             // 
             // barSubItem12
             // 
@@ -773,22 +793,12 @@
             this.barDockControl4.Manager = this.toolbarFormManager1;
             this.barDockControl4.Size = new System.Drawing.Size(0, 481);
             // 
-            // barSubItem20
+            // btnDesignModule
             // 
-            this.barSubItem20.Caption = "Giải ngân";
-            this.barSubItem20.Id = 79;
-            this.barSubItem20.ImageOptions.Image = global::xdcb.FormServices.BaseForm.Properties.Resources.nghiep_vu;
-            this.barSubItem20.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_TongHopGiaiNgan, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-            this.barSubItem20.Name = "barSubItem20";
-            // 
-            // btn_TongHopGiaiNgan
-            // 
-            this.btn_TongHopGiaiNgan.Caption = "Tổng hợp giải ngân";
-            this.btn_TongHopGiaiNgan.Id = 80;
-            this.btn_TongHopGiaiNgan.ImageOptions.Image = global::xdcb.FormServices.BaseForm.Properties.Resources.nghiep_vu;
-            this.btn_TongHopGiaiNgan.Name = "btn_TongHopGiaiNgan";
-            this.btn_TongHopGiaiNgan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_TongHopGiaiNgan_ItemClick);
+            this.btnDesignModule.Caption = "Thiết kế chứng năng";
+            this.btnDesignModule.Id = 81;
+            this.btnDesignModule.Name = "btnDesignModule";
+            this.btnDesignModule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDesignModule_ItemClick);
             // 
             // MainForm
             // 
@@ -904,5 +914,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
         private DevExpress.XtraBars.BarSubItem barSubItem20;
         private DevExpress.XtraBars.BarButtonItem btn_TongHopGiaiNgan;
+        private DevExpress.XtraBars.BarButtonItem btnDesignModule;
     }
 }

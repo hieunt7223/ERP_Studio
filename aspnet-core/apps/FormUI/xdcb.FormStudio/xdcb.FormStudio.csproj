@@ -70,6 +70,7 @@
       <HintPath>..\..\..\packages\DevExpress.XtraGrid.v20.1.Design.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Devexpress\DevExpress.XtraTreeList.v20.1.dll</HintPath>
@@ -363,6 +364,13 @@
     <Compile Include="Module\DesignGridView\UI\guiCreateGridView.Designer.cs">
       <DependentUpon>guiCreateGridView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module\DesignModule\DesignModuleModule.cs" />
+    <Compile Include="Module\DesignModule\UI\frmDesignModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\DesignModule\UI\frmDesignModule.Designer.cs">
+      <DependentUpon>frmDesignModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Module\DesignTreeList\DesignTreeListModule.cs" />
     <Compile Include="Module\DesignTreeList\UI\frmDesignTreeList.cs">
       <SubType>Form</SubType>
@@ -420,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Module\DesignGridView\UI\guiCreateGridView.resx">
       <DependentUpon>guiCreateGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\DesignModule\UI\frmDesignModule.resx">
+      <DependentUpon>frmDesignModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\DesignTreeList\UI\frmDesignTreeList.resx">
       <DependentUpon>frmDesignTreeList.cs</DependentUpon>
