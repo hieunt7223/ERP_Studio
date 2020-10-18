@@ -332,6 +332,7 @@ namespace xdcb.FormStudio
             scr.Activated += new EventHandler(Screen_Activated);
             scr.Show();
             scr.Location = new Point(3, 2);
+            AddAvailableFields(scr.Controls);
         }
 
         public void InitializeControls(Control.ControlCollection controls, GGScreen scr)

@@ -1,4 +1,6 @@
-﻿namespace xdcb.FormServices.Shared
+﻿using System.Windows.Forms;
+
+namespace xdcb.FormServices.Shared
 {
     public class PropertyControl
     {
@@ -46,7 +48,6 @@
         public string GGDataSource;
         public string GGDataMember;
         public string GGFieldGroup;
-        public string GGFieldRelation;
-
+        public string GGFieldRelation;      
     }
 }

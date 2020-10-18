@@ -30,12 +30,16 @@ namespace xdcb.FormServices.BaseForm
             _file.propertyControl = propertyControlList;
             return _file;
         }
-   
+
         private static List<PropertyControl> GetAllControls(Control.ControlCollection controls, List<PropertyControl> list)
         {
             foreach (Control ctrl in controls)
             {
-                list.Add(GetAllControls(ctrl));
+                PropertyControl pc = GetAllControls(ctrl);
+                if (pc != null && !string.IsNullOrWhiteSpace(pc.Name))
+                {
+                    list.Add(GetAllControls(ctrl));
+                }
                 if (ctrl.Controls.Count > 0)
                     GetAllControls(ctrl.Controls, list);
             }
