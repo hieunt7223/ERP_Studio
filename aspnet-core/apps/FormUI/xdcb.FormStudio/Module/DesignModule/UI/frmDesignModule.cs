@@ -50,35 +50,11 @@ namespace xdcb.FormStudio
         #region Action DeleteScreen
         private void btn_DeleteScreen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DeleteScreen();
-        }
-        private void DeleteScreen()
-        {
             if (this.ActiveMdiChild != null)
             {
-                string name = this.ActiveMdiChild.Name;
-
-                if (GGFunctions.ShowMessageYesNo("Màn hình '" + name + "' có chắc chắn muốn xóa không?") == DialogResult.Yes)
+                if (GGFunctions.ShowMessageYesNo("Màn hình '" + this.ActiveMdiChild.Name + "' có chắc chắn muốn xóa không?") == DialogResult.Yes)
                 {
-                    // Xóa màn hình
-                    foreach (var screen in lstOpenScreens)
-                    {
-                        if (screen.Name.ToString() == name)
-                        {
-                            screen.Close();
-                            lstOpenScreens.Remove(screen);
-                            break;
-                        }
-                    }
-                    //Xóa thông tin
-                    foreach (ToolStripItem item in toolStrip1.Items)
-                    {
-                        if (item.Name.ToString() == name)
-                        {
-                            toolStrip1.Items.Remove(item);
-                            break;
-                        }
-                    }
+                    DeleteScreen(this.ActiveMdiChild.Name);
                 }
             }
             else
@@ -86,7 +62,28 @@ namespace xdcb.FormStudio
                 GGFunctions.ShowMessage("Chưa có màn hình để xóa! Vui lòng kiểm tra lại");
             }
         }
-
+        private void DeleteScreen(string name)
+        {
+            // Xóa màn hình
+            foreach (var screen in lstOpenScreens)
+            {
+                if (screen.Name.ToString() == name)
+                {
+                    screen.Close();
+                    lstOpenScreens.Remove(screen);
+                    break;
+                }
+            }
+            //Xóa thông tin
+            foreach (ToolStripItem item in toolStrip1.Items)
+            {
+                if (item.Name.ToString() == name)
+                {
+                    toolStrip1.Items.Remove(item);
+                    break;
+                }
+            }
+        }
         #endregion
 
         #region Action Save
@@ -120,19 +117,72 @@ namespace xdcb.FormStudio
 
         #endregion
 
+        #region Action ViewFile
+        private void btn_ViewFile_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CurrentControl = new Control();
+            //Close all open screens
+            foreach (var screen in lstOpenScreens)
+            {
+                screen.Close();
+            }
+            lstOpenScreens.Clear();
+            toolStrip1.Items.Clear();
+            NameValueCollection appSettings = ConfigurationManager.AppSettings;
+            string path = appSettings["PathDesignUI"];
+
+            //Màn hình Chính
+            string linkScreenMan = path + @"\" + ScreenName.ScreenMain.ToString() + ".json";
+            if (!Directory.Exists(linkScreenMan))
+            {
+                ShowScreenByJson(ScreenName.ScreenMain.ToString(), linkScreenMan);
+                HideScreen(ScreenName.ScreenMain.ToString());
+            }
+            //Màn hình Chi tiết
+            string linkScreenDetail = path + @"\" + ScreenName.ScreenDetail.ToString() + ".json";
+            if (!Directory.Exists(linkScreenDetail))
+            {
+                ShowScreenByJson(ScreenName.ScreenDetail.ToString(), linkScreenDetail);
+                HideScreen(ScreenName.ScreenDetail.ToString());
+            }
+            //Màn hình tìm kiếm
+            string linkScreenSearch = path + @"\" + ScreenName.ScreenSearch.ToString() + ".json";
+            if (!Directory.Exists(linkScreenSearch))
+            {
+                ShowScreenByJson(ScreenName.ScreenSearch.ToString(), linkScreenSearch);
+                HideScreen(ScreenName.ScreenSearch.ToString());
+            }
+        }
+
+        private void ShowScreenByJson(string name, string path)
+        {
+            GGScreen scr = new GGScreen();
+            scr.Name = InitScreenName(name);
+            scr.Text = scr.Name;
+            scr.Tag = Name;
+            scr.Module = Module;
+            scr.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            LoadFormToJson.GetValueControlByJson(scr, path);
+            lstOpenScreens.Add(scr);
+            AddOpenModuleToOpenModulesToolStrip(name);
+            ShowScreen(scr);
+        }
+
+        #endregion
+
         #region Thêm mới Screen
         private void item_ScreenMain_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
-            ShowScreenForLinkClicked("ScreenMain");
+            ShowScreenForLinkClicked(ScreenName.ScreenMain.ToString());
         }
 
         private void item_ScreenDetail_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
-            ShowScreenForLinkClicked("ScreenDetail");
+            ShowScreenForLinkClicked(ScreenName.ScreenDetail.ToString());
         }
         private void item_ScreenSearch_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
-            ShowScreenForLinkClicked("ScreenSearch");
+            ShowScreenForLinkClicked(ScreenName.ScreenSearch.ToString());
         }
         private void ShowScreenForLinkClicked(string name)
         {
@@ -213,6 +263,24 @@ namespace xdcb.FormStudio
                 {
                     screen.Show();
                     screen.Location = new Point(3, 2);
+                }
+            }
+        }
+
+        private void HideScreen(string name)
+        {
+            foreach (ToolStripButton tsbtnOpenedModule in toolStrip1.Items)
+            {
+                if (tsbtnOpenedModule.Name != name)
+                {
+                    tsbtnOpenedModule.Checked = false;
+                    foreach (var screen in lstOpenScreens)
+                    {
+                        if (screen.Name.ToString() == tsbtnOpenedModule.Name)
+                        {
+                            screen.Hide();
+                        }
+                    }
                 }
             }
         }
@@ -1257,6 +1325,7 @@ namespace xdcb.FormStudio
             if (ctrl.Controls.Count > 0)
                 AddAvailableFields(ctrl.Controls);
         }
+
         #endregion
 
 

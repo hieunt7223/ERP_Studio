@@ -14,10 +14,7 @@ namespace xdcb.FormServices.BaseForm
         {
             FieldControl _file = new FieldControl();
             List<PropertyControl> propertyControlList = new List<PropertyControl>();
-            foreach (Control p in Control)
-            {
-                propertyControlList.AddRange(GetAllControls(p));
-            }
+            GetAllControls(screen.Controls, propertyControlList);
             _file.id = Guid.NewGuid().ToString();
             _file.name = screen.Name;
             _file.key = screen.Name;
@@ -33,168 +30,166 @@ namespace xdcb.FormServices.BaseForm
             _file.propertyControl = propertyControlList;
             return _file;
         }
-
-        public static List<PropertyControl> GetAllControls(Control container)
+   
+        private static List<PropertyControl> GetAllControls(Control.ControlCollection controls, List<PropertyControl> list)
         {
-            return GetAllControls(container, new List<PropertyControl>());
+            foreach (Control ctrl in controls)
+            {
+                list.Add(GetAllControls(ctrl));
+                if (ctrl.Controls.Count > 0)
+                    GetAllControls(ctrl.Controls, list);
+            }
+            return list;
         }
 
-        public static List<PropertyControl> GetAllControls(Control container, List<PropertyControl> list)
+        public static PropertyControl GetAllControls(Control ctrl)
         {
-            foreach (Control ctrl in container.Controls)
+            PropertyControl pc = new PropertyControl();
+            pc.Name = ctrl.Name;
+            pc.ParentName = ctrl.Parent.Name;
+            pc.Type = ctrl.GetType().Name;
+            pc.TypeName = ctrl.GetType().ToString();
+            //Get common Properties
+            pc.BackColor = ctrl.BackColor.ToArgb();
+            pc.ForeColor = ctrl.ForeColor.ToArgb();
+            pc.FontName = ctrl.Font.Name;
+            pc.Text = ctrl.Text;
+            pc.FontSize = Convert.ToDouble(ctrl.Font.Size);
+            pc.FontStyle = ctrl.Font.Style.ToString();
+            pc.Enabled = ctrl.Enabled;
+            Point location = GetControlLocation(ctrl);
+            pc.LocationX = location.X;
+            pc.LocationY = location.Y;
+            pc.SizeWidth = ctrl.Size.Width;
+            pc.SizeHeight = ctrl.Size.Height;
+            pc.TabIndex = ctrl.TabIndex;
+            pc.Dock = ctrl.Dock.ToString();
+            pc.Status = "Active";
+            if (ctrl.Tag != null)
+                pc.Tag = ctrl.Tag.ToString();
+            pc.Visible = ctrl.Visible;
+            pc.GGDataSource = GetProperty.GetPropertyStringValue(ctrl, GGScreen.cstDataSourcePropertyName);
+            pc.GGDataMember = GetProperty.GetPropertyStringValue(ctrl, GGScreen.cstDataMemberPropertyName);
+            pc.GGFieldGroup = GetProperty.GetPropertyStringValue(ctrl, GGScreen.cstFieldGroupPropertyName);
+            pc.GGFieldRelation = GetProperty.GetPropertyStringValue(ctrl, GGScreen.cstRelationPropertyName);
+            //Get specific properties
+            #region case:GGTextEdit
+            if (ctrl.GetType().Name == typeof(GGTextEdit).Name)
             {
-                PropertyControl pc = new PropertyControl();
-                pc.Name = ctrl.Name;
-                pc.ParentName = ctrl.Parent.Name;
-                pc.Type = ctrl.GetType().Name;
-                //Get common Properties
-                pc.BackColor = ctrl.BackColor.ToArgb();
-                pc.ForeColor = ctrl.ForeColor.ToArgb();
-                pc.FontName = ctrl.Font.Name;
-                pc.Text = ctrl.Text;
-                pc.FontSize = Convert.ToDouble(ctrl.Font.Size);
-                pc.FontStyle = ctrl.Font.Style.ToString();
-                pc.Enabled = ctrl.Enabled;
-                Point location = GetControlLocation(ctrl);
-                pc.LocationX = location.X;
-                pc.LocationY = location.Y;
-                pc.SizeWidth = ctrl.Size.Width;
-                pc.SizeHeight = ctrl.Size.Height;
-                pc.TabIndex = ctrl.TabIndex;
-                pc.Dock = ctrl.Dock.ToString();
-                pc.Status = "Active";
-                if (ctrl.Tag != null)
-                    pc.Tag = ctrl.Tag.ToString();
-                pc.Visible = ctrl.Visible;
-                pc.GGDataSource = GetProperty.GetPropertyStringValue(ctrl, GGScreen.cstDataSourcePropertyName);
-                pc.GGDataMember = GetProperty.GetPropertyStringValue(ctrl, GGScreen.cstDataMemberPropertyName);
-                pc.GGFieldGroup = GetProperty.GetPropertyStringValue(ctrl, GGScreen.cstFieldGroupPropertyName);
-                pc.GGFieldRelation = GetProperty.GetPropertyStringValue(ctrl, GGScreen.cstRelationPropertyName);
-                //Get specific properties
-                #region case:GGTextEdit
-                if (ctrl.GetType().Name == typeof(GGTextEdit).Name)
-                {
-                    GGTextEdit txt = (GGTextEdit)ctrl;
-                    pc.EditMask = txt.Properties.Mask.EditMask;
-                    pc.MaskType = txt.Properties.Mask.MaskType.ToString();
-                    pc.CharacterCase = txt.Properties.CharacterCasing.ToString();
-                    pc.ReadOnly = txt.Properties.ReadOnly;
-                    pc.RightToLeft = txt.RightToLeft.ToString();
-                    pc.BorderStyle = txt.Properties.BorderStyle.ToString();
-                }
-                #endregion
-
-                #region case:GGMemoEdit
-                else if (ctrl.GetType().Name == typeof(GGMemoEdit).Name)
-                {
-                    GGMemoEdit med = (GGMemoEdit)ctrl;
-                    pc.CharacterCase = med.Properties.CharacterCasing.ToString();
-                    pc.ReadOnly = med.Properties.ReadOnly;
-                    pc.ScrollBars = med.Properties.ScrollBars.ToString();
-                }
-                #endregion
-
-                #region case:GGButton
-                else if (ctrl.GetType().Name == typeof(GGButton).Name)
-                {
-                    GGButton btn = (GGButton)ctrl;
-                }
-                #endregion
-
-                #region case:GGComboBox
-                else if (ctrl.GetType().Name == typeof(GGComboBoxEdit).Name)
-                {
-                    GGComboBoxEdit cmb = (GGComboBoxEdit)ctrl;
-                    pc.TextEditStyle = cmb.Properties.TextEditStyle.ToString();
-                }
-                #endregion
-
-                #region case:GGDateEdit
-                else if (ctrl.GetType().Name == typeof(GGDateEdit).Name)
-                {
-                    GGDateEdit dtp = (GGDateEdit)ctrl;
-                    pc.EditMask = dtp.Properties.Mask.EditMask;
-                }
-                #endregion
-
-                #region case:GGTimeEdit
-                else if (ctrl.GetType().Name == typeof(GGTimeEdit).Name)
-                {
-                    GGTimeEdit ted = (GGTimeEdit)ctrl;
-                }
-                #endregion
-
-                #region case:GGLabel
-                else if (ctrl.GetType().Name == typeof(GGLabel).Name)
-                {
-                    GGLabel lbl = (GGLabel)ctrl;
-                    pc.TextAlign = ContentAlignment.TopLeft.ToString();
-                }
-                #endregion
-
-                #region case:GGCheckEdit
-                else if (ctrl.GetType().Name == typeof(GGCheckEdit).Name)
-                {
-                    GGCheckEdit chk = (GGCheckEdit)ctrl;
-                    pc.CheckedStyle = chk.Properties.CheckStyle.ToString();
-                }
-                #endregion
-
-                #region case:Line
-                else if (ctrl.GetType().Name == typeof(GGLine).Name)
-                {
-                    GGLine line = (GGLine)ctrl;
-                }
-                #endregion
-
-                #region case:PictureEdit
-                else if (ctrl.GetType().Name == typeof(GGPictureEdit).Name)
-                {
-                    GGPictureEdit pictureEdit = (GGPictureEdit)ctrl;
-                }
-                #endregion
-
-                #region case: GGGridControl
-                else if (ctrl.GetType().Name == typeof(GGGridControl).Name || ctrl.GetType().BaseType.Name == typeof(GGGridControl).Name)
-                {
-                    GGGridControl gridControl = (GGGridControl)ctrl;
-                }
-                #endregion
-
-                #region case:GGGroupControl
-                else if (ctrl.GetType().Name == typeof(GGGroupControl).Name)
-                {
-                    GGGroupControl grc = (GGGroupControl)ctrl;
-                }
-                #endregion
-
-                #region case: GGTabControl
-                else if (ctrl.GetType().Name == typeof(GGTabControl).Name)
-                {
-                    GGTabControl tabControl = (GGTabControl)ctrl;
-                }
-                #endregion
-
-                #region case: GGButtonEdit
-                else if (ctrl.GetType().Name == typeof(GGButtonEdit).Name)
-                {
-                    GGButtonEdit bed = (GGButtonEdit)ctrl;
-                    pc.EditMask = bed.Properties.Mask.EditMask;
-                    pc.MaskType = bed.Properties.Mask.MaskType.ToString();
-                    pc.CharacterCase = bed.Properties.CharacterCasing.ToString();
-                    pc.ReadOnly = bed.Properties.ReadOnly;
-                    pc.RightToLeft = bed.RightToLeft.ToString();
-                    pc.BorderStyle = bed.Properties.BorderStyle.ToString();
-                }
-                #endregion
-
-                //Save
-                list.Add(pc);
-                if (ctrl.Controls.Count > 0)
-                    list = GetAllControls(ctrl, list);
+                GGTextEdit txt = (GGTextEdit)ctrl;
+                pc.EditMask = txt.Properties.Mask.EditMask;
+                pc.MaskType = txt.Properties.Mask.MaskType.ToString();
+                pc.CharacterCase = txt.Properties.CharacterCasing.ToString();
+                pc.ReadOnly = txt.Properties.ReadOnly;
+                pc.RightToLeft = txt.RightToLeft.ToString();
+                pc.BorderStyle = txt.Properties.BorderStyle.ToString();
             }
+            #endregion
 
-            return list;
+            #region case:GGMemoEdit
+            else if (ctrl.GetType().Name == typeof(GGMemoEdit).Name)
+            {
+                GGMemoEdit med = (GGMemoEdit)ctrl;
+                pc.CharacterCase = med.Properties.CharacterCasing.ToString();
+                pc.ReadOnly = med.Properties.ReadOnly;
+                pc.ScrollBars = med.Properties.ScrollBars.ToString();
+            }
+            #endregion
+
+            #region case:GGButton
+            else if (ctrl.GetType().Name == typeof(GGButton).Name)
+            {
+                GGButton btn = (GGButton)ctrl;
+            }
+            #endregion
+
+            #region case:GGComboBox
+            else if (ctrl.GetType().Name == typeof(GGComboBoxEdit).Name)
+            {
+                GGComboBoxEdit cmb = (GGComboBoxEdit)ctrl;
+                pc.TextEditStyle = cmb.Properties.TextEditStyle.ToString();
+            }
+            #endregion
+
+            #region case:GGDateEdit
+            else if (ctrl.GetType().Name == typeof(GGDateEdit).Name)
+            {
+                GGDateEdit dtp = (GGDateEdit)ctrl;
+                pc.EditMask = dtp.Properties.Mask.EditMask;
+            }
+            #endregion
+
+            #region case:GGTimeEdit
+            else if (ctrl.GetType().Name == typeof(GGTimeEdit).Name)
+            {
+                GGTimeEdit ted = (GGTimeEdit)ctrl;
+            }
+            #endregion
+
+            #region case:GGLabel
+            else if (ctrl.GetType().Name == typeof(GGLabel).Name)
+            {
+                GGLabel lbl = (GGLabel)ctrl;
+                pc.TextAlign = ContentAlignment.TopLeft.ToString();
+            }
+            #endregion
+
+            #region case:GGCheckEdit
+            else if (ctrl.GetType().Name == typeof(GGCheckEdit).Name)
+            {
+                GGCheckEdit chk = (GGCheckEdit)ctrl;
+                pc.CheckedStyle = chk.Properties.CheckStyle.ToString();
+            }
+            #endregion
+
+            #region case:Line
+            else if (ctrl.GetType().Name == typeof(GGLine).Name)
+            {
+                GGLine line = (GGLine)ctrl;
+            }
+            #endregion
+
+            #region case:PictureEdit
+            else if (ctrl.GetType().Name == typeof(GGPictureEdit).Name)
+            {
+                GGPictureEdit pictureEdit = (GGPictureEdit)ctrl;
+            }
+            #endregion
+
+            #region case: GGGridControl
+            else if (ctrl.GetType().Name == typeof(GGGridControl).Name || ctrl.GetType().BaseType.Name == typeof(GGGridControl).Name)
+            {
+                GGGridControl gridControl = (GGGridControl)ctrl;
+            }
+            #endregion
+
+            #region case:GGGroupControl
+            else if (ctrl.GetType().Name == typeof(GGGroupControl).Name)
+            {
+                GGGroupControl grc = (GGGroupControl)ctrl;
+            }
+            #endregion
+
+            #region case: GGTabControl
+            else if (ctrl.GetType().Name == typeof(GGTabControl).Name)
+            {
+                GGTabControl tabControl = (GGTabControl)ctrl;
+            }
+            #endregion
+
+            #region case: GGButtonEdit
+            else if (ctrl.GetType().Name == typeof(GGButtonEdit).Name)
+            {
+                GGButtonEdit bed = (GGButtonEdit)ctrl;
+                pc.EditMask = bed.Properties.Mask.EditMask;
+                pc.MaskType = bed.Properties.Mask.MaskType.ToString();
+                pc.CharacterCase = bed.Properties.CharacterCasing.ToString();
+                pc.ReadOnly = bed.Properties.ReadOnly;
+                pc.RightToLeft = bed.RightToLeft.ToString();
+                pc.BorderStyle = bed.Properties.BorderStyle.ToString();
+            }
+            #endregion
+            return pc;
         }
 
         #region Config

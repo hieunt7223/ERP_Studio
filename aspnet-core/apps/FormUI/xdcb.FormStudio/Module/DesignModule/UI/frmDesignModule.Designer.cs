@@ -81,6 +81,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fld_imgcltImage = new DevExpress.Utils.ImageCollection(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btn_ViewFile = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.hideContainerRight.SuspendLayout();
@@ -115,8 +116,9 @@
             this.barButtonItem3,
             this.barButtonItem4,
             this.barButtonItem5,
-            this.btn_DeleteScreen});
-            this.barManager1.MaxItemId = 6;
+            this.btn_DeleteScreen,
+            this.btn_ViewFile});
+            this.barManager1.MaxItemId = 7;
             // 
             // bar1
             // 
@@ -129,7 +131,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem5, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem4, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_DeleteScreen, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_Save, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_Save, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_ViewFile, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.OptionsBar.AllowQuickCustomization = false;
             this.bar1.OptionsBar.DrawBorder = false;
             this.bar1.Text = "Tools";
@@ -163,8 +166,8 @@
             // 
             this.btn_Save.Caption = "Lưu";
             this.btn_Save.Id = 0;
-            this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btn_Save.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
+            this.btn_Save.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.LargeImage")));
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Save_ItemClick);
             // 
@@ -605,6 +608,15 @@
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // btn_ViewFile
+            // 
+            this.btn_ViewFile.Caption = "Hiển thị file";
+            this.btn_ViewFile.Id = 6;
+            this.btn_ViewFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btn_ViewFile.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btn_ViewFile.Name = "btn_ViewFile";
+            this.btn_ViewFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_ViewFile_ItemClick);
+            // 
             // frmDesignModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -697,5 +709,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private DevExpress.XtraBars.BarButtonItem btn_DeleteScreen;
+        private DevExpress.XtraBars.BarButtonItem btn_ViewFile;
     }
 }

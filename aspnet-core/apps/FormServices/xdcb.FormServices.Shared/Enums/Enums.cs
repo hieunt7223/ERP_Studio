@@ -15,6 +15,13 @@ namespace xdcb.FormServices.Shared
         Form
     }
 
+    public enum ScreenName
+    {
+        ScreenMain,
+        ScreenDetail,
+        ScreenSearch
+    }
+
     public enum ModuleName
     {
         [EnumDescription("Cấu hình cột trên lưới")]

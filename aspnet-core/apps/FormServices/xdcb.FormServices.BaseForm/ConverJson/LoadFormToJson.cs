@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Mask;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -9,14 +11,18 @@ namespace xdcb.FormServices.BaseForm
 {
     public static class LoadFormToJson
     {
-        public static void GetValueControlByJson(System.Windows.Forms.Control.ControlCollection control, string pathFile)
+        public static void GetValueControlByJson(GGScreen screen, string pathFile)
         {
-
             var fieldControl = Newtonsoft.Json.JsonConvert.DeserializeObject<FieldControl>(File.ReadAllText(pathFile));
-            ConvertFieldControlToControl(control, fieldControl);
+            if (fieldControl != null)
+            {
+                screen.Location = new Point(fieldControl.LocationX, fieldControl.LocationY);
+                screen.Size = new Size(fieldControl.SizeWidth, fieldControl.SizeHeight);
+                ConvertFieldControlToControl(screen.Controls, fieldControl);
+            }
         }
 
-        public static void ConvertFieldControlToControl(System.Windows.Forms.Control.ControlCollection control, FieldControl fieldControl)
+        public static void ConvertFieldControlToControl(Control.ControlCollection control, FieldControl fieldControl)
         {
             control.Clear();
             foreach (var p in fieldControl.propertyControl)
@@ -210,6 +216,12 @@ namespace xdcb.FormServices.BaseForm
                             {
                                 GGTextEdit ctrl = new GGTextEdit();
                                 SetControlByProperties(ctrl, p);
+                                ctrl.Properties.Mask.EditMask = p.EditMask;
+                                ctrl.Properties.Mask.MaskType = (MaskType)Enum.Parse(typeof(MaskType), p.MaskType);
+                                ctrl.Properties.CharacterCasing = (CharacterCasing)Enum.Parse(typeof(CharacterCasing), p.CharacterCase);
+                                ctrl.Properties.ReadOnly = p.ReadOnly;
+                                ctrl.RightToLeft = (RightToLeft)Enum.Parse(typeof(RightToLeft), p.RightToLeft);
+                                ctrl.Properties.BorderStyle = (BorderStyles)Enum.Parse(typeof(BorderStyles), p.BorderStyle);
                                 control.Add(ctrl);
                             }
                             break;
@@ -229,6 +241,16 @@ namespace xdcb.FormServices.BaseForm
                         case "xdcb.FormServices.Component.GGTreeList":
                             {
                                 GGTreeList ctrl = new GGTreeList();
+                                SetControlByProperties(ctrl, p);
+                                control.Add(ctrl);
+                            }
+                            break;
+                        #endregion
+
+                        #region GGLine
+                        case "xdcb.FormServices.Component.GGLine":
+                            {
+                                GGLine ctrl = new GGLine();
                                 SetControlByProperties(ctrl, p);
                                 control.Add(ctrl);
                             }
@@ -427,23 +449,27 @@ namespace xdcb.FormServices.BaseForm
             return check;
         }
 
-        public static void SetControlByProperties(System.Windows.Forms.Control ctrl, PropertyControl property)
+        public static void SetControlByProperties(Control ctrl, PropertyControl property)
         {
             ctrl.Name = property.Name;
-            ctrl.Text = property.Text;
-            ctrl.TabIndex = property.TabIndex;
-            ctrl.Enabled = property.Enabled;
-            //ctrl.Visible = property.Visible;
+            if (ctrl.GetType() != typeof(GGPictureEdit))
+            {
+                ctrl.Text = property.Text;
+            }
+            ctrl.ForeColor = Color.FromArgb(property.ForeColor);
+            ctrl.Font = new Font(property.FontName, (float)property.FontSize, (FontStyle)Enum.Parse(typeof(FontStyle), property.FontStyle));
             ctrl.Location = new Point(property.LocationX, property.LocationY);
             ctrl.Size = new Size(property.SizeWidth, property.SizeHeight);
+            ctrl.Enabled = property.Enabled;
+            ctrl.TabIndex = property.TabIndex;
+            ctrl.Tag = property.Tag;
+            if (!String.IsNullOrEmpty(property.Dock))
+                ctrl.Dock = (DockStyle)Enum.Parse(typeof(DockStyle), property.Dock);
+            ctrl.Visible = property.Visible;
             SetProperty.SetPropertyValue(ctrl, Customs.cstDataSource, property.GGDataSource);
             SetProperty.SetPropertyValue(ctrl, Customs.cstDataMember, property.GGDataMember);
             SetProperty.SetPropertyValue(ctrl, Customs.cstFieldGroup, property.GGFieldGroup);
             SetProperty.SetPropertyValue(ctrl, Customs.cstFieldRelation, property.GGFieldRelation);
         }
-
-        #region
-
-        #endregion
     }
 }
