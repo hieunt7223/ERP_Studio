@@ -3,7 +3,10 @@ using DevExpress.XtraNavBar;
 using DevExpress.XtraTab;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using xdcb.FormServices.BaseForm;
 using xdcb.FormServices.Component;
@@ -86,6 +89,37 @@ namespace xdcb.FormStudio
 
         #endregion
 
+        #region Action Save
+        private void btn_Save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (lstOpenScreens == null || lstOpenScreens.Count == 0)
+            {
+                GGFunctions.ShowMessage("Chưa có giao diện để lưu, Vui lòng kiểm tra lại");
+
+            }
+            foreach (GGScreen screen in lstOpenScreens)
+            {
+                SaveScreenByJson(screen);
+            }
+
+            GGFunctions.ShowMessage("Lưu thành công!");
+        }
+
+        private void SaveScreenByJson(GGScreen screen)
+        {
+            var fieldControl = ConvertListToJson.GetValueJsonForList(screen.Controls, "hieunt", screen);
+            string json = SerializeObject.SerializeObjectByFieldControl(fieldControl);
+            NameValueCollection appSettings = ConfigurationManager.AppSettings;
+            string path = appSettings["PathDesignUI"];
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            File.WriteAllText(path + @"\" + screen.Name + ".json", json);
+        }
+
+        #endregion
+
         #region Thêm mới Screen
         private void item_ScreenMain_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
@@ -106,7 +140,7 @@ namespace xdcb.FormStudio
             {
                 if (screen.Name.ToString() == name)
                 {
-                    GGFunctions.ShowMessage("Đã có màn hình '"+ name + "' này. Vui lòng kiểm tra lại!");
+                    GGFunctions.ShowMessage("Đã có màn hình '" + name + "' này. Vui lòng kiểm tra lại!");
                     return;
                 }
             }
@@ -116,7 +150,7 @@ namespace xdcb.FormStudio
             scr.Tag = Name;
             scr.Module = Module;
             scr.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-           
+
             lstOpenScreens.Add(scr);
             AddOpenModuleToOpenModulesToolStrip(name);
             ShowScreen(scr);
@@ -176,7 +210,7 @@ namespace xdcb.FormStudio
             foreach (var screen in lstOpenScreens)
             {
                 if (screen.Name.ToString() == name)
-                {                 
+                {
                     screen.Show();
                     screen.Location = new Point(3, 2);
                 }
@@ -1224,6 +1258,7 @@ namespace xdcb.FormStudio
                 AddAvailableFields(ctrl.Controls);
         }
         #endregion
+
 
     }
 }

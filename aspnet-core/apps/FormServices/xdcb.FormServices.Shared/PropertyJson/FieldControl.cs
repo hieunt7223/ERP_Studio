@@ -11,6 +11,10 @@ namespace xdcb.FormServices.Shared
         public string version;
         public string lastUpdatedBy;
         public string lastUpdated;
+        public int LocationX;
+        public int LocationY;
+        public int SizeHeight;
+        public int SizeWidth;
         public List<PropertyControl> propertyControl;
     }
 }

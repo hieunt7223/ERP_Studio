@@ -18,6 +18,7 @@ namespace xdcb.FormServices.BaseForm
         public const String cstErrorPropertyName = "GGErrorPropertyName";
         public const String cstPrivilegePropertyName = "GGPrivilege";
         public const String cstDescriptionPropertyName = "GGDescription";
+        public const String cstRelationPropertyName = "GGFieldRelation";
         #endregion
 
         #region Constants of Field Groups

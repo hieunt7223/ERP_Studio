@@ -947,8 +947,8 @@ namespace xdcb.FormStudio
 
         private void SaveToJson(ControlCollection control)
         {
-            var fieldControl = ConvertListToJson.GetValueJsonForList(control);
-            string json = SerializeObject.SerializeObjectByFieldControl(fieldControl);
+            //var fieldControl = ConvertListToJson.GetValueJsonForList(control);
+            //string json = SerializeObject.SerializeObjectByFieldControl(fieldControl);
 
             //NameValueCollection appSettings = ConfigurationManager.AppSettings;
             //string path = appSettings["PathDesignUI"] + objModules.ModuleLink;

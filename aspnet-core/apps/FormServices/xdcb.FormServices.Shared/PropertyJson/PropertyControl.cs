@@ -3,6 +3,8 @@
     public class PropertyControl
     {
         public string Name;
+        public string ParentName;
+        public string Type;
         public string Desc;
         public string Text;
         public string Hint;
@@ -11,15 +13,15 @@
         public int LocationY;
         public int SizeHeight;
         public int SizeWidth;
-        public string BackColor;
-        public string ForeColor;
+        public int BackColor;
+        public int ForeColor;
         public bool Enabled;
         public bool Visible;
         public string Tag;
         public string BindingPropertyName;
         public int TabIndex;
         public string FontName;
-        public float FontSize;
+        public double FontSize;
         public string FontStyle;
         public string TextEditStyle;
         public string EditMask;
