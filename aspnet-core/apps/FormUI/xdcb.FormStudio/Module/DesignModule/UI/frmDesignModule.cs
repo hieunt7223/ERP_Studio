@@ -176,8 +176,9 @@ namespace xdcb.FormStudio
             foreach (var screen in lstOpenScreens)
             {
                 if (screen.Name.ToString() == name)
-                {
+                {                 
                     screen.Show();
+                    screen.Location = new Point(3, 2);
                 }
             }
         }
@@ -228,6 +229,7 @@ namespace xdcb.FormStudio
             scr.MouseDown += new MouseEventHandler(Screen_MouseDown);
             scr.Activated += new EventHandler(Screen_Activated);
             scr.Show();
+            scr.Location = new Point(3, 2);
         }
 
         public void InitializeControls(Control.ControlCollection controls, GGScreen scr)
