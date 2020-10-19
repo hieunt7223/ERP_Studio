@@ -201,12 +201,12 @@ namespace xdcb.FormServices.BaseForm
         private static Point GetControlLocation(Control ctrl)
         {
             Point location = new Point(ctrl.Location.X, ctrl.Location.Y);
-            if (ctrl.Parent.GetType() != typeof(GGScreen) && ctrl.Parent.GetType().BaseType != typeof(GGScreen))
-            {
-                Point parentLocation = GetControlLocation(ctrl.Parent);
-                location.X += parentLocation.X;
-                location.Y += parentLocation.Y;
-            }
+            //if (ctrl.Parent.GetType() != typeof(GGScreen) && ctrl.Parent.GetType().BaseType != typeof(GGScreen))
+            //{
+            //    Point parentLocation = GetControlLocation(ctrl.Parent);
+            //    location.X += parentLocation.X;
+            //    location.Y += parentLocation.Y;
+            //}
             return location;
         }
 

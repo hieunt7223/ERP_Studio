@@ -133,21 +133,21 @@ namespace xdcb.FormStudio
 
             //Màn hình Chính
             string linkScreenMan = path + @"\" + ScreenName.ScreenMain.ToString() + ".json";
-            if (!Directory.Exists(linkScreenMan))
+            if (File.Exists(linkScreenMan))
             {
                 ShowScreenByJson(ScreenName.ScreenMain.ToString(), linkScreenMan);
                 HideScreen(ScreenName.ScreenMain.ToString());
             }
             //Màn hình Chi tiết
             string linkScreenDetail = path + @"\" + ScreenName.ScreenDetail.ToString() + ".json";
-            if (!Directory.Exists(linkScreenDetail))
+            if (File.Exists(linkScreenDetail))
             {
                 ShowScreenByJson(ScreenName.ScreenDetail.ToString(), linkScreenDetail);
                 HideScreen(ScreenName.ScreenDetail.ToString());
             }
             //Màn hình tìm kiếm
             string linkScreenSearch = path + @"\" + ScreenName.ScreenSearch.ToString() + ".json";
-            if (!Directory.Exists(linkScreenSearch))
+            if (File.Exists(linkScreenSearch))
             {
                 ShowScreenByJson(ScreenName.ScreenSearch.ToString(), linkScreenSearch);
                 HideScreen(ScreenName.ScreenSearch.ToString());
