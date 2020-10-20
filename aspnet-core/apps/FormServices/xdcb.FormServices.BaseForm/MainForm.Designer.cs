@@ -35,11 +35,10 @@
             this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem13 = new DevExpress.XtraBars.BarSubItem();
             this.btn_GenerateEntity = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDesignModule = new DevExpress.XtraBars.BarButtonItem();
             this.btn_GridView = new DevExpress.XtraBars.BarButtonItem();
             this.btn_TreeList = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_DesignForm = new DevExpress.XtraBars.BarButtonItem();
             this.btn_ImportData = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDesignModule = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
@@ -94,6 +93,7 @@
             this.btn_KHVTheoNghiQuyetHangNam = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_DesignForm = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem14 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem16 = new DevExpress.XtraBars.BarSubItem();
@@ -233,11 +233,10 @@
             this.barSubItem13.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem13.ImageOptions.LargeImage")));
             this.barSubItem13.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_GenerateEntity, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDesignModule, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_GridView, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_TreeList, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_DesignForm, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_ImportData, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDesignModule, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_ImportData, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barSubItem13.Name = "barSubItem13";
             // 
             // btn_GenerateEntity
@@ -248,6 +247,15 @@
             this.btn_GenerateEntity.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_GenerateEntity.ImageOptions.LargeImage")));
             this.btn_GenerateEntity.Name = "btn_GenerateEntity";
             this.btn_GenerateEntity.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_GenerateEntity_ItemClick);
+            // 
+            // btnDesignModule
+            // 
+            this.btnDesignModule.Caption = "Thiết kế chứng năng";
+            this.btnDesignModule.Id = 81;
+            this.btnDesignModule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDesignModule.ImageOptions.Image")));
+            this.btnDesignModule.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDesignModule.ImageOptions.LargeImage")));
+            this.btnDesignModule.Name = "btnDesignModule";
+            this.btnDesignModule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDesignModule_ItemClick);
             // 
             // btn_GridView
             // 
@@ -267,15 +275,6 @@
             this.btn_TreeList.Name = "btn_TreeList";
             this.btn_TreeList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_TreeList_ItemClick);
             // 
-            // btn_DesignForm
-            // 
-            this.btn_DesignForm.Caption = "Thiết kế giao diện";
-            this.btn_DesignForm.Id = 52;
-            this.btn_DesignForm.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_DesignForm.ImageOptions.Image")));
-            this.btn_DesignForm.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_DesignForm.ImageOptions.LargeImage")));
-            this.btn_DesignForm.Name = "btn_DesignForm";
-            this.btn_DesignForm.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_DesignForm_ItemClick);
-            // 
             // btn_ImportData
             // 
             this.btn_ImportData.Caption = "Import dữ liệu";
@@ -284,13 +283,6 @@
             this.btn_ImportData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_ImportData.ImageOptions.LargeImage")));
             this.btn_ImportData.Name = "btn_ImportData";
             this.btn_ImportData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_ImportData_ItemClick);
-            // 
-            // btnDesignModule
-            // 
-            this.btnDesignModule.Caption = "Thiết kế chứng năng";
-            this.btnDesignModule.Id = 81;
-            this.btnDesignModule.Name = "btnDesignModule";
-            this.btnDesignModule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDesignModule_ItemClick);
             // 
             // barButtonItem12
             // 
@@ -692,6 +684,15 @@
             this.barButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.ImageOptions.Image")));
             this.barButtonItem10.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.ImageOptions.LargeImage")));
             this.barButtonItem10.Name = "barButtonItem10";
+            // 
+            // btn_DesignForm
+            // 
+            this.btn_DesignForm.Caption = "Thiết kế giao diện";
+            this.btn_DesignForm.Id = 52;
+            this.btn_DesignForm.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_DesignForm.ImageOptions.Image")));
+            this.btn_DesignForm.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_DesignForm.ImageOptions.LargeImage")));
+            this.btn_DesignForm.Name = "btn_DesignForm";
+            this.btn_DesignForm.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_DesignForm_ItemClick);
             // 
             // barButtonItem11
             // 

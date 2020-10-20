@@ -17,14 +17,14 @@ namespace xdcb.FormServices.Shared
         public static string UserName()
         {
             NameValueCollection appSettings = ConfigurationManager.AppSettings;
-            string url = appSettings["UserName"];
+            string url = appSettings["UserNameDB"];
             return url;
         }
 
         public static string Password()
         {
             NameValueCollection appSettings = ConfigurationManager.AppSettings;
-            string url = appSettings["Password"];
+            string url = appSettings["PasswordDB"];
             return url;
         }
 

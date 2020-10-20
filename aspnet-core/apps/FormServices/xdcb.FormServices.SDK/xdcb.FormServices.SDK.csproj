@@ -310,6 +310,7 @@
     <Compile Include="Common\INguonVonsApi.cs" />
     <Compile Include="Common\INhomCongTrinhsApi.cs" />
     <Compile Include="FileService\IDocumentStoreApi.cs" />
+    <Compile Include="FormServices\IModuleGroupApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyVon\IGiaiNganApi.cs" />
     <Compile Include="QuanLyVon\IGiaiNganChiTietApi.cs" />
@@ -362,9 +363,7 @@
       <Name>xdcb.QuanLyVon.Application.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FormServices\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

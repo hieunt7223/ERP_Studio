@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using xdcb.FormServices.ModuleGroup.Dtos;
 
 namespace xdcb.FormServices
 {
@@ -6,9 +7,11 @@ namespace xdcb.FormServices
     {
         public FormServicesApplicationAutoMapperProfile()
         {
-            /* You can configure your AutoMapper mapping configuration here.
-             * Alternatively, you can split your mapping configurations
-             * into multiple profile classes for a better organization. */
+            #region ModuleGroup
+            CreateMap<ModuleGroups.ModuleGroup, ModuleGroupDto>();
+            CreateMap<CreateUpdateModuleGroupDto, ModuleGroups.ModuleGroup>();
+            CreateMap<ModuleGroupDto, CreateUpdateModuleGroupDto>();
+            #endregion
         }
     }
 }

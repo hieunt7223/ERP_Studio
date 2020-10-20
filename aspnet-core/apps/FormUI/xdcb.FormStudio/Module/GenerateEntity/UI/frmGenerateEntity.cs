@@ -68,7 +68,7 @@ namespace xdcb.FormStudio.GenerateEntity
                 DataTable schemaTable = Conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
                 foreach (DataRow row in schemaTable.Rows)
                 {
-                    string TableName = row["TABLE_NAME"].ToString();
+                    string TableName = row["TABLE_SCHEMA"].ToString()+"."+row["TABLE_NAME"].ToString();
                     lvTables.Items.Add(TableName);
                 }
                 CloseConn();
@@ -108,7 +108,7 @@ namespace xdcb.FormStudio.GenerateEntity
                 object[] objArrRestrict;
                 if (lvTables.SelectedItem != null)
                 {
-                    string TableName = lvTables.SelectedItem.ToString();
+                    string TableName = lvTables.SelectedItem.ToString().Split('.')[1].ToString();
                     objArrRestrict = new object[] { null, null, TableName, null };
                     DataTable schemaCols = Conn.GetOleDbSchemaTable(OleDbSchemaGuid.Columns, objArrRestrict);
                     ColumnTableList.Clear();
@@ -689,19 +689,19 @@ namespace xdcb.FormStudio.GenerateEntity
                         {
                             if (col.TypeName.ToLower().Trim() == "string")
                             {
-                                if (col.IsNull == false)
-                                {
-                                    sb.Append("\t" + "\t" + "//[Required]" + "\r\n");
-                                }
-                                if (col.ColumnLength > 0)
-                                {
-                                    sb.Append("\t" + "\t" + "//[StringLength(" + col.ColumnLength + ")]" + "\r\n");
-                                }
+                                //if (col.IsNull == false)
+                                //{
+                                //    sb.Append("\t" + "\t" + "//[Required]" + "\r\n");
+                                //}
+                                //if (col.ColumnLength > 0)
+                                //{
+                                //    sb.Append("\t" + "\t" + "//[StringLength(" + col.ColumnLength + ")]" + "\r\n");
+                                //}
                                 sb.Append("\t" + "\t" + "public " + col.TypeName + " " + col.ColumnName.ToString() + " { get; set; }" + "\r\n" + "\r\n");
                             }
                             else if (col.IsNull == false)
                             {
-                                sb.Append("\t" + "\t" + "//[Required]" + "\r\n");
+                                //sb.Append("\t" + "\t" + "//[Required]" + "\r\n");
                                 sb.Append("\t" + "\t" + "public " + col.TypeName + " " + col.ColumnName.ToString() + " { get; set; }" + "\r\n" + "\r\n");
                             }
                             else

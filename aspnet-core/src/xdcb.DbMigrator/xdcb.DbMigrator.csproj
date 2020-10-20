@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\modules\common\xdcb.Common.EfCore.DbMigrations\xdcb.Common.EfCore.DbMigrations.csproj" />
+    <ProjectReference Include="..\..\modules\FormServices\xdcb.FormServices.EntityFrameworkCore.DbMigrations\xdcb.FormServices.EntityFrameworkCore.DbMigrations.csproj" />
     <ProjectReference Include="..\..\modules\HoSoCongTrinh\xdcb.HoSoCongTrinh.EfCore.DbMigrations\xdcb.HoSoCongTrinh.EfCore.DbMigrations.csproj" />
     <ProjectReference Include="..\..\modules\QuanLyVon\xdcb.QuanLyVon.EntityFrameworkCore.DbMigrations\xdcb.QuanLyVon.EntityFrameworkCore.DbMigrations.csproj" />
     <ProjectReference Include="..\xdcb.Application.Contracts\xdcb.Application.Contracts.csproj" />

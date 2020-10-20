@@ -12,9 +12,5 @@
   <ItemGroup>
     <ProjectReference Include="..\xdcb.FormServices.Domain\xdcb.FormServices.Domain.csproj" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
 
 </Project>

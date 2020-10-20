@@ -106,9 +106,9 @@
             this.ggGroupBox2.GGDataSource = null;
             this.ggGroupBox2.GGFieldGroup = null;
             this.ggGroupBox2.GGFieldRelation = null;
-            this.ggGroupBox2.Location = new System.Drawing.Point(203, 3);
+            this.ggGroupBox2.Location = new System.Drawing.Point(265, 3);
             this.ggGroupBox2.Name = "ggGroupBox2";
-            this.ggGroupBox2.Size = new System.Drawing.Size(706, 69);
+            this.ggGroupBox2.Size = new System.Drawing.Size(644, 69);
             this.ggGroupBox2.TabIndex = 1;
             this.ggGroupBox2.TabStop = false;
             // 
@@ -118,9 +118,9 @@
             this.txt_SDK.GGDataSource = null;
             this.txt_SDK.GGFieldGroup = null;
             this.txt_SDK.GGFieldRelation = null;
-            this.txt_SDK.Location = new System.Drawing.Point(436, 14);
+            this.txt_SDK.Location = new System.Drawing.Point(382, 14);
             this.txt_SDK.Name = "txt_SDK";
-            this.txt_SDK.Size = new System.Drawing.Size(258, 20);
+            this.txt_SDK.Size = new System.Drawing.Size(225, 20);
             this.txt_SDK.TabIndex = 3;
             // 
             // txt_Service
@@ -131,7 +131,7 @@
             this.txt_Service.GGFieldRelation = null;
             this.txt_Service.Location = new System.Drawing.Point(76, 40);
             this.txt_Service.Name = "txt_Service";
-            this.txt_Service.Size = new System.Drawing.Size(258, 20);
+            this.txt_Service.Size = new System.Drawing.Size(224, 20);
             this.txt_Service.TabIndex = 1;
             // 
             // txt_Project
@@ -143,7 +143,7 @@
             this.txt_Project.Location = new System.Drawing.Point(76, 14);
             this.txt_Project.MenuManager = this.barManager1;
             this.txt_Project.Name = "txt_Project";
-            this.txt_Project.Size = new System.Drawing.Size(258, 20);
+            this.txt_Project.Size = new System.Drawing.Size(224, 20);
             this.txt_Project.TabIndex = 0;
             // 
             // barManager1
@@ -192,7 +192,7 @@
             this.ggLabel3.GGDataSource = null;
             this.ggLabel3.GGFieldGroup = null;
             this.ggLabel3.GGFieldRelation = null;
-            this.ggLabel3.Location = new System.Drawing.Point(372, 17);
+            this.ggLabel3.Location = new System.Drawing.Point(336, 17);
             this.ggLabel3.Name = "ggLabel3";
             this.ggLabel3.Size = new System.Drawing.Size(40, 13);
             this.ggLabel3.TabIndex = 0;
@@ -227,9 +227,9 @@
             this.rtfClass.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtfClass.Location = new System.Drawing.Point(203, 78);
+            this.rtfClass.Location = new System.Drawing.Point(265, 78);
             this.rtfClass.Name = "rtfClass";
-            this.rtfClass.Size = new System.Drawing.Size(706, 350);
+            this.rtfClass.Size = new System.Drawing.Size(644, 350);
             this.rtfClass.TabIndex = 2;
             this.rtfClass.Text = "";
             // 
@@ -244,7 +244,7 @@
             this.ggGroupBox1.GGFieldRelation = null;
             this.ggGroupBox1.Location = new System.Drawing.Point(0, 0);
             this.ggGroupBox1.Name = "ggGroupBox1";
-            this.ggGroupBox1.Size = new System.Drawing.Size(197, 440);
+            this.ggGroupBox1.Size = new System.Drawing.Size(259, 440);
             this.ggGroupBox1.TabIndex = 0;
             this.ggGroupBox1.TabStop = false;
             // 
@@ -255,7 +255,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvTables.Location = new System.Drawing.Point(3, 53);
             this.lvTables.Name = "lvTables";
-            this.lvTables.Size = new System.Drawing.Size(188, 384);
+            this.lvTables.Size = new System.Drawing.Size(250, 384);
             this.lvTables.TabIndex = 1;
             this.lvTables.SelectedIndexChanged += new System.EventHandler(this.lvTables_SelectedIndexChanged);
             // 
