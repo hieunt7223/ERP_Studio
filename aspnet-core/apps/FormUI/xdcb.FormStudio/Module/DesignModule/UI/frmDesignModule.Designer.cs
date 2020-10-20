@@ -32,10 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDesignModule));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_CreateModule = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.btn_DeleteScreen = new DevExpress.XtraBars.BarButtonItem();
             this.btn_Save = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_ViewFile = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -81,7 +82,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fld_imgcltImage = new DevExpress.Utils.ImageCollection(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btn_ViewFile = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.hideContainerRight.SuspendLayout();
@@ -115,7 +115,7 @@
             this.barButtonItem2,
             this.barButtonItem3,
             this.barButtonItem4,
-            this.barButtonItem5,
+            this.btn_CreateModule,
             this.btn_DeleteScreen,
             this.btn_ViewFile});
             this.barManager1.MaxItemId = 7;
@@ -128,7 +128,7 @@
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.FloatLocation = new System.Drawing.Point(56, 118);
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem5, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_CreateModule, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem4, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_DeleteScreen, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_Save, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
@@ -137,13 +137,14 @@
             this.bar1.OptionsBar.DrawBorder = false;
             this.bar1.Text = "Tools";
             // 
-            // barButtonItem5
+            // btn_CreateModule
             // 
-            this.barButtonItem5.Caption = "Tạo mới Module";
-            this.barButtonItem5.Id = 4;
-            this.barButtonItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
-            this.barButtonItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
-            this.barButtonItem5.Name = "barButtonItem5";
+            this.btn_CreateModule.Caption = "Tạo mới Module";
+            this.btn_CreateModule.Id = 4;
+            this.btn_CreateModule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
+            this.btn_CreateModule.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
+            this.btn_CreateModule.Name = "btn_CreateModule";
+            this.btn_CreateModule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_CreateModule_ItemClick);
             // 
             // barButtonItem4
             // 
@@ -170,6 +171,15 @@
             this.btn_Save.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.LargeImage")));
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Save_ItemClick);
+            // 
+            // btn_ViewFile
+            // 
+            this.btn_ViewFile.Caption = "Hiển thị file";
+            this.btn_ViewFile.Id = 6;
+            this.btn_ViewFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_ViewFile.ImageOptions.Image")));
+            this.btn_ViewFile.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_ViewFile.ImageOptions.LargeImage")));
+            this.btn_ViewFile.Name = "btn_ViewFile";
+            this.btn_ViewFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_ViewFile_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -608,15 +618,6 @@
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btn_ViewFile
-            // 
-            this.btn_ViewFile.Caption = "Hiển thị file";
-            this.btn_ViewFile.Id = 6;
-            this.btn_ViewFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btn_ViewFile.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btn_ViewFile.Name = "btn_ViewFile";
-            this.btn_ViewFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_ViewFile_ItemClick);
-            // 
             // frmDesignModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -706,7 +707,7 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem14;
         private DevExpress.XtraNavBar.NavBarItem navBarItem17;
         private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerRight;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.BarButtonItem btn_CreateModule;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private DevExpress.XtraBars.BarButtonItem btn_DeleteScreen;
         private DevExpress.XtraBars.BarButtonItem btn_ViewFile;

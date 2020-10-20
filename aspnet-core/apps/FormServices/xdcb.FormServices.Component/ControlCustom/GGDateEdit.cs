@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using xdcb.FormServices.ConfigColumns.Dtos;
-
 namespace xdcb.FormServices.Component
 {
     public partial class GGDateEdit : DevExpress.XtraEditors.DateEdit, IGGControl
@@ -70,10 +68,8 @@ namespace xdcb.FormServices.Component
         #endregion
 
         #region CustomControl
-        List<ConfigColumnDto> listConfigColumn;
         public GGDateEdit()
         {
-            listConfigColumn = new List<ConfigColumnDto>();
             this.CustomDisplayText += GGDateEdit_CustomDisplayText;
         }
 

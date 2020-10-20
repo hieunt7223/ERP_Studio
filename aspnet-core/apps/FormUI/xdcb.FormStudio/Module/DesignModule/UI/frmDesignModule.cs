@@ -170,6 +170,15 @@ namespace xdcb.FormStudio
 
         #endregion
 
+        #region Tạo mới module
+        private void btn_CreateModule_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            guiModule guinew = new guiModule();
+            guinew.Module = this.Module;
+            guinew.ShowDialog();
+        }
+        #endregion
+
         #region Thêm mới Screen
         private void item_ScreenMain_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
@@ -1327,8 +1336,8 @@ namespace xdcb.FormStudio
                 AddAvailableFields(ctrl.Controls);
         }
 
+
+
         #endregion
-
-
     }
 }

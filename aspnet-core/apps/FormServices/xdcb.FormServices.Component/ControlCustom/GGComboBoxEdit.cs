@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Data;
-using xdcb.FormServices.ConfigColumns.Dtos;
-
 namespace xdcb.FormServices.Component
 {
     public partial class GGComboBoxEdit : DevExpress.XtraEditors.ComboBoxEdit, IGGControl
@@ -72,10 +70,8 @@ namespace xdcb.FormServices.Component
         #endregion
 
         #region CustomControl
-        List<ConfigColumnDto> listConfigColumn;
         public GGComboBoxEdit()
         {
-            listConfigColumn = new List<ConfigColumnDto>();
         }
 
         public virtual void InitializeControl()

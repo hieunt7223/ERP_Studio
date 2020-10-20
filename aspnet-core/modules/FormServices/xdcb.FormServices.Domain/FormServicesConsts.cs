@@ -4,6 +4,6 @@
     {
         public const string DbTablePrefix = "";
 
-        public const string DbSchema = "FormServices";
+        public const string DbSchema = "system";
     }
 }

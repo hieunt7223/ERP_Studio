@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
 using Volo.Abp.EntityFrameworkCore.Modeling;
-using xdcb.FormServices.ConfigColumns;
+using xdcb.FormServices.ModuleGroups;
+using xdcb.FormServices.Modules;
 
 namespace xdcb.FormServices.EntityFrameworkCore
 {
@@ -11,9 +12,37 @@ namespace xdcb.FormServices.EntityFrameworkCore
         {
             Check.NotNull(builder, nameof(builder));
 
-            builder.Entity<ConfigColumn>(b =>
+            builder.Entity<ModuleGroup>(b =>
             {
-                b.ToTable("ConfigColumns", FormServicesConsts.DbSchema);
+                b.ToTable("ModuleGroups", FormServicesConsts.DbSchema);
+
+                b.Property(s => s.ModuleGroupNo).HasMaxLength(50);
+
+                b.Property(s => s.ModuleGroupName).HasMaxLength(255);
+
+                b.Property(s => s.OrderIndex).UseIdentityColumn().ValueGeneratedOnAddOrUpdate();
+
+                b.Property(s => s.IsDeleted).HasDefaultValue(false);
+
+                b.ConfigureByConvention();
+            });
+
+            builder.Entity<Module>(b =>
+            {
+                b.ToTable("Modules", FormServicesConsts.DbSchema);
+
+                b.Property(s => s.ModuleNo).HasMaxLength(50);
+
+                b.Property(s => s.ModuleName).HasMaxLength(255);
+
+                b.Property(s => s.IsScreenSearch).HasDefaultValue(true);
+
+                b.Property(s => s.IsScreenDetail).HasDefaultValue(true);
+
+                b.Property(s => s.OrderIndex).UseIdentityColumn().ValueGeneratedOnAddOrUpdate();
+
+                b.Property(s => s.IsDeleted).HasDefaultValue(false);
+
                 b.ConfigureByConvention();
             });
         }

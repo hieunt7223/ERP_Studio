@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using xdcb.FormServices.ConfigColumns.Dtos;
-
 namespace xdcb.FormServices.Component
 {
     public partial class GGMemoEdit : DevExpress.XtraEditors.MemoEdit, IGGControl
@@ -70,10 +68,8 @@ namespace xdcb.FormServices.Component
         #endregion
 
         #region CustomControl
-        List<ConfigColumnDto> listConfigColumn;
         public GGMemoEdit()
         {
-            listConfigColumn = new List<ConfigColumnDto>();          
         }
 
         public virtual void InitializeControl()

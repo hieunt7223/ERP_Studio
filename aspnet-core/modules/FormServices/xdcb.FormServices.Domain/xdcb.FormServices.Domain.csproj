@@ -9,5 +9,8 @@
   <ItemGroup>
     <ProjectReference Include="..\xdcb.FormServices.Domain.Shared\xdcb.FormServices.Domain.Shared.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
 
 </Project>

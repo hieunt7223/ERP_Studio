@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using xdcb.FormServices.ConfigColumns.Dtos;
 
 namespace xdcb.FormServices.Component
 {
@@ -70,10 +69,8 @@ namespace xdcb.FormServices.Component
         #endregion
 
         #region CustomControl
-        List<ConfigColumnDto> listConfigColumn;
         public GGTabControl()
         {
-            listConfigColumn = new List<ConfigColumnDto>();          
         }
 
         public virtual void InitializeControl()

@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
-using xdcb.FormServices.ConfigColumns;
+using xdcb.FormServices.ModuleGroups;
+using xdcb.FormServices.Modules;
 
 namespace xdcb.FormServices.EntityFrameworkCore
 {
@@ -26,7 +27,8 @@ namespace xdcb.FormServices.EntityFrameworkCore
         {
         }
 
-        public DbSet<ConfigColumn> ConfigColumns { get; set; }
+        public DbSet<Module> Modules { get; set; }
+        public DbSet<ModuleGroup> ModuleGroups { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

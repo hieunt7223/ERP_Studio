@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Data;
-using xdcb.FormServices.ConfigColumns.Dtos;
-
 namespace xdcb.FormServices.Component
 {
     public partial class GGComboBase : Libraries.ComboBase, IGGControl
@@ -73,10 +71,8 @@ namespace xdcb.FormServices.Component
         #endregion
 
         #region CustomControl
-        List<ConfigColumnDto> listConfigColumn;
         public GGComboBase()
         {
-            listConfigColumn = new List<ConfigColumnDto>();
         }
 
         public virtual void InitializeControl()

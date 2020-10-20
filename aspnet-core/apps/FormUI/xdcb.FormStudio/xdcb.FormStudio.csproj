@@ -338,13 +338,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module\ConfigColumn\ConfigColumnModule.cs" />
-    <Compile Include="Module\ConfigColumn\UI\frmConfigColumn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Module\ConfigColumn\UI\frmConfigColumn.Designer.cs">
-      <DependentUpon>frmConfigColumn.cs</DependentUpon>
-    </Compile>
     <Compile Include="Module\DesignForm\DesignFormModule.cs" />
     <Compile Include="Module\DesignForm\UI\frmDesignForm.cs">
       <SubType>Form</SubType>
@@ -371,6 +364,12 @@
     </Compile>
     <Compile Include="Module\DesignModule\UI\frmDesignModule.Designer.cs">
       <DependentUpon>frmDesignModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\DesignModule\UI\guiModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\DesignModule\UI\guiModule.Designer.cs">
+      <DependentUpon>guiModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Module\DesignTreeList\DesignTreeListModule.cs" />
     <Compile Include="Module\DesignTreeList\UI\frmDesignTreeList.cs">
@@ -418,9 +417,6 @@
       <DependentUpon>frmImportData.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Module\ConfigColumn\UI\frmConfigColumn.resx">
-      <DependentUpon>frmConfigColumn.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Module\DesignForm\UI\frmDesignForm.resx">
       <DependentUpon>frmDesignForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -432,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Module\DesignModule\UI\frmDesignModule.resx">
       <DependentUpon>frmDesignModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\DesignModule\UI\guiModule.resx">
+      <DependentUpon>guiModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\DesignTreeList\UI\frmDesignTreeList.resx">
       <DependentUpon>frmDesignTreeList.cs</DependentUpon>

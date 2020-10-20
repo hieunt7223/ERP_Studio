@@ -11,4 +11,9 @@
     <ProjectReference Include="..\xdcb.FormServices.Domain.Shared\xdcb.FormServices.Domain.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
