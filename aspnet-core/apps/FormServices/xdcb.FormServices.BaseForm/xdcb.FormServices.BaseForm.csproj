@@ -473,6 +473,8 @@
     <Content Include="Images\Background\Splash.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Color\background_C4C4C4.png" />
+    <Content Include="Images\Color\background_F1F1F1.png" />
     <Content Include="Images\Color\button_04AC5B.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -485,6 +487,8 @@
     <Content Include="Images\Color\button_D6D6D6.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Icon1\Ellipse 7.png" />
+    <Content Include="Images\Icon1\menu-bottom.png" />
     <Content Include="Images\Icon\cau_hinh.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

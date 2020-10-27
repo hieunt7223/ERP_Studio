@@ -141,8 +141,8 @@
             // 
             this.btn_CreateModule.Caption = "Tạo mới Module";
             this.btn_CreateModule.Id = 4;
-            this.btn_CreateModule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
-            this.btn_CreateModule.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
+            this.btn_CreateModule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_CreateModule.ImageOptions.Image")));
+            this.btn_CreateModule.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_CreateModule.ImageOptions.LargeImage")));
             this.btn_CreateModule.Name = "btn_CreateModule";
             this.btn_CreateModule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_CreateModule_ItemClick);
             // 
@@ -187,13 +187,13 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1007, 25);
+            this.barDockControlTop.Size = new System.Drawing.Size(1007, 27);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 568);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 569);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(1007, 0);
             // 
@@ -201,17 +201,17 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 25);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 27);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 543);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 542);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1007, 25);
+            this.barDockControlRight.Location = new System.Drawing.Point(1007, 27);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 543);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 542);
             // 
             // dockManager1
             // 
@@ -239,34 +239,34 @@
             // 
             // hideContainerRight
             // 
-            this.hideContainerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.hideContainerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.hideContainerRight.Controls.Add(this.dockPanel4);
             this.hideContainerRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.hideContainerRight.Location = new System.Drawing.Point(986, 25);
+            this.hideContainerRight.Location = new System.Drawing.Point(980, 27);
             this.hideContainerRight.Name = "hideContainerRight";
-            this.hideContainerRight.Size = new System.Drawing.Size(21, 543);
+            this.hideContainerRight.Size = new System.Drawing.Size(27, 542);
             // 
             // dockPanel4
             // 
             this.dockPanel4.Controls.Add(this.dockPanel4_Container);
             this.dockPanel4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.dockPanel4.ID = new System.Guid("6e5a27bc-fbab-41ad-8621-1c6bbd8954d4");
-            this.dockPanel4.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel4.Location = new System.Drawing.Point(780, 27);
             this.dockPanel4.Name = "dockPanel4";
             this.dockPanel4.Options.ShowCloseButton = false;
             this.dockPanel4.OriginalSize = new System.Drawing.Size(200, 200);
             this.dockPanel4.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.dockPanel4.SavedIndex = 1;
-            this.dockPanel4.Size = new System.Drawing.Size(200, 547);
+            this.dockPanel4.Size = new System.Drawing.Size(200, 542);
             this.dockPanel4.Text = "Properties";
             this.dockPanel4.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
             // 
             // dockPanel4_Container
             // 
             this.dockPanel4_Container.Controls.Add(this.fld_prodgcProperty);
-            this.dockPanel4_Container.Location = new System.Drawing.Point(4, 26);
+            this.dockPanel4_Container.Location = new System.Drawing.Point(4, 46);
             this.dockPanel4_Container.Name = "dockPanel4_Container";
-            this.dockPanel4_Container.Size = new System.Drawing.Size(193, 518);
+            this.dockPanel4_Container.Size = new System.Drawing.Size(193, 493);
             this.dockPanel4_Container.TabIndex = 0;
             // 
             // fld_prodgcProperty
@@ -274,7 +274,7 @@
             this.fld_prodgcProperty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fld_prodgcProperty.Location = new System.Drawing.Point(0, 0);
             this.fld_prodgcProperty.Name = "fld_prodgcProperty";
-            this.fld_prodgcProperty.Size = new System.Drawing.Size(193, 518);
+            this.fld_prodgcProperty.Size = new System.Drawing.Size(193, 493);
             this.fld_prodgcProperty.TabIndex = 0;
             // 
             // dockPanel2
@@ -306,11 +306,11 @@
             this.panelContainer1.Controls.Add(this.dockPanel3);
             this.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.panelContainer1.ID = new System.Guid("a9b3d658-e0db-4678-9651-c145d9d0022a");
-            this.panelContainer1.Location = new System.Drawing.Point(0, 25);
+            this.panelContainer1.Location = new System.Drawing.Point(0, 27);
             this.panelContainer1.Name = "panelContainer1";
             this.panelContainer1.Options.ShowCloseButton = false;
             this.panelContainer1.OriginalSize = new System.Drawing.Size(200, 200);
-            this.panelContainer1.Size = new System.Drawing.Size(200, 543);
+            this.panelContainer1.Size = new System.Drawing.Size(200, 542);
             this.panelContainer1.Tabbed = true;
             this.panelContainer1.Text = "panelContainer1";
             // 
@@ -319,11 +319,11 @@
             this.dockPanel3.Controls.Add(this.dockPanel3_Container);
             this.dockPanel3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel3.ID = new System.Guid("65821a34-da22-4d5e-9b52-ff9ab0ef46c2");
-            this.dockPanel3.Location = new System.Drawing.Point(3, 26);
+            this.dockPanel3.Location = new System.Drawing.Point(3, 46);
             this.dockPanel3.Name = "dockPanel3";
             this.dockPanel3.Options.ShowCloseButton = false;
-            this.dockPanel3.OriginalSize = new System.Drawing.Size(193, 492);
-            this.dockPanel3.Size = new System.Drawing.Size(193, 488);
+            this.dockPanel3.OriginalSize = new System.Drawing.Size(193, 463);
+            this.dockPanel3.Size = new System.Drawing.Size(193, 464);
             this.dockPanel3.Text = "ToolBox";
             // 
             // dockPanel3_Container
@@ -331,7 +331,7 @@
             this.dockPanel3_Container.Controls.Add(this.navBarControl1);
             this.dockPanel3_Container.Location = new System.Drawing.Point(0, 0);
             this.dockPanel3_Container.Name = "dockPanel3_Container";
-            this.dockPanel3_Container.Size = new System.Drawing.Size(193, 488);
+            this.dockPanel3_Container.Size = new System.Drawing.Size(193, 464);
             this.dockPanel3_Container.TabIndex = 0;
             // 
             // navBarControl1
@@ -363,7 +363,7 @@
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 193;
-            this.navBarControl1.Size = new System.Drawing.Size(193, 488);
+            this.navBarControl1.Size = new System.Drawing.Size(193, 464);
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             // 
@@ -547,11 +547,11 @@
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel1.ID = new System.Guid("2600df93-de1a-44cf-a819-c3906782e134");
-            this.dockPanel1.Location = new System.Drawing.Point(3, 26);
+            this.dockPanel1.Location = new System.Drawing.Point(3, 46);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Options.ShowCloseButton = false;
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(193, 492);
-            this.dockPanel1.Size = new System.Drawing.Size(193, 488);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(193, 463);
+            this.dockPanel1.Size = new System.Drawing.Size(193, 464);
             this.dockPanel1.Text = "Module";
             // 
             // dockPanel1_Container
@@ -559,7 +559,7 @@
             this.dockPanel1_Container.Controls.Add(this.fld_dgcModules);
             this.dockPanel1_Container.Location = new System.Drawing.Point(0, 0);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(193, 488);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(193, 464);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // fld_dgcModules
@@ -569,7 +569,7 @@
             this.fld_dgcModules.MainView = this.gridView1;
             this.fld_dgcModules.MenuManager = this.barManager1;
             this.fld_dgcModules.Name = "fld_dgcModules";
-            this.fld_dgcModules.Size = new System.Drawing.Size(193, 488);
+            this.fld_dgcModules.Size = new System.Drawing.Size(193, 464);
             this.fld_dgcModules.TabIndex = 0;
             this.fld_dgcModules.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -612,9 +612,9 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Location = new System.Drawing.Point(200, 25);
+            this.toolStrip1.Location = new System.Drawing.Point(200, 27);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(786, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(780, 25);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -622,7 +622,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1007, 568);
+            this.ClientSize = new System.Drawing.Size(1007, 569);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panelContainer1);
             this.Controls.Add(this.hideContainerRight);
