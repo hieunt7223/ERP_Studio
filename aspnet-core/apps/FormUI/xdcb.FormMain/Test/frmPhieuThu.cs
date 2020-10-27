@@ -29,5 +29,11 @@ namespace xdcb.FormMain.Test
         {
             pn_Search.Visible = !pn_Search.Visible;
         }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            frmPhieuThuChiTiet frm = new frmPhieuThuChiTiet();
+            frm.ShowDialog();
+        }
     }
 }

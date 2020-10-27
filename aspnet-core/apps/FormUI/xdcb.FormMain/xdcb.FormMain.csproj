@@ -362,6 +362,12 @@
     <Compile Include="Test\frmPhieuThu.Designer.cs">
       <DependentUpon>frmPhieuThu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\frmPhieuThuChiTiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\frmPhieuThuChiTiet.Designer.cs">
+      <DependentUpon>frmPhieuThuChiTiet.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -381,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Test\frmPhieuThu.resx">
       <DependentUpon>frmPhieuThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\frmPhieuThuChiTiet.resx">
+      <DependentUpon>frmPhieuThuChiTiet.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
