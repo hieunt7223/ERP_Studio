@@ -1015,6 +1015,8 @@
             this.ggRadioGroup1.GGFieldRelation = null;
             this.ggRadioGroup1.Location = new System.Drawing.Point(6, 34);
             this.ggRadioGroup1.Name = "ggRadioGroup1";
+            this.ggRadioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.ggRadioGroup1.Properties.Appearance.Options.UseBackColor = true;
             this.ggRadioGroup1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.ggRadioGroup1.Properties.Columns = 1;
             this.ggRadioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
